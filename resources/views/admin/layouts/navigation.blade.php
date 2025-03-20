@@ -145,7 +145,7 @@
                 <li class="nav-item dropdown has-arrow new-user-menus">
                     <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                         <span class="user-img">
-                        <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="{{ Auth::user()->name }}">
+                        <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="">
                         <div class="user-text">
                             @if(Auth::check())
                                 <div class="user-text">
@@ -198,20 +198,11 @@
                             <a href="#"><i class="feather-grid"></i> <span>Sub Admin</span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="{{ route('schooladmin.index') }}">SubAdmin Details</a></li>
-                                <li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
-                                <li><a href="student-dashboard.html">Student Dashboard</a></li>
+                                <li><a href="{{ route('subadmin.index') }}">SubAdmin Details</a></li>
+                                <li><a href="{{ route('schooladmin.index') }}">Schooladmin Details</a></li>
                             </ul>
                         </li>
-                        <li class="submenu">
-                            <a href="#"><i class="feather-grid"></i> <span>School Admin</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul>
-                                <li><a href="">School Details</a></li>
-                                <li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
-                                <li><a href="student-dashboard.html">Student Dashboard</a></li>
-                            </ul>
-                        </li>
+                        
                         <li class="submenu">
                             <a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> <span
                                     class="menu-arrow"></span></a>
