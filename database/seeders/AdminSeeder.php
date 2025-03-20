@@ -22,6 +22,7 @@ class AdminSeeder extends Seeder
                 'remember_token' => Str::random(60),
                 'created_at' => now(),
                 'updated_at' => now(),
+                'role' => 1,
             ]);
         }
 

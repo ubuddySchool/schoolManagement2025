@@ -25,6 +25,8 @@
 
 <body>
 
+
+
     <div class="main-wrapper login-body">
         <div class="login-wrapper">
             <div class="container">
@@ -36,6 +38,11 @@
                         <div class="login-right-wrap">
                             <h1>Welcome to Ubuddy</h1>
                             <h2>Admin Sign in</h2>
+                            @if ($errors->has('role'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('role') }}
+                            </div>
+                            @endif
 
                             <form method="POST" action="{{ route('admin.post') }}">
                                 @csrf
