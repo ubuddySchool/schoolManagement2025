@@ -191,11 +191,12 @@
                         <li class="menu-title">
                             <span>Main Menu</span>
                         </li>
-                        <li class="submenu active">
-                            <a href="#"><i class="feather-grid"></i> <span> Dashboard</span></a>
+                        <li class="{{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
+                            <a href="{{ route('dashboard') }}"><i class="feather-grid"></i> <span> Dashboard</span></a>
                         </li>
-                        <li class="submenu">
-                            <a href="{{ route('school_student.index')}}"><i class="fas fa-graduation-cap"></i> <span> Student</span></a>
+
+                        <li class="{{ Route::currentRouteName() == 'school_student.index' ? 'active' : '' }}">
+                            <a href="{{ route('school_student.index') }}"><i class="fas fa-graduation-cap"></i> <span> Student</span></a>
                         </li>
                         <li class="submenu">
                             <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Staff</span></a>

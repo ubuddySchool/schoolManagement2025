@@ -9,7 +9,6 @@
         <div class="col-sm-12">
             <div class="page-sub-header">
                 <h3 class="page-title">Welcome {{ Auth::user()->name }}!</h3>
-               
             </div>
         </div>
     </div>

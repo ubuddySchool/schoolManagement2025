@@ -81,7 +81,7 @@ input:-webkit-autofill:focus {
 .form-control {
     border: 1px solid #ddd;
     box-shadow: none;
-    color: #333;
+    color: #b1aeae;
     font-size: 15px;
     height: 45px;
 }
@@ -3961,8 +3961,8 @@ table.table-inbox tbody tr.checked {
 	position: relative;
 }
 .local-forms label {
-	font-size: 13px;
-    color: #ABABAB;
+    font-size: 13px;
+    color: #353434;
     font-weight: 500;
     position: absolute;
     top: -10px;
@@ -3970,7 +3970,7 @@ table.table-inbox tbody tr.checked {
     background: #fff;
     margin-bottom: 0;
     padding: 0px 5px;
-	z-index: 99;
+    z-index: 99;
 }
 .local-forms .form-control::placeholder {
 	color: #333;
