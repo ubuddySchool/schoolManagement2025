@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\School\StudentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -52,6 +53,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/school/student', [StudentController::class, 'index'])->name('school_student.index');
+    Route::get('/school/add', [StudentController::class, 'add'])->name('school_student.add');
+    Route::get('/school/edit', [StudentController::class, 'edit'])->name('school_student.edit');
+    Route::get('/school/show', [StudentController::class, 'show'])->name('school_student.show');
+    
 });
 
 require __DIR__.'/auth.php';

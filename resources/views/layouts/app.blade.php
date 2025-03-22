@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
 </head>
 
-<body>
+<body class="mini-sidebar">
 
     <div class="main-wrapper">
 
