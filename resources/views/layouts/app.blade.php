@@ -12,40 +12,35 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&amp;display=swap"
         rel="stylesheet">
 
-        <link rel="shortcut icon" href="{{ asset('assets/img/logo-small.webp') }}" type="image/webp">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo-small.webp') }}" type="image/webp">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-<!-- <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}"> -->
-<link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/feather/feather.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/icons/flags/flags.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/feather/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/icons/flags/flags.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
 </head>
 
 <body class="mini-sidebar">
 
     <div class="main-wrapper">
-
-    @include('layouts.navigation')
-
-   <div class="page-wrapper">
+        @include('layouts.navigation')
+        <div class="page-wrapper">
             @yield('content')
             <footer>
                 <p>Copyright © 2025 Ubuddy.</p>
             </footer>
-
         </div>
-
     </div>
 
+    <!-- Scripts -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/feather.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
@@ -54,9 +49,16 @@
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets_old/js/index_script.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
+
+    <!-- Moment.js (required for bootstrap-datetimepicker) -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+
+    <!-- Bootstrap datetimepicker JS -->
     <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datetimepicker@5.1.0/build/js/bootstrap-datetimepicker.min.js"></script>
+
+
+    
 </body>
-
-<!-- Mirrored from preschool.dreamguystech.com/template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Apr 2023 13:10:35 GMT -->
-
 </html>

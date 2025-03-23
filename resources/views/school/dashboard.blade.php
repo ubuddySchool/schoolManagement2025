@@ -17,6 +17,7 @@
 
 <div class="row">
     <div class="col-xl-3 col-sm-6 col-12 d-flex">
+        
     </div>
 </div>
 

@@ -167,22 +167,48 @@ Version      : 1.0
 	
 	// Datetimepicker
 	
-	if($('.datetimepicker').length > 0 ){
-		$('.datetimepicker').datetimepicker({
-			format: 'DD-MM-YYYY',
-			icons: {
-				up: "fas fa-angle-up",
-				down: "fas fa-angle-down",
-				next: 'fas fa-angle-right',
-				previous: 'fas fa-angle-left'
-			}
-		});
-		$('.datetimepicker').on('dp.show',function() {
-			$(this).closest('.table-responsive').removeClass('table-responsive').addClass('temp');
-		}).on('dp.hide',function() {
-			$(this).closest('.temp').addClass('table-responsive').removeClass('temp')
-		});
-	}
+	// if($('.datetimepicker').length > 0 ){
+	// 	$('.datetimepicker').datetimepicker({
+	// 		format: 'DD-MM-YYYY',
+	// 		icons: {
+	// 			up: "fas fa-angle-up",
+	// 			down: "fas fa-angle-down",
+	// 			next: 'fas fa-angle-right',
+	// 			previous: 'fas fa-angle-left'
+	// 		}
+	// 	});
+	// 	$('.datetimepicker').on('dp.show',function() {
+	// 		$(this).closest('.table-responsive').removeClass('table-responsive').addClass('temp');
+	// 	}).on('dp.hide',function() {
+	// 		$(this).closest('.temp').addClass('table-responsive').removeClass('temp')
+	// 	});
+	// }
+
+	$(document).ready(function () {
+		// Check if any elements with the class 'datetimepicker' exist
+		if ($('.datetimepicker').length > 0) {
+			// Initialize datetimepicker for those elements
+			$('.datetimepicker').datetimepicker({
+				format: 'DD-MM-YYYY', // Set date format
+				icons: {
+					up: "fas fa-angle-up",  // Customize the up icon
+					down: "fas fa-angle-down",  // Customize the down icon
+					next: 'fas fa-angle-right', // Customize the next icon
+					previous: 'fas fa-angle-left' // Customize the previous icon
+				}
+			});
+	
+			// Handle show and hide events
+			$('.datetimepicker').on('dp.show', function () {
+				// Adjust classes when the datetime picker is shown
+				$(this).closest('.table-responsive').removeClass('table-responsive').addClass('temp');
+			}).on('dp.hide', function () {
+				// Adjust classes when the datetime picker is hidden
+				$(this).closest('.temp').addClass('table-responsive').removeClass('temp');
+			});
+		}
+	});
+	
 
 	// Tooltip
 	
@@ -192,16 +218,22 @@ Version      : 1.0
 	
     // Datatable
 
-	if ($('.datatable').length > 0) {
-        $('.datatable').DataTable({
-            "bFilter": false,
-        });
-    }
-    if ($('.datatables').length > 0) {
-        $('.datatables').DataTable({
-            "bFilter": true,
-        });
-    }
+	$(document).ready(function () {
+		// Initialize DataTable for elements with the class 'datatable'
+		if ($('.datatable').length > 0) {
+			$('.datatable').DataTable({
+				"bFilter": false, // Disable search filter for this table
+			});
+		}
+	
+		// Initialize DataTable for elements with the class 'datatables'
+		if ($('.datatables').length > 0) {
+			$('.datatables').DataTable({
+				"bFilter": true, // Enable search filter for this table
+			});
+		}
+	});
+	
 	
 	// Zoom in
 	

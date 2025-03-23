@@ -62,9 +62,9 @@
                             </div>
                             <div class="col-8 ms-auto download-grp d-flex gap-3">
                                 <input type="text" class="form-control mb-2 w-100 h-100" placeholder="Search by Name ...">
-                                <a href="students.html" class="btn btn-sm btn-outline-primary w-100 h-100 d-flex align-items-center justify-content-center">Total Student: 30</a>
-                                <a href="students-grid.html" class="btn btn-sm btn-outline-primary w-100 h-100 d-flex align-items-center justify-content-center">Export</a>
-                                <a href="{{ route('school_student.add') }}" class="btn btn-sm btn-outline-primary w-100 h-100 d-flex align-items-center justify-content-center">New Student</a>
+                                <button class="btn btn-sm btn-outline-primary w-100 h-100 d-flex align-items-center justify-content-center">Total Student: 30</button>
+                                <button class="btn btn-sm btn-outline-primary w-100 h-100 d-flex align-items-center justify-content-center">Export</button>
+
                             </div>
                         </div>
                     </div>
@@ -121,9 +121,9 @@
                                                 class="btn btn-sm bg-purple text-light me-2">
                                                 <i class="feather-eye"></i>
                                             </a>
-                                            <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
+                                            <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
                                                 <i class="feather-edit"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </td>
                                 </tr>
@@ -155,9 +155,9 @@
                                                 class="btn btn-sm bg-purple text-light me-2">
                                                 <i class="feather-eye"></i>
                                             </a>
-                                            <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
+                                            <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
                                                 <i class="feather-edit"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </td>
                                 </tr>
@@ -189,9 +189,9 @@
                                                 class="btn btn-sm bg-purple text-light me-2">
                                                 <i class="feather-eye"></i>
                                             </a>
-                                            <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
+                                            <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
                                                 <i class="feather-edit"></i>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </td>
                                 </tr>
