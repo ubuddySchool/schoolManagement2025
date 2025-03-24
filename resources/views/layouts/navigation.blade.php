@@ -259,7 +259,7 @@
 
                  <!-- Time Table -->
                  <li>
-                     <a href="time-table.html"><i class="far fa-calendar-alt"></i> <span> Time Table</span></a>
+                     <a href="{{ route('school_student.timetable')}}"><i class="far fa-calendar-alt"></i> <span> Time Table</span></a>
                  </li>
 
                  <!-- Result -->
