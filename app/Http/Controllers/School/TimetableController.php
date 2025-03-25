@@ -16,4 +16,11 @@ class TimetableController extends Controller
     public function edit_timetable(){
         return view('school.timetable.edit_timetable');
     }
+
+    // Controller
+public function showTimetable()
+{
+    return view('school.timetable.show_timetable');
+}
+
 }
