@@ -1,8 +1,130 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content container-fluid">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
 
+    h2 {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    button {
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background-color: #f0f0f0;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .delete-btn {
+        padding: 5px;
+        font-size: 12px;
+        color: white;
+        background-color: red;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Modal Styling */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        overflow: auto;
+    }
+    .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+    }
+    .modal-header, .modal-footer {
+        padding: 10px 0;
+        text-align: center;
+    }
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    border: 1px solid grey;
+    padding: 0px 5px;
+}
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+    width: 150px;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
+    position: sticky;
+    left: 0; /* Freeze this column */
+    background-color: #fff; /* Sticky column background */
+    z-index: 1; /* Make sure the sticky column stays on top */
+}
+
+/* Optional: Add a scroll for the table */
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+</style>
+
+<div class="content container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card comman-shadow">
@@ -13,1168 +135,135 @@
                             <div class="col">
                                 <h3 class="page-title">Time Table</h3>
                             </div>
+                            
+                            <div class="col justify-content-end gap-2">
+                            <!-- <div> -->
+                                    <button type="button" onclick="addRow()" class="btn btn-info">Add Date</button>
+                                    <button type="button" onclick="openModal()" class="btn btn-primary">Add Column</button>
+                                <!-- </div> -->
+                            </div>
 
                         </div>
                     </div>
 
-
-                    <form action="" method="post">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <select class="form-control" name="term" onchange="this.form.submit()">
-                                    <option>Select Term</option>
-                                    <option value="14"> First Term</option>
-                                    <option value="15"> Second Term</option>
-                                    <option value="51"> Term I</option>
-                                </select>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <select name="session" class="form-control">
-                                    <option selected value='2024-25'>2024-25</option>
-                                    <option value='2023-24'>2023-24</option>
-                                    <option value='2022-23'>2022-23</option>
-                                    <option value='2021-22'>2021-22</option>
-                                    <option value='2020-21'>2020-21</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-
-
-                    <form method="post" action="show.php">
+                    <form onsubmit="return false;">
                         <div class="page-content page-container" id="page-content">
                             <div class="padding">
                                 <div class="row container">
-                                    <div class="col-sm-2 d-none" style="margin-bottom:1rem;">
-                                        <select name="session" class="form-control">
-                                            <option selected="" value="2024-25">2024-25</option>
-                                            <option value="2023-24">2023-24</option>
-                                            <option value="2022-23">2022-23</option>
-                                            <option value="2021-22">2021-22</option>
-                                            <option value="2020-21">2020-21</option>
-                                        </select>
-                                    </div>
-
-                                    <hr>
-
                                     <div class="col-lg-12 grid-margin stretch-card border">
                                         <div class="card">
                                             <div class="card-body" style="padding: 0;">
                                                 <div class="table-responsive">
-                                                    <table id="faqs" class="table table-hover">
+                                                  
+
+                                                    <table id="dynamicTable" border="1">
                                                         <thead>
                                                             <tr>
-                                                                <th>X</th>
+                                                                <th></th>
                                                                 <th>Date</th>
-                                                                <th>Nursery</th>
-                                                                <th>UKG</th>
-                                                                <th>1</th>
-                                                                <th>2</th>
-                                                                <th>3</th>
-                                                                <th>4</th>
-                                                                <th>5</th>
-                                                                <th>6</th>
-                                                                <th>7</th>
-                                                                <th>8</th>
-                                                                <th>9</th>
-                                                                <th>10</th>
-                                                                <th>11</th>
-                                                                <th>12</th>
+                                                                <th>UKG <button type="button" class="delete-btn rounded" onclick="deleteColumn(1)">X</button></th>
                                                             </tr>
                                                         </thead>
-
                                                         <tbody>
                                                             <tr>
-                                                                <td>
-                                                                    <!--<button class="btn btn-sm bg-danger" name="deleteDate" onclick="handleDeleteDate('2024-09-11')"><i class="fa fa-trash"></i></button>-->
-                                                                </td>
-                                                                <td>
-                                                                    <input type="hidden" value="0" name="count[]" placeholder="User name">
-                                                                    <input type="hidden" value="14" name="termID" placeholder="User name">
-                                                                    <input type="hidden" name="oldDate0" value="2024-09-11">
-                                                                    <input type="date" name="0" value="2024-09-11" class="form-control date_input">
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_01[]" style="display: none;">
-                                                                        <option selected="" value="20">Drawing </option><br>
-                                                                        <option value="18">Hindi</option>
-                                                                        <option value="19">Mathematics</option>
-                                                                        <option value="20">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 72px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>Drawing </span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_02[]" style="display: none;">
-                                                                        <option selected="" value="188">English</option><br>
-                                                                        <option value="187">Hindi</option>
-                                                                        <option value="188">English</option>
-                                                                        <option value="189">Mathematics</option>
-                                                                        <option value="190">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>English</span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_03[]" style="display: none;">
-                                                                        <option selected="" value="12">Mathematics</option><br>
-                                                                        <option value="10">Hindi</option>
-                                                                        <option value="11">English</option>
-                                                                        <option value="12">Mathematics</option>
-                                                                        <option value="13">Drawing </option>
-                                                                        <option value="14">GK</option>
-                                                                        <option value="15">EVS</option>
-                                                                        <option value="31">Other</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>Mathematics</span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_04[]" style="display: none;">
-                                                                        <option selected="" value="192">English</option><br>
-                                                                        <option selected="" value="194">Drawing </option><br>
-                                                                        <option value="191">Hindi</option>
-                                                                        <option value="192">English</option>
-                                                                        <option value="193">Mathematics</option>
-                                                                        <option value="194">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>English</span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-choice"><span>Drawing </span><a class="search-choice-close" data-option-array-index="1"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_05[]" style="display: none;">
-                                                                        <option value="195">Hindi</option>
-                                                                        <option value="196">English</option>
-                                                                        <option value="197">Mathematics</option>
-                                                                        <option value="198">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_06[]" style="display: none;">
-                                                                        <option value="199">Hindi</option>
-                                                                        <option value="200">English</option>
-                                                                        <option value="201">Mathematics</option>
-                                                                        <option value="202">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_07[]" style="display: none;">
-                                                                        <option value="203">Hindi</option>
-                                                                        <option value="204">English</option>
-                                                                        <option value="205">Mathematics</option>
-                                                                        <option value="206">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_08[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_09[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_010[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_011[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_012[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_013[]" style="display: none;">
-                                                                        <option value="16">Hindi</option>
-                                                                        <option value="17">English</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_014[]" style="display: none;">
-                                                                        <option value="5">Hindi</option>
-                                                                        <option value="6">English</option>
-                                                                        <option value="7">Mathematics</option>
-                                                                        <option value="8">Physics</option>
-                                                                        <option value="9">Chemistry</option>
-                                                                        <option value="30">Biology</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><input type="hidden" value="20" name="school_id"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <!--<button class="btn btn-sm bg-danger" name="deleteDate" onclick="handleDeleteDate('2024-09-13')"><i class="fa fa-trash"></i></button>-->
-                                                                </td>
-                                                                <td>
-                                                                    <input type="hidden" value="1" name="count[]" placeholder="User name">
-                                                                    <input type="hidden" value="14" name="termID" placeholder="User name">
-                                                                    <input type="hidden" name="oldDate1" value="2024-09-13">
-                                                                    <input type="date" name="1" value="2024-09-13" class="form-control date_input">
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_11[]" style="display: none;">
-                                                                        <option selected="" value="20">Drawing </option><br>
-                                                                        <option value="18">Hindi</option>
-                                                                        <option value="19">Mathematics</option>
-                                                                        <option value="20">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 72px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>Drawing </span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_12[]" style="display: none;">
-                                                                        <option selected="" value="190">Drawing </option><br>
-                                                                        <option value="187">Hindi</option>
-                                                                        <option value="188">English</option>
-                                                                        <option value="189">Mathematics</option>
-                                                                        <option value="190">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>Drawing </span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_13[]" style="display: none;">
-                                                                        <option value="10">Hindi</option>
-                                                                        <option value="11">English</option>
-                                                                        <option value="12">Mathematics</option>
-                                                                        <option value="13">Drawing </option>
-                                                                        <option value="14">GK</option>
-                                                                        <option value="15">EVS</option>
-                                                                        <option value="31">Other</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_14[]" style="display: none;">
-                                                                        <option value="191">Hindi</option>
-                                                                        <option value="192">English</option>
-                                                                        <option value="193">Mathematics</option>
-                                                                        <option value="194">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_15[]" style="display: none;">
-                                                                        <option value="195">Hindi</option>
-                                                                        <option value="196">English</option>
-                                                                        <option value="197">Mathematics</option>
-                                                                        <option value="198">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_16[]" style="display: none;">
-                                                                        <option value="199">Hindi</option>
-                                                                        <option value="200">English</option>
-                                                                        <option value="201">Mathematics</option>
-                                                                        <option value="202">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_17[]" style="display: none;">
-                                                                        <option value="203">Hindi</option>
-                                                                        <option value="204">English</option>
-                                                                        <option value="205">Mathematics</option>
-                                                                        <option value="206">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_18[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_19[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_110[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_111[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_112[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_113[]" style="display: none;">
-                                                                        <option value="16">Hindi</option>
-                                                                        <option value="17">English</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_114[]" style="display: none;">
-                                                                        <option value="5">Hindi</option>
-                                                                        <option value="6">English</option>
-                                                                        <option value="7">Mathematics</option>
-                                                                        <option value="8">Physics</option>
-                                                                        <option value="9">Chemistry</option>
-                                                                        <option value="30">Biology</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><input type="hidden" value="20" name="school_id"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <!--<button class="btn btn-sm bg-danger" name="deleteDate" onclick="handleDeleteDate('2024-09-16')"><i class="fa fa-trash"></i></button>-->
-                                                                </td>
-                                                                <td>
-                                                                    <input type="hidden" value="2" name="count[]" placeholder="User name">
-                                                                    <input type="hidden" value="14" name="termID" placeholder="User name">
-                                                                    <input type="hidden" name="oldDate2" value="2024-09-16">
-                                                                    <input type="date" name="2" value="2024-09-16" class="form-control date_input">
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_21[]" style="display: none;">
-                                                                        <option selected="" value="19">Mathematics</option><br>
-                                                                        <option value="18">Hindi</option>
-                                                                        <option value="19">Mathematics</option>
-                                                                        <option value="20">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 72px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>Mathematics</span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_22[]" style="display: none;">
-                                                                        <option value="187">Hindi</option>
-                                                                        <option value="188">English</option>
-                                                                        <option value="189">Mathematics</option>
-                                                                        <option value="190">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_23[]" style="display: none;">
-                                                                        <option selected="" value="14">GK</option><br>
-                                                                        <option value="10">Hindi</option>
-                                                                        <option value="11">English</option>
-                                                                        <option value="12">Mathematics</option>
-                                                                        <option value="13">Drawing </option>
-                                                                        <option value="14">GK</option>
-                                                                        <option value="15">EVS</option>
-                                                                        <option value="31">Other</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>GK</span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_24[]" style="display: none;">
-                                                                        <option value="191">Hindi</option>
-                                                                        <option value="192">English</option>
-                                                                        <option value="193">Mathematics</option>
-                                                                        <option value="194">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_25[]" style="display: none;">
-                                                                        <option value="195">Hindi</option>
-                                                                        <option value="196">English</option>
-                                                                        <option value="197">Mathematics</option>
-                                                                        <option value="198">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_26[]" style="display: none;">
-                                                                        <option value="199">Hindi</option>
-                                                                        <option value="200">English</option>
-                                                                        <option value="201">Mathematics</option>
-                                                                        <option value="202">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_27[]" style="display: none;">
-                                                                        <option value="203">Hindi</option>
-                                                                        <option value="204">English</option>
-                                                                        <option value="205">Mathematics</option>
-                                                                        <option value="206">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_28[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_29[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_210[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_211[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_212[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_213[]" style="display: none;">
-                                                                        <option value="16">Hindi</option>
-                                                                        <option value="17">English</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_214[]" style="display: none;">
-                                                                        <option value="5">Hindi</option>
-                                                                        <option value="6">English</option>
-                                                                        <option value="7">Mathematics</option>
-                                                                        <option value="8">Physics</option>
-                                                                        <option value="9">Chemistry</option>
-                                                                        <option value="30">Biology</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><input type="hidden" value="20" name="school_id"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <!--<button class="btn btn-sm bg-danger" name="deleteDate" onclick="handleDeleteDate('2024-09-18')"><i class="fa fa-trash"></i></button>-->
-                                                                </td>
-                                                                <td>
-                                                                    <input type="hidden" value="3" name="count[]" placeholder="User name">
-                                                                    <input type="hidden" value="14" name="termID" placeholder="User name">
-                                                                    <input type="hidden" name="oldDate3" value="2024-09-18">
-                                                                    <input type="date" name="3" value="2024-09-18" class="form-control date_input">
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_31[]" style="display: none;">
-                                                                        <option selected="" value="20">Drawing </option><br>
-                                                                        <option value="18">Hindi</option>
-                                                                        <option value="19">Mathematics</option>
-                                                                        <option value="20">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 72px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-choice"><span>Drawing </span><a class="search-choice-close" data-option-array-index="0"></a></li>
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input" type="text" autocomplete="off" value="Select Some Options" style="width: 25px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_32[]" style="display: none;">
-                                                                        <option value="187">Hindi</option>
-                                                                        <option value="188">English</option>
-                                                                        <option value="189">Mathematics</option>
-                                                                        <option value="190">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_33[]" style="display: none;">
-                                                                        <option value="10">Hindi</option>
-                                                                        <option value="11">English</option>
-                                                                        <option value="12">Mathematics</option>
-                                                                        <option value="13">Drawing </option>
-                                                                        <option value="14">GK</option>
-                                                                        <option value="15">EVS</option>
-                                                                        <option value="31">Other</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_34[]" style="display: none;">
-                                                                        <option value="191">Hindi</option>
-                                                                        <option value="192">English</option>
-                                                                        <option value="193">Mathematics</option>
-                                                                        <option value="194">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_35[]" style="display: none;">
-                                                                        <option value="195">Hindi</option>
-                                                                        <option value="196">English</option>
-                                                                        <option value="197">Mathematics</option>
-                                                                        <option value="198">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_36[]" style="display: none;">
-                                                                        <option value="199">Hindi</option>
-                                                                        <option value="200">English</option>
-                                                                        <option value="201">Mathematics</option>
-                                                                        <option value="202">Drawing </option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_37[]" style="display: none;">
-                                                                        <option value="203">Hindi</option>
-                                                                        <option value="204">English</option>
-                                                                        <option value="205">Mathematics</option>
-                                                                        <option value="206">Drawing</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_38[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_39[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_310[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_311[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_312[]" style="display: none;">
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_313[]" style="display: none;">
-                                                                        <option value="16">Hindi</option>
-                                                                        <option value="17">English</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <select multiple="" class="form-control chosen-select" name="subject_314[]" style="display: none;">
-                                                                        <option value="5">Hindi</option>
-                                                                        <option value="6">English</option>
-                                                                        <option value="7">Mathematics</option>
-                                                                        <option value="8">Physics</option>
-                                                                        <option value="9">Chemistry</option>
-                                                                        <option value="30">Biology</option>
-
-                                                                    </select>
-                                                                    <div class="chosen-container chosen-container-multi" title="" style="width: 66px;">
-                                                                        <ul class="chosen-choices">
-                                                                            <li class="search-field">
-                                                                                <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 56px;">
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="chosen-drop">
-                                                                            <ul class="chosen-results"></ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td><input type="hidden" value="20" name="school_id"></td>
+                                                                <td><button type="button" class="delete-btn rounded" onclick="deleteRow(this)">X</button></td>
+                                                                <td><input type="date" value=""></td>
+                                                                <td><input type="text" value=""></td>
                                                             </tr>
                                                         </tbody>
-
                                                     </table>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-                                    <div class="col-auto text-end float-end ms-auto">
-                                        <button class="btn btn-primary" type="submit" name="updateTimeTable">Submit</button>
-                                    </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </form>
+
+                    <!-- Modal for Class Selection -->
+                    <div id="classModal" class="modal"> 
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Select Class</h2>
+        </div>
+        <div class="modal-body">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Master checkbox to select/unselect all -->
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="selectAll" onclick="toggleCheckboxes(this)">
+                                <label class="form-check-label" for="selectAll">Select All</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="ukg" value="UKG">
+                                <label class="form-check-label" for="ukg">UKG</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="first" value="First">
+                                <label class="form-check-label" for="first">First</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="second" value="Second">
+                                <label class="form-check-label" for="second">Second</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="third" value="Third">
+                                <label class="form-check-label" for="third">Third</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="fourth" value="Fourth">
+                                <label class="form-check-label" for="fourth">Fourth</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="fifth" value="Fifth">
+                                <label class="form-check-label" for="fifth">Fifth</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="sixth" value="Sixth">
+                                <label class="form-check-label" for="sixth">Sixth</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="seventh" value="Seventh">
+                                <label class="form-check-label" for="seventh">Seventh</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="eighth" value="Eighth">
+                                <label class="form-check-label" for="eighth">Eighth</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="ninth" value="Ninth">
+                                <label class="form-check-label" for="ninth">Ninth</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="tenth" value="Tenth">
+                                <label class="form-check-label" for="tenth">Tenth</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="eleventh" value="Eleventh">
+                                <label class="form-check-label" for="eleventh">Eleventh</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="twelfth" value="Twelfth">
+                                <label class="form-check-label" for="twelfth">Twelfth</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info text-light" onclick="addClassColumn()">Add Column</button>
+            <button type="button" class="btn btn-danger" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
 
                 </div>
             </div>
@@ -1182,7 +271,123 @@
     </div>
 </div>
 
+<script>
+    // Open the modal
+    function openModal() {
+        document.getElementById('classModal').style.display = 'block';
+    }
+
+    // Close the modal
+    function closeModal() {
+        document.getElementById('classModal').style.display = 'none';
+    }
+    function addRow() {
+    var table = document.getElementById("dynamicTable");
+    var row = table.insertRow(-1); // Add a new row at the end of the table
+
+    var deleteCell = row.insertCell(0);
+    deleteCell.innerHTML = `<button class="delete-btn rounded" onclick="deleteRow(this)">X</button>`;
+
+    var dateCell = row.insertCell(1);
+    var dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.value = ""; 
+    dateCell.appendChild(dateInput);
+
+    var colCount = table.rows[0].cells.length - 1; 
+    for (var i = 0; i < colCount - 1; i++) { 
+        var cell = row.insertCell(i + 2); 
+        var input = document.createElement("input");
+        input.type = "text";
+        input.value = "";
+        cell.appendChild(input);
+    }
+}
 
 
-</div>
+    function addClassColumn() {
+        var table = document.getElementById("dynamicTable");
+        var selectedClasses = [];
+        
+        // Get selected checkboxes
+        if (document.getElementById('ukg').checked) selectedClasses.push("UKG");
+        if (document.getElementById('first').checked) selectedClasses.push("First");
+        if (document.getElementById('second').checked) selectedClasses.push("Second");
+        if (document.getElementById('third').checked) selectedClasses.push("Third");
+        if (document.getElementById('fourth').checked) selectedClasses.push("Fourth");
+        if (document.getElementById('fifth').checked) selectedClasses.push("Fifth");
+        if (document.getElementById('sixth').checked) selectedClasses.push("Sixth");
+        if (document.getElementById('seventh').checked) selectedClasses.push("Seventh");
+        if (document.getElementById('eighth').checked) selectedClasses.push("Eighth");
+        if (document.getElementById('ninth').checked) selectedClasses.push("Ninth");
+        if (document.getElementById('tenth').checked) selectedClasses.push("Tenth");
+        if (document.getElementById('eleventh').checked) selectedClasses.push("Eleventh");
+        if (document.getElementById('twelfth').checked) selectedClasses.push("Twelfth");
+
+        if (selectedClasses.length > 0) {
+            // Add a header cell for each selected class
+            selectedClasses.forEach(function (className, index) {
+    var header = table.rows[0];
+    var newHeaderCell = document.createElement("th");
+    
+    // Calculate the index of the column for deletion and pass it in the data attribute
+    var colIndex = header.cells.length;
+
+    // Set the header cell content with the delete button
+    newHeaderCell.innerHTML = `${className} 
+        <button type="button" class="delete-btn" onclick="deleteColumn(${colIndex})">X</button>`;
+    
+    // Append the new header cell
+    header.appendChild(newHeaderCell);
+
+    // Add a new cell in each row for the new column
+    for (var i = 1; i < table.rows.length; i++) {
+        var row = table.rows[i];
+        var newCell = row.insertCell(-1); // Insert at the end of each row
+        var input = document.createElement("input");
+        input.type = "text";
+        input.value = ``;
+        newCell.appendChild(input);
+    }
+});
+
+        }
+        
+        closeModal(); // Close the modal after adding the column
+    }
+
+    // Function to delete a row
+    function deleteRow(button) {
+        var row = button.parentNode.parentNode; // Get the row of the clicked button
+        row.parentNode.removeChild(row); // Remove the row
+    }
+
+    // Function to delete a column
+    function deleteColumn(colIndex) {
+        var table = document.getElementById("dynamicTable");
+
+        // Loop through each row and delete the specified column
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            row.deleteCell(colIndex); // Delete the column at the given index
+        }
+    }
+
+
+
+    // Function to toggle all checkboxes based on the master checkbox
+function toggleCheckboxes(masterCheckbox) {
+    // Get all checkboxes inside the modal
+    var checkboxes = document.querySelectorAll('#classModal .form-check-input[type="checkbox"]');
+
+    // Loop through all checkboxes and set their checked state to match the master checkbox
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox !== masterCheckbox) {
+            checkbox.checked = masterCheckbox.checked;
+        }
+    });
+}
+
+</script>
+
 @endsection

@@ -8,7 +8,8 @@
                 <h3 class="page-title">Time Table</h3>
             </div>
             <div class="col-auto text-end float-end ms-auto download-grp">
-                <a href="{{ route('school_student.timetable.add') }}" class="btn btn-primary">New Time Table</a>
+                <a href="{{ route('school_student.timetable.add') }}" class="btn btn-sm btn-primary">Create/Edit</a>
+                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#cons-close-modal">view</a>
             </div>
         </div>
     </div>
@@ -76,7 +77,6 @@
                                         <tr>
                                             <th>S. No.</th>
                                             <th>Class</th>
-                                            <th>Term</th>
                                             <th>App Status</th>
                                             <th>Action</th>
                                             <!--<th>Edit</th>-->
@@ -87,7 +87,7 @@
                                         <tr>
                                             <td>1</td>
                                             <td>Nursery</td>
-                                            <td>First Term</td>
+                                         
 
                                             <td> <input type="checkbox" class="pstatus" id="316" data-id="316" checked> <label class="label-switch" for="316"></label>
                                             </td>
@@ -106,7 +106,7 @@
                                         <tr>
                                             <td>2</td>
                                             <td>UKG</td>
-                                            <td>First Term</td>
+                                           
 
                                             <td> <input type="checkbox" class="pstatus" id="460" data-id="460" checked> <label class="label-switch" for="460"></label>
                                             </td>
@@ -125,7 +125,7 @@
                                         <tr>
                                             <td>3</td>
                                             <td>1</td>
-                                            <td>First Term</td>
+                                           
 
                                             <td> <input type="checkbox" class="pstatus" id="461" data-id="461" checked> <label class="label-switch" for="461"></label>
                                             </td>
@@ -144,7 +144,7 @@
                                         <tr>
                                             <td>4</td>
                                             <td>2</td>
-                                            <td>First Term</td>
+                                           
 
                                             <td> <input type="checkbox" class="pstatus" id="462" data-id="462" checked> <label class="label-switch" for="462"></label>
                                             </td>
@@ -299,6 +299,117 @@
 
 </div>
 
+<div id="cons-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" id="printContent">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">View Details</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+        <div class="row">
+          <!-- Left column: Select term -->
+          <div class="col-md-6">
+            <label for="term">Select Term</label>
+            <select id="term" class="form-control">
+              <option value="term1">Term 1</option>
+              <option value="term2">Term 2</option>
+              <option value="term3">Term 3</option>
+            </select>
+          </div>
+          <!-- Right column: Static classes list -->
+          <div class="col-md-6">
+  <label for="classes">Select Classes</label>
+  <div id="classes-container">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="classes[]" value="UKG" id="class_UKG">
+      <label class="form-check-label" for="class_UKG">UKG</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="classes[]" value="1st" id="class_1st">
+      <label class="form-check-label" for="class_1st">1st</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="classes[]" value="2nd" id="class_2nd">
+      <label class="form-check-label" for="class_2nd">2nd</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="classes[]" value="3rd" id="class_3rd">
+      <label class="form-check-label" for="class_3rd">3rd</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="classes[]" value="4th" id="class_4th">
+      <label class="form-check-label" for="class_4th">4th</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="classes[]" value="5th" id="class_5th">
+      <label class="form-check-label" for="class_5th">5th</label>
+    </div>
+  </div>
+  <input type="checkbox" class="form-check-input" id="selectAll" onclick="toggleCheckboxes(this)"> select all
+</div>
+
+        </div>
+      </div>
+          
+
+
+            <div class="modal-footer">
+                <button type="button" id="myElement" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{{ route('school_student.timetable.show')}}" class="btn btn-sm btn-primary" id="proceedBtn">Proceed</a>
+              
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+function toggleCheckboxes(selectAllCheckbox) {
+  const checkboxes = document.querySelectorAll('#classes-container input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAllCheckbox.checked;
+  });
+}
+
+
+    $(document).ready(function() {
+        // Handle 'Select All' button
+        $('#selectAllClasses').click(function() {
+            const checkboxes = $('#classes-container input[type="checkbox"]');
+            checkboxes.prop('checked', !checkboxes.prop('checked'));
+        });
+
+        // Proceed button (Submit the form)
+        $('#proceedBtn').click(function() {
+            const selectedClasses = [];
+            $('#classes-container input[type="checkbox"]:checked').each(function() {
+                selectedClasses.push($(this).val());
+            });
+
+            // Send selected classes and term to the server (via form submission)
+            $.ajax({
+                url: "{{ route('school_student.timetable.show') }}",
+                method: 'POST',
+                data: {
+                    term: $('#term').val(),
+                    classes: selectedClasses,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    // Hide modal
+                    $('#selectTermModal').modal('hide');
+
+                    // Display timetable (update the view with the timetable)
+                    $('#timetable-container').html(response.timetableHtml);
+                }
+            });
+        });
+    });
+
+</script>
 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" id="printContent">
         <div class="modal-content">
@@ -375,9 +486,11 @@
 
             <div class="modal-footer">
                 <!--<button class="btn btn-primary" onclick="printPage()">Print</button>-->
-                <button type="button" id="myElement" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               
+                <button type="button" id="myElement" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-info text-light me-2">Edit</a>
 
-                <button class="btn btn-primary" id="myElement2" onclick="printTimeTable('printContent')">Print</button>
+                <button class="btn btn-sm btn-primary" id="myElement2" onclick="printTimeTable('printContent')">Print</button>
             </div>
 
 

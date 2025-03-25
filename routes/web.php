@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('student/timetable', [TimetableController::class, 'timetable'])->name('school_student.timetable');
     Route::get('student/timetable/add', [TimetableController::class, 'add_timetable'])->name('school_student.timetable.add');
     Route::get('student/timetable/edit', [TimetableController::class, 'edit_timetable'])->name('school_student.timetable.edit');
+    Route::get('student/timetable/show', [TimetableController::class, 'showTimetable'])->name('school_student.timetable.show');
     
 });
 
