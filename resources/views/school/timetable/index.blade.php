@@ -8,8 +8,8 @@
                 <h3 class="page-title">Time Table</h3>
             </div>
             <div class="col-auto text-end float-end ms-auto download-grp">
-                <a href="{{ route('school_student.timetable.add') }}" class="btn btn-sm btn-primary">Create/Edit</a>
-                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#cons-close-modal">view</a>
+                <a href="{{ route('school_student.timetable.add') }}" class="btn btn-primary">Create/Edit</a>
+                <a href="" class="btn bg-info text-light " data-bs-toggle="modal" data-bs-target="#cons-close-modal">view</a>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                         <div class="col-12 col-sm-3">
                             <h5 class="form-title student-info" style="color: #4f5254;font-size:20px;">Term</h5>
                             <form action="" method="post">
-                                <select name="term" class="form-control currclass" onchange="this.form.submit()">
+                                <select name="term" class="dropdown-select wide " onchange="this.form.submit()">
                                     <option value="14">First Term</option>
                                     <option value="14"> First Term</option>
                                     <option value="15"> Second Term</option>
@@ -94,9 +94,9 @@
 
                                             <td>
                                                 <div>
-                                                    <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
+                                                    <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
 
-                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-info text-light me-2">
+                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-danger-light me-2">
                                                         <i class="feather-edit"></i>
                                                     </a>
                                                     <button type="button" class="btn btn-sm bg-danger text-light me-2" data-bs-toggle="modal" data-bs-target="#delete-alert-modal"><i class="feather-trash-2"></i></button>
@@ -113,9 +113,9 @@
 
                                             <td>
                                                 <div>
-                                                    <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
+                                                    <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
 
-                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-info text-light me-2">
+                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-danger-light me-2">
                                                         <i class="feather-edit"></i>
                                                     </a>
                                                     <button type="button" class="btn btn-sm bg-danger text-light me-2" data-bs-toggle="modal" data-bs-target="#delete-alert-modal"><i class="feather-trash-2"></i></button>
@@ -132,9 +132,9 @@
 
                                             <td>
                                                 <div>
-                                                    <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
+                                                    <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
 
-                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-info text-light me-2">
+                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-danger-light me-2">
                                                         <i class="feather-edit"></i>
                                                     </a>
                                                     <button type="button" class="btn btn-sm bg-danger text-light me-2" data-bs-toggle="modal" data-bs-target="#delete-alert-modal"><i class="feather-trash-2"></i></button>
@@ -151,9 +151,9 @@
 
                                             <td>
                                                 <div>
-                                                    <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
+                                                    <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#con-close-modal"><i class="feather-eye"></i></a>
 
-                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-info text-light me-2">
+                                                    <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-danger-light me-2">
                                                         <i class="feather-edit"></i>
                                                     </a>
                                                     <button type="button" class="btn btn-sm bg-danger text-light me-2" data-bs-toggle="modal" data-bs-target="#delete-alert-modal"><i class="feather-trash-2"></i></button>
@@ -488,7 +488,7 @@ function toggleCheckboxes(selectAllCheckbox) {
                 <!--<button class="btn btn-primary" onclick="printPage()">Print</button>-->
                
                 <button type="button" id="myElement" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-info text-light me-2">Edit</a>
+                <a href="{{ route('school_student.timetable.edit') }}" class="btn btn-sm bg-danger-light me-2">Edit</a>
 
                 <button class="btn btn-sm btn-primary" id="myElement2" onclick="printTimeTable('printContent')">Print</button>
             </div>

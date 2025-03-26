@@ -24,7 +24,7 @@
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="form-group local-forms" style="margin-bottom: 0;">
                                         <label>Enquiry Status <span class="login-danger">*</span></label>
-                                        <select name="enquiryStatus" class="currclass form-control">
+                                        <select name="enquiryStatus" class="currclass">
                                             <option value=""> - Select Status - </option>
                                             <option value="Running">Running</option>
                                             <option value="Confirm">Confirm</option>
@@ -36,7 +36,7 @@
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="form-group local-forms" style="margin-bottom: 0;">
                                         <label>Class <span class="login-danger">*</span></label>
-                                        <select name="currentClass" class="currclass form-control" id="selectclassacad" data-school="20">
+                                        <select name="currentClass" class="currclass" id="selectclassacad" data-school="20">
                                             <option value=""> - Select Class - </option>
                                             <option value="86" data-classcat="A">Nursery</option>
                                             <option value="88" data-classcat="A">UKG</option>
@@ -76,8 +76,8 @@
                             </div>
 
                             <div class="col-auto">
-                                <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search By Name" class="form-control" />
-                            </div>
+                                            <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search By Name" class="form-control">
+                                        </div>
 
                             <div class="col-auto text-end float-end ms-auto download-grp">
 
@@ -89,7 +89,7 @@
 
                     <div class="table-responsive">
                         <div id="filteredTableContainer">
-                            <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+                            <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
                                 <thead class="student-thread">
                                     <tr>
                                         <th>S. No.</th>
@@ -124,9 +124,9 @@
                                         <td>
                                             <div class="actions">
 
-                                                <a href="" class="btn btn-sm bg-info text-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#view-details1"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details1"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
                                                 </button>
@@ -136,14 +136,14 @@
 
                                         <td>
                                             <div class="actions">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Admission </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -163,9 +163,9 @@
                                         <td>
                                             <div class="actions">
 
-                                                <a href="" class="btn btn-sm bg-info text-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert2"><i class="feather-edit"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert2"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#view-details2"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details2"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal2"><i class="feather-trash-2"></i>
                                                 </button>
@@ -175,14 +175,14 @@
 
                                         <td>
                                             <div class="actions">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal2" style="width: fit-content;"> Add Visit </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal2" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Admission </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -204,9 +204,9 @@
                                         <td>
                                             <div class="actions">
 
-                                                <a href="" class="btn btn-sm bg-info text-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert3"><i class="feather-edit"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert3"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#view-details3"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details3"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal3"><i class="feather-trash-2"></i>
                                                 </button>
@@ -216,14 +216,14 @@
 
                                         <td>
                                             <div class="actions">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal3" style="width: fit-content;"> Add Visit </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal3" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Admission </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -244,12 +244,12 @@
                                         <td>
                                             <div class="actions">
                                                 <!--<a href="student-profile-view.php?id=4"-->
-                                                <!--    class="btn btn-sm bg-purple text-light me-2">-->
+                                                <!--    class="btn btn-sm bg-success-light me-2">-->
                                                 <!--    <i class="feather-eye"></i>-->
                                                 <!--</a> -->
-                                                <a href="" class="btn btn-sm bg-info text-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert4"><i class="feather-edit"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert4"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#view-details4"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details4"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal4"><i class="feather-trash-2"></i>
                                                 </button>
@@ -259,14 +259,14 @@
 
                                         <td>
                                             <div class="actions">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal4" style="width: fit-content;"> Add Visit </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal4" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Admission </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -294,12 +294,12 @@
                                         <td>
                                             <div class="actions">
                                                 <!--<a href="student-profile-view.php?id=5"-->
-                                                <!--    class="btn btn-sm bg-purple text-light me-2">-->
+                                                <!--    class="btn btn-sm bg-success-light me-2">-->
                                                 <!--    <i class="feather-eye"></i>-->
                                                 <!--</a> -->
-                                                <a href="" class="btn btn-sm bg-info text-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert5"><i class="feather-edit"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert5"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#view-details5"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details5"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal5"><i class="feather-trash-2"></i>
                                                 </button>
@@ -309,14 +309,14 @@
 
                                         <td>
                                             <div class="actions">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal5" style="width: fit-content;"> Add Visit </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal5" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-purple text-light me-2" style="width: fit-content;"> Admission </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -374,7 +374,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Enquiry Status <span class="login-danger">*</span></label>
-                                <select name="enquiryStatusUpdate" class="currclass form-control">
+                                <select name="enquiryStatusUpdate" class="currclass">
                                     <option value="Running" selected> Running </option>
                                     <option value="Running">Running</option>
                                     <option value="Confirm">Confirm</option>
@@ -393,7 +393,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Class <span class="login-danger">*</span></label>
-                                <select name="currentClass" class="currclass form-control" id="selectclassacad">
+                                <select name="currentClass" class="currclass" id="selectclassacad">
                                     <option selected value="94">6</option>
                                     <option value="86" data-classcat="A">Nursery</option>
                                     <option value="88" data-classcat="A">UKG</option>
@@ -416,7 +416,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Student Gender <span class="login-danger">*</span></label>
-                                <select name="studentGender" class="currclass form-control">
+                                <select name="studentGender" class="currclass">
                                     <option value="Male" selected>Male</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -461,7 +461,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Inquirer Relation to Candidate <span class="login-danger">*</span></label>
-                                <select name="stuRelation" class="currclass form-control" id="relationSelect">
+                                <select name="stuRelation" class="currclass" id="relationSelect">
                                     <option value="Other" selected>Other</option>
                                     <option value="Father">Father</option>
                                     <option value="Mother">Mother</option>
@@ -519,7 +519,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>How you know about the school? <span class="login-danger">*</span></label>
-                                <select name="aboutSchool" class="currclass form-control" id="aboutSchoolSelect">
+                                <select name="aboutSchool" class="currclass" id="aboutSchoolSelect">
 
                                     <!-- Selected Option from Database -->
                                     <option value="Other" selected>Other</option>
@@ -828,7 +828,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Enquiry Status <span class="login-danger">*</span></label>
-                                <select name="enquiryStatusUpdate" class="currclass form-control">
+                                <select name="enquiryStatusUpdate" class="currclass">
                                     <option value="Running" selected> Running </option>
                                     <option value="Running">Running</option>
                                     <option value="Confirm">Confirm</option>
@@ -847,7 +847,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Class <span class="login-danger">*</span></label>
-                                <select name="currentClass" class="currclass form-control" id="selectclassacad">
+                                <select name="currentClass" class="currclass" id="selectclassacad">
                                     <option selected value="98">10</option>
                                     <option value="86" data-classcat="A">Nursery</option>
                                     <option value="88" data-classcat="A">UKG</option>
@@ -870,7 +870,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Student Gender <span class="login-danger">*</span></label>
-                                <select name="studentGender" class="currclass form-control">
+                                <select name="studentGender" class="currclass">
                                     <option value="" selected></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -915,7 +915,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Inquirer Relation to Candidate <span class="login-danger">*</span></label>
-                                <select name="stuRelation" class="currclass form-control" id="relationSelect">
+                                <select name="stuRelation" class="currclass" id="relationSelect">
                                     <option value="Father" selected>Father</option>
                                     <option value="Mother">Mother</option>
                                     <option value="Uncle">Uncle</option>
@@ -973,7 +973,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>How you know about the school? <span class="login-danger">*</span></label>
-                                <select name="aboutSchool" class="currclass form-control" id="aboutSchoolSelect">
+                                <select name="aboutSchool" class="currclass" id="aboutSchoolSelect">
 
                                     <!-- Selected Option from Database -->
                                     <option value="Pamphlet" selected>Pamphlet</option>
@@ -1232,7 +1232,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Enquiry Status <span class="login-danger">*</span></label>
-                                <select name="enquiryStatusUpdate" class="currclass form-control">
+                                <select name="enquiryStatusUpdate" class="currclass">
                                     <option value="Running" selected> Running </option>
                                     <option value="Running">Running</option>
                                     <option value="Confirm">Confirm</option>
@@ -1251,7 +1251,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Class <span class="login-danger">*</span></label>
-                                <select name="currentClass" class="currclass form-control" id="selectclassacad">
+                                <select name="currentClass" class="currclass" id="selectclassacad">
                                     <option selected value="100">12</option>
                                     <option value="86" data-classcat="A">Nursery</option>
                                     <option value="88" data-classcat="A">UKG</option>
@@ -1274,7 +1274,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Student Gender <span class="login-danger">*</span></label>
-                                <select name="studentGender" class="currclass form-control">
+                                <select name="studentGender" class="currclass">
                                     <option value="Male" selected>Male</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -1319,7 +1319,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Inquirer Relation to Candidate <span class="login-danger">*</span></label>
-                                <select name="stuRelation" class="currclass form-control" id="relationSelect">
+                                <select name="stuRelation" class="currclass" id="relationSelect">
                                     <option value="Other" selected>Other</option>
                                     <option value="Father">Father</option>
                                     <option value="Mother">Mother</option>
@@ -1377,7 +1377,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>How you know about the school? <span class="login-danger">*</span></label>
-                                <select name="aboutSchool" class="currclass form-control" id="aboutSchoolSelect">
+                                <select name="aboutSchool" class="currclass" id="aboutSchoolSelect">
 
                                     <!-- Selected Option from Database -->
                                     <option value="Other" selected>Other</option>
@@ -1642,7 +1642,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Enquiry Status <span class="login-danger">*</span></label>
-                                <select name="enquiryStatusUpdate" class="currclass form-control">
+                                <select name="enquiryStatusUpdate" class="currclass">
                                     <option value="Running" selected> Running </option>
                                     <option value="Running">Running</option>
                                     <option value="Confirm">Confirm</option>
@@ -1661,7 +1661,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Class <span class="login-danger">*</span></label>
-                                <select name="currentClass" class="currclass form-control" id="selectclassacad">
+                                <select name="currentClass" class="currclass" id="selectclassacad">
                                     <option selected value="89">1</option>
                                     <option value="86" data-classcat="A">Nursery</option>
                                     <option value="88" data-classcat="A">UKG</option>
@@ -1684,7 +1684,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Student Gender <span class="login-danger">*</span></label>
-                                <select name="studentGender" class="currclass form-control">
+                                <select name="studentGender" class="currclass">
                                     <option value="Male" selected>Male</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -1729,7 +1729,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Inquirer Relation to Candidate <span class="login-danger">*</span></label>
-                                <select name="stuRelation" class="currclass form-control" id="relationSelect">
+                                <select name="stuRelation" class="currclass" id="relationSelect">
                                     <option value="Other" selected>Other</option>
                                     <option value="Father">Father</option>
                                     <option value="Mother">Mother</option>
@@ -1787,7 +1787,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>How you know about the school? <span class="login-danger">*</span></label>
-                                <select name="aboutSchool" class="currclass form-control" id="aboutSchoolSelect">
+                                <select name="aboutSchool" class="currclass" id="aboutSchoolSelect">
 
                                     <!-- Selected Option from Database -->
                                     <option value="Staff" selected>Staff</option>
@@ -2049,7 +2049,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Enquiry Status <span class="login-danger">*</span></label>
-                                <select name="enquiryStatusUpdate" class="currclass form-control">
+                                <select name="enquiryStatusUpdate" class="currclass">
                                     <option value="Running" selected> Running </option>
                                     <option value="Running">Running</option>
                                     <option value="Confirm">Confirm</option>
@@ -2068,7 +2068,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms" style="margin-bottom: 0;">
                                 <label>Class <span class="login-danger">*</span></label>
-                                <select name="currentClass" class="currclass form-control" id="selectclassacad">
+                                <select name="currentClass" class="currclass" id="selectclassacad">
                                     <option selected value="94">6</option>
                                     <option value="86" data-classcat="A">Nursery</option>
                                     <option value="88" data-classcat="A">UKG</option>
@@ -2091,7 +2091,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Student Gender <span class="login-danger">*</span></label>
-                                <select name="studentGender" class="currclass form-control">
+                                <select name="studentGender" class="currclass">
                                     <option value="" selected></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -2136,7 +2136,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>Inquirer Relation to Candidate <span class="login-danger">*</span></label>
-                                <select name="stuRelation" class="currclass form-control" id="relationSelect">
+                                <select name="stuRelation" class="currclass" id="relationSelect">
                                     <option value="" selected></option>
                                     <option value="Father">Father</option>
                                     <option value="Mother">Mother</option>
@@ -2195,7 +2195,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="form-group local-forms">
                                 <label>How you know about the school? <span class="login-danger">*</span></label>
-                                <select name="aboutSchool" class="currclass form-control" id="aboutSchoolSelect">
+                                <select name="aboutSchool" class="currclass" id="aboutSchoolSelect">
 
                                     <!-- Selected Option from Database -->
                                     <option value="Parents" selected>Parents</option>
