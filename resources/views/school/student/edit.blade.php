@@ -204,7 +204,7 @@
                                                 <div class="form-group local-forms">
                                                     <label>Student Image</label>
                                                     <input type="hidden" value="" name="oldstudentImage">
-                                                    <img src="student_images/" width="100" height="100">
+                                                    <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
 
                                                 </div>
                                             </div>
@@ -654,7 +654,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Father Image</label>
                                                 <input type="hidden" value="" name="oldfatherImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-4">
@@ -722,7 +722,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Aadhar Card</label>
                                                 <input type="hidden" value="" name="oldfatherAadharImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-4">
@@ -735,7 +735,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Bank Passbook</label>
                                                 <input type="hidden" value="" name="oldfatherAccountImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                     </div>
@@ -769,7 +769,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Mother Image</label>
                                                 <input type="hidden" value="" name="oldMotherImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-4">
@@ -848,7 +848,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Aadhar Card</label>
                                                 <input type="hidden" value="" name="oldmotherAadharImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-4">
@@ -861,7 +861,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Bank Passbook</label>
                                                 <input type="hidden" value="" name="oldmotherAccountImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                     </div>
@@ -898,7 +898,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Guardian Image</label>
                                                 <input type="hidden" value="" name="oldGuardianImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-4">
@@ -977,7 +977,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Aadhar Card</label>
                                                 <input type="hidden" value="" name="oldGuardianAadharImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-4">
@@ -990,7 +990,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Bank Passbook</label>
                                                 <input type="hidden" value="" name="oldGuardianAccountImage">
-                                                <img src="student_images/" width="100" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" width="100" height="100">
                                             </div>
                                         </div>
                                     </div>

@@ -7,12 +7,8 @@
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col-sm-12">
-                <div class="page-sub-header">
-                    <h3 class="page-title">Add Students</h3>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="students.html">Student</a></li>
-                        <li class="breadcrumb-item active">Add Students</li>
-                    </ul>
+                <div class="page-sub-header justify-content-center">
+                    <h3 class="page-title">Student Details Form </h3>
                 </div>
             </div>
         </div>
@@ -24,11 +20,11 @@
                 <div class="card-body">
                     <form>
                         <div class="row">
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <h5 class="form-title student-info text-center">Student Details Form <span><a
                                             href="javascript:;"><i
                                                 class="feather-more-vertical"></i></a></span></h5>
-                            </div>
+                            </div> -->
                             <!-- Admission Details Start-->
 
                             <div class="col-12">
@@ -38,7 +34,7 @@
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
                                                 <label>Admission Type <span class="login-danger">*</span></label>
-                                                <select class="form-control select" name="admissionType">
+                                                <select class="form-control select" name="admissionType" style=" border: 1px solid #ddd; box-shadow: none; color: #333; font-size: 15px; height: 45px; border-radius: .25rem;;width:100%; padding: .375rem .75rem;">
                                                     <option value="None" selected>Select Type</option>
                                                     <option value="RTE">RTE</option>
                                                     <option value="NON - RTE">NON - RTE</option>
@@ -64,7 +60,7 @@
 
                                                 <!--<select name="admissionClass" id="selectclass"  style="border: 1px solid #ddd; box-shadow: none; color: #333; font-size: 15px; height: 45px; border-radius: .25rem; width: 100%; padding: .375rem .75rem;">-->
 
-                                                <select class="form-control select" name="admissionClass" id="selectclass" data-school="20">
+                                                <select class="form-control select" name="admissionClass" id="selectclass" data-school="20" style=" border: 1px solid #ddd; box-shadow: none; color: #333; font-size: 15px; height: 45px; border-radius: .25rem;;width:100%; padding: .375rem .75rem;">
                                                     <option value="">Select Class</option>
                                                     <option value="86" data-classcat="A">Nursery</option>
                                                     <option value="88" data-classcat="A">UKG</option>
@@ -125,13 +121,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="form-group local-forms" style="border: 1px solid #f2f2f2">
-                                    <label style=" font-size: 18px;">Admission Details</label>
-                                    <div class="row" style="margin-top: 40px; padding: 0 10px;">
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <!-- Admission Details End-->
 
                             <!-- Students Basic Details Start-->
@@ -894,8 +884,8 @@
                         </div>
 
                         <div class="col-12">
-                            <div class="student-submit">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="student-submit" style="display: flex;justify-content: center;">
+                                <button type="submit" class="btn btn-primary" name="submitData" style="font-size:1.7rem;min-width:350px;">Submit</button>
                             </div>
                         </div>
                 </div>
