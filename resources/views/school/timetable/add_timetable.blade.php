@@ -18,7 +18,7 @@
     }
 
     th, td {
-        padding: 10px;
+        padding: 0px;
         text-align: center;
     }
 
@@ -103,11 +103,10 @@ thead th {
     border: 1px solid #ccc;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
+th:nth-child(1), td:nth-child(1){
+    width: 20px;
 }
+
 
 th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
     position: sticky;
@@ -138,8 +137,8 @@ th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
                             
                             <div class="col justify-content-end gap-2">
                             <!-- <div> -->
-                                    <button type="button" onclick="addRow()" class="btn btn-info">Add Date</button>
-                                    <button type="button" onclick="openModal()" class="btn btn-primary">Add Column</button>
+                                    <button type="button" onclick="addRow()" class="btn btn-info text-light">Add Date</button>
+                                    <button type="button" onclick="openModal()" class="btn btn-primary">Add Class</button>
                                 <!-- </div> -->
                             </div>
 
@@ -161,13 +160,16 @@ th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
                                                             <tr>
                                                                 <th></th>
                                                                 <th>Date</th>
-                                                                <th>UKG <button type="button" class="delete-btn rounded" onclick="deleteColumn(1)">X</button></th>
+                                                                <th>Day</th>
+                                                                <th>UKG <button type="button" class="btn btn-sm bg-danger" onclick="deleteColumn(1)"><i class="feather-trash-2"></i></button></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td><button type="button" class="delete-btn rounded" onclick="deleteRow(this)">X</button></td>
+                                                                <td><button type="button" class="btn btn-sm bg-danger" onclick="deleteRow(this)"><i class="feather-trash-2"></i></button></td>
+                                                             
                                                                 <td><input type="date" value=""></td>
+                                                                <td><input type="day" value=""></td>
                                                                 <td><input type="text" value=""></td>
                                                             </tr>
                                                         </tbody>
@@ -258,7 +260,7 @@ th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-info text-light" onclick="addClassColumn()">Add Column</button>
+            <button type="button" class="btn btn-info text-light" onclick="addClassColumn()">Add Class</button>
             <button type="button" class="btn btn-danger" onclick="closeModal()">Cancel</button>
         </div>
     </div>
@@ -286,13 +288,15 @@ th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
     var row = table.insertRow(-1); // Add a new row at the end of the table
 
     var deleteCell = row.insertCell(0);
-    deleteCell.innerHTML = `<button class="delete-btn rounded" onclick="deleteRow(this)">X</button>`;
+    deleteCell.innerHTML = `<button class="btn btn-sm bg-danger" onclick="deleteRow(this)"><i class="feather-trash-2"></i></button>`;
 
     var dateCell = row.insertCell(1);
     var dateInput = document.createElement("input");
     dateInput.type = "date";
     dateInput.value = ""; 
     dateCell.appendChild(dateInput);
+
+    
 
     var colCount = table.rows[0].cells.length - 1; 
     for (var i = 0; i < colCount - 1; i++) { 
@@ -335,7 +339,7 @@ th:nth-child(2), td:nth-child(2) { /* Target the second column (Date) */
 
     // Set the header cell content with the delete button
     newHeaderCell.innerHTML = `${className} 
-        <button type="button" class="delete-btn" onclick="deleteColumn(${colIndex})">X</button>`;
+        <button type="button" class="btn btn-sm bg-danger" onclick="deleteColumn(${colIndex})"><i class="feather-trash-2"></i></button>`;
     
     // Append the new header cell
     header.appendChild(newHeaderCell);
