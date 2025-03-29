@@ -8,8 +8,7 @@
                 <h3 class="page-title">Time Table</h3>
             </div>
             <div class="col-auto text-end float-end ms-auto download-grp">
-                 <a href="" class="btn bg-success text-light" data-bs-toggle="modal" data-bs-target="#create-edit-modal">Create/Edit</a>
-                <a href="" class="btn bg-info text-light " data-bs-toggle="modal" data-bs-target="#cons-close-modal">view</a>
+               <a class="btn bg-success text-light" href="{{ route('school_student.timetable.add') }}" class="btn btn-sm btn-primary" >Create/Edit</a>
             </div>
         </div>
     </div>
@@ -19,18 +18,20 @@
             <div class="card comman-shadow">
                 <div class="card-body">
 
-                <div class="row align-items-center">
-           
-            <div class="col-12 col-sm-2  download-grp">
-                <a class="btn btn-primary w-100" disabled>2025-2026</a>
-            </div>
-            <div class="col-12 col-sm-2">
-                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#change-term-modal">Select Term</button>
-            </div>
-            <div class="col-12 col-sm-2">
-                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#danger-alert-modal">Table View</button>
-            </div>
-        </div>
+                    <div class="row align-items-center">
+
+                        <div class="col-12 col-sm-2 text-center download-grp">
+                            <label class="m-0">2025-2026</label>
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#change-term-modal">Select Term</button>
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <!-- <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#danger-alert-modal">Table View</button> -->
+                            <a href="{{ route('school_student.timetable.show')}}" class="btn btn-primary w-100" id="proceedBtn">Table View</a>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -43,9 +44,9 @@
                 <div class="card-body">
                     <div class="page-header">
                         <div class="row align-items-center">
-                            <div class="col">
+                            <!-- <div class="col">
                                 <h6 style="color: #4f5254;font-size:20px;">Time Table List</h6>
-                            </div>
+                            </div> -->
 
                             <div class="col-auto text-end float-end ms-auto download-grp d-none">
                                 <a href="time.php" class="btn btn-primary">New Row</a>
@@ -306,16 +307,16 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                   <div class="col-md-6">
+                    <div class="col-md-6">
                         <label for="term">Select Term</label>
                         <form action="" method="post">
-                                <select name="term" class="dropdown-select wide ">
-                                    <option value="14">First Term</option>
-                                    <option value="14"> First Term</option>
-                                    <option value="15"> Second Term</option>
-                                    <option value="51"> Term I</option>
-                                </select>
-                            </form>
+                            <select name="term" class="dropdown-select wide ">
+                                <option value="14">First Term</option>
+                                <option value="14"> First Term</option>
+                                <option value="15"> Second Term</option>
+                                <option value="51"> Term I</option>
+                            </select>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -328,45 +329,6 @@
     </div>
 </div>
 
-<div id="create-edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" id="printContent">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Select a Term</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="term" id="term1" value="term1">
-                            <label class="form-check-label" for="term1">
-                                Term 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="term" id="term2" value="term2">
-                            <label class="form-check-label" for="term2">
-                                Term 2 
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="term" id="term3" value="term3">
-                            <label class="form-check-label" for="term3">
-                                Term 3 
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="myElement" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="{{ route('school_student.timetable.add') }}" class="btn btn-sm btn-primary" id="proceedBtn">Proceed</a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="cons-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" id="printContent">
@@ -585,6 +547,9 @@
                     border: 1px solid #757575;
                 }
             </style>
+
+
+
             <div class="table-responsive">
                 <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped modaltable">
                     <thead class="student-thread">
