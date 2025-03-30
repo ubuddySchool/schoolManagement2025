@@ -23,11 +23,11 @@
     }
 
     .dateCell input {
-        width: 150px;
+        width: 100%;
     }
 
     .dayCell input {
-        width: 100px;
+        width: 100%;
     }
     
     .action-buttons {
@@ -59,9 +59,6 @@
                         </div>
                     </div>
                     
-                    <div class="mb-3">
-                        <button type="button" class="btn btn-primary" onclick="addDateRow()">Add New Date</button>
-                    </div>
                     
                     <div class="table-responsive">
                         <table id="dateTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">

@@ -12,7 +12,7 @@
             <button class="btn btn-success" id="pdfBtn">PDF</button>
             <button class="btn btn-info text-light" id="excelBtn">Excel</button>
         </div>
-        <a class="btn bg-success text-light" href="{{ route('school_student.timetable.add') }}" class="btn btn-sm btn-primary" >Create/Edit</a>
+        <a class="btn bg-success text-light" href="{{ route('school_student.timetable.add') }}" class="btn btn-sm btn-primary" >Edit</a>
     </div>
 
     

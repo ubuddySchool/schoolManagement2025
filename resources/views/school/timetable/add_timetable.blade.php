@@ -118,10 +118,9 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h3 class="page-title">Time Table</h3>
+                                <p class="mb-0 ms-3">First Term</p>
                             </div>
-                            
                             <div class="col justify-content-end gap-2">
-                                <!-- Changed to a link to the separate manage dates page -->
                                 <a href="{{ route('manage.dates') }}" class="btn btn-info text-white">Add/Remove Date</a>
                                 <button type="button" onclick="openClassModal()" class="btn btn-primary">Add/Remove Class</button>
                             </div>
