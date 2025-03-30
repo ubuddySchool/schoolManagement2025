@@ -159,8 +159,18 @@
                  </li>
 
                  <!-- Attendance -->
-                 <li class="submenu">
+                 <!-- <li class="submenu">
                      <a href="#"><i class="fas fa-calendar-check"></i> <span> Attendance</span></a>
+                 </li> -->
+                 <li class="submenu">
+                     <a href="#"><i class="fas fa-calendar-check"></i> <span> Attendance</span><span
+                             class="menu-arrow"></span></a>
+                             <ul>
+                                <li><a href="{{ route('attendence.staff') }}"><i class="fas fa-users"></i> Staff Attendance</a></li>
+                                <li><a href="{{ route('attendence.student') }}"><i class="fas fa-chalkboard-teacher"></i> Student Attendance</a></li>
+                                <!-- <li><a href="{{ route('attendence.holiday') }}"><i class="fas fa-calendar-times"></i> Holiday Declaration</a></li> -->
+                            </ul>
+
                  </li>
 
                  <!-- Syllabus -->

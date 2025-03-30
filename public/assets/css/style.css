@@ -279,6 +279,7 @@ table.table td h2 span {
 }
 .card-table .card-body .table > thead > tr > th {
     border-top: 0;
+    text-align: left;
 }
 .card-table .card-body .table tr td:first-child,
 .card-table .card-body .table tr th:first-child {
@@ -2790,7 +2791,8 @@ footer {
 	text-decoration: underline;
 }
 .social-login {
-	text-align: center;
+    text-align: center;
+    font-size: 11px;
 }
 .social-login > span {
 	color: #a0a0a0;
@@ -3267,7 +3269,7 @@ footer {
 }
 .star-student.table-striped tbody tr td, .star-student.table-striped tbody tr td a {
     color: #666;
-    text-align: center;
+    text-align: left;
 }
 .star-student.table-striped tbody tr td img {
 	margin-right: 10px;
