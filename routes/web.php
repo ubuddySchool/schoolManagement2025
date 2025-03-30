@@ -67,7 +67,11 @@ Route::middleware('auth')->group(function () {
     Route::get('student/timetable/add', [TimetableController::class, 'add_timetable'])->name('school_student.timetable.add');
     Route::get('student/timetable/edit', [TimetableController::class, 'edit_timetable'])->name('school_student.timetable.edit');
     Route::get('student/timetable/show', [TimetableController::class, 'showTimetable'])->name('school_student.timetable.show');
-    
+    Route::get('student/manage/dates', [TimetableController::class, 'managedates'])->name('manage.dates');
+    // Route::get('/timetable/manage-dates', [TimetableController::class, 'manageDates'])->name('manage.dates');
+    Route::post('/timetable/save-dates', [TimetableController::class, 'saveDates'])->name('save.dates');
+    Route::get('/timetable/get-data', [TimetableController::class, 'getTimetableData'])->name('timetable.data');
+
 });
 
 require __DIR__.'/auth.php';
