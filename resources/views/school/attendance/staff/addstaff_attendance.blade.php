@@ -9,8 +9,8 @@
                 </div>              
             </div>              
             <div class="col-lg-3 col-sm-12">                 
-                <div class="page-sub-header">                     
-                    <a href="{{ route('attendence.staff') }}" class="btn btn-primary"> View Attendance</a>                 
+                <div class="page-sub-header float-end">                     
+                    <a href="{{ route('attendence.staff') }}" class="btn btn-primary"> Back</a>                 
                 </div>              
             </div>         
         </div>     
@@ -21,12 +21,17 @@
                 <div class="card-body">                     
                     <form action="" method="POST"> 
                         @csrf
-                        <div class="table-responsive">
+                        <div >
                             <table class="table table-bordered">
                                  <!-- Select Date -->
-                        <div class="col-12 col-sm-4 form-group">
+                                  <div class="row justify-content-between">
+                        <div class="col-6 col-sm-4 form-group">
                             <h5 class="form-title student-info" style="font-size: 15px;">Select Date</h5>
                             <input type="date" name="attendance_date" class="form-control" required>
+                        </div>
+                        <div class="col-6 col-sm-4 form-group">
+                            <input type="text" name="attendance_date" placeholder="Search Teacher" class="form-control" required>
+                        </div>
                         </div>
                                 <thead>
                                     <tr>

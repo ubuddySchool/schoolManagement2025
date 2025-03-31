@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\School\StudentController;
 use App\Http\Controllers\School\TimetableController;
 use App\Http\Controllers\School\AttendenceController;
+use App\Http\Controllers\School\StudentManagment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -74,9 +75,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/timetable/get-data', [TimetableController::class, 'getTimetableData'])->name('timetable.data');
     // Attendence
     Route::get('/attendence/staff', [AttendenceController::class, 'staff'])->name('attendence.staff');
-Route::get('/attendence/staff/add', [AttendenceController::class, 'addstaff'])->name('attendence.add.staff');
+    Route::get('/attendence/staff/add', [AttendenceController::class, 'addstaff'])->name('attendence.add.staff');
     Route::get('/attendence/student', [AttendenceController::class, 'student'])->name('attendence.student');
+    Route::get('/attendence/student/add', [AttendenceController::class, 'addstudent'])->name('attendence.add.student');
     Route::get('/attendence/holiday', [AttendenceController::class, 'holiday'])->name('attendence.holiday');
+    // Student Managment
+    Route::get('/Managment/subjectassign', [StudentManagment::class, 'subject_assign'])->name('managment.subject_assign');
 
 });
 

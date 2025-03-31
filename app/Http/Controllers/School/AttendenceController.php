@@ -16,6 +16,9 @@ class AttendenceController extends Controller
     public function student(){
         return view('school.attendance.student.index');
     }
+    public function addstudent(){
+        return view('school.attendance.student.add_student');
+    }
     public function holiday(){
         return view('school.attendance.holiday.index');
     }
