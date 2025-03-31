@@ -41,6 +41,19 @@
         </div>
     </div>
 
+    <script>
+      $(document).ready(function() {
+        // Initialize Select2 for all elements with class 'select'
+        if ($('.select').length > 0) {
+            $('.select').select2({
+                minimumResultsForSearch: -1, // Hides the search box
+                width: '100%' // Ensures full width of the select box
+            });
+        }
+    });
+
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>

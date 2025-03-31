@@ -13,7 +13,7 @@
             </div>
             <div class=" col-lg-3 col-sm-12">
                 <div class="page-sub-header">
-                    <a href="student_attendence.php" class="btn btn-primary">Mark Attendance</a>
+                    <a href="{{ route('attendence.add.student') }}" class="btn btn-primary">Mark Attendance</a>
                 </div>
 
             </div>
@@ -87,8 +87,33 @@
         <div class="card card-table comman-shadow">
             <div class="card-body">
                 <h5 class="form-title student-info" style="font-size: 20px;">Student Attendance List</h5>
-                <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped" id="studentTable">
-                    <!-- Table content here -->
+                <table class="table border-0 star-student table-hover table-center mb-0  table-striped dataTable" id="studentTable">
+                    <thead class="student-thread">
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Attendance Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Demo</td>
+                            <td>12 (Science Maths)</td>
+                            <td>A</td>
+                            <td><span class="badge badge-success">Present</span></td>  
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Test</td>
+                            <td>12 (Science Maths)</td>
+                            <td>B</td>
+                            <td><span class="badge badge-danger">Absent</span></td>                             
+
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

@@ -128,7 +128,7 @@
                          <li><a href="{{ route('school_student.add') }}"><i class="fas fa-user-plus"></i> Add New Student</a></li>
                          <li><a href="{{ route('school_student.edit') }}"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
                          <li><a href="#"><i class="fas fa-cogs"></i> Assign House</a></li>
-                         <li><a href="#"><i class="fas fa-book-open"></i> Assign Subjects</a></li>
+                         <li><a href="{{ route('managment.subject_assign') }}"><i class="fas fa-book-open"></i> Assign Subjects</a></li>
                      </ul>
                  </li>
 
@@ -168,7 +168,7 @@
                              <ul>
                                 <li><a href="{{ route('attendence.staff') }}"><i class="fas fa-users"></i> Staff Attendance</a></li>
                                 <li><a href="{{ route('attendence.student') }}"><i class="fas fa-chalkboard-teacher"></i> Student Attendance</a></li>
-                                <!-- <li><a href="{{ route('attendence.holiday') }}"><i class="fas fa-calendar-times"></i> Holiday Declaration</a></li> -->
+                                <li><a href="{{ route('attendence.holiday') }}"><i class="fas fa-calendar-times"></i> Holiday Declaration</a></li>
                             </ul>
 
                  </li>
