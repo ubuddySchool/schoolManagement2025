@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="content container-fluid">
-
     <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
@@ -48,11 +47,11 @@
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-table comman-shadow">
                 <div class="card-body">
-
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
@@ -73,12 +72,8 @@
                         </div>
                     </div>
 
-
-
-
                     <div class="table-responsive">
-                        <table
-                            class="table border-0 star-student table-hover table-center mb-0 table-striped">
+                        <table class="table border-0 star-student table-hover table-center mb-0 table-striped">
                             <thead class="student-thread">
                                 <tr>
                                     <th>S No.</th>
@@ -87,82 +82,55 @@
                                     <th>Section</th>
                                     <th>Gender</th>
                                     <th>Contact Number</th>
+                                    <th>Profile Status</th>  <!-- Added new column -->
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @php
+                                    $students = [
+                                        ['name' => 'Aaliyah', 'class' => '10 A', 'section' => 'A', 'gender' => 'Male', 'contact' => '097 3584 5870', 'profile_completed' => 90],
+                                        ['name' => 'Malynne', 'class' => '8 A', 'section' => 'A', 'gender' => 'Male', 'contact' => '242 362 3100', 'profile_completed' => 70],
+                                        ['name' => 'Nathan Humphries', 'class' => '10 B', 'section' => 'A', 'gender' => 'Male', 'contact' => '077 3499 9959', 'profile_completed' => 50],
+                                    ];
+                                @endphp
+                                
+                                @foreach ($students as $key => $student)
+                                    @php
+                                        $profileCompletion = $student['profile_completed'];
+                                        $statusClass = '';
 
-                                    <td>1</td>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="student-details.html">Aaliyah</a>
-                                        </h2>
-                                    </td>
-                                    <td>10 A</td>
-                                    <td>A</td>
-                                    <td>Male</td>
-                                    <td>097 3584 5870</td>
-                                    <td class="text-end">
-                                        <div class="actions ">
-                                            <a href="{{ route('school_student.show') }}"
-                                                class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </a>
-                                            <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
-                                                <i class="feather-edit"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td>2</td>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="student-details.html">Malynne</a>
-                                        </h2>
-                                    </td>
-                                    <td>8 A</td>
-                                    <td>A</td>
-                                    <td>Male</td>
-                                    <td>242 362 3100</td>
-                                    <td class="text-end">
-                                        <div class="actions ">
-                                            <a href="{{ route('school_student.show') }}"
-                                                class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </a>
-                                            <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
-                                                <i class="feather-edit"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td>3</td>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="student-details.html">Nathan Humphries</a>
-                                        </h2>
-                                    </td>
-                                    <td>10 B</td>
-                                    <td>A</td>
-                                    <td>Male</td>
-                                    <td>077 3499 9959</td>
-                                    <td class="text-end">
-                                        <div class="actions ">
-                                            <a href="{{ route('school_student.show') }}"
-                                                class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </a>
-                                            <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-info text-light">
-                                                <i class="feather-edit"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
+                                        if ($profileCompletion < 60) {
+                                            $statusClass = 'bg-danger text-white';  // Red
+                                        } elseif ($profileCompletion >= 60 && $profileCompletion <= 80) {
+                                            $statusClass = 'bg-warning text-dark';  // Yellow
+                                        } else {
+                                            $statusClass = 'bg-success text-white';  // Green
+                                        }
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="student-details.html">{{ $student['name'] }}</a>
+                                            </h2>
+                                        </td>
+                                        <td>{{ $student['class'] }}</td>
+                                        <td>{{ $student['section'] }}</td>
+                                        <td>{{ $student['gender'] }}</td>
+                                        <td>{{ $student['contact'] }}</td>
+                                        <td class="text-center">
+                                            <span class="badge {{ $statusClass }}">{{ $profileCompletion }}%</span>  <!-- Display the profile completion with color -->
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="actions ">
+                                                <a href="{{ route('school_student.show') }}" class="btn btn-sm bg-success-light me-2">
+                                                    <i class="feather-eye"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -171,6 +139,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection

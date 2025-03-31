@@ -103,9 +103,9 @@
      <div class="sidebar-inner slimscroll">
          <div id="sidebar-menu" class="sidebar-menu">
              <ul>
-                 <li class="menu-title">
+                 <!-- <li class="menu-title">
                      <span>Main Menu</span>
-                 </li>
+                 </li> -->
 
                  <!-- Dashboard -->
                  <li class="{{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
@@ -159,8 +159,18 @@
                  </li>
 
                  <!-- Attendance -->
-                 <li class="submenu">
+                 <!-- <li class="submenu">
                      <a href="#"><i class="fas fa-calendar-check"></i> <span> Attendance</span></a>
+                 </li> -->
+                 <li class="submenu">
+                     <a href="#"><i class="fas fa-calendar-check"></i> <span> Attendance</span><span
+                             class="menu-arrow"></span></a>
+                             <ul>
+                                <li><a href="{{ route('attendence.staff') }}"><i class="fas fa-users"></i> Staff Attendance</a></li>
+                                <li><a href="{{ route('attendence.student') }}"><i class="fas fa-chalkboard-teacher"></i> Student Attendance</a></li>
+                                <!-- <li><a href="{{ route('attendence.holiday') }}"><i class="fas fa-calendar-times"></i> Holiday Declaration</a></li> -->
+                            </ul>
+
                  </li>
 
                  <!-- Syllabus -->

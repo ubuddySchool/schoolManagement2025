@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\School\StudentController;
 use App\Http\Controllers\School\TimetableController;
+use App\Http\Controllers\School\AttendenceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -67,7 +68,16 @@ Route::middleware('auth')->group(function () {
     Route::get('student/timetable/add', [TimetableController::class, 'add_timetable'])->name('school_student.timetable.add');
     Route::get('student/timetable/edit', [TimetableController::class, 'edit_timetable'])->name('school_student.timetable.edit');
     Route::get('student/timetable/show', [TimetableController::class, 'showTimetable'])->name('school_student.timetable.show');
-    
+    Route::get('student/manage/dates', [TimetableController::class, 'managedates'])->name('manage.dates');
+    // Route::get('/timetable/manage-dates', [TimetableController::class, 'manageDates'])->name('manage.dates');
+    Route::post('/timetable/save-dates', [TimetableController::class, 'saveDates'])->name('save.dates');
+    Route::get('/timetable/get-data', [TimetableController::class, 'getTimetableData'])->name('timetable.data');
+    // Attendence
+    Route::get('/attendence/staff', [AttendenceController::class, 'staff'])->name('attendence.staff');
+Route::get('/attendence/staff/add', [AttendenceController::class, 'addstaff'])->name('attendence.add.staff');
+    Route::get('/attendence/student', [AttendenceController::class, 'student'])->name('attendence.student');
+    Route::get('/attendence/holiday', [AttendenceController::class, 'holiday'])->name('attendence.holiday');
+
 });
 
 require __DIR__.'/auth.php';

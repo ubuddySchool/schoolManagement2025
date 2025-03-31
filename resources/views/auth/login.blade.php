@@ -11,8 +11,7 @@
                     </div>
                     <div class="login-right">
                         <div class="login-right-wrap">
-                            <h1>Welcome to Ubuddy</h1>
-                            <h2>School Admin Sign in</h2>
+                            <h1 class="mb-3">School Admin Login</h1>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
@@ -35,43 +34,39 @@
                                    
                                    
                                 </div>
+                                <div class="flex items-center justify-end mt-4">
+                                   
+
+                                   <x-primary-button class="btn btn-primary btn-block text-capitalize">
+                                       {{ __('login') }}
+                                   </x-primary-button>
+                               </div>
+                               <!-- <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Login</button>
+                                </div> -->
 
                                 <!-- Remember Me -->
                                 <div class="forgotpass mt-2">
-                                    <div class="remember-me">
-                                        <label class="custom_check mr-2 mb-0 d-inline-flex remember-me"> Remember me
-                                            <input id="remember_me" type="checkbox" name="remember">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-
                                     @if (Route::has('password.request'))
-                                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                                    <a class=" text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                                         {{ __('Forgot your password?') }}
                                     </a>
                                     @endif
                                 </div>
 
-                                <div class="flex items-center justify-end mt-4">
-                                   
-
-                                    <x-primary-button class="ms-3">
-                                        {{ __('Log in') }}
-                                    </x-primary-button>
-                                </div>
+                               
                             </form>
 
                             {{-- <div class="login-or">
                                 <span class="or-line"></span>
-                                <span class="span-or">or</span>
+                                <span class="span-or"></span>
                             </div>
 
-                            <div class="social-login">
-                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div> --}}
+                            <div class="copyright social-login">
+                                <p> © Copyright - UBUDDY 2025 - 2026.
+                                    <br> All rights reserved.
+                                </p>
+                            </div>
 
                         </div>
                     </div>
