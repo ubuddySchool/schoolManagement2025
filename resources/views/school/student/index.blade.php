@@ -15,17 +15,12 @@
 
     <div class="student-group-form">
         <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="form-group">
-                    <select class="form-select">
-                        <option>Select Category</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-2 col-md-6">
                 <div class="form-group">
                     <select class="form-select">
                         <option>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
             </div>
@@ -45,7 +40,9 @@
             <div class="col-lg-2">
                 <div class="search-student-btn">
                     <select class="form-select">
-                        <option></option>
+                        <option>Select Section</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
                     </select>
                 </div>
             </div>

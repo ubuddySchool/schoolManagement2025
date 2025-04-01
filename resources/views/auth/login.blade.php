@@ -57,7 +57,7 @@
                                
                             </form>
 
-                            <div class="login-or">
+                            {{-- <div class="login-or">
                                 <span class="or-line"></span>
                                 <span class="span-or"></span>
                             </div>
