@@ -24,19 +24,20 @@
                     </select>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="form-group">
-                    <select class="form-select">
-                        <option>Select Class</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
+            <div class="col-lg-3 col-md-6">
+            <div class="form-group">
+                <select class="form-select select" id="classSelect" multiple>
+                    <option disabled>Select Classes</option>
+                    <option value="class1">Class 1</option>
+                    <option value="class2">Class 2</option>
+                    <option value="class3">Class 3</option>
+                    <option value="class4">Class 4</option>
+                </select>
             </div>
-            <div class="col-lg-2 col-md-6">
+        </div>
+
+
+            <div class="col-lg-2">
                 <div class="search-student-btn">
                     <select class="form-select">
                         <option>Select Section</option>
