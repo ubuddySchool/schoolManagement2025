@@ -121,9 +121,9 @@
                  <li class="submenu">
                      <a href="#"><i class="fas fa-users-cog"></i> <span> Student Management</span><span class="menu-arrow"></span></a>
                      <ul>
-                         <li><a href="#"><i class="fas fa-users"></i> Promotion / Detention</a></li>
-                         <li><a href="#"><i class="fas fa-user-times"></i> Termination / Active-Inactive</a></li>
-                         <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Assign Section</a></li>
+                         <li><a href="{{ route('managment.promote_detention') }}"><i class="fas fa-users"></i> Promotion / Detention</a></li>
+                         <li><a href="{{ route('managment.termination') }}"><i class="fas fa-user-times"></i> Termination / Active-Inactive</a></li>
+                         <li><a href="{{ route('managment.assign_section') }}"><i class="fas fa-chalkboard-teacher"></i> Assign Section</a></li>
                          <li><a href="#"><i class="fas fa-sort-numeric-up"></i> Assign Roll Number</a></li>
                          <li><a href="{{ route('school_student.add') }}"><i class="fas fa-user-plus"></i> Add New Student</a></li>
                          <li><a href="{{ route('school_student.edit') }}"><i class="fas fa-user-edit"></i> Edit Profile</a></li>

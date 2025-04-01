@@ -81,6 +81,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/attendence/holiday', [AttendenceController::class, 'holiday'])->name('attendence.holiday');
     // Student Managment
     Route::get('/Managment/subjectassign', [StudentManagment::class, 'subject_assign'])->name('managment.subject_assign');
+    
+    Route::get('/Managment/promote&detention', [StudentManagment::class, 'promote_detention'])->name('managment.promote_detention');
+    Route::get('/Managment/termination', [StudentManagment::class, 'termination'])->name('managment.termination');
+    Route::get('/Managment/assign/section', [StudentManagment::class, 'assign_section'])->name('managment.assign_section');
 
 });
 
