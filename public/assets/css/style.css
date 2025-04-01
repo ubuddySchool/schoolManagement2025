@@ -303,7 +303,7 @@ table.table td h2 span {
     color: #000;
     background-color: #f8f9fa;
     border-color: #eff2f7;
-    text-align: center;
+    text-align: left;
 }
 .settings-form {
     margin-top: 20px;
