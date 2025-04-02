@@ -5,6 +5,7 @@ use App\Http\Controllers\School\StudentController;
 use App\Http\Controllers\School\TimetableController;
 use App\Http\Controllers\School\AttendenceController;
 use App\Http\Controllers\School\StudentManagment;
+use App\Http\Controllers\School\AdmitController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -85,6 +86,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/Managment/promote&detention', [StudentManagment::class, 'promote_detention'])->name('managment.promote_detention');
     Route::get('/Managment/termination', [StudentManagment::class, 'termination'])->name('managment.termination');
     Route::get('/Managment/assign/section', [StudentManagment::class, 'assign_section'])->name('managment.assign_section');
+    // admit
+    Route::get('/school/admit', [AdmitController::class, 'admit_index'])->name('student.admit');
+    Route::get('/school/rollno', [AdmitController::class, 'admit_rollno'])->name('student.admit.rollno');
+    Route::get('/school/layout', [AdmitController::class, 'admit_layout'])->name('student.admit.layout');
+    Route::get('/school/confirmation', [AdmitController::class, 'configration'])->name('student.admit.configration');
 
 });
 
