@@ -180,7 +180,7 @@
 
                  <!-- Admit Card -->
                  <li>
-                     <a href="holiday.html"><i class="far fa-id-card"></i> <span> Admit Card</span></a>
+                     <a href="{{ route('student.admit') }}"><i class="far fa-id-card"></i> <span> Admit Card</span></a>
                  </li>
 
                  <!-- Time Table -->

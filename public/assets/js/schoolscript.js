@@ -22,3 +22,28 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 });
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('.image-checkbox');
+        const images = document.querySelectorAll('.image-select');
+
+        // Disable right-click on images
+        images.forEach(img => {
+            img.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                alert('Right-click is disabled on images.');
+            });
+        });
+
+        // Allow only one checkbox to be selected
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                checkboxes.forEach(cb => {
+                    if (cb !== this) cb.checked = false;
+                });
+            });
+        });
+    });
