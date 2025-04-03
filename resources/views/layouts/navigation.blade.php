@@ -190,7 +190,7 @@
 
                  <!-- Result -->
                  <li>
-                     <a href="library.html"><i class="fas fa-chart-line"></i> <span> Result</span></a>
+                     <a href="{{ route('student.result') }}"><i class="fas fa-chart-line"></i> <span> Result</span></a>
                  </li>
 
                  <!-- Sub-Admin -->
