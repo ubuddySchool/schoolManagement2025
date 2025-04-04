@@ -5,6 +5,7 @@ use App\Http\Controllers\School\StudentController;
 use App\Http\Controllers\School\TimetableController;
 use App\Http\Controllers\School\AttendenceController;
 use App\Http\Controllers\School\StudentManagment;
+use App\Http\Controllers\School\SyllabusController;
 use App\Http\Controllers\School\ResultController;
 use App\Http\Controllers\School\AdmitController;
 use Illuminate\Support\Facades\Route;
@@ -96,6 +97,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/school/result', [ResultController::class, 'result'])->name('student.result');
     Route::get('/school/division', [ResultController::class, 'add_division'])->name('student.result.division');
     Route::get('/school/marksheet', [ResultController::class, 'add_marksheet'])->name('student.result.marksheet');
+    Route::get('/school/view', [ResultController::class, 'view_marksheet'])->name('student.result.view');
+    // syllabus
+    Route::get('/school/syllabus', [SyllabusController::class, 'syllabus'])->name('student.syllabus');
+    Route::get('/school/syllabus/add', [SyllabusController::class, 'add_syllabus'])->name('student.add_syllabus');
+    Route::get('/school/syllabus/edit', [SyllabusController::class, 'edit_syllabus'])->name('student.edit_syllabus');
 
 });
 

@@ -33,7 +33,7 @@
                     <div class="row align-items-center">
 
                     <div class="col-12 col-sm-2 text-center download-grp">
-                            <label class="m-0">2025-2026</label>
+                            <label class="m-0">2025-26</label>
                         </div>
 
                         <div class="col-lg-2 col-md-2">
@@ -128,9 +128,12 @@
                     <td>{{ $student['subject'] }}</td>
                     <td class="text-end">
                         <div class="actions">
-                            <a data-bs-toggle="modal" data-bs-target="#view-layouts-edit" class="btn btn-sm bg-success-light me-2"> <i class="feather-eye"></i></a>
+                            <!-- <a data-bs-toggle="modal" data-bs-target="#view-layouts-edit" class="btn btn-sm bg-success-light me-2"> <i class="feather-eye"></i></a> -->
 
-                            <a href="notice-delete.php" class="btn btn-sm bg-danger">
+                            <a href="{{ route('student.result.view') }}" class="btn btn-sm bg-success-light me-2">
+                            <i class="feather-eye"></i>
+                            </a>
+                            <a href="" class="btn btn-sm bg-danger">
                                 <i class="feather-trash"></i>
                             </a>
                         </div>
@@ -162,7 +165,10 @@
                     <td class="text-end">
                         <div class="actions">
                             
-                            <a data-bs-toggle="modal" data-bs-target="#view-layouts-edit" class="btn btn-sm bg-success-light me-2"> <i class="feather-eye"></i></a>
+                            <!-- <a data-bs-toggle="modal" data-bs-target="#view-layouts-edit" class="btn btn-sm bg-success-light me-2"> <i class="feather-eye"></i></a> -->
+                            <a href="{{ route('student.result.view') }}" class="btn btn-sm bg-success-light me-2">
+                            <i class="feather-eye"></i>
+                            </a>
                             <a href="notice-delete.php" class="btn btn-sm bg-danger">
                                 <i class="feather-trash"></i>
                             </a>

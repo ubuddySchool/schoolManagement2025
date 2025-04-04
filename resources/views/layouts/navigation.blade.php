@@ -175,7 +175,7 @@
 
                  <!-- Syllabus -->
                  <li>
-                     <a href="exam.html"><i class="fa fa-book-open"></i> <span> Syllabus</span></a>
+                     <a href="{{ route('student.syllabus') }}"><i class="fa fa-book-open"></i> <span> Syllabus</span></a>
                  </li>
 
                  <!-- Admit Card -->

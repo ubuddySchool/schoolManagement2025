@@ -28,7 +28,8 @@
                             </select>
                         </div>
                         <div class="col-md-3 text-end">
-                            <button class="btn btn-primary" id="promoteDetainBtn">Promote and Detain</button>
+                            <button class="btn btn-primary" id="promoteBtn">Promote</button>
+                            <button class="btn btn-primary" id="DetainBtn">Detain</button>
                         </div>
                     </div>
                 </div>
@@ -41,6 +42,19 @@
         <div class="col-sm-12">
             <div class="card card-table comman-shadow">
                 <div class="card-body">
+                <div class="page-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                              
+                            </div>
+
+                            <div class="col-auto">
+                                <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search student name,scholar number" class="form-control">
+                            </div>
+
+                           
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table
                             class="table border-0 star-student table-hover table-center mb-0 table-striped">
@@ -54,6 +68,7 @@
                                     </th>
                                     <th>S No.</th>
                                     <th>Student Name</th>
+                                    <th>Class</th>
                                     <th>Session</th>
                                 </tr>
                             </thead>
@@ -71,6 +86,7 @@
                                             <a href="student-details.html">Aaliyah</a>
                                         </h2>
                                     </td>
+                                    <td>1</td>
                                     <td>2025-2026</td>
                                 </tr>
                                 <tr>
@@ -86,6 +102,7 @@
                                             <a href="student-details.html">Demo</a>
                                         </h2>
                                     </td>
+                                    <td>2</td>
                                     <td>2025-2026</td>
                                 </tr>
                             </tbody>

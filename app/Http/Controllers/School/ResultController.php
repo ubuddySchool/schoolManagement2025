@@ -16,4 +16,7 @@ class ResultController extends Controller
     public function add_marksheet(){
         return view('school.result.add_marksheet');
     }
+    public function view_marksheet(){
+        return view('school.result.view_marksheet');
+    }
 }
