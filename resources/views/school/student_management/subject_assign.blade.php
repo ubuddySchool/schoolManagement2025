@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-12 col-sm-2 text-center download-grp">
-                            <label class="m-0">2025-2026</label>
+                            <label class="m-0">2025-26</label>
                         </div>
                         <div class="col-12 col-sm-2">
                             <select class="form-control" name="class">

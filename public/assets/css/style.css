@@ -305,6 +305,10 @@ table.table td h2 span {
     border-color: #eff2f7;
     text-align: left;
 }
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
 .settings-form {
     margin-top: 20px;
 }
