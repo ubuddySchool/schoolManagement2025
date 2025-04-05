@@ -71,7 +71,7 @@
                                             <a href="student-details.html">Aaliyah</a>
                                         </h2>
                                     </td>
-                                    <td>2025-2026</td>
+                                    <td>2025-26</td>
                                     <td><span class="badge bg-success">Active</span></td> <!-- Example Status -->
                                 </tr>
                                 <tr>
@@ -86,7 +86,7 @@
                                             <a href="student-details.html">Demo</a>
                                         </h2>
                                     </td>
-                                    <td>2025-2026</td>
+                                    <td>2025-26</td>
                                     <td><span class="badge bg-warning">Inactive</span></td> <!-- Example Status -->
                                 </tr>
                             </tbody>
