@@ -19,4 +19,10 @@ class ResultController extends Controller
     public function view_marksheet(){
         return view('school.result.view_marksheet');
     }
+    public function empty_marksheet(){
+        return view('school.result.empty_marksheet');
+    }
+    public function filled_marksheet(){
+        return view('school.result.filled_marksheet');
+    }
 }
