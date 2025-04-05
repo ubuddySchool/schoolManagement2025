@@ -76,7 +76,7 @@
                                             <a href="student-details.html">Aaliyah</a>
                                         </h2>
                                     </td>
-                                    <td>2025-2026</td>
+                                    <td>2025-26</td>
                                     <td><span class="badge bg-info">Section A</span></td> <!-- Example Section -->
                                 </tr>
                                 <tr>
@@ -91,7 +91,7 @@
                                             <a href="student-details.html">Demo</a>
                                         </h2>
                                     </td>
-                                    <td>2025-2026</td>
+                                    <td>2025-26</td>
                                     <td><span class="badge bg-secondary">Section B</span></td>
                                 </tr>
                             </tbody>

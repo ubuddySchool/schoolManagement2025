@@ -68,6 +68,7 @@
                                     </th>
                                     <th>S No.</th>
                                     <th>Student Name</th>
+                                    <th>Scholar number</th>
                                     <th>Class</th>
                                     <th>Session</th>
                                 </tr>
@@ -86,8 +87,9 @@
                                             <a href="student-details.html">Aaliyah</a>
                                         </h2>
                                     </td>
+                                    <td>1123</td>
                                     <td>1</td>
-                                    <td>2025-2026</td>
+                                    <td>2025-26</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -102,8 +104,9 @@
                                             <a href="student-details.html">Demo</a>
                                         </h2>
                                     </td>
+                                    <td>212123</td>
                                     <td>2</td>
-                                    <td>2025-2026</td>
+                                    <td>2025-26</td>
                                 </tr>
                             </tbody>
                         </table>
