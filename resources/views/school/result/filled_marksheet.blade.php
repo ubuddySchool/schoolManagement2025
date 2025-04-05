@@ -6,12 +6,13 @@
 
     <div class="row">
         <div class="col-1">
+            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1" id="export_button">Edit</a>
+        </div>
+        <div class="col-1">
             <button class="btn btn-primary page-header" onclick="printPage()"> Print</button>
         </div>
-        <div class="col-3">
-            <!-- Your HTML button -->
+        <div class="col-2">
             <button class="btn btn-primary page-header1" id="export_button">Export to Excel</button>
-
         </div>
         <div class="col-8">
         </div>
@@ -24,7 +25,7 @@
     </div>
 
 
-    <table id="myTable" class="table table-bordered border-0 star-student table-hover table-center mb-0  table-striped">
+    <table id="myTable" class="table table-bordered border-0 star-student table-hover table-center mb-5  table-striped">
         <thead class="student-thread">
             <tr>
                 <th rowspan="2">S. No.</th>
@@ -88,8 +89,8 @@
                 <td>
                 </td>
 
-                <td>12</td>
-                <td>12.00</td>
+                <td class="text-danger">12</td>
+                <td class="text-danger">12.00</td>
 
                 <td>
                 </td>
@@ -118,8 +119,8 @@
                 <td>
                 </td>
 
-                <td>0</td>
-                <td>0.00</td>
+                <td class="text-danger">0</td>
+                <td class="text-danger">0.00</td>
 
                 <td>
                 </td>
@@ -148,8 +149,8 @@
                 <td>
                 </td>
 
-                <td>13</td>
-                <td>13.00</td>
+                <td class="text-danger">13</td>
+                <td class="text-danger">13.00</td>
 
                 <td>
                 </td>
@@ -358,8 +359,8 @@
                 <td>
                 </td>
 
-                <td>14</td>
-                <td>14.00</td>
+                <td class="text-danger">14</td>
+                <td class="text-danger">14.00</td>
 
                 <td>
                 </td>
@@ -388,8 +389,8 @@
                 <td>
                 </td>
 
-                <td>12</td>
-                <td>12.00</td>
+                <td class="text-danger">12</td>
+                <td class="text-danger">12.00</td>
 
                 <td>
                 </td>

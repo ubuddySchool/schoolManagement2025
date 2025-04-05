@@ -23,12 +23,16 @@
                                     <td><input type="text" class="form-control" value="2024-25" readonly></td>
                                 </tr>
                                 <tr>
+                                    <th>Serial No.</th>
+                                    <th>Roll No.</th>
                                     <th>Student Name</th>
                                     <th>Ext Marks (out of 80)</th>
                                     <th>In Marks (out of 20)</th>
                                     <th>Action</th>
                                 </tr>
                                 <tr>
+                                    <td>1</td>
+                                    <td>12345</td>
                                     <td>Akash Singh</td>
                                     <td><input type="number" class="form-control marks" placeholder="Enter Marks"></td>
                                     <td><input type="number" class="form-control marks" placeholder="Enter Marks"></td>
