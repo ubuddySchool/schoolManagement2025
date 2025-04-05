@@ -11,17 +11,13 @@
                 @csrf
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title mb-0">Subject - English</h4>
+                        <!-- <h4 class="card-title mb-0">Subject - English</h4> -->
+                        <h6 class=" card-title m-0 w-100">2025-25 |  Term I  |  Class VI  | Section A</h6>
                     </div>
                     <div class="card-body p-4">
                         <table class="table table-bordered">
                             <tbody>
-                                <tr>
-                                    <td><input type="text" class="form-control" value="IV" readonly></td>
-                                    <td><input type="text" class="form-control" value="A" readonly></td>
-                                    <td><input type="text" class="form-control" value="Annual" readonly></td>
-                                    <td><input type="text" class="form-control" value="2024-25" readonly></td>
-                                </tr>
+                                
                                 <tr>
                                     <th>Serial No.</th>
                                     <th>Roll No.</th>

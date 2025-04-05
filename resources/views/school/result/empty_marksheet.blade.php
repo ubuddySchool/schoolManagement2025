@@ -5,24 +5,17 @@
 <div class="content container-fluid" style="padding: 1rem;">
 
     <div class="row">
-    <div class="col-1">
-            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1" id="export_button">Edit</a>
+        <div class="col-md-8 col-12">
+            <h6 class="m-0 w-100">2025-26 |  Term I  |  Class VI  | Section A</h6>
         </div>
         <div class="col-1">
-            <button class="btn btn-primary page-header" onclick="printPage()"> Print</button>
+            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
         </div>
-        <div class="col-3">
-            <!-- Your HTML button -->
-            <button class="btn btn-primary page-header1" id="export_button">Export to Excel</button>
-
-        </div>
-        <div class="col-8">
+        <div class="col-1">
+            <button class="btn btn-primary  w-100" onclick="printPage()"> Print</button>
         </div>
         <div class="col-2">
-            <h6>Class : Nursery</h6>
-        </div>
-        <div class="col-3">
-            <h6>Term : First Term</h6>
+            <button class="btn btn-primary page-header1 w-100" id="export_button">Export to Excel</button>
         </div>
     </div>
 

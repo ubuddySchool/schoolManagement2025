@@ -23,7 +23,6 @@
 
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="form-group local-forms" style="margin-bottom: 0;">
-                                        <label>Enquiry Status <span class="login-danger">*</span></label>
                                         <select name="enquiryStatus" class="currclass">
                                             <option value=""> - Select Status - </option>
                                             <option value="Running">Running</option>
@@ -35,7 +34,6 @@
 
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="form-group local-forms" style="margin-bottom: 0;">
-                                        <label>Class <span class="login-danger">*</span></label>
                                         <select name="currentClass" class="currclass" id="selectclassacad" data-school="20">
                                             <option value=""> - Select Class - </option>
                                             <option value="86" data-classcat="A">Nursery</option>
@@ -55,6 +53,18 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="form-group local-forms" style="margin-bottom: 0;">
+                                        <select name="feesStatus" class="currclass" id="feesStatusDropdown" data-school="20">
+                                            <option value=""> - Select Fees Status - </option>
+                                            <option value="admission_paid">Admission Fees Paid</option>
+                                            <option value="registration_paid">Registration Fees Paid</option>
+                                            <option value="admission_unpaid">Admission Fees Unpaid</option>
+                                            <option value="registration_unpaid">Registration Fees Unpaid</option>
+                                        </select>
+                                    </div>
+                                </div>
+
 
                             </div>
                         </div>
@@ -72,12 +82,12 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="page-title">Student Enquiry Details</h3>
+
                             </div>
 
                             <div class="col-auto">
-                                            <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search By Name" class="form-control">
-                                        </div>
+                                <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search By Name" class="form-control">
+                            </div>
 
                             <div class="col-auto text-end float-end ms-auto download-grp">
 
@@ -102,7 +112,7 @@
                                         <!--<th>D.O.B.</th>-->
                                         <th>Action</th>
                                         <th>Visit</th>
-                                        <th>Move To</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -122,29 +132,33 @@
 
 
                                         <td>
-                                            <div class="actions">
-
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
-
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details1"><i class="feather-eye"></i> </a>
-
-                                                <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
+                                            <div>
+                                                
+                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
+                                            <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
                                                 </button>
 
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="actions">
+                                            <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm bg-success-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: fit-content;">
+                                                    Options
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
+                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                </ul>
                                             </div>
+
                                         </td>
                                     </tr>
 
@@ -161,11 +175,10 @@
 
                                         <td>10</td>
                                         <td>
-                                            <div class="actions">
+                                            <div>
+                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
 
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert2"><i class="feather-edit"></i> </a>
-
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details2"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal2"><i class="feather-trash-2"></i>
                                                 </button>
@@ -174,16 +187,22 @@
                                         </td>
 
                                         <td>
-                                            <div class="actions">
+                                            <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal2" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm bg-success-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: fit-content;">
+                                                    Options
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
+                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                </ul>
                                             </div>
+
                                         </td>
                                     </tr>
 
@@ -202,12 +221,12 @@
 
 
                                         <td>
-                                            <div class="actions">
+                                            <div>
+                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
 
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert3"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details3"><i class="feather-eye"></i> </a>
-
+                                               
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal3"><i class="feather-trash-2"></i>
                                                 </button>
 
@@ -215,16 +234,22 @@
                                         </td>
 
                                         <td>
-                                            <div class="actions">
+                                            <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal3" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm bg-success-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: fit-content;">
+                                                    Options
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
+                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                </ul>
                                             </div>
+
                                         </td>
                                     </tr>
 
@@ -242,14 +267,9 @@
 
 
                                         <td>
-                                            <div class="actions">
-                                                <!--<a href="student-profile-view.php?id=4"-->
-                                                <!--    class="btn btn-sm bg-success-light me-2">-->
-                                                <!--    <i class="feather-eye"></i>-->
-                                                <!--</a> -->
+                                            <div>
+                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert4"><i class="feather-edit"></i> </a>
-
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details4"><i class="feather-eye"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal4"><i class="feather-trash-2"></i>
                                                 </button>
@@ -258,16 +278,22 @@
                                         </td>
 
                                         <td>
-                                            <div class="actions">
+                                            <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal4" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm bg-success-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: fit-content;">
+                                                    Options
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
+                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                </ul>
                                             </div>
+
                                         </td>
                                     </tr>
 
@@ -292,14 +318,11 @@
                                         <!--<td></td>-->
 
                                         <td>
-                                            <div class="actions">
-                                                <!--<a href="student-profile-view.php?id=5"-->
-                                                <!--    class="btn btn-sm bg-success-light me-2">-->
-                                                <!--    <i class="feather-eye"></i>-->
-                                                <!--</a> -->
+                                            <div>
+                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert5"><i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details5"><i class="feather-eye"></i> </a>
+                                               
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal5"><i class="feather-trash-2"></i>
                                                 </button>
@@ -308,16 +331,22 @@
                                         </td>
 
                                         <td>
-                                            <div class="actions">
+                                            <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal5" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="actions flex-end">
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Registration </a>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" style="width: fit-content;"> Admission </a>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm bg-success-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: fit-content;">
+                                                    Options
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
+                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                </ul>
                                             </div>
+
                                         </td>
                                     </tr>
                                 </tbody>
@@ -608,11 +637,11 @@
 </div>
 
 
-<div id="view-details1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
+<div id="view-details" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modalWidth modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Student Enquiry Details</h4>
+            <div class="d-flex justify-content-end m-2">
+                
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -1029,122 +1058,6 @@
 </div>
 
 
-<div id="view-details2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Student Enquiry Details</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <div class="row">
-                            <input class="form-control" name="enquiryStatusID" type="text" value="2" hidden>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Name: </strong> <span> fgadf</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Class: </strong> <span>
-                                        10</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Gender : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Date of Birth : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Session : </strong> <span> 2024-25</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous Class : </strong> <span> 0</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous School : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Name of Inquirer Person : </strong> <span> dfsdfhsdf</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Relation to Candidate : </strong> <span> Father</span></p>
-                            </div>
-
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Contact Number : </strong> <span> 5555555555</span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Enquiry : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Visit : </strong> <span> sb df bs</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father's Name: </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father Number: </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>How you know about the school? : </strong> <span> Pamphlet</span></p>
-                            </div>
-
-
-                            <div class="col-sm-6">
-                                <p><strong>Enquiry Date: </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Follow Up Date: </strong> <span> </span></p>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
-                            <thead class="student-thread">
-                                <tr>
-                                    <th style="width: 65px;">S. No.</th>
-                                    <th style="width: 100px;">Visit Date</th>
-                                    <th>Remark</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 <div id="new-visit-modal2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1433,129 +1346,6 @@
 </div>
 
 
-<div id="view-details3" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Student Enquiry Details</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <div class="row">
-                            <input class="form-control" name="enquiryStatusID" type="text" value="3" hidden>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Name: </strong> <span> Amit Jain</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Class: </strong> <span>
-                                        12</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Gender : </strong> <span> Male</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Date of Birth : </strong> <span> 20-02-1989</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Session : </strong> <span> 2024-25</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous Class : </strong> <span> 11</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous School : </strong> <span> Divine</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Name of Inquirer Person : </strong> <span> Ankit Jain</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Relation to Candidate : </strong> <span> Other</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Other : </strong> <span> Brother</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Contact Number : </strong> <span> 8888888888</span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Enquiry : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Visit : </strong> <span> Demo</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father's Name: </strong> <span> Ravindra Jain</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father Number: </strong> <span> 7855555555</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>How you know about the school? : </strong> <span> Other</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Other : </strong> <span> Face 2 face</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Enquiry Date: </strong> <span> 20-02-2025</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Follow Up Date: </strong> <span> 24-02-2025</span></p>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
-                            <thead class="student-thread">
-                                <tr>
-                                    <th style="width: 65px;">S. No.</th>
-                                    <th style="width: 100px;">Visit Date</th>
-                                    <th>Remark</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>20-02-2025</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
 
 <div id="new-visit-modal3" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
@@ -1842,126 +1632,6 @@
     </div>
 </div>
 
-
-<div id="view-details4" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Student Enquiry Details</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <div class="row">
-                            <input class="form-control" name="enquiryStatusID" type="text" value="4" hidden>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Name: </strong> <span> ankit </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Class: </strong> <span>
-                                        1</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Gender : </strong> <span> Male</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Date of Birth : </strong> <span> 05-03-2025</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Session : </strong> <span> 2024-25</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous Class : </strong> <span> 5</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous School : </strong> <span> Divine</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Name of Inquirer Person : </strong> <span> Amit</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Relation to Candidate : </strong> <span> Other</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Other : </strong> <span> jjj</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Contact Number : </strong> <span> 8764535345</span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Enquiry : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Visit : </strong> <span> testing</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father's Name: </strong> <span> ABC</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father Number: </strong> <span> 9764646747</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>How you know about the school? : </strong> <span> Staff</span></p>
-                            </div>
-
-
-                            <div class="col-sm-6">
-                                <p><strong>Enquiry Date: </strong> <span> 05-03-2025</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Follow Up Date: </strong> <span> 10-03-2025</span></p>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
-                            <thead class="student-thread">
-                                <tr>
-                                    <th style="width: 65px;">S. No.</th>
-                                    <th style="width: 100px;">Visit Date</th>
-                                    <th>Remark</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>05-03-2025</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 <div id="new-visit-modal4" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -2267,127 +1937,7 @@
 </div>
 
 
-<div id="view-details5" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Student Enquiry Details</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
 
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <div class="row">
-                            <input class="form-control" name="enquiryStatusID" type="text" value="5" hidden>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Name: </strong> <span> dgdh</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Class: </strong> <span>
-                                        6</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Gender : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Date of Birth : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Session : </strong> <span> 2024-25</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous Class : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous School : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Name of Inquirer Person : </strong> <span> sgbsxgb</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Relation to Candidate : </strong> <span> </span></p>
-                            </div>
-
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Contact Number : </strong> <span> 3634545454</span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Enquiry : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Visit : </strong> <span> gfbdfgd</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father's Name: </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father Number: </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>How you know about the school? : </strong> <span> Parents</span></p>
-                            </div>
-
-
-                            <div class="col-sm-6">
-                                <p><strong>Enquiry Date: </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Follow Up Date: </strong> <span> 13-03-2025</span></p>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
-                            <thead class="student-thread">
-                                <tr>
-                                    <th style="width: 65px;">S. No.</th>
-                                    <th style="width: 100px;">Visit Date</th>
-                                    <th>Remark</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>08-03-2025</td>
-                                    <td>sdfbsdfbsg</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 <div id="new-visit-modal5" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
