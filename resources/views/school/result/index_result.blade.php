@@ -81,6 +81,7 @@
                                 <option>Select Type</option>
                                 <option value="0">Student Wise</option>
                                 <option value="1">Subject Wise</option>
+                                <option value="2">Cross Wise</option>
                             </select>
                         </div>
                     </div>
@@ -115,9 +116,9 @@
         <tbody>
             @php
                 $students = [
-                    ['name' => 'Aaliyah', 'class' => '10 A', 'section' => 'A', 'subject' => 'Maths'],
-                    ['name' => 'Malynne', 'class' => '8 A', 'section' => 'A', 'subject' => 'English'],
-                    ['name' => 'Nathan Humphries', 'class' => '10 B', 'section' => 'A', 'subject' => 'Science'],
+                    ['name' => 'Aaliyah', 'st_name'=>'1234', 'class' => '10 A', 'section' => 'A', 'subject' => 'Maths'],
+                    ['name' => 'Malynne', 'st_name'=>'1234', 'class' => '8 A', 'section' => 'A', 'subject' => 'English'],
+                    ['name' => 'Nathan Humphries','st_name'=>'1234', 'class' => '10 B', 'section' => 'A', 'subject' => 'Science'],
                 ];
             @endphp
             @foreach ($students as $key => $student)
@@ -161,6 +162,44 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $student['name'] }}</td>
                     <td>{{ $student['class'] }}</td>
+                    <td>{{ $student['section'] }}</td>
+                    <td class="text-end">
+                        <div class="actions">
+                            
+                            <!-- <a data-bs-toggle="modal" data-bs-target="#view-layouts-edit" class="btn btn-sm bg-success-light me-2"> <i class="feather-eye"></i></a> -->
+                            <a href="{{ route('student.result.view') }}" class="btn btn-sm bg-success-light me-2">
+                            <i class="feather-eye"></i>
+                            </a>
+                            <a href="notice-delete.php" class="btn btn-sm bg-danger">
+                                <i class="feather-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <table id="crossWiseTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
+        <thead class="student-thread">
+            <tr>
+                <th>S No.</th>
+                <th>Student no</th>
+                <th>Student Name</th>
+                <th>Subject</th>
+                <th>Section</th>
+                <th class="text-end">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($students as $key => $student)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $student['st_name'] }}</td>
+                    <td>{{ $student['name'] }}</td>
+                    <td>{{ $student['subject'] }}</td>
                     <td>{{ $student['section'] }}</td>
                     <td class="text-end">
                         <div class="actions">
@@ -294,7 +333,7 @@
                     <div class="modal-body p-4">
                         <div class="row" style="margin-bottom: .5rem;">
                             <div class="col-md-12">
-                                <select name="layoutClass" class="currclass">
+                                <select name="layoutClass" class="currclass dropdown-select">
                                     <option>Select Class</option>
                                     <option value="86" data-classcat="A">Nursery</option>
                                     <option value="88" data-classcat="A">UKG</option>
@@ -347,7 +386,7 @@
                         <div class="form-group">
                             <div class="row" style="margin-bottom: .5rem;">
                                 <div class="col-md-12">
-                                    <select name="class" class="currclass" required>
+                                    <select name="class" class="currclass dropdown-select w-100" required>
                                         <option>Select Class</option>
                                         <option value="86" data-classcat="A">Nursery</option>
                                         <option value="88" data-classcat="A">UKG</option>
@@ -368,7 +407,7 @@
                             </div>
                             <div class="row" style="margin-bottom: .5rem;">
                                 <div class="col-md-12">
-                                    <select name="terms" class="currclass dropdown-select" required>
+                                    <select name="terms" class="currclass dropdown-select w-100" required>
                                         <option value="">Select Term</option>
                                         <option value="14">First Term</option>
                                         <option value="15">Second Term</option>
@@ -378,7 +417,7 @@
                             </div>
                             <div class="row" style="margin-bottom: 0.5rem;">
                                 <div class="col-md-12">
-                                    <select name="parentSign" class="currclass dropdown-select" aria-label="Parent Signature" required>
+                                    <select name="parentSign" class="currclass dropdown-select w-100" aria-label="Parent Signature" required>
                                         <option value="" selected disabled>Parent Signature</option>
                                         <option value="0">No</option>
                                         <option value="1">Yes</option>
@@ -391,9 +430,10 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
-                        <button type="submit" name="blankFileExport" class="btn btn-primary">Export Blank File</button>
-                        <button type="submit" name="filledFileExport" class="btn btn-primary">Export Filled File</button>
+                        <a href="{{ route('student.result.empty') }}" name="blankFileExport" class="btn btn-primary">Export Blank File</a>
+                        <a href="{{ route('student.result.filled') }}" name="filledFileExport" class="btn btn-primary">Export Filled File</a>
+                        <!-- <button type="submit" name="blankFileExport" class="btn btn-primary">Export Blank File</button>
+                        <button type="submit" name="filledFileExport" class="btn btn-primary">Export Filled File</button> -->
                     </div>
                 </form>
             </div>
@@ -408,22 +448,34 @@
     const resultTypeSelect = document.getElementById('resultType');
     const subjectWiseTable = document.getElementById('subjectWiseTable');
     const studentWiseTable = document.getElementById('studentWiseTable');
+    const crossWiseTable = document.getElementById('crossWiseTable');
 
     // Hide both tables initially
     subjectWiseTable.style.display = 'none';
     studentWiseTable.style.display = 'none';
+    crossWiseTable.style.display = 'none';
 
     // Listen for changes on the resultType select dropdown
     resultTypeSelect.addEventListener('change', function () {
-        if (resultTypeSelect.value == '0') { // "Student Wise"
+        if (resultTypeSelect.value == '0') { 
             subjectWiseTable.style.display = 'none';
+            crossWiseTable.style.display = 'none';
             studentWiseTable.style.display = 'table';
-        } else if (resultTypeSelect.value == '1') { // "Subject Wise"
+        }
+         else if (resultTypeSelect.value == '1') { 
             subjectWiseTable.style.display = 'table';
             studentWiseTable.style.display = 'none';
-        } else { // Default: Hide both tables if no option is selected
+            crossWiseTable.style.display = 'none';
+        } 
+         else if (resultTypeSelect.value == '2') {
+            crossWiseTable.style.display = 'table';
+            studentWiseTable.style.display = 'none';
+            subjectWiseTable.style.display = 'none';
+        } 
+        else { // Default: Hide both tables if no option is selected
             subjectWiseTable.style.display = 'none';
             studentWiseTable.style.display = 'none';
+            crossWiseTable.style.display = 'none';
         }
     });
 });
