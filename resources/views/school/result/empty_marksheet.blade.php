@@ -5,6 +5,9 @@
 <div class="content container-fluid" style="padding: 1rem;">
 
     <div class="row">
+    <div class="col-1">
+            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1" id="export_button">Edit</a>
+        </div>
         <div class="col-1">
             <button class="btn btn-primary page-header" onclick="printPage()"> Print</button>
         </div>
@@ -24,7 +27,7 @@
     </div>
 
 
-    <table id="myTable" class="table table-bordered  border-0 star-student table-hover table-center mb-0  table-striped">
+    <table id="myTable" class="table table-bordered  border-0 star-student table-hover table-center mb-5  table-striped">
         <thead class="student-thread">
             <tr>
                 <th rowspan="2">S. No.</th>
