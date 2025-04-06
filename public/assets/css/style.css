@@ -8430,6 +8430,12 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
     margin: 5px;
 }
 
+.white-icon {
+	fill: white; 
+	width: 24px; 
+	height: 24px;
+ }
+
 /*-----------------
 	29. Responsive
 -----------------------*/
@@ -8481,7 +8487,8 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
 		font-size: 18px;
 		height: 40px;
 		width: 40px;
-		background: #3D5EE1;
+		/* background: #3D5EE1; */
+		background: #000;
 		justify-content: center;
 		padding: 0 12px;
 		border-radius: 10px;
@@ -8513,10 +8520,14 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
 	}
 	.mini-sidebar .header .header-left {
 		padding: 0 5px;
-		width: 78px;
+		/* width: 78px; */
+		width: 0px;
 	}
-	.mini-sidebar .sidebar {
+	/* .mini-sidebar .sidebar {
 		width: 78px;
+	} */
+	.mini-sidebar .sidebar {
+		width: 0px;
 	}
 	.mini-sidebar.expand-menu .sidebar {
 		width: 240px;
@@ -8549,8 +8560,11 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
 	.mini-sidebar.expand-menu .sidebar .sidebar-menu > ul > li > a i {
 		width: 20px;
 	}
-	.mini-sidebar .page-wrapper {
+	/* .mini-sidebar .page-wrapper {
 		margin-left: 78px;
+	} */
+	.mini-sidebar .page-wrapper {
+		margin-left: 0px;
 	}
 }
 

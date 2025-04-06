@@ -67,6 +67,11 @@ Route::middleware('auth')->group(function () {
         // student
     Route::get('/student/enquiry', [StudentController::class, 'enquiry'])->name('school_student.enquiry');
     Route::get('/student/enquiry/add', [StudentController::class, 'add_enquiry'])->name('school_student.add.enquiry');
+        // fees
+    Route::get('/student/registration/feespaid', [StudentController::class, 'registration_feespaid'])->name('school_student.feespaid');
+    Route::get('/student/Admission/feespaid', [StudentController::class, 'admission_feespaid'])->name('school_student.admission.feespaid');
+    Route::get('/student/registration/feesform', [StudentController::class, 'registration_feesunpaid'])->name('school_student.feesunpaid');
+    Route::get('/student/Admission/feesform', [StudentController::class, 'admission_feesunpaid'])->name('school_student.admission.feesunpaid');
         // timetable
     Route::get('student/timetable', [TimetableController::class, 'timetable'])->name('school_student.timetable');
     Route::get('student/timetable/add', [TimetableController::class, 'add_timetable'])->name('school_student.timetable.add');

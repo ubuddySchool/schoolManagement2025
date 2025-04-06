@@ -105,11 +105,7 @@
                                         <th>S. No.</th>
                                         <th>Status</th>
                                         <th>Student Name</th>
-                                        <!--<th>Father's Name</th>-->
                                         <th>Class</th>
-                                        <!--<th>Gender</th>-->
-                                        <!--<th>Contact Number</th>-->
-                                        <!--<th>D.O.B.</th>-->
                                         <th>Action</th>
                                         <th>Visit</th>
                                         <th>Action</th>
@@ -123,7 +119,7 @@
                                             <h2 class="table-avatar confirmCSS">Running</h2>
                                         </td>
                                         <td>
-                                            <h2 class="table-avatar"> ankit </h2>
+                                            <h2 class="table-avatar"> Ram </h2>
                                         </td>
 
 
@@ -133,10 +129,10 @@
 
                                         <td>
                                             <div>
-                                                
-                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
-                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
-                                            <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
+
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
+                                                <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
                                                 </button>
 
                                             </div>
@@ -154,8 +150,11 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
-                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li> 
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li> -->
                                                 </ul>
                                             </div>
 
@@ -176,13 +175,10 @@
                                         <td>10</td>
                                         <td>
                                             <div>
-                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
-
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert2"><i class="feather-edit"></i> </a>
-
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal2"><i class="feather-trash-2"></i>
                                                 </button>
-
                                             </div>
                                         </td>
 
@@ -198,8 +194,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
-                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>  -->
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li> -->
+                                                       
                                                 </ul>
                                             </div>
 
@@ -222,11 +222,11 @@
 
                                         <td>
                                             <div>
-                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
 
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert3"><i class="feather-edit"></i> </a>
 
-                                               
+
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal3"><i class="feather-trash-2"></i>
                                                 </button>
 
@@ -245,8 +245,13 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
-                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>  -->
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li> -->
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li>
+                                                       
                                                 </ul>
                                             </div>
 
@@ -268,7 +273,7 @@
 
                                         <td>
                                             <div>
-                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert4"><i class="feather-edit"></i> </a>
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal4"><i class="feather-trash-2"></i>
@@ -289,8 +294,11 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
-                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>  -->
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li> -->
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li>
                                                 </ul>
                                             </div>
 
@@ -319,10 +327,10 @@
 
                                         <td>
                                             <div>
-                                            <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert5"><i class="feather-edit"></i> </a>
 
-                                               
+
 
                                                 <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal5"><i class="feather-trash-2"></i>
                                                 </button>
@@ -342,8 +350,11 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="#">Registration</a></li>
-                                                    <li><a class="dropdown-item" href="#">Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li> 
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li>
                                                 </ul>
                                             </div>
 
@@ -635,109 +646,58 @@
         </div>
     </div>
 </div>
-
-
 <div id="view-details" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth modal-lg">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="d-flex justify-content-end m-2">
-                
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            <!-- <div class="d-flex justify-content-end m-2"> -->
+            <button type="button" class="text-end border-0 bg-white" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <!-- </div> -->
 
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-7">
-                        <div class="row">
-                            <input class="form-control" name="enquiryStatusID" type="text" value="1" hidden>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Name: </strong> <span> ankit </span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Class: </strong> <span>
-                                        6</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Student Gender : </strong> <span> Male</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Date of Birth : </strong> <span> 19-02-2025</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Session : </strong> <span> 2024-25</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous Class : </strong> <span> 5</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Previous School : </strong> <span> Divine</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Name of Inquirer Person : </strong> <span> Amit</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Relation to Candidate : </strong> <span> Other</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Other : </strong> <span> Brother</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Inquirer Contact Number : </strong> <span> 9876543456</span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Enquiry : </strong> <span> </span></p>
-                            </div>
-
-                            <div class="col-sm-6 d-none">
-                                <p><strong>Remarks for Visit : </strong> <span> testing</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father's Name: </strong> <span> Ravindra Jain</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Father Number: </strong> <span> 666666666</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>How you know about the school? : </strong> <span> Other</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Other : </strong> <span> Whatsapp</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Enquiry Date: </strong> <span> 19-02-2025</span></p>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <p><strong>Follow Up Date: </strong> <span> 19-02-2025</span></p>
-                            </div>
-
-
-
-                        </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Session: </strong> 2024-25</p>
                     </div>
-                    <div class="col-sm-5">
-                        <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
-                            <thead class="student-thread">
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Student Name: </strong> ankit</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="mb-0"><strong>Class: </strong> 6</p>
+                    </div>
+
+                    <!-- Extra details hidden initially -->
+                    <div class="col-md-4 extra-details d-none">
+                        <p class="mb-0"><strong>Student Gender: </strong> Male</p>
+                        <p class="mb-0"><strong>Date of Birth: </strong> 19-02-2025</p>
+                        <p class="mb-0"><strong>Previous Class: </strong> 5</p>
+                        <p class="mb-0"><strong>Enquiry Date: </strong> 19-02-2025</p>
+                    </div>
+
+                    <div class="col-md-4 extra-details d-none">
+                        <p class="mb-0"><strong>Previous School: </strong> Divine</p>
+                        <p class="mb-0"><strong>Name of Inquirer: </strong> Amit</p>
+                        <p class="mb-0"><strong>Inquirer Relation: </strong> Other</p>
+                        <p class="mb-0"><strong>Follow Up Date: </strong> 19-02-2025</p>
+                    </div>
+
+                    <div class="col-md-4 extra-details d-none">
+                        <p class="mb-0"><strong>Inquirer Contact: </strong> 9876543456</p>
+                        <p class="mb-0"><strong>Father's Name: </strong> Ravindra Jain</p>
+                        <p class="mb-0"><strong>Father's Contact: </strong> 666666666</p>
+                        <p class="mb-0"><strong>Other Source: </strong> Whatsapp</p>
+                    </div>
+
+                    <div class="col-md-4 extra-details d-none">
+                        <p class="mb-0"><strong>How did you hear about the school? </strong> Other</p>
+                    </div>
+
+                    <!-- Table remains the same -->
+                    <div class="col-12">
+                        <table id="myTable" class="table table-hover table-striped table-sm">
+                            <thead>
                                 <tr>
-                                    <th style="width: 65px;">S. No.</th>
-                                    <th style="width: 100px;">Visit Date</th>
+                                    <th>S. No.</th>
+                                    <th>Visit Date</th>
                                     <th>Remark</th>
                                 </tr>
                             </thead>
@@ -750,28 +710,43 @@
                                 <tr>
                                     <td>2</td>
                                     <td>01-03-2025</td>
-                                    <td> sdh sd hsd </td>
+                                    <td>sdh sd hsd</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td></td>
-                                    <td>noice
-                                    </td>
+                                    <td>noice</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-            </div>
 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="view-more-btn" class="btn btn-primary">View More</button>
+            </div>
         </div>
     </div>
 </div>
 
+<script>
+    // JavaScript to toggle the visibility of extra details
+    document.getElementById("view-more-btn").addEventListener("click", function() {
+        // Get all elements with the "extra-details" class
+        const extraDetails = document.querySelectorAll(".extra-details");
 
+        // Toggle the "d-none" class for each extra detail
+        extraDetails.forEach(function(detail) {
+            detail.classList.toggle("d-none");
+        });
+
+        // Change the button text based on visibility
+        const btnText = this.textContent === "View More" ? "View Less" : "View More";
+        this.textContent = btnText;
+    });
+</script>
 <div id="new-visit-modal1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog d-flex justify-content-center">
         <div class="modal-content" style="width: 600px;">

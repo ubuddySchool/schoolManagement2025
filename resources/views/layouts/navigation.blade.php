@@ -9,15 +9,16 @@
                 <img src="{{ asset('assets/img/logo.webp') }}" alt="Logo"> -->
 
          </a>
-         <a href="{{ route('admin.dashboard') }}" class="logo logo-small">
+         <!-- <a href="{{ route('admin.dashboard') }}" class="logo logo-small">
              <img src="{{ asset('assets/img/logo-small.webp') }}" alt="Logo" width="30" height="30">
-         </a>
+         </a> -->
 
      </div>
 
      <div class="menu-toggle">
          <a href="javascript:void(0);" id="toggle_btn">
-             <i class="fas fa-bars"></i>
+             <!-- <i class="fas fa-bars"></i> -->
+            <img src="{{ asset('assets/img/icons/sidebar.png') }}" alt="" class="white-icon">
          </a>
      </div>
 
@@ -98,146 +99,127 @@
 
  </div>
 
- <!-- sidebar -->
- <div class="sidebar" id="sidebar">
-     <div class="sidebar-inner slimscroll">
-         <div id="sidebar-menu" class="sidebar-menu">
-             <ul>
-                 <!-- <li class="menu-title">
-                     <span>Main Menu</span>
-                 </li> -->
+<!-- sidebar -->
+<!-- sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <!-- Dashboard -->
+                <li class="{{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}"><span> Dashboard</span></a>
+                </li>
 
-                 <!-- Dashboard -->
-                 <li class="{{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
-                     <a href="{{ route('dashboard') }}"><i class="feather-home"></i> <span> Dashboard</span></a>
-                 </li>
+                <!-- Student Enquiry -->
+                <li class="{{ Route::currentRouteName() == 'school_student.enquiry' ? 'active' : '' }}">
+                    <a href="{{ route('school_student.enquiry') }}"><span> Student Enquiry</span></a>
+                </li>
 
-                 <!-- Student Enquiry -->
-                 <li class="{{ Route::currentRouteName() == 'school_student.enquiry' ? 'active' : '' }}">
-                     <a href="{{ route('school_student.enquiry') }}"><i class="fas fa-search"></i> <span> Student Enquiry</span></a>
-                 </li>
+                <!-- Student Management -->
+                <li class="submenu {{ in_array(Route::currentRouteName(), ['managment.promote_detention', 'managment.termination', 'managment.assign_section', 'managment.subject_assign', 'school_student.edit']) ? 'active' : '' }}">
+                    <a href="#"><span> Student Management</span><span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('managment.promote_detention') }}" class="{{ Route::currentRouteName() == 'managment.promote_detention' ? 'active' : '' }}"><span> Promotion / Detention</span></a></li>
+                        <li><a href="{{ route('managment.termination') }}" class="{{ Route::currentRouteName() == 'managment.termination' ? 'active' : '' }}"><span> Termination / Active-Inactive</span></a></li>
+                        <li><a href="{{ route('managment.assign_section') }}" class="{{ Route::currentRouteName() == 'managment.assign_section' ? 'active' : '' }}"><span> Assign Section</span></a></li>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'school_student.edit' ? 'active' : '' }}"><span> Edit Profile</span></a></li>
+                        <li><a href="{{ route('managment.subject_assign') }}" class="{{ Route::currentRouteName() == 'managment.subject_assign' ? 'active' : '' }}"><span> Assign Subjects</span></a></li>
+                    </ul>
+                </li>
 
-                 <!-- Student Management -->
-                 <li class="submenu">
-                     <a href="#"><i class="fas fa-users-cog"></i> <span> Student Management</span><span class="menu-arrow"></span></a>
-                     <ul>
-                         <li><a href="{{ route('managment.promote_detention') }}"><i class="fas fa-users"></i> Promotion / Detention</a></li>
-                         <li><a href="{{ route('managment.termination') }}"><i class="fas fa-user-times"></i> Termination / Active-Inactive</a></li>
-                         <li><a href="{{ route('managment.assign_section') }}"><i class="fas fa-chalkboard-teacher"></i> Assign Section</a></li>
-                         <li><a href="#"><i class="fas fa-sort-numeric-up"></i> Assign Roll Number</a></li>
-                         <li><a href="{{ route('school_student.add') }}"><i class="fas fa-user-plus"></i> Add New Student</a></li>
-                         <li><a href="{{ route('school_student.edit') }}"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
-                         <li><a href="#"><i class="fas fa-cogs"></i> Assign House</a></li>
-                         <li><a href="{{ route('managment.subject_assign') }}"><i class="fas fa-book-open"></i> Assign Subjects</a></li>
-                     </ul>
-                 </li>
+                <!-- Student -->
+                <li class="{{ Route::currentRouteName() == 'school_student.index' ? 'active' : '' }}">
+                    <a href="{{ route('school_student.index') }}"><span> Student</span></a>
+                </li>
 
-                 <!-- Student -->
-                 <li class="{{ Route::currentRouteName() == 'school_student.index' ? 'active' : '' }}">
-                     <a href="{{ route('school_student.index') }}"><i class="fas fa-user-graduate"></i> <span> Student</span></a>
-                 </li>
+                <!-- Staff Enquiry -->
+                <li class="{{ Route::currentRouteName() == 'staff.enquiry' ? 'active' : '' }}">
+                    <a href="#"><span> Staff Enquiry</span></a>
+                </li>
 
-                 <!-- Staff Enquiry -->
-                 <li class="">
-                     <a href=""><i class="fas fa-search"></i> <span> Staff Enquiry</span></a>
-                 </li>
+                <!-- Staff Management -->
+                <li class="submenu {{ in_array(Route::currentRouteName(), ['staff.add', 'staff.edit', 'staff.termination']) ? 'active' : '' }}">
+                    <a href="#"><span> Staff Management</span><span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'staff.add' ? 'active' : '' }}"><span> Add New Staff</span></a></li>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'staff.edit' ? 'active' : '' }}"><span> Edit Profile</span></a></li>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'staff.termination' ? 'active' : '' }}"><span> Termination / Active-Inactive</span></a></li>
+                    </ul>
+                </li>
 
-                 <!-- Staff Management -->
-                 <li class="submenu">
-                     <a href="#"><i class="fas fa-users-cog"></i> <span> Staff Management</span><span
-                             class="menu-arrow"></span></a>
-                     <ul>
-                         <li><a href="#"><i class="fas fa-user-plus"></i> Add New Staff</a></li>
-                         <li><a href="#"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
-                         <li><a href="#"><i class="fas fa-user-times"></i> Termination / Active-Inactive</a></li>
-                     </ul>
-                 </li>
+                <!-- Attendance -->
+                <li class="submenu {{ in_array(Route::currentRouteName(), ['attendence.staff', 'attendence.student', 'attendence.holiday']) ? 'active' : '' }}">
+                    <a href="#"><span> Attendance</span><span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('attendence.staff') }}" class="{{ Route::currentRouteName() == 'attendence.staff' ? 'active' : '' }}"><span> Staff Attendance</span></a></li>
+                        <li><a href="{{ route('attendence.student') }}" class="{{ Route::currentRouteName() == 'attendence.student' ? 'active' : '' }}"><span> Student Attendance</span></a></li>
+                        <li><a href="{{ route('attendence.holiday') }}" class="{{ Route::currentRouteName() == 'attendence.holiday' ? 'active' : '' }}"><span> Holiday Declaration</span></a></li>
+                    </ul>
+                </li>
 
-                 <!-- Staff -->
-                 <li class="submenu">
-                     <a href="#"><i class="fas fa-users"></i> <span> Staff</span></a>
-                 </li>
+                <!-- Syllabus -->
+                <li class="{{ Route::currentRouteName() == 'student.syllabus' ? 'active' : '' }}">
+                    <a href="{{ route('student.syllabus') }}"><span> Syllabus</span></a>
+                </li>
 
-                 <!-- Attendance -->
-                 <!-- <li class="submenu">
-                     <a href="#"><i class="fas fa-calendar-check"></i> <span> Attendance</span></a>
-                 </li> -->
-                 <li class="submenu">
-                     <a href="#"><i class="fas fa-calendar-check"></i> <span> Attendance</span><span
-                             class="menu-arrow"></span></a>
-                             <ul>
-                                <li><a href="{{ route('attendence.staff') }}"><i class="fas fa-users"></i> Staff Attendance</a></li>
-                                <li><a href="{{ route('attendence.student') }}"><i class="fas fa-chalkboard-teacher"></i> Student Attendance</a></li>
-                                <li><a href="{{ route('attendence.holiday') }}"><i class="fas fa-calendar-times"></i> Holiday Declaration</a></li>
-                            </ul>
+                <!-- Admit Card -->
+                <li class="{{ Route::currentRouteName() == 'student.admit' ? 'active' : '' }}">
+                    <a href="{{ route('student.admit') }}"><span> Admit Card</span></a>
+                </li>
 
-                 </li>
+                <!-- Time Table -->
+                <li class="{{ Route::currentRouteName() == 'school_student.timetable' ? 'active' : '' }}">
+                    <a href="{{ route('school_student.timetable') }}"><span> Time Table</span></a>
+                </li>
 
-                 <!-- Syllabus -->
-                 <li>
-                     <a href="{{ route('student.syllabus') }}"><i class="fa fa-book-open"></i> <span> Syllabus</span></a>
-                 </li>
+                <!-- Result -->
+                <li class="{{ Route::currentRouteName() == 'student.result' ? 'active' : '' }}">
+                    <a href="{{ route('student.result') }}"><span> Result</span></a>
+                </li>
 
-                 <!-- Admit Card -->
-                 <li>
-                     <a href="{{ route('student.admit') }}"><i class="far fa-id-card"></i> <span> Admit Card</span></a>
-                 </li>
+                <!-- Sub-Admin -->
+                <li class="{{ Route::currentRouteName() == 'subadmin' ? 'active' : '' }}">
+                    <a href="blank-page.html"><span> Sub-Admin</span></a>
+                </li>
 
-                 <!-- Time Table -->
-                 <li>
-                     <a href="{{ route('school_student.timetable')}}"><i class="far fa-calendar-alt"></i> <span> Time Table</span></a>
-                 </li>
+                <!-- Annual Calendar -->
+                <li class="{{ Route::currentRouteName() == 'annual.calendar' ? 'active' : '' }}">
+                    <a href="sports.html"><span> Annual Calendar</span></a>
+                </li>
 
-                 <!-- Result -->
-                 <li>
-                     <a href="{{ route('student.result') }}"><i class="fas fa-chart-line"></i> <span> Result</span></a>
-                 </li>
+                <!-- Certificate -->
+                <li class="{{ Route::currentRouteName() == 'certificate' ? 'active' : '' }}">
+                    <a href="hostel.html"><span> Certificate</span></a>
+                </li>
 
-                 <!-- Sub-Admin -->
-                 <li>
-                     <a href="blank-page.html"><i class="fas fa-user-shield"></i> <span> Sub-Admin</span></a>
-                 </li>
+                <!-- Ticket -->
+                <li class="{{ Route::currentRouteName() == 'ticket' ? 'active' : '' }}">
+                    <a href="transport.html"><span> Ticket</span></a>
+                </li>
 
-                 <!-- Annual Calendar -->
-                 <li>
-                     <a href="sports.html"><i class="fa fa-calendar-check"></i> <span> Annual Calendar</span></a>
-                 </li>
+                <!-- Fee -->
+                <li class="submenu {{ in_array(Route::currentRouteName(), ['fee.add', 'fee.view']) ? 'active' : '' }}">
+                    <a href="#"><span> Fee</span></a>
+                </li>
 
-                 <!-- Certificate -->
-                 <li>
-                     <a href="hostel.html"><i class="fas fa-certificate"></i> <span> Certificate</span></a>
-                 </li>
+                <!-- Transportation -->
+                <li class="{{ Route::currentRouteName() == 'transportation' ? 'active' : '' }}">
+                    <a href="transport.html"><span> Transportation</span></a>
+                </li>
 
-                 <!-- Ticket -->
-                 <li>
-                     <a href="transport.html"><i class="fas fa-ticket-alt"></i> <span> Ticket</span></a>
-                 </li>
-
-                 <!-- Fee -->
-                 <li class="submenu">
-                     <a href="#"><i class="fas fa-wallet"></i> <span> Fee</span></a>
-                 </li>
-
-                 <!-- Transportation -->
-                 <li>
-                     <a href="transport.html"><i class="fas fa-bus"></i> <span> Transportation</span></a>
-                 </li>
-
-                 <!-- Settings -->
-                 <li class="submenu">
-                     <a href="#"><i class="fas fa-cogs"></i> <span> Settings</span><span
-                             class="menu-arrow"></span></a>
-                     <ul>
-                         <li><a href="#"><i class="fas fa-cogs"></i> Class Groups</a></li>
-                         <li><a href="#"><i class="fas fa-cogs"></i> Subject Groups</a></li>
-                         <li><a href="#"><i class="fas fa-cogs"></i> Set Session</a></li>
-                     </ul>
-                 </li>
-
-             </ul>
-         </div>
-     </div>
- </div>
+                <!-- Settings -->
+                <li class="submenu {{ in_array(Route::currentRouteName(), ['settings.class_groups', 'settings.subject_groups', 'settings.set_session']) ? 'active' : '' }}">
+                    <a href="#"><span> Settings</span><span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'settings.class_groups' ? 'active' : '' }}"><span> Class Groups</span></a></li>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'settings.subject_groups' ? 'active' : '' }}"><span> Subject Groups</span></a></li>
+                        <li><a href="#" class="{{ Route::currentRouteName() == 'settings.set_session' ? 'active' : '' }}"><span> Set Session</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
  <!-- sidebar end -->
