@@ -2,41 +2,99 @@
 
 @section('content')
 
-    <div class="content container-fluid">
-    <h1 class="mb-4">SchoolAdmins List</h1>
+<div class="content container-fluid">
 
-    <a href="{{ route('school-admin.create') }}" class="btn btn-primary mb-3">Create New Admin</a>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-table comman-shadow ">
+                <div class="card-body">
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>S no.</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($user as $admin)
-                <tr>
-                    <td>{{ $loop->iteration }}</td> 
-                    <td>{{ $admin->name }}</td>
-                    <td>{{ $admin->email }}</td>
-                    <td>{{ \Carbon\Carbon::parse($admin->created_at)->format('d-m-Y') }}</td> <!-- Formatting date -->
-                    <td>{{ \Carbon\Carbon::parse($admin->updated_at)->format('d-m-Y') }}</td> <!-- Formatting date -->
-                    <td>
-                            <a href="{{ route('school-admin.edit', $admin->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('school-admin.destroy', $admin->id) }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                        </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+                    <div class="page-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="page-title">School list</h3>
+                            </div>
+
+                            <div class="col-auto">
+                                <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search By Name" class="form-control">
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <div id="filteredTableContainer">
+                            <table id="myTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
+                                <thead class="student-thread">
+                                    <tr>
+                                        <th>S. No.</th>
+                                        <th>School Name</th>
+                                        <th>City</th>
+                                        <th>Status</th>
+                                        <th>Configure</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Test</td>
+                                        <td>Indore</td>
+                                        <td>
+                                            <h2 class="table-avatar confirmCSS"></i>Active</h2>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa-solid fa-gears"></i>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">Inactive</a></li>
+                                                    <li><a class="dropdown-item" href="#">Pending</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
+                                                <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
+                                                </button>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{-- @foreach($user as $admin)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $admin->name }}</td>
+                                    <td>{{ $admin->email }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($admin->created_at)->format('d-m-Y') }}</td> <!-- Formatting date -->
+                                    <td>{{ \Carbon\Carbon::parse($admin->updated_at)->format('d-m-Y') }}</td> <!-- Formatting date -->
+                                    <td>
+                                        <a href="{{ route('school-admin.edit', $admin->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <form action="{{ route('school-admin.destroy', $admin->id) }}" method="POST" style="display:inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                    </tr>
+                                    @endforeach--}}
+
+
+                                </tbody>
+                            </table>
+
+                            <p id="noRecordsMessage" style=" margin-top: 10px; display: none;">No matching records found.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 @endsection
