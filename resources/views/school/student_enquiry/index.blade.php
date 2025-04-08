@@ -34,7 +34,7 @@
 
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="form-group local-forms" style="margin-bottom: 0;">
-                                        <select name="currentClass" class="currclass" id="selectclassacad" data-school="20">
+                                    <select name="currentClass" class="currclass" id="selectclassacad" data-school="20">
                                             <option value=""> - Select Class - </option>
                                             <option value="86" data-classcat="A">Nursery</option>
                                             <option value="88" data-classcat="A">UKG</option>
@@ -50,11 +50,27 @@
                                             <option value="98" data-classcat="A">10</option>
                                             <option value="99" data-classcat="B">11</option>
                                             <option value="100" data-classcat="B">12</option>
-                                        </select>
+                                        </select>   
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="form-group local-forms" style="margin-bottom: 0;">
+                                <div class="col-lg-6 col-sm-6">
+                                    <div class="form-group local-forms float-end" style="margin-bottom: 0;">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feesStatusModal">
+                                    <i class="fa-solid fa-filter"></i>
+                                </button>
+                                    </div>
+                                </div>
+                                
+
+                                <!-- Modal -->
+                            <div class="modal fade" id="feesStatusModal" tabindex="-1" aria-labelledby="feesStatusModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="feesStatusModalLabel">Fees Status</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
                                         <select name="feesStatus" class="currclass" id="feesStatusDropdown" data-school="20">
                                             <option value=""> - Select Fees Status - </option>
                                             <option value="admission_paid">Admission Fees Paid</option>
@@ -62,8 +78,13 @@
                                             <option value="admission_unpaid">Admission Fees Unpaid</option>
                                             <option value="registration_unpaid">Registration Fees Unpaid</option>
                                         </select>
+                                                                             </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
 
                             </div>
@@ -92,6 +113,11 @@
                             <div class="col-auto text-end float-end ms-auto download-grp">
 
 
+                                <a href="{{ route('school_student.add.follow_up') }}" class="btn btn-primary">Follow up</a>
+                            </div>
+                            <div class="col-auto text-end float-end ms-auto download-grp">
+
+
                                 <a href="{{ route('school_student.add.enquiry') }}" class="btn btn-primary">New Enquiry</a>
                             </div>
                         </div>
@@ -107,6 +133,7 @@
                                         <th>Student Name</th>
                                         <th>Class</th>
                                         <th>Action</th>
+                                        <th>Student details</th>
                                         <th>Visit</th>
                                         <th>Action</th>
                                     </tr>
@@ -140,6 +167,11 @@
 
                                         <td>
                                             <div>
+                                                <a class="btn btn-sm bg-success-light me-2" href="{{ route('school_student.add') }}">Update</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
@@ -150,11 +182,11 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li> 
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li> -->
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
                                                 </ul>
                                             </div>
 
@@ -184,7 +216,13 @@
 
                                         <td>
                                             <div>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal2" style="width: fit-content;"> Add Visit </a>
+                                                <a class="btn btn-sm bg-success-light me-2" href="{{ route('school_student.add') }}">Update</a>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
@@ -194,12 +232,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>  -->
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li> -->
-                                                       
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
+
                                                 </ul>
                                             </div>
 
@@ -235,7 +273,13 @@
 
                                         <td>
                                             <div>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal3" style="width: fit-content;"> Add Visit </a>
+                                                <a class="btn btn-sm bg-success-light me-2" href="{{ route('school_student.add') }}">Update</a>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
@@ -245,13 +289,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
 
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>  -->
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li> -->
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li>
-                                                       
                                                 </ul>
                                             </div>
 
@@ -284,7 +327,13 @@
 
                                         <td>
                                             <div>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal4" style="width: fit-content;"> Add Visit </a>
+                                                <a class="btn btn-sm bg-success-light me-2" href="{{ route('school_student.add') }}">Update</a>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
                                             </div>
                                         </td>
 
@@ -294,11 +343,11 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>  -->
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
-                                                    <!-- <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li> -->
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
                                                 </ul>
                                             </div>
 
@@ -340,21 +389,26 @@
 
                                         <td>
                                             <div>
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal5" style="width: fit-content;"> Add Visit </a>
+                                                <a class="btn btn-sm bg-success-light me-2" href="{{ route('school_student.add') }}">Update</a>
                                             </div>
                                         </td>
 
+                                        <td>
+                                            <div>
+                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#new-visit-modal1" style="width: fit-content;"> Add Visit </a>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button class="btn btn-sm bg-success-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: fit-content;">
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li> 
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.add') }}">Registration Form</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Registration Fees paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Admission Fees Paid</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
                                                 </ul>
                                             </div>
 
