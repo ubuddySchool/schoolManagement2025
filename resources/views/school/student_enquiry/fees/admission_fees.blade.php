@@ -42,12 +42,15 @@
                             <div class="form-group">
                                 <label for="paymentMethod" class="form-label">Payment Method</label>
                                 <select class="form-select" id="paymentMethod" required>
-                                    <option value="credit_card">Credit Card</option>
-                                    <option value="debit_card">Debit Card</option>
-                                    <option value="bank_transfer">Bank Transfer</option>
+                                    <option value="paypal">Cash</option>
                                     <option value="bank_transfer">UPI</option>
                                     <option value="bank_transfer">Cheque</option>
-                                    <option value="paypal">Cash</option>
+                                    <option value="credit_card">Credit/Debit Card</option>
+                                    <option value="bank_transfer">RTGS</option>
+                                    <option value="bank_transfer">NEFT</option>
+                                   
+                                   
+                                   
                                 </select>
                             </div>
                         </div>

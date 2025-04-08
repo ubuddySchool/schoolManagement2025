@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function () {
         // student
     Route::get('/student/enquiry', [StudentController::class, 'enquiry'])->name('school_student.enquiry');
     Route::get('/student/enquiry/add', [StudentController::class, 'add_enquiry'])->name('school_student.add.enquiry');
+    Route::get('/student/enquiry/followup', [StudentController::class, 'follow_up'])->name('school_student.add.follow_up');
         // fees
     Route::get('/student/registration/feespaid', [StudentController::class, 'registration_feespaid'])->name('school_student.feespaid');
     Route::get('/student/Admission/feespaid', [StudentController::class, 'admission_feespaid'])->name('school_student.admission.feespaid');
