@@ -1,12 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+        border-color: black !important;
+        border-style: solid;
+        border-width: 0;
+        background-color: white;
+        z-index: 99;
+    }
+</style>
 <div class="content container-fluid" style="padding: 1rem;">
 
     <div class="row">
         <div class="col-md-8 col-12">
-            <h6 class="m-0 w-100">2025-26 |  Term I  |  Class VI  | Section A</h6>
+            <p class="m-0 w-100">2025-26 &nbsp <span class="fs-20">|</span> &nbsp Term I &nbsp <span class="fs-20">|</span> &nbsp Class VI &nbsp <span class="fs-20">|</span> &nbsp Section A</p>
         </div>
         <div class="col-1">
             <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
@@ -20,13 +33,13 @@
     </div>
 
 
-    <table id="myTable" class="table table-bordered  border-0 star-student table-hover table-center mb-5  table-striped">
+    <table id="myTable" class="table table-bordered  border-0 star-student  table-center mb-5 mt-3  ">
         <thead class="student-thread">
             <tr>
                 <th rowspan="2">S. No.</th>
                 <th rowspan="2">Student Name</th>
                 <th rowspan="2">Roll Number</th>
-                <th rowspan="2">Scholar Number</th>
+
                 <th style="text-align: center;" colspan="2">
                     Hindi </th>
                 <th style="text-align: center;" colspan="2">
@@ -67,7 +80,6 @@
                 <td>
                     788888
                 </td>
-                <td>34</td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -86,7 +98,6 @@
                 <td>
                     788889
                 </td>
-                <td>34893</td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -105,7 +116,6 @@
                 <td>
                     788890
                 </td>
-                <td>123456</td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -124,7 +134,6 @@
                 <td>
                     788891
                 </td>
-                <td>2233445566</td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -143,7 +152,6 @@
                 <td>
                     788892
                 </td>
-                <td>8899007766</td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -162,7 +170,7 @@
                 <td>
                     788893
                 </td>
-                <td>434</td>
+
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -181,7 +189,7 @@
                 <td>
                     788894
                 </td>
-                <td>434</td>
+
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -200,7 +208,7 @@
                 <td>
                     788895
                 </td>
-                <td>171126</td>
+
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -219,7 +227,7 @@
                 <td>
                     788896
                 </td>
-                <td>171126</td>
+
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -238,7 +246,7 @@
                 <td>
                     788897
                 </td>
-                <td>171126</td>
+
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -257,7 +265,7 @@
                 <td>
                     788898
                 </td>
-                <td>1234567890</td>
+
                 <td> </td>
                 <td> </td>
                 <td> </td>

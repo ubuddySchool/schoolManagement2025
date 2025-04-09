@@ -19,6 +19,9 @@ class StudentController extends Controller
     public function show(Request $request){
         return view('school.student.show');
     }
+    public function export_stuDetails(Request $request){
+        return view('school.student.export_stuDetails');
+    }
     public function enquiry(Request $request){
         return view('school.student_enquiry.index');
     }

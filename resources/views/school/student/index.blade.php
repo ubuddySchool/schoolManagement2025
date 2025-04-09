@@ -71,7 +71,9 @@
                             </div>
 
                             <div class="col-auto text-end float-end ms-auto download-grp">
-                               <button type="button" class="btn btn-primary reminder-btn" data-bs-toggle="modal" data-bs-target="#export-alert-modal">Export</button>
+                               
+                               <a data-bs-toggle="modal" data-bs-target="#con-view-layout" class="btn btn-primary me-2">Export</a>
+
                             </div>
                         </div>
                     </div>
@@ -86,7 +88,7 @@
                                     <th>Section</th>
                                     <th>Gender</th>
                                     <th>Contact Number</th>
-                                    <th>Profile Status</th>  <!-- Added new column -->
+                                    <th>Profile Status</th>  
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
@@ -143,5 +145,7 @@
         </div>
     </div>
 </div>
+
+@include('school.student.modal')
 
 @endsection
