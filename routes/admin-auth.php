@@ -1,6 +1,7 @@
 <?php
 
-
+use App\Http\Controllers\Auth\Admin\BasicConfigurationController;
+use App\Http\Controllers\Auth\Admin\ConfigurationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Admin\LoginController;
 use App\Http\Controllers\Auth\Admin\RegisteredUserController;
@@ -32,6 +33,28 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
     Route::get('edit/{id}', [SchoolAdminController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [SchoolAdminController::class, 'update'])->name('update');
     Route::delete('destroy/{id}', [SchoolAdminController::class, 'destroy'])->name('destroy');
+});
+
+
+Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
+    Route::get('store', [BasicConfigurationController::class, 'store'])->name('store');
+    Route::get('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
+    Route::get('assignSection', [BasicConfigurationController::class, 'getSection'])->name('getSection');
+    Route::get('assignSubject', [BasicConfigurationController::class, 'getSubject'])->name('getSubject');
+    Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');
+    
+    Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
+    Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');
+    Route::get('subjectType', [BasicConfigurationController::class, 'subjectType'])->name('subjectType');
+    Route::get('subjectToModule', [BasicConfigurationController::class, 'subjectToModule'])->name('subjectToModule');
+
+});
+
+Route::prefix('admin/configuration')->name('configuration.')->group(function () {
+    Route::get('index', [ConfigurationController::class, 'index'])->name('index');
+    Route::get('basic-configuration', [ConfigurationController::class, 'basic'])->name('basic');
+    Route::get('module-configuration', [BasicConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
+    Route::get('assign-module', [BasicConfigurationController::class, 'assignmodule'])->name('assignmodule');
 });
 
 

@@ -36,7 +36,7 @@
 
 
      <ul class="nav user-menu">
-         <li class="nav-item dropdown noti-dropdown language-drop me-2">
+         {{-- <li class="nav-item dropdown noti-dropdown language-drop me-2">
              <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
                  <img src="{{ asset('assets/img/icons/header-icon-01.svg') }}" alt>
              </a>
@@ -51,7 +51,7 @@
                      </div>
                  </div>
              </div>
-         </li>
+         </li> --}}
 
          <li class="nav-item dropdown noti-dropdown me-2">
              <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
@@ -190,13 +190,19 @@
                 <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}"><i class="feather-grid"></i> <span>Dashboard</span></a>
                 </li>
+                <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
+                    <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
+                </li>
+                <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
+                    <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New School</span></a>
+                </li>
 
-                <li class="submenu">
+                {{-- <li class="submenu">
                     <a href="#"><i class="fas fa-building"></i> <span>School</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <!-- <li class="{{ Route::currentRouteName() == 'subadmin.index' ? 'active' : '' }}">
+                        <li class="{{ Route::currentRouteName() == 'subadmin.index' ? 'active' : '' }}">
                             <a href="{{ route('subadmin.index') }}">SubAdmin Details</a>
-                        </li> -->
+                        </li> 
                         <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
                             <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i> School List</a>
                         </li>
@@ -204,19 +210,9 @@
                             <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i> Add New School</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
-                <li class="">
-                    <a href="{{ route('schooladmin.index') }}"><i class="fas fa-cogs"></i> Configuration Panel</a>
-                </li>
-                <li class="">
-                    <a href="{{ route('schooladmin.index') }}"><i class="fas fa-plug"></i> Module Configuration</a>
-                </li>
-                <li class="">
-                    <a href="{{ route('schooladmin.index') }}"><i class="fas fa-language"></i> School Medium</a>
-                </li>
-                <li class="">
-                    <a href="{{ route('schooladmin.index') }}"><i class="fas fa-clipboard-list"></i> School Board</a>
+                <li class=""> <a href="{{ route('schooladmin.index') }}"><i class="fas fa-cogs"></i><span>Configuration Admin</span></a>
                 </li>
             </ul>
         </div>
