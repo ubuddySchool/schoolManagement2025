@@ -44,4 +44,8 @@ class BasicConfigurationController extends Controller
     {
         return view('admin.basic_configuration.subjectToModule');
     }
+    public function moduleconfig()
+    {
+        return view('admin.basic_configuration.module_config');
+    }
 }

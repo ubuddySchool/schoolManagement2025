@@ -22,16 +22,17 @@
             <p class="m-0 w-100">2025-26 &nbsp <span class="fs-20">|</span> &nbsp Term I &nbsp <span class="fs-20">|</span> &nbsp Class VI &nbsp <span class="fs-20">|</span> &nbsp Section A</p>
         </div>
         <div class="col-1">
-            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
+            <a href="{{ route('student.result.edit.empty') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
         </div>
         <div class="col-1">
             <button class="btn btn-primary  w-100" onclick="printPage()"> Print</button>
         </div>
         <div class="col-2">
-            <button class="btn btn-primary page-header1 w-100" id="export_button">Export to Excel</button>
+            <button class="btn btn-primary page-header1 w-100" id="export_button"><i class="fa-solid fa-file-export"></i></button>
         </div>
     </div>
 
+    <div class="table-responsive">
 
     <table id="myTable" class="table table-bordered  border-0 star-student  table-center mb-5 mt-3  ">
         <thead class="student-thread">
@@ -128,159 +129,11 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
-                <td>4</td>
-                <td>nitin</td>
-                <td>
-                    788891
-                </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>patel</td>
-                <td>
-                    788892
-                </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>rani</td>
-                <td>
-                    788893
-                </td>
-
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>rani</td>
-                <td>
-                    788894
-                </td>
-
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>shahrukh khan</td>
-                <td>
-                    788895
-                </td>
-
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>shahrukh khan1</td>
-                <td>
-                    788896
-                </td>
-
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>shahrukh khan2</td>
-                <td>
-                    788897
-                </td>
-
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>vishal</td>
-                <td>
-                    788898
-                </td>
-
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            
         </tbody>
     </table>
 
+</div>
 </div>
 
 @endsection

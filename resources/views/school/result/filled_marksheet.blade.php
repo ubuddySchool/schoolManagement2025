@@ -20,7 +20,7 @@
         </div>
        
         <div class="col-1">
-            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
+            <a href="{{ route('student.result.edit.filled') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
         </div>
         <div class="col-1">
             <button class="btn btn-primary  w-100" onclick="printPage()"> Print</button>

@@ -13,7 +13,7 @@
             </div>
             <div class="col-auto text-end float-end ms-auto download-grp">
 
-                <a data-bs-toggle="modal" data-bs-target="#export-alert-modal" class="btn btn-primary me-2">Export</a>
+                <a data-bs-toggle="modal" data-bs-target="#export-alert-modal" class="btn btn-primary me-2" title="Export file"><i class="fa-solid fa-file-export"></i></a>
                 <!--<a data-bs-toggle="modal" data-bs-target="#layout4result" class="btn btn-primary me-2">New Result</a>-->
 
                 <a href="{{ route('student.result.division') }}" class="btn btn-primary me-2">Add Division</a>

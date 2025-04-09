@@ -25,4 +25,10 @@ class ResultController extends Controller
     public function filled_marksheet(){
         return view('school.result.filled_marksheet');
     }
+    public function edit_empty_marksheet(){
+        return view('school.result.emptyedit_marksheet');
+    }
+    public function edit_filled_marksheet(){
+        return view('school.result.fillededit_marksheet');
+    }
 }
