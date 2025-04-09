@@ -12,24 +12,20 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('schooladmin.index') }}" class="text-decoration-none text-dark me-2 backButton">
+                                <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Configuration Panel</h3>
+                                <h3 class="page-title">Module Configuration</h3>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row my-3">
+                        
                         <div class="col-sm-4">
-                            <a href="{{ route('assign-module.assignModule') }}" class="config">Assign Module</a>
+                            <a href="{{ route('module-configuration.enquiry') }}" class="config">Enquiry</a>
                         </div>
-                        <div class="col-sm-4">
-                            <a href="{{ route('basic-configuration.store') }}" class="config">Basic Configuration</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="{{ route('module-configuration.moduleconfig') }}" class="config">Module Configuration</a>
-                        </div>                        
+                        
                     </div>
 
                 </div>

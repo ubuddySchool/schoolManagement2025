@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\Admin\AssignModuleController;
 use App\Http\Controllers\Auth\Admin\BasicConfigurationController;
 use App\Http\Controllers\Auth\Admin\ConfigurationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Admin\LoginController;
+use App\Http\Controllers\Auth\Admin\ModuleConfigurationController;
 use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 use App\Http\Controllers\Auth\Admin\SchoolAdminController;
 
@@ -35,14 +37,26 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
     Route::delete('destroy/{id}', [SchoolAdminController::class, 'destroy'])->name('destroy');
 });
 
+Route::prefix('admin/configuration')->name('configuration.')->group(function () {
+    Route::get('index', [ConfigurationController::class, 'index'])->name('index');
+    Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
+});
+
+Route::prefix('admin/assign-module')->name('assign-module.')->group(function () {
+    Route::get('index', [AssignModuleController::class, 'assignModule'])->name('assignModule');
+});
+
+Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {
+    Route::get('index', [ModuleConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
+    Route::get('enquiry', [ModuleConfigurationController::class, 'enquiry'])->name('enquiry');
+});
 
 Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
     Route::get('store', [BasicConfigurationController::class, 'store'])->name('store');
     Route::get('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
     Route::get('assignSection', [BasicConfigurationController::class, 'getSection'])->name('getSection');
     Route::get('assignSubject', [BasicConfigurationController::class, 'getSubject'])->name('getSubject');
-    Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');
-    
+    Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');    
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
     Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');
     Route::get('subjectType', [BasicConfigurationController::class, 'subjectType'])->name('subjectType');
@@ -50,12 +64,6 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
 
 });
 
-Route::prefix('admin/configuration')->name('configuration.')->group(function () {
-    Route::get('index', [ConfigurationController::class, 'index'])->name('index');
-    Route::get('basic-configuration', [ConfigurationController::class, 'basic'])->name('basic');
-    Route::get('module-configuration', [BasicConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
-    Route::get('assign-module', [BasicConfigurationController::class, 'assignmodule'])->name('assignmodule');
-});
 
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
