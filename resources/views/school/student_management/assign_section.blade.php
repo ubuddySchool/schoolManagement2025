@@ -121,9 +121,15 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content w-100 mx-auto bg-warning">
             <div class="modal-body p-4 text-center">
-                <h4>Please enter the 4-digit OTP</h4>
+                <h4>Please enter MPIN</h4>
                 <div class="mt-3">
-                    <input type="text" id="otpInput" class="form-control w-50 mx-auto" maxlength="4" placeholder="Enter OTP" />
+                    <div class="d-flex justify-content-center w-50 mx-auto">
+                        <!-- 4 separate input blocks -->
+                        <input type="text" id="otpInput1" class="form-control mx-2 text-center w-25" maxlength="1" />
+                        <input type="text" id="otpInput2" class="form-control mx-2 text-center w-25" maxlength="1" />
+                        <input type="text" id="otpInput3" class="form-control mx-2 text-center w-25" maxlength="1" />
+                        <input type="text" id="otpInput4" class="form-control mx-2 text-center w-25" maxlength="1" />
+                    </div>
                 </div>
                 <div class="mt-3">
                     <button type="button" class="btn btn-success" id="submitOtpBtn">Submit</button>
@@ -133,6 +139,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     document.getElementById("confirmAssignBtn").addEventListener("click", function() {

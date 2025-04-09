@@ -181,43 +181,7 @@
     </table>
 </div>
 
-<div class="table-responsive">
-    <table id="crossWiseTable" class="table border-0 star-student table-hover table-center mb-0 table-striped">
-        <thead class="student-thread">
-            <tr>
-                <th>S No.</th>
-                <th>Student no</th>
-                <th>Student Name</th>
-                <th>Subject</th>
-                <th>Section</th>
-                <th class="text-end">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($students as $key => $student)
-                <tr>
-                    <td>{{ $key + 1 }}</td>
-                    <td>{{ $student['st_name'] }}</td>
-                    <td>{{ $student['name'] }}</td>
-                    <td>{{ $student['subject'] }}</td>
-                    <td>{{ $student['section'] }}</td>
-                    <td class="text-end">
-                        <div class="actions">
-                            
-                            <!-- <a data-bs-toggle="modal" data-bs-target="#view-layouts-edit" class="btn btn-sm bg-success-light me-2"> <i class="feather-eye"></i></a> -->
-                            <a href="{{ route('student.result.view') }}" class="btn btn-sm bg-success-light me-2">
-                            <i class="feather-eye"></i>
-                            </a>
-                            <a href="notice-delete.php" class="btn btn-sm bg-danger">
-                                <i class="feather-trash"></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+
 
                 </div>
             </div>
@@ -448,34 +412,29 @@
     const resultTypeSelect = document.getElementById('resultType');
     const subjectWiseTable = document.getElementById('subjectWiseTable');
     const studentWiseTable = document.getElementById('studentWiseTable');
-    const crossWiseTable = document.getElementById('crossWiseTable');
+    
 
     // Hide both tables initially
     subjectWiseTable.style.display = 'none';
     studentWiseTable.style.display = 'none';
-    crossWiseTable.style.display = 'none';
+ 
 
     // Listen for changes on the resultType select dropdown
     resultTypeSelect.addEventListener('change', function () {
         if (resultTypeSelect.value == '0') { 
             subjectWiseTable.style.display = 'none';
-            crossWiseTable.style.display = 'none';
+            
             studentWiseTable.style.display = 'table';
         }
          else if (resultTypeSelect.value == '1') { 
             subjectWiseTable.style.display = 'table';
             studentWiseTable.style.display = 'none';
-            crossWiseTable.style.display = 'none';
+            
         } 
-         else if (resultTypeSelect.value == '2') {
-            crossWiseTable.style.display = 'table';
-            studentWiseTable.style.display = 'none';
-            subjectWiseTable.style.display = 'none';
-        } 
+       
         else { // Default: Hide both tables if no option is selected
             subjectWiseTable.style.display = 'none';
             studentWiseTable.style.display = 'none';
-            crossWiseTable.style.display = 'none';
         }
     });
 });

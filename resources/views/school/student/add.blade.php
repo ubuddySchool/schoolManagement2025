@@ -278,23 +278,6 @@
                                         </div>
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
-                                                <label>Name of Sibling<span class="login-danger">*</span></label>
-                                                <input class="form-control" name="studentSiblingName" type="text" placeholder="Enter Sibling Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-3">
-                                            <div class="form-group local-forms">
-                                                <label>Sibling School Name<span class="login-danger"> *</span></label>
-                                                <select name="studentSiblingScholtype" id="options2" class="form-control select">
-                                                    <option value="">Select an option</option>
-                                                    <option value="Same">Same School</option>
-                                                    <option value="Different">Different School</option>
-                                                    <option value="Not Studying">Not Studying</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-3">
-                                            <div class="form-group local-forms">
                                                 <label>Caste<span class="login-danger">*</span></label>
                                                 <input class="form-control" name="studentCaste" type="text" placeholder="Enter Caste">
                                             </div>
@@ -351,6 +334,31 @@
 
                                             </div>
                                         </div>
+                                        <div class="col-12 col-sm-3">
+                                            <button type="button" id="addSiblingBtn" class="btn btn-primary">Add Sibling</button>
+                                        </div>
+                                        <div class="col-12 col-sm-9">
+                                            <div id="siblingsContainer">
+                                            <!-- Sibling input fields will be added here -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-12 col-sm-3">
+                                            <div class="form-group local-forms">
+                                                <label>Name of Sibling<span class="login-danger">*</span></label>
+                                                <input class="form-control" name="studentSiblingName" type="text" placeholder="Enter Sibling Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group local-forms">
+                                                <label>Sibling School Name<span class="login-danger"> *</span></label>
+                                                <select name="studentSiblingScholtype" id="options2" class="form-control select">
+                                                    <option value="">Select an option</option>
+                                                    <option value="Same">Same School</option>
+                                                    <option value="Different">Different School</option>
+                                                    <option value="Not Studying">Not Studying</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -895,6 +903,78 @@
     </div>
 </div>
 </div>
+
+<script>
+   document.getElementById('addSiblingBtn').addEventListener('click', function() {
+    // Create a new div to hold the sibling fields
+    const siblingDiv = document.createElement('div');
+    siblingDiv.classList.add('sibling-entry');
+    siblingDiv.classList.add('row');
+    
+    // Add sibling name input and radio buttons for school type
+    siblingDiv.innerHTML = `
+        <div class="col-12 col-sm-3">
+            <div class="form-group local-forms">
+                <label>Name of Sibling<span class="login-danger">*</span></label>
+                <input class="form-control" name="studentSiblingName" type="text" placeholder="Enter Sibling Name">
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-3">
+            <div class="form-group local-forms">
+                <label>Class<span class="login-danger">*</span></label>
+                <input class="form-control" name="studentSiblingName" type="text" placeholder="Enter Sibling Name">
+            </div>
+        </div>
+        
+        <div class="col-12 col-sm-3">
+            <div class="form-group local-forms">
+                <label>Sibling School Name<span class="login-danger"> *</span></label>
+                <!-- Radio buttons for selecting school type -->
+                <div class="d-flex pt-2">
+                    <input type="radio" name="studentSiblingScholtype" value="Same" class="sibling-school-radio" id="sameSchool"> 
+                    <p class="m-0" for="sameSchool">Same School</p>
+                </div>
+                <div class="d-flex ">
+                    <input type="radio" name="studentSiblingScholtype" value="Different" class="sibling-school-radio" id="differentSchool"> 
+                    <p class="m-0" for="differentSchool">Different School</p>
+                </div>
+                <div class="d-flex">
+                    <input type="radio" name="studentSiblingScholtype" value="Not Studying" class="sibling-school-radio" id="notStudying"> 
+                    <p class="m-0" for="notStudying">Not Studying</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-3 sibling-school-name-container" style="display: none;">
+            <div class="form-group local-forms">
+                <label>School Name</label>
+                <input class="form-control" name="studentSiblingSchoolName" type="text" placeholder="Enter School Name">
+            </div>
+        </div>
+    `;
+
+    // Append the new sibling fields to the container
+    document.getElementById('siblingsContainer').appendChild(siblingDiv);
+
+    // Add event listeners to radio buttons to toggle school name visibility
+    const schoolRadioButtons = siblingDiv.querySelectorAll('.sibling-school-radio');
+    const schoolNameContainer = siblingDiv.querySelector('.sibling-school-name-container');
+
+    schoolRadioButtons.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            if (radio.value === 'Same') {
+                // Hide the school name input when "Same School" is selected
+                schoolNameContainer.style.display = 'none';
+            } else {
+                // Show the school name input when "Different School" or "Not Studying" is selected
+                schoolNameContainer.style.display = 'block';
+            }
+        });
+    });
+});
+
+</script>
 
 
 @endsection
