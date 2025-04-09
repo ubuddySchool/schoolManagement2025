@@ -2,7 +2,16 @@
 
 @section('content')
 <style>
-    
+      .table>:not(caption)>*>* {
+    box-shadow: unset;
+    padding: 0.75rem;
+    padding: 1px 21px;
+    /* min-width: 10px; */
+}
+
+.table .student-thread th {
+    font-size: 14px;
+}
     tbody, td, tfoot, th, thead, tr {
     border-color: black !important;
     border-style: solid;
@@ -232,7 +241,7 @@
                 <td>
                     3 </td>
                 <td>
-                    11.5 </td>
+                    11 </td>
                 <td>
                     4 </td>
                 <td>
@@ -244,8 +253,8 @@
                 <td>
                 </td>
 
-                <td>34.5</td>
-                <td>34.50</td>
+                <td>34</td>
+                <td>34</td>
 
                 <td>
                 </td>

@@ -21,9 +21,9 @@
                         <div class="form-group" style="margin-bottom: 0;">
                             <div class="row">
 
-                                <div class="col-lg-3 col-sm-6">
+                                <div class="col-lg-2 col-sm-6">
                                     <div class="form-group local-forms" style="margin-bottom: 0;">
-                                        <select name="enquiryStatus" class="currclass">
+                                        <select name="enquiryStatus" class="currclass dropdown-select" id="selectclassacad">
                                             <option value=""> - Select Status - </option>
                                             <option value="Running">Running</option>
                                             <option value="Confirm">Confirm</option>
@@ -32,28 +32,28 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="form-group local-forms" style="margin-bottom: 0;">
-                                    <select name="currentClass" class="currclass" id="selectclassacad" data-school="20">
-                                            <option value=""> - Select Class - </option>
-                                            <option value="86" data-classcat="A">Nursery</option>
-                                            <option value="88" data-classcat="A">UKG</option>
-                                            <option value="89" data-classcat="A">1</option>
-                                            <option value="90" data-classcat="A">2</option>
-                                            <option value="91" data-classcat="A">3</option>
-                                            <option value="92" data-classcat="A">4</option>
-                                            <option value="93" data-classcat="A">5</option>
-                                            <option value="94" data-classcat="A">6</option>
-                                            <option value="95" data-classcat="A">7</option>
-                                            <option value="96" data-classcat="A">8</option>
-                                            <option value="97" data-classcat="A">9</option>
-                                            <option value="98" data-classcat="A">10</option>
-                                            <option value="99" data-classcat="B">11</option>
-                                            <option value="100" data-classcat="B">12</option>
-                                        </select>   
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
+                                <div class="col-lg-2 col-md-2">
+                            <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
+                                <option value="">Select Class</option>
+                                <option value="86" data-classcat="A">Nursery</option>
+                                <option value="88" data-classcat="A">UKG</option>
+                                <option value="89" data-classcat="A">1</option>
+                                <option value="90" data-classcat="A">2</option>
+                                <option value="91" data-classcat="A">3</option>
+                                <option value="92" data-classcat="A">4</option>
+                                <option value="93" data-classcat="A">5</option>
+                                <option value="94" data-classcat="A">6</option>
+                                <option value="95" data-classcat="A">7</option>
+                                <option value="96" data-classcat="A">8</option>
+                                <option value="97" data-classcat="A">9</option>
+                                <option value="98" data-classcat="A">10</option>
+                                <option value="99" data-classcat="B">11</option>
+                                <option value="100" data-classcat="B">12</option>
+                            </select>
+                        </div>
+
+                                
+                                <div class="col-lg-8 col-sm-6">
                                     <div class="form-group local-forms float-end" style="margin-bottom: 0;">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feesStatusModal">
                                     <i class="fa-solid fa-filter"></i>
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="modal-body">
                                         <select name="feesStatus" class="currclass" id="feesStatusDropdown" data-school="20">
-                                            <option value=""> - Select Fees Status - </option>
+                                         <option value=""> - Select Fees Status - </option>
                                             <option value="admission_paid">Admission Fees Paid</option>
                                             <option value="registration_paid">Registration Fees Paid</option>
                                             <option value="admission_unpaid">Admission Fees Unpaid</option>

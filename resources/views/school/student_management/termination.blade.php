@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="row mb-3 justify-content-between">
                         <div class="col-md-3">
-                            <select class="form-control" id="classSelect">
+                            <select class="currclass dropdown-select" id="classSelect">
                                 <option value="" disabled selected>Select Class</option>
                                 <option value="1">Class 1</option>
                                 <option value="2">Class 2</option>

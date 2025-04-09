@@ -27,16 +27,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-3 col-12 col-sm-6 form-group">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Date</h5>
-
+                            
                             <input type="date" name="attendancedate" class="form-control" id="attendancedate">
                             <input type="hidden" name="schoolid" id="schoolid" value="20">
                         </div>
 
 
                         <div class="col-lg-2 col-12 col-sm-6">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Class</h5>
-                            <select name="selectclassacad" class="currclass form-control" id="selectclassacad" data-school="20">
+                            <select name="selectclassacad"class="currclass dropdown-select" id="selectclassacad" data-school="20">
                                 <option value="">Select Class</option>
                                 <option value="86" data-classcat="A">Nursery</option>
                                 <option value="88" data-classcat="A">UKG</option>
@@ -55,21 +53,18 @@
                             </select>
                         </div>
                         <div class="col-lg-2 col-12 col-sm-6" id="input-stream1" style="display: none;">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Stream</h5>
-                            <select id="selectstream1" class="currclass form-control" name="scl_stream">
+                            <select id="selectstream1"class="currclass dropdown-select" name="scl_stream">
 
                             </select>
                         </div>
 
                         <div class="col-lg-2 col-12 col-sm-6" id="input-section1" style="display: none;">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Section</h5>
-                            <select id="section1" class="currclass form-control" name="Section"></select>
+                            <select id="section1"class="currclass dropdown-select" name="Section"></select>
                         </div>
 
                         <div class="col-lg-3 col-12 col-sm-6">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Attendance Status</h5>
-                            <select class="form-control" name="attendstatus" id="attendstatus">
-                                <option value="">Select status</option>
+                            <select class="currclass dropdown-select" name="attendstatus" id="attendstatus">
+                                <option value="">Select Attendance status</option>
                                 <option value="Present">Present</option>
                                 <option value="Absent">Absent</option>
                                 <option value="All">All</option>

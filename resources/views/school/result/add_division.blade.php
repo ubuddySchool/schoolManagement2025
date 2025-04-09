@@ -29,28 +29,28 @@
                                     <label style=" font-size: 18px;">Division &amp; Remarks Form<span class="login-danger">*</span></label>
                                     <div class="row" style="margin-top: 40px; padding: 0 10px;">
 
-                                        <div class="col-6">
+                                        <div class="col-lg-3 col-6">
                                             <div class="form-group local-forms">
                                                 <label>Starting Marks <span class="login-danger">*</span></label>
                                                 <input class="form-control" id="schoolName" name="startMark" type="text" placeholder="Enter Start Marks">
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-lg-3 col-6">
                                             <div class="form-group local-forms">
                                                 <label>End marks <span class="login-danger">*</span></label>
                                                 <input class="form-control" id="schoolAddress" name="endMarks" type="text" placeholder="Enter End Marks">
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-lg-3 col-6">
                                             <div class="form-group local-forms">
                                                 <label>Division <span class="login-danger">*</span></label>
                                                 <input class="form-control" name="division" id="schoolCode" type="text" placeholder="Enter Division">
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-lg-3 col-6">
                                             <div class="form-group local-forms">
                                                 <label>Remarks <span class="login-danger">*</span></label>
                                                 <input class="form-control" name="remarks" id="udiseCode" type="text" placeholder="Enter Remark" maxlength="25">
@@ -58,7 +58,7 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <div class="student-submit" style="display: flex;justify-content: center;">
+                                            <div class="student-submit" style="display: flex;justify-content: end;">
                                                 <button type="submit" class="btn btn-primary" name="previewData" style="font-size: 1.2rem;min-width: 180px;margin-bottom:10px;">Submit</button>
                                             </div>
                                         </div>

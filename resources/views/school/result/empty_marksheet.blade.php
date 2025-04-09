@@ -2,6 +2,15 @@
 
 @section('content')
 <style>
+    .table>:not(caption)>*>* {
+    box-shadow: unset;
+    padding: 0.75rem;
+    padding: 1px 21px;
+    /* min-width: 10px; */
+}
+.table .student-thread th {
+    font-size: 14px;
+}
     tbody,
     td,
     tfoot,
@@ -18,7 +27,7 @@
 <div class="content container-fluid" style="padding: 1rem;">
 
     <div class="row">
-        <div class="col-md-8 col-12">
+        <div class="col-md-9 col-12">
             <p class="m-0 w-100">2025-26 &nbsp <span class="fs-20">|</span> &nbsp Term I &nbsp <span class="fs-20">|</span> &nbsp Class VI &nbsp <span class="fs-20">|</span> &nbsp Section A</p>
         </div>
         <div class="col-1">
@@ -27,7 +36,7 @@
         <div class="col-1">
             <button class="btn btn-primary  w-100" onclick="printPage()"> Print</button>
         </div>
-        <div class="col-2">
+        <div class="col-1">
             <button class="btn btn-primary page-header1 w-100" id="export_button"><i class="fa-solid fa-file-export"></i></button>
         </div>
     </div>
