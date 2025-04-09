@@ -25,14 +25,26 @@
                             <label class="m-0">2025-26</label>
                         </div>
                         <div class="col-12 col-sm-2">
-                            <select class="form-control" name="class">
-                                <option value="Class 1">Select Class</option>
-                                <option value="Class 1">Class 1</option>
-                                <option value="Class 2">Class 2</option>
+                        <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
+                                <option value="">Select Class</option>
+                                <option value="86" data-classcat="A">Nursery</option>
+                                <option value="88" data-classcat="A">UKG</option>
+                                <option value="89" data-classcat="A">1</option>
+                                <option value="90" data-classcat="A">2</option>
+                                <option value="91" data-classcat="A">3</option>
+                                <option value="92" data-classcat="A">4</option>
+                                <option value="93" data-classcat="A">5</option>
+                                <option value="94" data-classcat="A">6</option>
+                                <option value="95" data-classcat="A">7</option>
+                                <option value="96" data-classcat="A">8</option>
+                                <option value="97" data-classcat="A">9</option>
+                                <option value="98" data-classcat="A">10</option>
+                                <option value="99" data-classcat="B">11</option>
+                                <option value="100" data-classcat="B">12</option>
                             </select>
                         </div>
                         <div class="col-12 col-sm-2">
-                            <select class="form-control" name="section">
+                            <select class="currclass dropdown-select" name="section">
                                 <option value="A">Select Section</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>

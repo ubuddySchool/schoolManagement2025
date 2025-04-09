@@ -7,47 +7,24 @@
         <div class="row">
             <div class="col-auto">
                 <div class="page-sub-header">
-                    <h3 class="page-title">Add New Result</h3>
+                    <h3 class="page-title">Add New Marksheet</h3>
                 </div>
-            </div>
-            <div class="col-auto text-end float-end ms-auto download-grp d-none">
-                <!--<a class="btn btn-outline-primary me-2" style="cursor: default;">Total Records - </a>-->
-
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal">Create Result</a>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="card comman-shadow">
+            <div class="card comman-shadow mb-3">
                 <div class="card-body">
 
-                    <div class="row">
+                    <div class="row align-items-center">
 
-                        <div class="col-lg-2 col-md-2">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Session</h5>
-                            <select name="session" id="session" class="currclass dropdown-select">
-                                <option selected="" value="2024-25">2024-25</option>
-                                <option value="2023-24">2023-24</option>
-                                <option value="2022-23">2022-23</option>
-                                <option value="2021-22">2021-22</option>
-                                <option value="2020-21">2020-21</option>
-                            </select>
+                    <div class="col-12 col-sm-2 text-center download-grp">
+                            <label class="m-0">2025-26</label>
                         </div>
 
                         <div class="col-lg-2 col-md-2">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Term</h5>
-                            <select name="terms" id="selectTerms" class="currclass dropdown-select">
-                                <option value="">Select Term</option>
-                                <option value="14">First Term</option>
-                                <option value="15">Second Term</option>
-                                <option value="51">Term I</option>
-                            </select>
-                        </div>
-
-                        <div class="col-lg-2 col-md-2">
-                            <h6 class="form-title student-info" style="font-size: 15px;">Select Class</h6>
                             <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
                                 <option value="">Select Class</option>
                                 <option value="86" data-classcat="A">Nursery</option>
@@ -73,7 +50,6 @@
                         </div>
 
                         <div class="col-lg-2 col-md-2" id="input-section1" style="">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Section</h5>
                             <select id="section1" class="currclass dropdown-select" name="Section">
                                 <option value="">Select Section</option>
                                 <option value="67">A</option>
@@ -130,7 +106,7 @@
                                         <td>UKG</td>
                                         <td>A</td>
                                         <td>
-                                            <div class="actions">
+                                            <div >
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal249"><i class="feather-eye"></i></a>
 
                                                 <a href="" class="btn btn-sm bg-danger-light me-2 d-none" data-bs-toggle="modal" data-bs-target="#con-close-modal249"> <i class="feather-edit"></i> </a>
@@ -145,7 +121,7 @@
                                         <td>UKG</td>
                                         <td>A</td>
                                         <td>
-                                            <div class="actions">
+                                            <div >
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal447"><i class="feather-eye"></i></a>
 
                                                 <a href="" class="btn btn-sm bg-danger-light me-2 d-none" data-bs-toggle="modal" data-bs-target="#con-close-modal447"> <i class="feather-edit"></i> </a>
@@ -154,21 +130,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Megha </td>
-                                        <td>UKG</td>
-                                        <td>A</td>
-                                        <td>
-                                            <div class="actions">
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal611"><i class="feather-eye"></i></a>
-
-                                                <a href="" class="btn btn-sm bg-danger-light me-2 d-none" data-bs-toggle="modal" data-bs-target="#con-close-modal611"> <i class="feather-edit"></i> </a>
-
-                                                <a href="" class="btn btn-sm bg-danger d-none"><i class="feather-trash-2"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
 
@@ -785,7 +747,7 @@
     <!--                <td>79 %</td>-->
 
     <!--                <td>-->
-    <!--                    <div class="actions">-->
+    <!--                    <div >-->
     <!--                <a href="" class="btn btn-sm bg-success-light me-2"  data-bs-toggle="modal" data-bs-target="#con-view-modal"><i class="feather-eye"></i></a>-->
 
     <!--                <a href="notice-edit.php" class="btn btn-sm bg-danger-light me-2"> <i class="feather-edit"></i> </a> -->

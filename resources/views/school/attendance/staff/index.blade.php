@@ -14,7 +14,7 @@
             </div>
 
             <div class=" col-lg-3 col-sm-12">
-                <div class="page-sub-header">
+                <div class="page-sub-header  float-end text-end">
                     <a href="{{ route('attendence.add.staff') }}" class="btn btn-primary"> Mark Attendance</a>
                 </div>
 
@@ -25,7 +25,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="card comman-shadow">
+            <div class="card mb-3 comman-shadow">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-sm-3 form-group d-none">
@@ -41,14 +41,14 @@
                         </div>
 
                         <div class="col-12 col-sm-3 form-group">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Date</h5>
+                            <!-- <h5 class="form-title student-info" style="font-size: 15px;">Select Date</h5> -->
                             <input type="date" name="attendancedate" class="form-control" id="attendancedate">
                         </div>
 
                         <div class="col-12 col-sm-3">
-                            <h5 class="form-title student-info" style="font-size: 15px;">Select Attendance Status</h5>
-                            <select class="form-control" name="attendstatus" id="attendstatus">
-                                <option value="">Select status</option>
+                            <!-- <h5 class="form-title student-info" style="font-size: 15px;">Select Attendance Status</h5> -->
+                            <select class="currclass dropdown-select" name="attendstatus" id="attendstatus">
+                                <option value="">Select Attendance Status</option>
                                 <option value="Present">Present</option>
                                 <option value="Absent">Absent</option>
                                 <option value="All">All</option>

@@ -31,7 +31,7 @@
                                 <input type="date" name="attendance_date" class="form-control" required>
                             </div>
                             
-                            <div class="col-lg-3 col-md-3"><select name="selectclassacad" class="currclass form-control" id="selectclassacad" data-school=" 20 ">
+                            <div class="col-lg-3 col-md-3"><select name="selectclassacad" class="currclass dropdown-select" id="selectclassacad" data-school=" 20 ">
                                         <option value="">Select Class</option>
                                         <option value="86" data-classcat="A">Nursery</option>
                                         <option value="88" data-classcat="A">UKG</option>
@@ -50,7 +50,7 @@
                                     </select></div>
 
                                 <div class="col-lg-2 col-md-2" id="input-section1" >
-                                    <select id="section1" class="currclass form-control" name="Section">
+                                    <select id="section1"class="currclass dropdown-select" name="Section">
                                         <option value="">Select Section</option>
                                         <option value="69">A</option>
                                     </select></div>

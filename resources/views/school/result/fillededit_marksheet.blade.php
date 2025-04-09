@@ -2,6 +2,16 @@
 
 @section('content')
 <style>
+    .table .student-thread th {
+    font-size: 14px;
+}
+.table>:not(caption)>*>* {
+    box-shadow: unset;
+    padding: 0.75rem;
+    padding: 1px 21px;
+    /* min-width: 10px; */
+}
+
     tbody,
     td,
     tfoot,
@@ -17,9 +27,12 @@
 </style>
 <div class="content container-fluid" style="padding: 1rem;">
 
-    <div class="row">
+    <div class="row justify-content-between">
         <div class="col-md-8 col-12">
             <p class="m-0 w-100">2025-26 &nbsp <span class="fs-20">|</span> &nbsp Term I &nbsp <span class="fs-20">|</span> &nbsp Class VI &nbsp <span class="fs-20">|</span> &nbsp Section A</p>
+        </div>
+        <div class="col-md-3 col-12 text-end">
+            <p class="m-0 w-100">Edit Mode</p>
         </div>
     </div>
 <div class="table-responsive">

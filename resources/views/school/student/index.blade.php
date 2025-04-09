@@ -13,40 +13,44 @@
         </div>
     </div>
 
-    <div class="student-group-form">
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="form-group">
-                    <select class="form-select">
-                        <option>Select Category</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="form-group">
-                    <select class="form-select">
-                        <option>Select Gender</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-            <div class="form-group">
-                <select class="form-select select" id="classSelect" multiple>
-                    <option disabled>Select Classes</option>
-                    <option value="class1">Class 1</option>
-                    <option value="class2">Class 2</option>
-                    <option value="class3">Class 3</option>
-                    <option value="class4">Class 4</option>
-                </select>
-            </div>
-        </div>
+    <div class="card comman-shadow">
+        <div class="card-body">
+            <div class="student-group-form">
+                <div class="row">
+                    <div class="col-lg-2 col-md-6">
+                        <div class="form-group">
+                            <select class="currclass dropdown-select">
+                                <option>Select Category</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="form-group">
+                            <select class="currclass dropdown-select">
+                                <option>Select Gender</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="form-group">
+                            <select class="form-select select" id="classSelect" multiple>
+                                <option disabled>Select Classes</option>
+                                <option value="class1">Class 1</option>
+                                <option value="class2">Class 2</option>
+                                <option value="class3">Class 3</option>
+                                <option value="class4">Class 4</option>
+                            </select>
+                        </div>
+                    </div>
 
 
-            <div class="col-lg-2">
-                <div class="search-student-btn">
-                    <select class="form-select">
-                        <option></option>
-                    </select>
+                    <div class="col-lg-2">
+                        <div class="search-student-btn">
+                            <select class="currclass dropdown-select">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -67,12 +71,12 @@
                             </div>
 
                             <div class="col-auto text-end float-end ms-auto download-grp">
-                                 <a class="btn btn-primary"> Total Student : 3</a>
+                                <a class="btn btn-primary"> Total Student : 3</a>
                             </div>
 
                             <div class="col-auto text-end float-end ms-auto download-grp">
-                               
-                               <a data-bs-toggle="modal" data-bs-target="#con-view-layout" class="btn btn-primary me-2">Export</a>
+
+                                <a data-bs-toggle="modal" data-bs-target="#con-view-layout" class="btn btn-primary me-2">Export</a>
 
                             </div>
                         </div>
@@ -88,33 +92,33 @@
                                     <th>Section</th>
                                     <th>Gender</th>
                                     <th>Contact Number</th>
-                                    <th>Profile Status</th>  
+                                    <th>Profile Status</th>
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
-                                    $students = [
-                                        ['name' => 'Aaliyah', 'class' => '10 A', 'section' => 'A', 'gender' => 'Male', 'contact' => '097 3584 5870', 'profile_completed' => 90],
-                                        ['name' => 'Malynne', 'class' => '8 A', 'section' => 'A', 'gender' => 'Male', 'contact' => '242 362 3100', 'profile_completed' => 70],
-                                        ['name' => 'Nathan Humphries', 'class' => '10 B', 'section' => 'A', 'gender' => 'Male', 'contact' => '077 3499 9959', 'profile_completed' => 50],
-                                    ];
+                                $students = [
+                                ['name' => 'Aaliyah', 'class' => '10 A', 'section' => 'A', 'gender' => 'Male', 'contact' => '097 3584 5870', 'profile_completed' => 90],
+                                ['name' => 'Malynne', 'class' => '8 A', 'section' => 'A', 'gender' => 'Male', 'contact' => '242 362 3100', 'profile_completed' => 70],
+                                ['name' => 'Nathan Humphries', 'class' => '10 B', 'section' => 'A', 'gender' => 'Male', 'contact' => '077 3499 9959', 'profile_completed' => 50],
+                                ];
                                 @endphp
-                                
-                                @foreach ($students as $key => $student)
-                                    @php
-                                        $profileCompletion = $student['profile_completed'];
-                                        $statusClass = '';
 
-                                        if ($profileCompletion < 60) {
-                                            $statusClass = 'bg-danger text-white';  // Red
-                                        } elseif ($profileCompletion >= 60 && $profileCompletion <= 80) {
-                                            $statusClass = 'bg-warning text-dark';  // Yellow
+                                @foreach ($students as $key => $student)
+                                @php
+                                $profileCompletion = $student['profile_completed'];
+                                $statusClass = '';
+
+                                if ($profileCompletion < 60) {
+                                    $statusClass='bg-danger text-white' ; // Red
+                                    } elseif ($profileCompletion>= 60 && $profileCompletion <= 80) {
+                                        $statusClass='bg-warning text-dark' ; // Yellow
                                         } else {
-                                            $statusClass = 'bg-success text-white';  // Green
+                                        $statusClass='bg-success text-white' ; // Green
                                         }
-                                    @endphp
-                                    <tr>
+                                        @endphp
+                                        <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>
                                             <h2 class="table-avatar">
@@ -126,7 +130,7 @@
                                         <td>{{ $student['gender'] }}</td>
                                         <td>{{ $student['contact'] }}</td>
                                         <td class="text-center">
-                                            <span class="badge {{ $statusClass }}">{{ $profileCompletion }}%</span>  <!-- Display the profile completion with color -->
+                                            <span class="badge {{ $statusClass }}">{{ $profileCompletion }}%</span> <!-- Display the profile completion with color -->
                                         </td>
                                         <td class="text-end">
                                             <div class="actions ">
@@ -135,8 +139,8 @@
                                                 </a>
                                             </div>
                                         </td>
-                                    </tr>
-                                @endforeach
+                                        </tr>
+                                        @endforeach
                             </tbody>
                         </table>
                     </div>
