@@ -22,7 +22,7 @@
                     
                     <div class="row my-3">
                         <div class="col-sm-4">
-                            <a href="{{ route('basic-configuration.getSubject') }}" class="config">Assign Module</a>
+                            <a href="{{ route('assign-module.assignModule') }}" class="config">Assign Module</a>
                         </div>
                         <div class="col-sm-4">
                             <a href="{{ route('basic-configuration.store') }}" class="config">Basic Configuration</a>
