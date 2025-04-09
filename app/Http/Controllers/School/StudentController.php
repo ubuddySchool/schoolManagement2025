@@ -25,6 +25,9 @@ class StudentController extends Controller
     public function add_enquiry(Request $request){
         return view('school.student_enquiry.add_enquiry');
     }
+    public function follow_up(Request $request){
+        return view('school.student_enquiry.follow_up');
+    }
     
     public function registration_feespaid(Request $request){
         return view('school.student_enquiry.fees.registration_feespaid');
