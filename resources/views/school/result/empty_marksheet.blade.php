@@ -22,13 +22,13 @@
             <p class="m-0 w-100">2025-26 &nbsp <span class="fs-20">|</span> &nbsp Term I &nbsp <span class="fs-20">|</span> &nbsp Class VI &nbsp <span class="fs-20">|</span> &nbsp Section A</p>
         </div>
         <div class="col-1">
-            <a href="{{ route('student.result.view') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
+            <a href="{{ route('student.result.edit.empty') }}" class="btn btn-primary page-header1 w-100" id="export_button">Edit</a>
         </div>
         <div class="col-1">
             <button class="btn btn-primary  w-100" onclick="printPage()"> Print</button>
         </div>
         <div class="col-2">
-            <button class="btn btn-primary page-header1 w-100" id="export_button">Export to Excel</button>
+            <button class="btn btn-primary page-header1 w-100" id="export_button"><i class="fa-solid fa-file-export"></i></button>
         </div>
     </div>
 

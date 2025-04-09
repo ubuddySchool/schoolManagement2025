@@ -108,6 +108,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/school/view', [ResultController::class, 'view_marksheet'])->name('student.result.view');
     Route::get('/school/empty', [ResultController::class, 'empty_marksheet'])->name('student.result.empty');
     Route::get('/school/filled', [ResultController::class, 'filled_marksheet'])->name('student.result.filled');
+    Route::get('/school/empty/edit', [ResultController::class, 'edit_empty_marksheet'])->name('student.result.edit.empty');
+    Route::get('/school/filled/filled', [ResultController::class, 'edit_filled_marksheet'])->name('student.result.edit.filled');
     // syllabus
     Route::get('/school/syllabus', [SyllabusController::class, 'syllabus'])->name('student.syllabus');
     Route::get('/school/syllabus/add', [SyllabusController::class, 'add_syllabus'])->name('student.add_syllabus');

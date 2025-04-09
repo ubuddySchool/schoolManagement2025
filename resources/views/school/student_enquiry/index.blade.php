@@ -113,7 +113,9 @@
                             <div class="col-auto text-end float-end ms-auto download-grp">
 
 
-                                <a href="{{ route('school_student.add.follow_up') }}" class="btn btn-primary">Follow up</a>
+                                <a href="{{ route('school_student.add.follow_up') }}" class="btn btn-primary"><i class="fa fa-paper-plane"
+
+></i></a>
                             </div>
                             <div class="col-auto text-end float-end ms-auto download-grp">
 
