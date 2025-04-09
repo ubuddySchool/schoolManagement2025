@@ -11,8 +11,8 @@ class ConfigurationController extends Controller
     {
         return view('admin.configuration.index');
     }
-    public function basic()
+    public function moduleconfig()
     {
-        return view('admin.basic_configuration.index');
+        return view('admin.basic_configuration.module_config');
     }
 }

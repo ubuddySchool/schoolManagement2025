@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\Admin\BasicConfigurationController;
 use App\Http\Controllers\Auth\Admin\ConfigurationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Admin\LoginController;
+use App\Http\Controllers\Auth\Admin\ModuleConfigurationController;
 use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 use App\Http\Controllers\Auth\Admin\SchoolAdminController;
 
@@ -38,16 +39,16 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
     Route::get('index', [ConfigurationController::class, 'index'])->name('index');
-    // Route::get('basic-configuration', [ConfigurationController::class, 'basic'])->name('basic');
-    // Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
-    // Route::get('assign-module', [ConfigurationController::class, 'assignmodule'])->name('assignmodule');
+    Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
 });
 
 Route::prefix('admin/assign-module')->name('assign-module.')->group(function () {
     Route::get('index', [AssignModuleController::class, 'assignModule'])->name('assignModule');
-    // Route::get('basic-configuration', [ConfigurationController::class, 'basic'])->name('basic');
-    // Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
-    // Route::get('assign-module', [ConfigurationController::class, 'assignmodule'])->name('assignmodule');
+});
+
+Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {
+    Route::get('index', [ModuleConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
+    Route::get('enquiry', [ModuleConfigurationController::class, 'enquiry'])->name('enquiry');
 });
 
 Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
