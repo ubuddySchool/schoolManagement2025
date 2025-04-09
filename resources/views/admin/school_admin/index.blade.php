@@ -46,13 +46,16 @@
                                         </td>
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <a class="btn btn-sm bg-success-light" href="{{ route('configuration.index') }}"><i class="fa-solid fa-gears"></i></a>
+
+                                                {{-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i class="fa-solid fa-gears"></i>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li><a class="dropdown-item" href="#">Inactive</a></li>
-                                                    <li><a class="dropdown-item" href="#">Pending</a></li>
-                                                </ul>
+                                                    <li><a class="dropdown-item" href="#">Assign Module</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('basic-configuration.store') }}">Basic Configuration</a></li>
+                                                    <li><a class="dropdown-item" href="#">Module Configuration</a></li>
+                                                </ul> --}}
                                             </div>
                                         </td>
 
