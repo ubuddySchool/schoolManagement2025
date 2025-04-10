@@ -52,6 +52,10 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('school.auth.login');
 
+Route::get('/login/configuration-admin', function () {
+    return view('auth.configuration_admin_login');
+})->name('school.configurationadmin.login');
+
 
 Route::get('/process/forgot-password', [ForgetpassowrdController::class, 'forgot_password'])->name('school.forgot-password');
 
