@@ -64,4 +64,12 @@ class ModuleConfigurationController extends Controller
     {
         return view('admin.module_configuration.admission_form');
     }
+    public function registration_form()
+    {
+        return view('admin.module_configuration.registration_form');
+    }
+    public function admission_form()
+    {
+        return view('admin.module_configuration.admission_form');
+    }
 }

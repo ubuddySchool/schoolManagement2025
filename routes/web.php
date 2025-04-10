@@ -8,6 +8,7 @@ use App\Http\Controllers\School\StudentManagment;
 use App\Http\Controllers\School\SyllabusController;
 use App\Http\Controllers\School\ResultController;
 use App\Http\Controllers\School\AdmitController;
+use App\Http\Controllers\School\ForgetpassowrdController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -49,7 +50,11 @@ return 'Migrations have been reset!';
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->name('school.auth.login');
+
+
+Route::get('/process/forgot-password', [ForgetpassowrdController::class, 'forgot_password'])->name('school.forgot-password');
+
 
 Route::get('/dashboard', function () {
     return view('school.dashboard');
