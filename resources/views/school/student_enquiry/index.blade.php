@@ -451,7 +451,7 @@
 
 
 <div id="danger-alert1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit Enquiry Status</h4>
@@ -716,7 +716,9 @@
                         <p class="mb-0"><strong>Student Name: </strong> ankit</p>
                     </div>
                     <div class="col-md-4">
-                        <p class="mb-0"><strong>Class: </strong> 6</p>
+                        <p class="mb-0"><strong>Class: </strong> 6
+                        <button type="button" id="view-more-btn" class="btn btn-outline-primary btn-sm">View More</button></p>
+                        
                     </div>
 
                     <!-- Extra details hidden initially -->
@@ -779,7 +781,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="view-more-btn" class="btn btn-primary">View More</button>
+                
             </div>
         </div>
     </div>
@@ -869,7 +871,7 @@
 
 
 <div id="danger-alert2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit Enquiry Status</h4>
@@ -1157,7 +1159,7 @@
 
 
 <div id="danger-alert3" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit Enquiry Status</h4>
@@ -1444,7 +1446,7 @@
 
 
 <div id="danger-alert4" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit Enquiry Status</h4>
@@ -1731,7 +1733,7 @@
 
 
 <div id="danger-alert5" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modalWidth">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit Enquiry Status</h4>
