@@ -187,6 +187,7 @@
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.registration_form') }}">Print registration Form</a></li>
                                                 </ul>
                                             </div>
 

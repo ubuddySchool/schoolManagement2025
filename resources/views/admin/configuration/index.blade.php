@@ -21,13 +21,16 @@
                     </div>
                     
                     <div class="row my-3">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
+                            <a href="{{ route('assign.school.index') }}" class="config">Assign School</a>
+                        </div>
+                        <div class="col-sm-3">
                             <a href="{{ route('assign-module.assignModule') }}" class="config">Assign Module</a>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <a href="{{ route('basic-configuration.store') }}" class="config">Basic Configuration</a>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <a href="{{ route('module-configuration.moduleconfig') }}" class="config">Module Configuration</a>
                         </div>                        
                     </div>

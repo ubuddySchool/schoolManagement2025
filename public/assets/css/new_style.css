@@ -92,6 +92,9 @@ div#DataTables_Table_0_length {
    pointer-events: auto;
 }
 
+.cursor-pointer {
+   cursor: pointer;
+}
 .dropdown-select.open .option {
    cursor: pointer;
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\Admin\AssignModuleController;
 use App\Http\Controllers\Auth\Admin\BasicConfigurationController;
 use App\Http\Controllers\Auth\Admin\ConfigurationController;
+use App\Http\Controllers\Auth\Admin\AssignSchoolcontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Admin\LoginController;
 use App\Http\Controllers\Auth\Admin\ModuleConfigurationController;
@@ -40,6 +41,10 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
     Route::get('index', [ConfigurationController::class, 'index'])->name('index');
     Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
+});
+
+Route::prefix('admin/school-assgin')->name('assign.school.')->group(function () {
+    Route::get('index', [AssignSchoolcontroller::class, 'index'])->name('index');
 });
 
 Route::prefix('admin/assign-module')->name('assign-module.')->group(function () {
