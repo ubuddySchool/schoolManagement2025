@@ -60,7 +60,8 @@ Route::prefix('admin/module-configuration')->name('module-configuration.')->grou
     Route::get('certificate', [ModuleConfigurationController::class, 'certificate'])->name('certificate');
     Route::get('fee', [ModuleConfigurationController::class, 'feeManagement'])->name('fee');
     Route::get('transportation', [ModuleConfigurationController::class, 'vehicleManagement'])->name('transportation');
-
+    Route::get('/registration', [ModuleConfigurationController::class, 'registration_form'])->name('registration.form');
+    Route::get('/admission', [ModuleConfigurationController::class, 'admission_form'])->name('admission.form');
 });
 
 Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
