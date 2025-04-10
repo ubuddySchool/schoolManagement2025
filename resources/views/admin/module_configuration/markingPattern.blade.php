@@ -63,6 +63,102 @@
                             $markingTypes = ['Hindi', 'English', 'Mathematics', 'Art & Craft'];
                             ?>
 
+                            <div class="row my-1" id="splitPattern_1_head">
+                                <div class="col-md-2 col-sm-3"></div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="overall_min_head" 
+                                        placeholder="Min Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="overall_max_head" 
+                                        placeholder="Max Head" 
+                                        required>
+                                </div>
+                            </div>
+                            
+                            <div class="row my-1" id="splitPattern_2_head">
+                                <div class="col-md-2 col-sm-3"></div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="internal_max_head" 
+                                        placeholder="Internal Max Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="internal_min_head" 
+                                        placeholder="Internal Min Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="external_max_head" 
+                                        placeholder="External Max Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="external_min_head" 
+                                        placeholder="External Min Head" 
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row my-1" id="splitPattern_3_head">
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="s1_max_head" 
+                                        placeholder="S1 Max Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="s1_min_head" 
+                                        placeholder="S1 Min Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="s2_max_head" 
+                                        placeholder="S2 Max Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="s2_min_head" 
+                                        placeholder="S2 Min Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="s3_max_head" 
+                                        placeholder="S3 Max Head" 
+                                        required>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        name="s3_min_head" 
+                                        placeholder="S3 Min Head" 
+                                        required>
+                                </div>
+                            </div>
+                            <hr>
+
                             <?php foreach ($subjects as $subjectIndex => $subjectLabel): ?>
                             <div class="row align-items-start" data-index="<?= $subjectIndex ?>">
                                 
@@ -98,32 +194,29 @@
                                         <div class="col-md-2 col-sm-3">
                                             <input type="text" 
                                                 class="form-control" 
-                                                name="subjects[<?= $subjectIndex ?>][int_min]" 
-                                                placeholder="Internal Min" 
-                                                required>
-                                        </div>
-
-                                        <div class="col-md-2 col-sm-3">
-                                            <input type="text" 
-                                                class="form-control" 
                                                 name="subjects[<?= $subjectIndex ?>][int_max]" 
                                                 placeholder="Internal Max" 
                                                 required>
                                         </div>
-
+                                        <div class="col-md-2 col-sm-3">
+                                            <input type="text" 
+                                                class="form-control" 
+                                                name="subjects[<?= $subjectIndex ?>][int_min]" 
+                                                placeholder="Internal Min" 
+                                                required>
+                                        </div>                                        
+                                        <div class="col-md-2 col-sm-3">
+                                            <input type="text" 
+                                            class="form-control" 
+                                            name="subjects[<?= $subjectIndex ?>][ext_max]" 
+                                            placeholder="External Max" 
+                                            required>
+                                        </div>
                                         <div class="col-md-2 col-sm-3">
                                             <input type="text" 
                                                 class="form-control" 
                                                 name="subjects[<?= $subjectIndex ?>][ext_min]" 
                                                 placeholder="External Min" 
-                                                required>
-                                        </div>
-
-                                        <div class="col-md-2 col-sm-3">
-                                            <input type="text" 
-                                                class="form-control" 
-                                                name="subjects[<?= $subjectIndex ?>][ext_max]" 
-                                                placeholder="External Max" 
                                                 required>
                                         </div>
                                     </div>
@@ -134,16 +227,22 @@
                                         <div class="col-md-2 col-sm-3">
                                             <input type="text" 
                                                 class="form-control" 
+                                                name="subjects[<?= $subjectIndex ?>][s1_max]" 
+                                                placeholder="S1 Max" 
+                                                required>
+                                        </div>
+                                        <div class="col-md-2 col-sm-3">
+                                            <input type="text" 
+                                                class="form-control" 
                                                 name="subjects[<?= $subjectIndex ?>][s1_min]" 
                                                 placeholder="S1 Min" 
                                                 required>
                                         </div>
-
                                         <div class="col-md-2 col-sm-3">
                                             <input type="text" 
                                                 class="form-control" 
-                                                name="subjects[<?= $subjectIndex ?>][s1_max]" 
-                                                placeholder="S1 Max" 
+                                                name="subjects[<?= $subjectIndex ?>][s2_max]" 
+                                                placeholder="S2 Max" 
                                                 required>
                                         </div>
 
@@ -158,8 +257,8 @@
                                         <div class="col-md-2 col-sm-3">
                                             <input type="text" 
                                                 class="form-control" 
-                                                name="subjects[<?= $subjectIndex ?>][s2_max]" 
-                                                placeholder="S2 Max" 
+                                                name="subjects[<?= $subjectIndex ?>][s3_max]" 
+                                                placeholder="S3 Max" 
                                                 required>
                                         </div>
 
@@ -168,14 +267,6 @@
                                                 class="form-control" 
                                                 name="subjects[<?= $subjectIndex ?>][s3_min]" 
                                                 placeholder="S3 Min" 
-                                                required>
-                                        </div>
-
-                                        <div class="col-md-2 col-sm-3">
-                                            <input type="text" 
-                                                class="form-control" 
-                                                name="subjects[<?= $subjectIndex ?>][s3_max]" 
-                                                placeholder="S3 Max" 
                                                 required>
                                         </div>
                                     </div>

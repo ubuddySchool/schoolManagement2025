@@ -45,7 +45,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     
-    $('[id^="splitPattern_2_"], [id^="splitPattern_3_"], [id^="splitPattern_1_"]').hide();
+    $('[id^="splitPattern_2_"], [id^="splitPattern_3_"], [id^="splitPattern_1_"], [id^="splitPattern_1_head"], [id^="splitPattern_2_head"], [id^="splitPattern_3_head"]').hide();
 
     $('select[name="splitPattern"]').on('change', function () {
         const selected = $(this).val();
@@ -57,11 +57,18 @@ $(document).ready(function () {
             $('#splitPattern_2_' + index).hide();
             $('#splitPattern_3_' + index).hide();
 
+            $('#splitPattern_1_head').hide();
+            $('#splitPattern_2_head').hide();
+            $('#splitPattern_3_head').hide();
+
             if (selected === "2") {
+                $('#splitPattern_2_head').show();
                 $('#splitPattern_2_' + index).show();
             } else if (selected === "3") {
+                $('#splitPattern_3_head').show();
                 $('#splitPattern_3_' + index).show();
             } else if (selected === "1") {
+                $('#splitPattern_1_head').show();
                 $('#splitPattern_1_' + index).show();
             }
         });
