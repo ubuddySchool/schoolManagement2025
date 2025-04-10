@@ -37,6 +37,9 @@
                                         <span class="profile-views"><i class="fas fa-key"></i></span>
                                     </div>
                                     <div class="form-group">
+                                        <p style="font-size:10px;">If you forgot your MPIN, please contact our customer service.</p>
+                                    </div>
+                                    <div class="form-group">
                                         <button type="button" class="btn btn-primary btn-block" onclick="validateStep(2)">Next</button>
                                     </div>
                                 </div>
