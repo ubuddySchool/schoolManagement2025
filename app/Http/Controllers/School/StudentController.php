@@ -44,4 +44,7 @@ class StudentController extends Controller
     public function admission_feesunpaid(Request $request){
         return view('school.student_enquiry.fees.admission_fees');
     }
+    public function registration_form(Request $request){
+        return view('school.student_enquiry.fees.registration_form');
+    }
 }
