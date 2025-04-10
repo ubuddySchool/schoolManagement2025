@@ -52,9 +52,27 @@
                                         <span class="profile-views"><i class="fas fa-shield-alt"></i></span>
                                     </div>
                                     <div class="form-group">
+                                        <button type="button" class="btn btn-primary btn-block" onclick="validateStep(3)">Next</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Set New Password -->
+                                <div id="step4" class="step d-none">
+                                    <div class="form-group">
+                                        <label>New Password <span class="login-danger">*</span></label>
+                                        <input class="form-control" type="password" name="password" minlength="6" required>
+                                        <span class="profile-views"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirm Password <span class="login-danger">*</span></label>
+                                        <input class="form-control" type="password" name="password_confirmation" minlength="6" required>
+                                        <span class="profile-views"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-block">Reset My Password</button>
                                     </div>
                                 </div>
+
 
                                 <div class="form-group mb-0">
                                     <a class="btn primary-reset btn-block" href="{{ route('school.auth.login') }}">Back to Login</a>
@@ -72,11 +90,18 @@
     <script>
         function validateStep(step) {
             const currentStep = document.getElementById('step' + step);
-            const input = currentStep.querySelector('input');
-            if (input.checkValidity()) {
+            const input = currentStep.querySelectorAll('input');
+            let valid = true;
+
+            input.forEach(field => {
+                if (!field.checkValidity()) {
+                    field.reportValidity();
+                    valid = false;
+                }
+            });
+
+            if (valid) {
                 nextStep(step + 1);
-            } else {
-                input.reportValidity();
             }
         }
 
@@ -86,7 +111,10 @@
         }
     </script>
 
+
     <style>
-        .d-none { display: none; }
+        .d-none {
+            display: none;
+        }
     </style>
 </x-guest-layout>
