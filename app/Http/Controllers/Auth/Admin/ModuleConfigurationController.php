@@ -15,6 +15,47 @@ class ModuleConfigurationController extends Controller
     {
         return view('admin.module_configuration.enquiry');
     }
+    public function result()
+    {
+        return view('admin.module_configuration.result');
+    }
+    public function grade()
+    {
+        return view('admin.module_configuration.grade');
+    }
+    public function resultType()
+    {
+        return view('admin.module_configuration.resultType');
+    }
+    public function markPattern()
+    {
+        return view('admin.module_configuration.markingPattern');
+    }
+    
+    public function markAttendance()
+    {
+        return view('admin.module_configuration.attendance');
+    }
+    public function admitCard()
+    {
+        return view('admin.module_configuration.admitCard');
+    }
+    public function annualCalender()
+    {
+        return view('admin.module_configuration.annualCalender');
+    }
+    public function certificate()
+    {
+        return view('admin.module_configuration.certificate');
+    }
+    public function feeManagement()
+    {
+        return view('admin.module_configuration.fee');
+    }
+    public function vehicleManagement()
+    {
+        return view('admin.module_configuration.transportation');
+    }
     public function registration_form()
     {
         return view('admin.module_configuration.registration_form');
