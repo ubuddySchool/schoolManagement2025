@@ -107,11 +107,14 @@
                                         <td>A</td>
                                         <td>
                                             <div >
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal249"><i class="feather-eye"></i></a>
+                                            <a href="javascript:void(0);" class="btn btn-sm bg-primary-light me-2" onclick="window.print();">
+                                                    <i class="feather-printer"></i>
+                                                </a>
+                                                <!-- <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal249"><i class="feather-eye"></i></a>
 
                                                 <a href="" class="btn btn-sm bg-danger-light me-2 d-none" data-bs-toggle="modal" data-bs-target="#con-close-modal249"> <i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-danger d-none"><i class="feather-trash-2"></i></a>
+                                                <a href="" class="btn btn-sm bg-danger d-none"><i class="feather-trash-2"></i></a> -->
                                             </div>
                                         </td>
                                     </tr>
@@ -122,11 +125,13 @@
                                         <td>A</td>
                                         <td>
                                             <div >
-                                                <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal447"><i class="feather-eye"></i></a>
+                                                <!-- <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-modal447"><i class="feather-eye"></i></a> -->
+                                                <a href="javascript:void(0);" class="btn btn-sm bg-primary-light me-2" onclick="window.print();">
+                                                    <i class="feather-printer"></i>
+                                                </a>
+                                                <!-- <a href="" class="btn btn-sm bg-danger-light me-2 d-none" data-bs-toggle="modal" data-bs-target="#con-close-modal447"> <i class="feather-edit"></i> </a>
 
-                                                <a href="" class="btn btn-sm bg-danger-light me-2 d-none" data-bs-toggle="modal" data-bs-target="#con-close-modal447"> <i class="feather-edit"></i> </a>
-
-                                                <a href="" class="btn btn-sm bg-danger d-none"><i class="feather-trash-2"></i></a>
+                                                <a href="" class="btn btn-sm bg-danger d-none"><i class="feather-trash-2"></i></a> -->
                                             </div>
                                         </td>
                                     </tr>

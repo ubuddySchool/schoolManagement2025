@@ -49,6 +49,8 @@ Route::prefix('admin/assign-module')->name('assign-module.')->group(function () 
 Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {
     Route::get('index', [ModuleConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
     Route::get('enquiry', [ModuleConfigurationController::class, 'enquiry'])->name('enquiry');
+    Route::get('/registration', [ModuleConfigurationController::class, 'registration_form'])->name('registration.form');
+    Route::get('/admission', [ModuleConfigurationController::class, 'admission_form'])->name('admission.form');
 });
 
 Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {

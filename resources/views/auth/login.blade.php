@@ -47,11 +47,17 @@
 
                                 <!-- Remember Me -->
                                 <div class="forgotpass mt-2">
-                                    @if (Route::has('password.request'))
+                                    <!-- @if (Route::has('password.request'))
                                     <a class=" text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                                         {{ __('Forgot your password?') }}
                                     </a>
+                                    @endif -->
+                                    @if (Route::has('school.forgot-password'))
+                                    <a class=" text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('school.forgot-password') }}">
+                                        {{ __('Forgot your password?') }}
+                                    </a>
                                     @endif
+                                    
                                 </div>
 
                                

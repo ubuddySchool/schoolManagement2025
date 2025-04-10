@@ -58,7 +58,7 @@
                     Drawing </th>
                 <th rowspan="2">Total</th>
                 <th rowspan="2">Percentage</th>
-                <th rowspan="2">Extra Subject</th>
+               
             </tr>
             <tr>
                 <th style="text-align: center;">
@@ -82,335 +82,137 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Aashish Rathore</td>
-                <td>
-                    788888 </td>
-                
-                <td>
-                    8 </td>
-                <td>
-                    4 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
+    <tr>
+        <td>1</td>
+        <td>Aashish Rathore</td>
+        <td>788888</td>
+        <td>18</td>
+        <td class="bg-red">3</td>
+        <td>16</td>
+        <td>5</td>
+        <td>19</td>
+        <td>5</td>
+        <td>20</td>
+        <td>5</td>
+        <td>96</td>
+        <td>96.00</td>
+      
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ishan Parate</td>
+        <td>788889</td>
+        <td>6</td>
+        <td class="bg-red">2</td>
+        <td>7</td>
+        <td class="bg-red">3</td>
+        <td>5</td>
+        <td class="bg-red">1</td>
+        <td>8</td>
+        <td class="bg-red">2</td>
+        <td>34</td>
+        <td>34.00</td>
+       
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Megha</td>
+        <td>788890</td>
+        <td>19</td>
+        <td>5</td>
+        <td>18</td>
+        <td class="bg-red">4</td>
+        <td>20</td>
+        <td>5</td>
+        <td>15</td>
+        <td>5</td>
+        <td>91</td>
+        <td>91.00</td>
+        
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Nitin</td>
+        <td>788891</td>
+        <td>13</td>
+        <td class="bg-red">2</td>
+        <td>9</td>
+        <td class="bg-red">4</td>
+        <td>14</td>
+        <td>5</td>
+        <td>13</td>
+        <td>5</td>
+        <td>65</td>
+        <td>65.00</td>
+       
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Patel</td>
+        <td>788892</td>
+        <td>17</td>
+        <td>5</td>
+        <td>15</td>
+        <td>5</td>
+        <td>18</td>
+        <td class="bg-red">4</td>
+        <td>16</td>
+        <td>5</td>
+        <td>85</td>
+        <td>85.00</td>
+       
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Rani</td>
+        <td>788893</td>
+        <td>9</td>
+        <td class="bg-red">3</td>
+        <td>7</td>
+        <td class="bg-red">2</td>
+        <td>6</td>
+        <td class="bg-red">3</td>
+        <td>8</td>
+        <td class="bg-red">2</td>
+        <td>40</td>
+        <td>40.00</td>
+       
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Shahrukh Khan</td>
+        <td>788894</td>
+        <td>16</td>
+        <td>5</td>
+        <td>14</td>
+        <td class="bg-red">4</td>
+        <td>17</td>
+        <td>5</td>
+        <td>15</td>
+        <td class="bg-red">4</td>
+        <td>80</td>
+        <td>80.00</td>
+      
+    </tr>
+   
+    <tr>
+        <td>8</td>
+        <td>Vishal</td>
+        <td>788897</td>
+        <td>20</td>
+        <td>5</td>
+        <td>19</td>
+        <td>5</td>
+        <td>20</td>
+        <td>5</td>
+        <td>19</td>
+        <td>5</td>
+        <td>98</td>
+        <td>98.00</td>
+        
+    </tr>
+</tbody>
 
-                <td class="bg-red">12</td>
-                <td class="bg-red">12.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Ishan Parate</td>
-                <td>
-                    788889 </td>
-                
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td class="bg-red">0</td>
-                <td class="bg-red">0.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>megha</td>
-                <td>
-                    788890 </td>
-                
-                <td>
-                    8 </td>
-                <td>
-                    5 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td class="bg-red">13</td>
-                <td class="bg-red">13.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>nitin</td>
-                <td>
-                    788891 </td>
-                <td>
-                    20 </td>
-                <td>
-                    5 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td>25</td>
-                <td>25.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>patel</td>
-                <td>
-                    788892 </td>
-                <td>
-                    16 </td>
-                <td>
-                    5 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td>21</td>
-                <td>21.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>rani</td>
-                <td>
-                    788893 </td>
-                
-                <td>
-                    16 </td>
-                <td>
-                    3 </td>
-                <td>
-                    11 </td>
-                <td>
-                    4 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td>34</td>
-                <td>34</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>rani</td>
-                <td>
-                    788894 </td>
-                
-                <td>
-                    17 </td>
-                <td>
-                    5 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td>22</td>
-                <td>22.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>shahrukh khan</td>
-                <td>
-                    788895 </td>
-                
-                <td>
-                    11 </td>
-                <td>
-                    5 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td>16</td>
-                <td>16.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>shahrukh khan1</td>
-                <td>
-                    788896 </td>
-                
-                <td>
-                    19 </td>
-                <td>
-                    4 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td>23</td>
-                <td>23.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>shahrukh khan2</td>
-                <td>
-                    788897 </td>
-                
-                <td>
-                    11 </td>
-                <td>
-                    3 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td class="bg-red">14</td>
-                <td class="bg-red">14.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>vishal</td>
-                <td>
-                    788898 </td>
-               
-                <td>
-                    9 </td>
-                <td>
-                    3 </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-
-                <td class="bg-red">12</td>
-                <td class="bg-red">12.00</td>
-
-                <td>
-                </td>
-
-            </tr>
-        </tbody>
     </table>
 
 

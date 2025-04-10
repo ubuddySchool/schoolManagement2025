@@ -81,7 +81,11 @@
                                 <option>Select Type</option>
                                 <option value="0">Student Wise</option>
                                 <option value="1">Subject Wise</option>
-                                <option value="2">Cross Wise</option>
+                                <option>
+                                    <a data-bs-toggle="modal" data-bs-target="#export-alert-modal" class="btn btn-primary me-2" title="Export file">Cross Wise</a>
+                                </option>
+
+                                <!-- <option value="2">Cross Wise</option> -->
                             </select>
                         </div>
                     </div>
@@ -347,7 +351,7 @@
                         <div class="form-group">
                             <input type="text" hidden class="form-control" value="testschool" name="usernamePost" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group m-0">
                             <div class="row" style="margin-bottom: .5rem;">
                                 <div class="col-md-12">
                                     <select name="class" class="currclass dropdown-select w-100" required>
@@ -380,14 +384,16 @@
                                 </div>
                             </div>
                             <div class="row" style="margin-bottom: 0.5rem;">
-                                <div class="col-md-12">
-                                    <select name="parentSign" class="currclass dropdown-select w-100" aria-label="Parent Signature" required>
-                                        <option value="" selected disabled>Parent Signature</option>
-                                        <option value="0">No</option>
-                                        <option value="1">Yes</option>
-                                    </select>
-                                </div>
-                            </div>
+    <div class="col-md-12">
+        <div class="form-check align-items-center">
+            <input type="checkbox" class="form-check-input" id="parentSign" name="parentSign" value="1">
+            <label class="form-check-label mb-0" for="parentSign">
+                Parent Signature
+            </label>
+        </div>
+    </div>
+</div>
+
 
 
 
