@@ -49,6 +49,17 @@ Route::prefix('admin/assign-module')->name('assign-module.')->group(function () 
 Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {
     Route::get('index', [ModuleConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
     Route::get('enquiry', [ModuleConfigurationController::class, 'enquiry'])->name('enquiry');
+    Route::get('result', [ModuleConfigurationController::class, 'result'])->name('result');
+    Route::get('add-grade', [ModuleConfigurationController::class, 'grade'])->name('grade');
+    Route::get('result-type', [ModuleConfigurationController::class, 'resultType'])->name('resultType');
+    Route::get('marking-pattern', [ModuleConfigurationController::class, 'markPattern'])->name('markPattern');
+    
+    Route::get('attendance', [ModuleConfigurationController::class, 'markAttendance'])->name('attendance');
+    Route::get('admit-card', [ModuleConfigurationController::class, 'admitCard'])->name('admitCard');
+    Route::get('calender', [ModuleConfigurationController::class, 'annualCalender'])->name('annualCalender');
+    Route::get('certificate', [ModuleConfigurationController::class, 'certificate'])->name('certificate');
+    Route::get('fee', [ModuleConfigurationController::class, 'feeManagement'])->name('fee');
+    Route::get('transportation', [ModuleConfigurationController::class, 'vehicleManagement'])->name('transportation');
     Route::get('/registration', [ModuleConfigurationController::class, 'registration_form'])->name('registration.form');
     Route::get('/admission', [ModuleConfigurationController::class, 'admission_form'])->name('admission.form');
 });
@@ -58,7 +69,10 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
     Route::get('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
     Route::get('assignSection', [BasicConfigurationController::class, 'getSection'])->name('getSection');
     Route::get('assignSubject', [BasicConfigurationController::class, 'getSubject'])->name('getSubject');
-    Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');    
+    Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');
+    Route::get('school-terms', [BasicConfigurationController::class, 'schoolTerms'])->name('schoolTerms');
+    Route::get('class-terms', [BasicConfigurationController::class, 'classTerms'])->name('classTerms');
+
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
     Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');
     Route::get('subjectType', [BasicConfigurationController::class, 'subjectType'])->name('subjectType');
