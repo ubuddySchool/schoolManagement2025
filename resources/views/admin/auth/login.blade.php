@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="copyright social-login">
-                                <p> © Copyright - UBUDDY 2025 - 2026.
+                                <p> © Copyright - UBUDDY 2025
                                     <br> All rights reserved.
                                 </p>
                             </div>
