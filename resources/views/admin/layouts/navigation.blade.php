@@ -15,20 +15,25 @@
          </a>
 
      </div>
+     @php
+     $admin = Auth::guard('admin')->user();
+     @endphp
 
-     <div class="menu-toggle">
-         <a href="javascript:void(0);" id="toggle_btn">
-             <i class="fas fa-bars"></i>
-         </a>
-     </div>
+     @if ($admin && $admin->role === 1)
 
+        <div class="menu-toggle">
+            <a href="javascript:void(0);" id="toggle_btn">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+     
      <div class="top-nav-search">
          <form>
              <input type="text" class="form-control" placeholder="Search here">
              <button class="btn" type="submit"><i class="fas fa-search"></i></button>
          </form>
      </div>
-
+     @endif
 
      <a class="mobile_btn" id="mobile_btn">
          <i class="fas fa-bars"></i>
@@ -39,18 +44,18 @@
          {{-- <li class="nav-item dropdown noti-dropdown language-drop me-2">
              <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
                  <img src="{{ asset('assets/img/icons/header-icon-01.svg') }}" alt>
-             </a>
-             <div class="dropdown-menu ">
-                 <div class="noti-content">
-                     <div>
-                         <a class="dropdown-item" href="javascript:;"><i
-                                 class="flag flag-lr me-2"></i>English</a>
-                         <a class="dropdown-item" href="javascript:;"><i
-                                 class="flag flag-bl me-2"></i>Francais</a>
-                         <a class="dropdown-item" href="javascript:;"><i class="flag flag-cn me-2"></i>Turkce</a>
-                     </div>
+         </a>
+         <div class="dropdown-menu ">
+             <div class="noti-content">
+                 <div>
+                     <a class="dropdown-item" href="javascript:;"><i
+                             class="flag flag-lr me-2"></i>English</a>
+                     <a class="dropdown-item" href="javascript:;"><i
+                             class="flag flag-bl me-2"></i>Francais</a>
+                     <a class="dropdown-item" href="javascript:;"><i class="flag flag-cn me-2"></i>Turkce</a>
                  </div>
              </div>
+         </div>
          </li> --}}
 
          <li class="nav-item dropdown noti-dropdown me-2">
@@ -69,7 +74,7 @@
                                  <div class="media d-flex">
                                      <span class="avatar avatar-sm flex-shrink-0">
                                          <img class="avatar-img rounded-circle" alt="User Image"
-                                             src="assets/img/profiles/avatar-02.jpg">
+                                             src="{{ asset('assets/img/profiles/avatar-02.jpg') }}">
                                      </span>
                                      <div class="media-body flex-grow-1">
                                          <p class="noti-details"><span class="noti-title">Carlson Tech</span> has
@@ -85,7 +90,7 @@
                                  <div class="media d-flex">
                                      <span class="avatar avatar-sm flex-shrink-0">
                                          <img class="avatar-img rounded-circle" alt="User Image"
-                                             src="assets/img/profiles/avatar-11.jpg">
+                                             src="{{ asset('assets/img/profiles/avatar-11.jpg') }}">
                                      </span>
                                      <div class="media-body flex-grow-1">
                                          <p class="noti-details"><span class="noti-title">International Software
@@ -102,7 +107,7 @@
                                  <div class="media d-flex">
                                      <span class="avatar avatar-sm flex-shrink-0">
                                          <img class="avatar-img rounded-circle" alt="User Image"
-                                             src="assets/img/profiles/avatar-17.jpg">
+                                             src="{{ asset('assets/img/profiles/avatar-17.jpg') }}">
                                      </span>
                                      <div class="media-body flex-grow-1">
                                          <p class="noti-details"><span class="noti-title">John Hendry</span> sent
@@ -119,7 +124,7 @@
                                  <div class="media d-flex">
                                      <span class="avatar avatar-sm flex-shrink-0">
                                          <img class="avatar-img rounded-circle" alt="User Image"
-                                             src="assets/img/profiles/avatar-13.jpg">
+                                             src="{{ asset('assets/img/profiles/avatar-13.jpg') }}">
                                      </span>
                                      <div class="media-body flex-grow-1">
                                          <p class="noti-details"><span class="noti-title">Mercury Software
@@ -178,43 +183,44 @@
      </ul>
 
  </div>
-
+ @if ($admin && $admin->role === 1)
  <!-- sidebar -->
  <div class="sidebar" id="sidebar">
-    <div class="sidebar-inner slimscroll">
-        <div id="sidebar-menu" class="sidebar-menu">
-            <ul>
-                <li class="menu-title">
-                    <span>Main Menu</span>
-                </li>
-                <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}">
-                    <a href="{{ route('admin.dashboard') }}"><i class="feather-grid"></i> <span>Dashboard</span></a>
-                </li>
-                <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
-                    <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
-                </li>
-                <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
-                    <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New School</span></a>
-                </li>
+     <div class="sidebar-inner slimscroll">
+         <div id="sidebar-menu" class="sidebar-menu">
+             <ul>
+                 <li class="menu-title">
+                     <span>Main Menu</span>
+                 </li>
+                 <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}">
+                     <a href="{{ route('admin.dashboard') }}"><i class="feather-grid"></i> <span>Dashboard</span></a>
+                 </li>
+                 <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
+                     <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
+                 </li>
+                 <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
+                     <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New School</span></a>
+                 </li>
 
-                {{-- <li class="submenu">
+                 {{-- <li class="submenu">
                     <a href="#"><i class="fas fa-building"></i> <span>School</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li class="{{ Route::currentRouteName() == 'subadmin.index' ? 'active' : '' }}">
-                            <a href="{{ route('subadmin.index') }}">SubAdmin Details</a>
-                        </li> 
-                        <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
-                            <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i> School List</a>
-                        </li>
-                        <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
-                            <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i> Add New School</a>
-                        </li>
-                    </ul>
-                </li> --}}
+                 <a href="{{ route('subadmin.index') }}">SubAdmin Details</a>
+                 </li>
+                 <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
+                     <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i> School List</a>
+                 </li>
+                 <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
+                     <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i> Add New School</a>
+                 </li>
+             </ul>
+             </li> --}}
 
-                <li class=""> <a href="{{ route('schooladmin.index') }}"><i class="fas fa-cogs"></i><span>Configuration Admin</span></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+             <li class=""> <a href="{{ route('schooladmin.index') }}"><i class="fas fa-cogs"></i><span>Configuration Admin</span></a>
+             </li>
+             </ul>
+         </div>
+     </div>
+ </div>
+ @endif

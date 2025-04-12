@@ -25,7 +25,7 @@
                             <label class="m-0">2025-26</label>
                         </div>
                         <div class="col-12 col-sm-2">
-                        <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
+                            <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
                                 <option value="">Select Class</option>
                                 <option value="86" data-classcat="A">Nursery</option>
                                 <option value="88" data-classcat="A">UKG</option>
@@ -50,6 +50,16 @@
                                 <option value="B">B</option>
                             </select>
                         </div>
+                        <div class="col-12 col-sm-4">
+
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <input type="search" name="" class="currclass" placeholder="Search student" id="">
+
+                        </div>
+                        <!-- <div class="col-auto">
+                                <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search By student" class="currclass">
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -79,16 +89,26 @@
                                     <td>1</td>
                                     <td>John Doe</td>
                                     <td>
-                                        <input type="checkbox" name="additional_subs[1][]" value="biology" class="additional-subject" id="additional_1">
-                                        Biology
+                                        <label>
+                                            <input type="checkbox" name="additional_subs[1][]" value="biology" class="additional-subject" id="additional_1" data-student="1">
+                                            Biology
+                                        </label><br>
+                                        <label>
+                                            <input type="checkbox" name="additional_subs[1][]" value="biology" class="additional-subject" id="additional_1" data-student="1">
+                                            Biology
+                                        </label>
                                     </td>
+
                                     <td>
-                                        <input type="radio" name="optional_subs[1]" value="chemistry" class="optional-subject" id="optional_1">
-                                        Hindi
+                                        <label>
+                                            <input type="radio" name="optional_subs[1]" value="chemistry" class="optional-subject" id="optional_1" data-student="1">
+                                            Hindi
+                                        </label>
+
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input class="form-check-input none-option" type="radio" name="optional_subject[1]" value="none" id="none_1">
+                                            <input class="form-check-input none-option" type="radio" name="optional_subject[1]" value="none" id="none_1" data-student="1">
                                             <label class="form-check-label" for="none_1">
                                                 None
                                             </label>
@@ -104,16 +124,29 @@
                                     <td>2</td>
                                     <td>Jane Smith</td>
                                     <td>
-                                        <input type="checkbox" name="additional_subs[2][]" value="chemistry" class="additional-subject" id="additional_2">
-                                        History
+                                        <label>
+                                            <input type="checkbox" name="additional_subs[2][]" value="chemistry" class="additional-subject" id="additional_2_1" data-student="2">
+                                            History
+                                        </label><br>
+                                        <label>
+                                            <input type="checkbox" name="additional_subs[2][]" value="chemistry" class="additional-subject" id="additional_2_2" data-student="2">
+                                            History
+                                        </label><br>
+                                        <label>
+                                            <input type="checkbox" name="additional_subs[2][]" value="chemistry" class="additional-subject" id="additional_2_3" data-student="2">
+                                            History
+                                        </label><br>
                                     </td>
+
                                     <td>
-                                        <input type="radio" name="optional_subs[2]" value="chemistry" class="optional-subject" id="optional_2">
-                                        Maths
+                                        <label>
+                                            <input type="radio" name="optional_subs[2]" value="chemistry" class="optional-subject" id="optional_2" data-student="2">
+                                            Maths
+                                        </label>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input class="form-check-input none-option" type="radio" name="optional_subject[2]" value="none" id="none_2">
+                                            <input class="form-check-input none-option" type="radio" name="optional_subject[2]" value="none" id="none_2" data-student="2">
                                             <label class="form-check-label" for="none_2">
                                                 None
                                             </label>
@@ -150,25 +183,26 @@
 </div>
 
 <script>
-// JavaScript to handle the 'None' button click and disable the options
-document.querySelectorAll('.none-option').forEach(function (noneOption) {
-    noneOption.addEventListener('change', function () {
-        // Get the index from the id of the clicked "None" radio
-        const studentId = this.id.split('_')[1];
-        
-        // Disable the corresponding additional subject checkbox and optional subject radio
-        const additionalSubjectCheckbox = document.querySelector(`#additional_${studentId}`);
-        const optionalSubjectRadio = document.querySelector(`#optional_${studentId}`);
-        
-        if (this.checked) {
-            additionalSubjectCheckbox.disabled = true;
-            optionalSubjectRadio.disabled = true;
-        } else {
-            additionalSubjectCheckbox.disabled = false;
-            optionalSubjectRadio.disabled = false;
-        }
+    document.querySelectorAll('.none-option').forEach(function(noneOption) {
+        noneOption.addEventListener('change', function() {
+            const studentId = this.getAttribute('data-student');
+
+            const additionalSubjects = document.querySelectorAll(`.additional-subject[data-student="${studentId}"]`);
+            const optionalSubjects = document.querySelectorAll(`.optional-subject[data-student="${studentId}"]`);
+
+            const shouldDisable = this.checked;
+
+            additionalSubjects.forEach(input => {
+                input.disabled = shouldDisable;
+                if (shouldDisable) input.checked = false;
+            });
+
+            optionalSubjects.forEach(input => {
+                input.disabled = shouldDisable;
+                if (shouldDisable) input.checked = false;
+            });
+        });
     });
-});
 </script>
 
 @endsection

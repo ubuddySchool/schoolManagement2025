@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 require __DIR__.'/admin-auth.php';
+require __DIR__.'/config-admin.php';
 
 
 Route::get('clear-cache', function () {
@@ -66,11 +67,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         // school
     Route::get('/school/student', [StudentController::class, 'index'])->name('school_student.index');
+    Route::get('/school/editstudent', [StudentController::class, 'editstudent'])->name('school_student.editstudent');
     Route::get('/school/add', [StudentController::class, 'add'])->name('school_student.add');
     Route::get('/school/edit', [StudentController::class, 'edit'])->name('school_student.edit');
     Route::get('/school/show', [StudentController::class, 'show'])->name('school_student.show');
     Route::get('/student/export_stuDetails', [StudentController::class, 'export_stuDetails'])->name('school_student.export_stuDetails');
-  
+    Route::get('/school/house', [StudentController::class, 'assgin_house'])->name('school_student.assgin_house');
+   
     // student
     Route::get('/student/enquiry', [StudentController::class, 'enquiry'])->name('school_student.enquiry');
     Route::get('/student/enquiry/add', [StudentController::class, 'add_enquiry'])->name('school_student.add.enquiry');

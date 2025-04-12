@@ -2,7 +2,7 @@
  <div class="header">
 
 
-     <div class="header-left">
+     <div class="header-left " >
          <a href="{{ route('admin.dashboard') }}" class="logo">
              <h3 class="text-primary">uBuddy</h3>
              <!-- <a href="{{ route('admin.dashboard') }}" class="logo">
@@ -116,13 +116,15 @@
                 </li>
 
                 <!-- Student Management -->
-                <li class="submenu {{ in_array(Route::currentRouteName(), ['managment.promote_detention', 'managment.termination', 'managment.assign_section', 'managment.subject_assign', 'school_student.edit']) ? 'active' : '' }}">
+                <li class="submenu {{ in_array(Route::currentRouteName(), ['managment.promote_detention', 'managment.termination', 'managment.assign_section', 'managment.subject_assign', 'school_student.edit','student.admit.rollno']) ? 'active' : '' }}">
                     <a href="#"><span> Student Management</span><span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{ route('managment.promote_detention') }}" class="{{ Route::currentRouteName() == 'managment.promote_detention' ? 'active' : '' }}"><span> Promotion / Detention</span></a></li>
                         <li><a href="{{ route('managment.termination') }}" class="{{ Route::currentRouteName() == 'managment.termination' ? 'active' : '' }}"><span> Termination / Active-Inactive</span></a></li>
+                        <li><a href="{{ route('student.admit.rollno') }}" class="{{ Route::currentRouteName() == 'student.admit.rollno' ? 'active' : 'student.admit.rollno' }}"><span> Assign Roll No.</span></a></li>
+                        <li><a href="{{ route('school_student.assgin_house') }}" class="{{ Route::currentRouteName() == 'school_student.assgin_house' ? 'active' : '' }}"><span> Assign House</span></a></li>
                         <li><a href="{{ route('managment.assign_section') }}" class="{{ Route::currentRouteName() == 'managment.assign_section' ? 'active' : '' }}"><span> Assign Section</span></a></li>
-                        <li><a href="#" class="{{ Route::currentRouteName() == 'school_student.edit' ? 'active' : '' }}"><span> Edit Profile</span></a></li>
+                        <li><a href="{{ route('school_student.editstudent') }}" class="{{ Route::currentRouteName() == 'school_student.editstudent' ? 'active' : '' }}"><span> Edit Profile</span></a></li>
                         <li><a href="{{ route('managment.subject_assign') }}" class="{{ Route::currentRouteName() == 'managment.subject_assign' ? 'active' : '' }}"><span> Assign Subjects</span></a></li>
                     </ul>
                 </li>

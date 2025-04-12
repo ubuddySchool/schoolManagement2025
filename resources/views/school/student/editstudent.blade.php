@@ -140,8 +140,8 @@
                                         </td>
                                         <td class="text-end">
                                             <div class="actions ">
-                                                <a href="{{ route('school_student.show') }}" class="btn btn-sm bg-success-light me-2">
-                                                    <i class="feather-eye"></i>
+                                                <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-success-light me-2">
+                                                    <i class="feather-edit"></i>
                                                 </a>
                                             </div>
                                         </td>
