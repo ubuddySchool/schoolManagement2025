@@ -23,7 +23,7 @@
                             <label class="m-0">2025-26</label>
                         </div>
                         <div class="col-12 col-sm-2">
-                        <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
+                            <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
                                 <option value="">Select Class</option>
                                 <option value="86" data-classcat="A">Nursery</option>
                                 <option value="88" data-classcat="A">UKG</option>
@@ -39,6 +39,13 @@
                                 <option value="98" data-classcat="A">10</option>
                                 <option value="99" data-classcat="B">11</option>
                                 <option value="100" data-classcat="B">12</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-2">
+                            <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
+                                <option value="">Select Section</option>
+                                <option value="">Select A</option>
+                                <option value="">Select B</option>
                             </select>
                         </div>
                     </div>
@@ -59,12 +66,12 @@
                                     <th>S No.</th>
                                     <th>Student Name</th>
                                     <th>Section</th>
-                                    <th>Action</th>
+                                    <th class="w-25">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                   
+
                                     <td>1</td>
                                     <td>
                                         <h2 class="table-avatar">
@@ -80,11 +87,11 @@
                                         Section C
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-success save-btn me-2" data-bs-toggle="modal" data-bs-target="#confirm-modal">Save & Lock</button>
+                                        <button type="button" class="btn btn-sm btn-info text-white save-btn me-2" data-bs-toggle="modal" data-bs-target="#confirm-modal">Change Section</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    
+
                                     <td>2</td>
                                     <td>
                                         <h2 class="table-avatar">
@@ -92,20 +99,27 @@
                                         </h2>
                                     </td>
                                     <td class="d-flex gap-3">
-                                        <input type="radio" name="optional_subs[2]" value="chemistry" class="optional-subject" id="optional_2">
+                                        <input type="radio" name="optional_subs[3]" value="chemistry" class="optional-subject" id="optional_3">
                                         Section A
-                                        <input type="radio" name="optional_subs[2]" value="chemistry" class="optional-subject" id="optional_2">
+                                        <input type="radio" name="optional_subs[3]" value="chemistry" class="optional-subject" id="optional_3">
                                         Section B
-                                        <input type="radio" name="optional_subs[2]" value="chemistry" class="optional-subject" id="optional_2">
+                                        <input type="radio" name="optional_subs[3]" value="chemistry" class="optional-subject" id="optional_3" checked>
                                         Section C
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm btn-success save-btn me-2" data-bs-toggle="modal" data-bs-target="#confirm-modal">Save & Lock</button>
+                                        <button type="button" class="btn btn-sm btn-info text-white save-btn me-2" data-bs-toggle="modal" data-bs-target="#confirm-modal">Change Section</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
                     </div>
+                    <div class="d-flex justify-content-end">
+
+                        <button type="submit" class="btn btn-sm btn-primary save-btn me-2" data-bs-toggle="modal" data-bs-target="#submit-modal">Save</button>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -115,6 +129,31 @@
 
 <!-- Confirmation Modal -->
 <div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content w-100 mx-auto ">
+            <div class="modal-body p-4 text-center">
+               
+                            <h5 class="table-avatar">
+                                Demo
+                            </h5>
+                      
+                            <input type="radio" name="optional_subs[3]" value="chemistry" class="optional-subject" id="optional_3">
+                            Section A
+                            <input type="radio" name="optional_subs[3]" value="chemistry" class="optional-subject" id="optional_3">
+                            Section B
+                            <input type="radio" name="optional_subs[3]" value="chemistry" class="optional-subject" id="optional_3">
+                            Section C
+                        
+
+                <div class="mt-3">
+                    <button type="button" class="btn btn-success" id="confirmAssignBtn">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="submit-modal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content w-100 mx-auto bg-primary">
             <div class="modal-body p-4 text-center">
@@ -155,23 +194,22 @@
 
 <script>
     document.getElementById("confirmAssignBtn").addEventListener("click", function() {
-   
-    $('#confirm-modal').modal('hide');
-    
-    $('#otp-modal').modal('show');
-});
 
-document.getElementById("submitOtpBtn").addEventListener("click", function() {
-    var otp = document.getElementById("otpInput").value;
-    
-    if (otp.length === 4) {
-        alert("OTP submitted: " + otp);
-        $('#otp-modal').modal('hide');
-    } else {
-        alert("Please enter a valid 4-digit OTP.");
-    }
-});
+        $('#confirm-modal').modal('hide');
 
+        $('#otp-modal').modal('show');
+    });
+
+    document.getElementById("submitOtpBtn").addEventListener("click", function() {
+        var otp = document.getElementById("otpInput").value;
+
+        if (otp.length === 4) {
+            alert("OTP submitted: " + otp);
+            $('#otp-modal').modal('hide');
+        } else {
+            alert("Please enter a valid 4-digit OTP.");
+        }
+    });
 </script>
 
 @endsection

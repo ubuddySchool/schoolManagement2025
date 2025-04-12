@@ -10,6 +10,9 @@ class StudentController extends Controller
     public function index(Request $request){
         return view('school.student.index');
     }
+    public function editstudent(Request $request){
+        return view('school.student.editstudent');
+    }
     public function add(Request $request){
         return view('school.student.add');
     }
@@ -47,4 +50,8 @@ class StudentController extends Controller
     public function registration_form(Request $request){
         return view('school.student_enquiry.fees.registration_form');
     }
+    public function assgin_house(Request $request){
+        return view('school.house.assgin_house');
+    }
+   
 }

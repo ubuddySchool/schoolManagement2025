@@ -12,7 +12,7 @@
                     <div class="login-right">
                         <div class="login-right-wrap">
                             <h1 class="mb-3">Configuration Admin Login</h1>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ route('configadmin.post') }}">
                                 @csrf
 
                                 <!-- Email Address -->

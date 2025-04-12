@@ -20,7 +20,7 @@
 
     <form action="print_admit_card.php" method="post" target="_blank">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-5">
                 <div class="card comman-shadow">
                     <div class="card-body">
 
@@ -46,6 +46,15 @@
                                     <option value="100" data-classcat="B">12</option>
                                 </select>
                             </div>
+                            <div class="col-lg-6 col-md-6">
+                                <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
+                                    <option value="">- Select Term -</option>
+                                    <option value="100" data-classcat="B">Term-1</option>
+                                    <option value="100" data-classcat="B">Term-2</option>
+                                    <option value="100" data-classcat="B">Term-3</option>
+
+                                </select>
+                            </div>
 
                             <div class="col-lg-2 col-md-2" id="input-stream1" style="display: none;">
                                 <!--<h5 class="form-title student-info" style="font-size: 15px;">Select Stream</h5>-->
@@ -60,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-7">
                 <div class="card comman-shadow">
                     <div class="card-body">
                         <div class="col-auto text-end float-end ms-auto download-grp">

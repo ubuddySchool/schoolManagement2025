@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="container">
+<div class="content container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-table comman-shadow">

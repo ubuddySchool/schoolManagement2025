@@ -9,22 +9,25 @@
         <div class="row">
             <div class="col-auto">
                 <div class="page-sub-header">
-                    <h3 class="page-title">Add Roll Number</h3>
+                    <h3 class="page-title">Assign Roll Number</h3>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <form action="admitCard_rollNumber.php" method="post">
+        <form action="" method="post">
             <!--<form action="" method="post">-->
-            <div class="col-sm-12">
-                <div class="card comman-shadow">
-                    <div class="card-body">
-                        <div class="row">
+            
 
-                            <div class="col-lg-2 col-md-2 d-none">
-                                <h5 class="form-title student-info" style="font-size: 15px;">Select Term</h5> <select name="terms" id="selectTerms" class="currclass dropdown-select">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="page-header" style="margin-bottom: 0;">
+                            <div class="row align-items-center">
+
+                            <div class="col-lg-2 col-md-2 ">
+                                <select name="terms" id="selectTerms" class="currclass dropdown-select">
                                     <option value="">Select Term</option>
                                     <option value="
             								14"> First Term </option>
@@ -36,7 +39,6 @@
                             </div>
 
                             <div class="col-lg-2 col-md-2">
-                                <h6 class="form-title student-info" style="font-size: 15px;">Select Class</h6>
                                 <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="
             							20">
                                     <option value="">Select Class</option>
@@ -57,43 +59,13 @@
                                 </select>
                             </div>
 
-                            <div class="col-lg-2 col-md-2" id="input-stream1" style="display: none;">
-                                <h5 class="form-title student-info" style="font-size: 15px;">Select Stream</h5>
-                                <select id="selectstream1" class="currclass dropdown-select" name="scl_stream"></select>
-                            </div>
-
-                            <div class="col-md-2 d-none">
-                                <option selected value='2025-26'>2025-26</option>
-                                <option value='2024-25'>2024-25</option>
-                                <option value='2023-24'>2023-24</option>
-                                <option value='2022-23'>2022-23</option>
-                                <option value='2021-22'>2021-22</option>
-                                <option value='2020-21'>2020-21</option>
-                                <input type="text" class="form-control" name="session" value="" id="field-3" hidden>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12">
-                <div class="card card-table">
-                    <div class="card-body">
-                        <div class="page-header" style="margin-bottom: 0;">
-                            <div class="row align-items-center">
-
                                 <div class="col-auto text-end float-end download-grp">
                                     <input type="number" name="assignRollNumbr" placeholder="Enter Roll Number" class="form-control" />
                                     <input type="number" name="schoolID" value="20" hidden />
                                 </div>
 
                                 <div class="col-auto text-end float-end download-grp">
-
-                                    <!--<a data-bs-toggle="modal" data-bs-target="#con-view-modal" class="btn btn-outline-primary me-2">Title</a>-->
-                                    <!--<a data-bs-toggle="modal" data-bs-target="#con-view-footer" class="btn btn-outline-primary me-2">Footer</a>-->
-
-                                    <button type="submit" name="assignAdmitCard" class="btn btn-outline-primary me-2">Assign Roll Number</button>
+                                   <button type="submit" name="assignAdmitCard" class="btn btn-outline-primary me-2">Assign Roll Number</button>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +110,7 @@
                                         <th>Student name</th>
                                         <th>Class</th>
                                         <th>Section</th>
-                                        <th>Roll Number</th>
+                                        <th class="w-25">Roll Number</th>
                                     </tr>
                                 </thead>
                                 <tbody>

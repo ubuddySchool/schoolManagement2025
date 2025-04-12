@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-sub-header">
-                    <h3 class="page-title">Syllabus Details</h3>
+                    <h3 class="page-title">Syllabus</h3>
                 </div>
             </div>
         </div>
@@ -62,6 +62,10 @@
                             </select>
                         </div>
 
+                        <div class="col-auto text-end float-end ms-auto download-grp">
+                                <a href="{{ route('student.add_syllabus')}}" class="btn btn-primary">New Syllabus</a>
+                            </div>
+
                         <div class="col-12 col-sm-4 d-none">
                             <div class="form-group local-forms">
                                 <h5 class="form-title student-info">Year</h5>
@@ -109,18 +113,7 @@
             <div class="card card-table">
                 <div class="card-body">
 
-                    <div class="page-header">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="page-title">Syllabus List</h3>
-                            </div>
-
-
-                            <div class="col-auto text-end float-end ms-auto download-grp">
-                                <a href="{{ route('student.add_syllabus')}}" class="btn btn-primary">New Syllabus</a>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="table-responsive">
                         <div id="filteredTableContainer">
@@ -133,7 +126,7 @@
                             class="table border-0 star-student table-hover table-center mb-0  table-striped">
                             <thead class="student-thread">
                                 <tr>
-                                    <th>#</th>
+                                    <th>S No.</th>
                                     <th>Standard</th>
                                     <th>Section</th>
                                     <th>Term</th>

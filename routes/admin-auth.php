@@ -21,7 +21,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('subadmin/index', [RegisteredUserController::class, 'index'])->name('subadmin.index');
     Route::get('school/index', [RegisteredUserController::class, 'schoolindex'])->name('schooladmin.index');
     Route::post('register', [RegisteredUserController::class, 'store']);
- // Route::get('login', [LoginController::class, 'create'])->name('admin.login');
+    // Route::get('login', [LoginController::class, 'create'])->name('admin.login');
     // Route::post('login', [LoginController::class, 'store'])->name('admin.post');
 
 });
@@ -92,6 +92,10 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/config-dashboard', function () {
+        return view('config_admins.dashboard');
+    })->name('config.dashboard');
 
     Route::post('logout', [LoginController::class, 'destroy'])->name('admin.logout');
 

@@ -12,7 +12,6 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}"> -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/icons/flags/flags.css') }}">
@@ -69,11 +68,13 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
-                                    @if (Route::has('password.request'))
+                                   
+
+                                   {{-- @if (Route::has('password.request'))
                                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                                         {{ __('Forgot your password?') }}
                                     </a>
-                                    @endif
+                                    @endif --}}
 
                                 </div>
 
@@ -84,14 +85,13 @@
 
                             <div class="login-or">
                                 <span class="or-line"></span>
-                                <span class="span-or">or</span>
+                                <span class="span-or"></span>
                             </div>
 
-                            <div class="social-login">
-                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <div class="copyright social-login">
+                                <p> © Copyright - UBUDDY 2025 - 2026.
+                                    <br> All rights reserved.
+                                </p>
                             </div>
 
                         </div>
