@@ -215,7 +215,7 @@
                     <ul>
                         <li><a href="#" class="{{ Route::currentRouteName() == 'settings.class_groups' ? 'active' : '' }}"><span> Class Groups</span></a></li>
                         <li><a href="#" class="{{ Route::currentRouteName() == 'settings.subject_groups' ? 'active' : '' }}"><span> Subject Groups</span></a></li>
-                        <li><a href="#" class="{{ Route::currentRouteName() == 'settings.set_session' ? 'active' : '' }}"><span> Set Session</span></a></li>
+                        {{-- <li><a href="#" class="{{ Route::currentRouteName() == 'settings.set_session' ? 'active' : '' }}"><span> Set Session</span></a></li> --}}
                     </ul>
                 </li>
             </ul>

@@ -39,7 +39,7 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
 });
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
-    Route::get('index', [ConfigurationController::class, 'index'])->name('index');
+    Route::any('index', [ConfigurationController::class, 'index'])->name('index');
     Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
 });
 
