@@ -6,9 +6,23 @@
 
     <!-- Add School Form -->
     <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Add School</h4>
+        
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <a href="{{ route('admin.dashboard') }}" class="text-decoration-none text-dark me-2 backButton">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h3 class="page-title">Add School</h3>
+                    <div class="px-4">
+                        <h6>Current Session: <strong></strong></h6>
+                    </div>
+                </div>
+            </div>
         </div>
+        {{-- <div class="card-header">
+            <h4 class="card-title">Add School</h4>
+        </div> --}}
         <div class="card-body">
             <form action="{{ route('school-admin.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf

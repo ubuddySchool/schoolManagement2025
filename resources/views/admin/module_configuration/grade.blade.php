@@ -39,9 +39,9 @@
                                 <div class="col-sm-2">
                                     <input type="text" name="grade[]" class="form-control" placeholder="Grade">
                                 </div>
-                                <div class="col-sm-2">
+                                {{-- <div class="col-sm-2">
                                     <input type="text" name="remark[]" class="form-control" placeholder="Remark">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         
