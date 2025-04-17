@@ -108,30 +108,6 @@
         </div>
     </div>
 
-    
-   
-
-    {{-- <div class="row">
-        <div class="col-sm-12">
-            <div class="card comman-shadow">
-                <div class="card-body">
-                    <div class="row my-3">
-                        <div class="col-sm-2">
-                            <a href="{{ route('student.result.lock_term') }}" class="config">Term</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="{{ route('student.result.lock_class') }}" class="config">Class</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="{{ route('student.result.lock_subject') }}" class="config">Subject</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
 </div>
-
 
 @endsection
