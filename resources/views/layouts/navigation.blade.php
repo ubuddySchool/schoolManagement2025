@@ -181,7 +181,7 @@
 
                 <!-- Sub-Admin -->
                 <li class="{{ Route::currentRouteName() == 'subadmin' ? 'active' : '' }}">
-                    <a href="blank-page.html"><span> Sub-Admin</span></a>
+                    <a href="{{ route('subAdmin.index') }}"><span> Sub-Admin</span></a>
                 </li>
 
                 <!-- Annual Calendar -->

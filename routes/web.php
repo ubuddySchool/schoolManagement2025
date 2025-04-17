@@ -9,6 +9,7 @@ use App\Http\Controllers\School\SyllabusController;
 use App\Http\Controllers\School\ResultController;
 use App\Http\Controllers\School\AdmitController;
 use App\Http\Controllers\School\ForgetpassowrdController;
+use App\Http\Controllers\School\SubAdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -125,6 +126,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/school/lock-class', [ResultController::class, 'lock_class'])->name('student.result.lock_class');
     Route::get('/school/lock-subject', [ResultController::class, 'lock_subject'])->name('student.result.lock_subject');
     
+    // sub admin
+    Route::get('/sub-admin', [SubAdminController::class, 'main'])->name('subAdmin.index');
+    Route::get('/sub-admin/add', [SubAdminController::class, 'addNew'])->name('subAdmin.new');
+    Route::get('/sub-admin/module-permission', [SubAdminController::class, 'permission'])->name('subAdmin.modulePermission');
+    
+
     // syllabus
     Route::get('/school/syllabus', [SyllabusController::class, 'syllabus'])->name('student.syllabus');
     Route::get('/school/syllabus/add', [SyllabusController::class, 'add_syllabus'])->name('student.add_syllabus');
