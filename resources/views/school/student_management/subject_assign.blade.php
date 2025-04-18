@@ -108,7 +108,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input class="form-check-input none-option" type="radio" name="optional_subject[1]" value="none" id="none_1" data-student="1">
+                                            <input class="form-check-input none-option" type="checkbox" name="optional_subject[1]" value="none" id="none_1" data-student="1">
                                             <label class="form-check-label" for="none_1">
                                                 None
                                             </label>
@@ -146,7 +146,7 @@
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                            <input class="form-check-input none-option" type="radio" name="optional_subject[2]" value="none" id="none_2" data-student="2">
+                                            <input class="form-check-input none-option" type="checkbox" name="optional_subject[2]" value="none" id="none_2" data-student="2">
                                             <label class="form-check-label" for="none_2">
                                                 None
                                             </label>
