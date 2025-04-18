@@ -58,6 +58,7 @@ Route::prefix('admin/module-configuration')->name('module-configuration.')->grou
     Route::get('add-grade', [ModuleConfigurationController::class, 'grade'])->name('grade');
     Route::get('result-type', [ModuleConfigurationController::class, 'resultType'])->name('resultType');
     Route::get('marking-pattern', [ModuleConfigurationController::class, 'markPattern'])->name('markPattern');
+    Route::get('result-layout', [ModuleConfigurationController::class, 'resultLayout'])->name('resultLayout');
     
     Route::get('attendance', [ModuleConfigurationController::class, 'markAttendance'])->name('attendance');
     Route::get('admit-card', [ModuleConfigurationController::class, 'admitCard'])->name('admitCard');

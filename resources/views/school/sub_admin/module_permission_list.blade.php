@@ -6,12 +6,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-auto d-flex">
-                    <a href="{{ route('subAdmin.activeModuleList') }}"
+                    <a href="{{ route('subAdmin.index') }}"
                         class="text-decoration-none text-dark me-2 backButton">
                         <i class="fas fa-arrow-left"></i>
                     </a>
                     <div class="page-sub-header">
-                        <h3 class="page-title">Sub-Admin Permission</h3>
+                        <h3 class="page-title">Active Module List</h3>
                     </div>
                 </div>
             </div>
@@ -26,6 +26,9 @@
                                 <div class="col">
                                     <h3 class="page-title">Aaliyah</h3>
                                 </div>
+                                <div class="col-auto text-end float-end ms-auto download-grp">
+                                    <a href="{{ route('subAdmin.modulePermission') }}" class="btn btn-primary me-2">Manage Permissions</a>
+                                </div>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -35,7 +38,6 @@
                                     <tr>
                                         <th>S No.</th>
                                         <th>Module Name</th>
-                                        <th>Assign</th>
                                         <th>Read/View</th>
                                         <th>Write/Add</th>
                                         <th>Edit/Update</th>
@@ -49,12 +51,6 @@
                                             [ 'name' => 'Student Management', ],
                                             [ 'name' => 'Staff', ],
                                             [ 'name' => 'Attendance', ],
-                                            [ 'name' => 'Syllabus', ],
-                                            [ 'name' => 'Admit Card', ],
-                                            [ 'name' => 'Fee', ],
-                                            [ 'name' => 'Transport', ],
-                                            [ 'name' => 'Time Table', ],
-                                            [ 'name' => 'Result', ],
                                             [ 'name' => 'Sub-Admin Panel', ],
                                             [ 'name' => 'Enquiry', ],
                                             [ 'name' => 'Certificates', ],
@@ -65,33 +61,31 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $student['name'] }}</td>
                                             <td>
-                                                <input type="checkbox" class="" id="22" data-id="22">
+                                                <button class="permission-active">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </button>
+                                            </td>                                            
+                                            <td>
+                                                <button class="permission-inactive">
+                                                    <i class="fas fa-times-circle"></i>
+                                                </button>
                                             </td>
                                             <td>
-                                                <input type="checkbox" class="pstatus" id="22" data-id="22"
-                                                checked>
-                                                <label class="label-switch" for="22"></label>
+                                                <button class="permission-active">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </button>
+                                            </td>                                            
+                                            <td>
+                                                <button class="permission-inactive">
+                                                    <i class="fas fa-times-circle"></i>
+                                                </button>
                                             </td>
                                             <td>
-                                                <input type="checkbox" class="pstatus" id="22" data-id="22"
-                                                checked>
-                                                <label class="label-switch" for="22"></label>
-                                            </td>
-                                            <td>
-                                                <input type="checkbox" class="pstatus" id="22" data-id="22"
-                                                checked>
-                                                <label class="label-switch" for="22"></label>
-                                            </td>
-                                            <td>
-                                                <input type="checkbox" class="pstatus" id="22" data-id="22"
-                                                checked>
-                                                <label class="label-switch" for="22"></label>
-                                            </td>
-                                            <td>
-                                                <input type="checkbox" class="pstatus" id="22" data-id="22"
-                                                checked>
-                                                <label class="label-switch" for="22"></label>
-                                            </td>
+                                                <button class="permission-active">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </button>
+                                            </td>                                            
+
                                         </tr>
                                     @endforeach
                                 </tbody>
