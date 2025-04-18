@@ -68,8 +68,8 @@
                                                 <input type="checkbox" class="" id="22" data-id="22">
                                             </td>
                                             <td>
-                                                <input type="checkbox" class="pstatus" id="22" data-id="22"
-                                                checked>
+                                                <input type="checkbox" class="pstatus" id="222" data-id="222"
+                                                >
                                                 <label class="label-switch" for="22"></label>
                                             </td>
                                             <td>
