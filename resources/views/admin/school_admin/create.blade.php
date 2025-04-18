@@ -7,7 +7,7 @@
     <!-- Add School Form -->
     <div class="card">
         
-        <div class="page-header">
+        <div class="page-header p-3 pb-0">
             <div class="row align-items-center">
                 <div class="col">
                     <a href="{{ route('admin.dashboard') }}" class="text-decoration-none text-dark me-2 backButton">

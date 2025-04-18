@@ -17,7 +17,7 @@
         <div class="card-body">
             <div class="student-group-form">
                 <div class="row">
-                    <div class="col-lg-2 col-md-6">
+                    {{-- <div class="col-lg-2 col-md-6">
                         <div class="form-group">
                             <select class="currclass dropdown-select">
                                 <option>Select Category</option>
@@ -36,9 +36,9 @@
                                 <option>Female</option>
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-lg-2 col-md-6">
-                        <div class="form-group">
+                        <div class="form-group mb-0">
                             <select class="form-select select" id="classSelect" multiple>
                                 <option selected hidden disabled>Select Classes</option>
                                 <option value="class1">Class 1</option>
@@ -48,15 +48,9 @@
                             </select>
                         </div>
                     </div>
-
-
-                    <!-- <div class="col-lg-2">
-                        <div class="search-student-btn">
-                            <select class="currclass dropdown-select">
-                                <option></option>
-                            </select>
-                        </div>
-                    </div> -->
+                    <div class="col-auto text-end float-end ms-auto download-grp">
+                        <a href="#" class="btn btn-primary me-2"><i class="fa-solid fa-gears"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,7 +92,8 @@
                                     <th>Section</th>
                                     <th>Gender</th>
                                     <th>Contact Number</th>
-                                    <th>Profile Status</th>
+                                    <th>Profile</th>
+                                    <th>Status</th>
                                     <th class="text-end">Action</th>
                                 </tr>
                             </thead>
@@ -135,8 +130,11 @@
                                         <td>{{ $student['section'] }}</td>
                                         <td>{{ $student['gender'] }}</td>
                                         <td>{{ $student['contact'] }}</td>
-                                        <td class="text-center">
+                                        <td>
                                             <span class="badge {{ $statusClass }}">{{ $profileCompletion }}%</span> <!-- Display the profile completion with color -->
+                                        </td>
+                                        <td>
+                                            <span class="badge {{ $statusClass }}">Active</span>
                                         </td>
                                         <td class="text-end">
                                             <div class="actions ">
