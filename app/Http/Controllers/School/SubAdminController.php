@@ -19,4 +19,8 @@ class SubAdminController extends Controller
     {
         return view('school.sub_admin.module_permission');
     }
+    public function moduleList()
+    {
+        return view('school.sub_admin.module_permission_list');
+    }
 }

@@ -77,4 +77,13 @@ a.config {
     width: 100%;
     height: auto;
 }
-
+.permission-active{
+    background-color: transparent;
+    border: none;
+    color: green;
+}
+.permission-inactive{
+    background-color: transparent;
+    border: none;
+    color: red;
+}

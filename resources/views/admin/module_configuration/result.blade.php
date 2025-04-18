@@ -30,6 +30,9 @@
                         <div class="col-sm-3">
                             <a href="{{ route('module-configuration.markPattern') }}" class="config">Marking Pattern</a>
                         </div>
+                        <div class="col-sm-3">
+                            <a href="{{ route('module-configuration.resultLayout') }}" class="config">Assign Layout</a>
+                        </div>
                     </div>
                     
                 </div>

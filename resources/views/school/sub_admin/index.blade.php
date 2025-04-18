@@ -43,7 +43,7 @@
                                         <th>S No.</th>
                                         <th>Sub Admin Name</th>
                                         <th>Contact Number</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +79,7 @@
                                             <td>{{ $student['number'] }}</td>
                                             <td class="">
                                                 <div>
-                                                    <a href="{{ route('subAdmin.modulePermission') }}"
+                                                    <a href="{{ route('subAdmin.activeModuleList') }}"
                                                         class="btn btn-sm bg-success-light me-2">
                                                         <i class="feather-eye"></i>
                                                     </a>

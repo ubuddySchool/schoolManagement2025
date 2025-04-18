@@ -64,4 +64,8 @@ class ModuleConfigurationController extends Controller
     {
         return view('admin.module_configuration.admission_form');
     }
+    public function resultLayout()
+    {
+        return view('admin.module_configuration.result_layout');
+    }
 }

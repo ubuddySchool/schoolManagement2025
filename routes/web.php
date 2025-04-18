@@ -130,6 +130,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/sub-admin', [SubAdminController::class, 'main'])->name('subAdmin.index');
     Route::get('/sub-admin/add', [SubAdminController::class, 'addNew'])->name('subAdmin.new');
     Route::get('/sub-admin/module-permission', [SubAdminController::class, 'permission'])->name('subAdmin.modulePermission');
+    Route::get('/sub-admin/modules', [SubAdminController::class, 'moduleList'])->name('subAdmin.activeModuleList');
     
 
     // syllabus
