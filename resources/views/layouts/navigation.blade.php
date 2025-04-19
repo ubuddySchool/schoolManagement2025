@@ -120,7 +120,7 @@
                     <a href="#"><span> Student Management</span><span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{ route('managment.promote_detention') }}" class="{{ Route::currentRouteName() == 'managment.promote_detention' ? 'active' : '' }}"><span> Promotion / Detention</span></a></li>
-                        <li><a href="{{ route('managment.termination') }}" class="{{ Route::currentRouteName() == 'managment.termination' ? 'active' : '' }}"><span> Termination / Active-Inactive</span></a></li>
+                        <li><a href="{{ route('managment.termination') }}" class="{{ Route::currentRouteName() == 'managment.termination' ? 'active' : '' }}"><span> Termination</span></a></li>
                         <li><a href="{{ route('student.admit.rollno') }}" class="{{ Route::currentRouteName() == 'student.admit.rollno' ? 'active' : 'student.admit.rollno' }}"><span> Assign Roll No.</span></a></li>
                         <li><a href="{{ route('school_student.assgin_house') }}" class="{{ Route::currentRouteName() == 'school_student.assgin_house' ? 'active' : '' }}"><span> Assign House</span></a></li>
                         <li><a href="{{ route('managment.assign_section') }}" class="{{ Route::currentRouteName() == 'managment.assign_section' ? 'active' : '' }}"><span> Assign Section</span></a></li>
