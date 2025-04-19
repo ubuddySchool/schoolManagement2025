@@ -23,6 +23,7 @@
                     <div class="row my-3">
                         <div class="col-md-3 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Student Enquiry</a></div>
                         <div class="col-md-3 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Staff Enquiry</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.student_management') }}" class="config">Student Management</a></div>
                         <div class="col-md-3 my-2"><a href="{{ route('module-configuration.attendance') }}" class="config">Attendance</a></div>
                         <div class="col-md-3 my-2"><a href="{{ route('module-configuration.admitCard') }}" class="config">Admit Card</a></div>
                         <div class="col-md-3 my-2"><a href="{{ route('module-configuration.result') }}" class="config">Result</a></div>

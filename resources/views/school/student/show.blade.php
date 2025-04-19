@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                         <div class="names-profiles">
-                                            <h4 style=" text-transform: uppercase;">Default</h4>
+                                            <h4 style=" text-transform: uppercase;">Raj Rajput</h4>
                                             <h5>12&nbsp; Science Maths</h5>
                                         </div>
 
@@ -88,7 +88,7 @@
                                             <div class="personal-activity">
                                                 <div class="views-personal">
                                                     <h5>Student Name</h5>
-                                                    <h4>Default</h4>
+                                                    <h4>Raj Rajput</h4>
                                                 </div>
                                             </div>
                                         </div>

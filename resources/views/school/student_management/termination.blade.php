@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-sub-header">
-                    <h3 class="page-title">Student Management - Termination / Active/Inactive</h3>
+                    <h3 class="page-title">Student Management - Termination</h3>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
                         </div>
                         <div class="col-md-6 text-end">
                             <button class="btn btn-danger" id="terminateBtn">Terminate</button>
-                            <button class="btn btn-success" id="activeBtn">Activate</button>
-                            <button class="btn btn-warning" id="inactiveBtn">Deactivate</button>
+                            {{-- <button class="btn btn-success" id="activeBtn">Activate</button>
+                            <button class="btn btn-warning" id="inactiveBtn">Deactivate</button> --}}
                         </div>
                     </div>
                 </div>

@@ -54,6 +54,8 @@ Route::prefix('admin/assign-module')->name('assign-module.')->group(function () 
 Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {
     Route::get('index', [ModuleConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
     Route::get('enquiry', [ModuleConfigurationController::class, 'enquiry'])->name('enquiry');
+    Route::get('student-management', [ModuleConfigurationController::class, 'student_management'])->name('student_management');
+    Route::get('assign-houses', [ModuleConfigurationController::class, 'assign_houses'])->name('houses');
     Route::get('result', [ModuleConfigurationController::class, 'result'])->name('result');
     Route::get('add-grade', [ModuleConfigurationController::class, 'grade'])->name('grade');
     Route::get('result-type', [ModuleConfigurationController::class, 'resultType'])->name('resultType');
