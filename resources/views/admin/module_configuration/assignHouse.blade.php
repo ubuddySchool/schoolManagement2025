@@ -12,7 +12,7 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('module-configuration.student_management') }}" class="text-decoration-none text-dark me-2 backButton ">
+                                <a href="{{ route('module-configuration.student_management') }}" title="Back to home" class="text-decoration-none text-dark me-2 backButton ">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                                 <h3 class="page-title">Create House</h3>
