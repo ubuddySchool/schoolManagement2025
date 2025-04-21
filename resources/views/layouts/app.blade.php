@@ -27,10 +27,14 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <!-- Cropper.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
+    <!-- Cropper.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
 </head>
 
-<body >
+<body>
     <div class="main-wrapper">
         @include('layouts.navigation')
         <div class="page-wrapper">
@@ -41,16 +45,17 @@
         </div>
     </div>
 
-   
+
     <!-- <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
- <!-- Bootstrap datetimepicker JS -->
- <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-datetimepicker@5.1.0/build/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Bootstrap datetimepicker JS -->
+    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datetimepicker@5.1.0/build/js/bootstrap-datetimepicker.min.js">
+    </script>
 
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/feather.min.js') }}"></script>
@@ -58,23 +63,24 @@
     <script src="{{ asset('assets/plugins/apexchart/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/apexchart/chart-data.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets_old/js/index_script.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/schoolscript.js') }}"></script>
 
-   
-<script>
-      $(document).ready(function() {
-       
-        if ($('.select').length > 0) {
-            $('.select').select2({
-                minimumResultsForSearch: -1, // Hides the search box
-                width: '100%' // Ensures full width of the select box
-            });
-        }
-    });
 
+    <script>
+        $(document).ready(function() {
+
+            if ($('.select').length > 0) {
+                $('.select').select2({
+                    minimumResultsForSearch: -1, // Hides the search box
+                    width: '100%' // Ensures full width of the select box
+                });
+            }
+        });
     </script>
-    
+
 </body>
+
 </html>

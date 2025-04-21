@@ -28,7 +28,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.btn-add-row').on('click', function () {
         const $clone = $('.grade-row:first').clone();
-        $clone.find('input').val('');                    
+        $clone.find('input').val('');
         const removeBtn = `
             <div class="col-sm-1 d-flex align-items-start">
                 <button type="button" class="btn btn-danger btn-remove-row">-</button>
@@ -44,15 +44,15 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    
+
     $('[id^="splitPattern_2_"], [id^="splitPattern_3_"], [id^="splitPattern_1_"], [id^="splitPattern_1_head"], [id^="splitPattern_2_head"], [id^="splitPattern_3_head"]').hide();
 
     $('select[name="splitPattern"]').on('change', function () {
         const selected = $(this).val();
-        
+
         $('[data-index]').each(function () {
             const index = $(this).data('index');
-            
+
             $('#splitPattern_1_' + index).hide();
             $('#splitPattern_2_' + index).hide();
             $('#splitPattern_3_' + index).hide();
@@ -112,7 +112,7 @@ $(document).ready(function () {
             if (i === 0) return; // Skip the first row (already filled)
 
             var currentRowInputs = $('#splitPattern_' + selectedPattern + '_' + i + ' input');
-            
+
             firstInputs.each(function (index) {
                 var value = $(this).val();
                 if (isChecked) {
@@ -124,3 +124,66 @@ $(document).ready(function () {
         });
     });
 });
+
+
+// Cropping Images Script start
+
+let cropper;
+let originalFile; // declare outside to access later
+
+const input = document.getElementById('studentImageInput');
+const modal = document.getElementById('cropModal');
+const preview = document.getElementById('cropImagePreview');
+const fileNameDisplay = document.getElementById('imageFileName');
+
+input.addEventListener('change', function (e) {
+    originalFile = e.target.files[0]; // store it globally
+    if (!originalFile) return;
+    
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        preview.src = event.target.result;
+        modal.style.display = 'block';
+        
+        // Wait for image load
+        preview.onload = function () {
+            if (cropper) cropper.destroy();
+            cropper = new Cropper(preview, {
+                aspectRatio: 1,
+                viewMode: 1,
+                autoCropArea: 1,
+            });
+        };
+    };
+    reader.readAsDataURL(originalFile);
+});
+
+document.getElementById('cropBtn').addEventListener('click', function () {
+    const canvas = cropper.getCroppedCanvas({
+        width: 230,
+        height: 230
+    });
+
+    canvas.toBlob(function (blob) {
+        const croppedFile = new File([blob], originalFile.name, { type: originalFile.type });
+        
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(croppedFile);
+        input.files = dataTransfer.files;
+        
+        fileNameDisplay.innerText = croppedFile.name;
+        modal.style.display = 'none';
+    }, originalFile.type);
+});
+
+document.getElementById('closeCropModal').addEventListener('click', function () {
+    document.getElementById('cropModal').style.display = 'none';
+    if (cropper) {
+        cropper.destroy();
+        cropper = null;
+    }
+});
+
+
+// Cropping Images Script End
+

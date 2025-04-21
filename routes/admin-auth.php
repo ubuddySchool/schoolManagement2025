@@ -80,6 +80,7 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
     Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');
     Route::get('school-terms', [BasicConfigurationController::class, 'schoolTerms'])->name('schoolTerms');
     Route::get('class-terms', [BasicConfigurationController::class, 'classTerms'])->name('classTerms');
+    Route::get('session', [BasicConfigurationController::class, 'setSession'])->name('getSession');
 
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
     Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');

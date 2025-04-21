@@ -12,7 +12,7 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('basic-configuration.store') }}" class="text-decoration-none text-dark me-2 backButton p_8_10">
+                                <a href="{{ route('basic-configuration.store') }}" class="text-decoration-none text-dark me-2 backButton ">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                                 <h3 class="page-title">Assign Section</h3>
