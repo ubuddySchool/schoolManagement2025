@@ -17,8 +17,8 @@
         <div class="col-sm-12">
             <div class="card card-table comman-shadow">
                 <div class="card-body">
-                    <div class="row mb-3 justify-content-between">
-                        <div class="col-md-3">
+                    <div class="row mb-3">
+                        <div class="col-md-2">
                             <select class="currclass dropdown-select" id="classSelect">
                                 <option value="" disabled selected>Select Class</option>
                                 <option value="1">Class 1</option>
@@ -27,7 +27,16 @@
                                 <!-- Add more classes as needed -->
                             </select>
                         </div>
-                        <div class="col-md-3 text-end">
+                        <div class="col-md-2">
+                            <select class="currclass dropdown-select">
+                                <option value="" disabled selected>Select Session</option>
+                                <option value="2025-26">2025-26</option>
+                                <option value="2024-25">2024-25</option>
+                                <option value="2023-24">2023-24</option>
+                                <option value="2022-23">2022-23</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8 text-end">
                             <button class="btn btn-primary" id="promoteBtn">Promote</button>
                             <button class="btn btn-primary" id="DetainBtn">Detain</button>
                         </div>
@@ -48,7 +57,7 @@
                               
                             </div>
 
-                            <div class="col-auto">
+                            <div class="col-md-3">
                                 <input type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search student name,scholar number" class="form-control">
                             </div>
 
@@ -70,6 +79,7 @@
                                     <th>Student Name</th>
                                     <th>Scholar number</th>
                                     <th>Class</th>
+                                    <th>Status</th>
                                     <th>Session</th>
                                 </tr>
                             </thead>
@@ -89,6 +99,7 @@
                                     </td>
                                     <td>1123</td>
                                     <td>1</td>
+                                    <td>Pending</td>
                                     <td>2025-26</td>
                                 </tr>
                                 <tr>
@@ -106,6 +117,7 @@
                                     </td>
                                     <td>212123</td>
                                     <td>2</td>
+                                    <td>Inactive</td>
                                     <td>2025-26</td>
                                 </tr>
                             </tbody>

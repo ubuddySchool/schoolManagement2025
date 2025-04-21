@@ -18,7 +18,7 @@
             <div class="card card-table comman-shadow">
                 <div class="card-body">
                     <div class="row mb-3 justify-content-between">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select class="currclass dropdown-select" id="classSelect">
                                 <option value="" disabled selected>Select Session</option>
                                 <option value="1">2025-26</option>
@@ -71,7 +71,7 @@
                                             <a href="student-details.html">Aaliyah</a>
                                         </h2>
                                     </td>
-                                    <td>1st</td>
+                                    <td>I</td>
                                     <td>A</td>
                                     <td>2025-26</td>
                                     <td><span class="badge bg-success">Active</span></td> 
@@ -85,8 +85,8 @@
                                             <a href="student-details.html">Demo</a>
                                         </h2>
                                     </td>
-                                    <td>2nd</td>
-                                    <td>B</td>
+                                    <td>II</td>
+                                    <td>A</td>
                                     <td>2025-26</td>
                                     <td><span class="badge bg-warning">Inactive</span></td> 
                                    
