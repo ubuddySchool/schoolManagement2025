@@ -30,8 +30,7 @@
 
 </head>
 
-<body class="mini-sidebar">
-
+<body >
     <div class="main-wrapper">
         @include('layouts.navigation')
         <div class="page-wrapper">
