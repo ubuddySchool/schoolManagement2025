@@ -17,7 +17,7 @@
         <div class="col-sm-12">
             <div class="card card-table comman-shadow">
                 <div class="card-body">
-                    <div class="row mb-3 justify-content-between">
+                    <div class="row mb-2">
                         <div class="col-md-2">
                             <select class="currclass dropdown-select" id="classSelect">
                                 <option value="" disabled selected>Select Session</option>
@@ -27,7 +27,7 @@
                                 <!-- Add more classes as needed -->
                             </select>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select class="currclass dropdown-select" id="classSelect">
                                 <option value="" disabled selected>Select Class</option>
                                 <option value="1">Class 1</option>
