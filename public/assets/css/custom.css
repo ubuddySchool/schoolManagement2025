@@ -87,3 +87,19 @@ a.config {
     border: none;
     color: red;
 }
+
+.birthday-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.birthday-entry {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.avatar i {
+font-size: 2rem;
+color: #6c757d;
+}
