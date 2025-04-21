@@ -37,9 +37,9 @@
                             </select>
                         </div>
                     </div> --}}
-                    <div class="col-lg-2 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="form-group mb-0">
-                            <select class="form-select select" id="classSelect" multiple>
+                            <select class="currclass dropdown-select" id="classSelect" >
                                 <option selected hidden disabled>Select Classes</option>
                                 <option value="class1">Class 1</option>
                                 <option value="class2">Class 2</option>
