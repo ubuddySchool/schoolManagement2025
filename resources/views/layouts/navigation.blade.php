@@ -120,7 +120,7 @@
                     <a href="#"><span> Student Management</span><span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{ route('managment.promote_detention') }}" class="{{ Route::currentRouteName() == 'managment.promote_detention' ? 'active' : '' }}"><span> Promotion / Detention</span></a></li>
-                        <li><a href="{{ route('managment.termination') }}" class="{{ Route::currentRouteName() == 'managment.termination' ? 'active' : '' }}"><span> Termination / Active-Inactive</span></a></li>
+                        <li><a href="{{ route('managment.termination') }}" class="{{ Route::currentRouteName() == 'managment.termination' ? 'active' : '' }}"><span> Termination</span></a></li>
                         <li><a href="{{ route('student.admit.rollno') }}" class="{{ Route::currentRouteName() == 'student.admit.rollno' ? 'active' : 'student.admit.rollno' }}"><span> Assign Roll No.</span></a></li>
                         <li><a href="{{ route('school_student.assgin_house') }}" class="{{ Route::currentRouteName() == 'school_student.assgin_house' ? 'active' : '' }}"><span> Assign House</span></a></li>
                         <li><a href="{{ route('managment.assign_section') }}" class="{{ Route::currentRouteName() == 'managment.assign_section' ? 'active' : '' }}"><span> Assign Section</span></a></li>
@@ -181,7 +181,7 @@
 
                 <!-- Sub-Admin -->
                 <li class="{{ Route::currentRouteName() == 'subadmin' ? 'active' : '' }}">
-                    <a href="blank-page.html"><span> Sub-Admin</span></a>
+                    <a href="{{ route('subAdmin.index') }}"><span> Sub-Admin</span></a>
                 </li>
 
                 <!-- Annual Calendar -->
@@ -215,7 +215,7 @@
                     <ul>
                         <li><a href="#" class="{{ Route::currentRouteName() == 'settings.class_groups' ? 'active' : '' }}"><span> Class Groups</span></a></li>
                         <li><a href="#" class="{{ Route::currentRouteName() == 'settings.subject_groups' ? 'active' : '' }}"><span> Subject Groups</span></a></li>
-                        <li><a href="#" class="{{ Route::currentRouteName() == 'settings.set_session' ? 'active' : '' }}"><span> Set Session</span></a></li>
+                        {{-- <li><a href="#" class="{{ Route::currentRouteName() == 'settings.set_session' ? 'active' : '' }}"><span> Set Session</span></a></li> --}}
                     </ul>
                 </li>
             </ul>

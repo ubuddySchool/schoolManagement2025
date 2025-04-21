@@ -9,6 +9,7 @@ use App\Http\Controllers\School\SyllabusController;
 use App\Http\Controllers\School\ResultController;
 use App\Http\Controllers\School\AdmitController;
 use App\Http\Controllers\School\ForgetpassowrdController;
+use App\Http\Controllers\School\SubAdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -110,6 +111,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/school/rollno', [AdmitController::class, 'admit_rollno'])->name('student.admit.rollno');
     Route::get('/school/layout', [AdmitController::class, 'admit_layout'])->name('student.admit.layout');
     Route::get('/school/confirmation', [AdmitController::class, 'configration'])->name('student.admit.configration');
+
     // result
     Route::get('/school/result', [ResultController::class, 'result'])->name('student.result');
     Route::get('/school/division', [ResultController::class, 'add_division'])->name('student.result.division');
@@ -119,6 +121,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/school/filled', [ResultController::class, 'filled_marksheet'])->name('student.result.filled');
     Route::get('/school/empty/edit', [ResultController::class, 'edit_empty_marksheet'])->name('student.result.edit.empty');
     Route::get('/school/filled/filled', [ResultController::class, 'edit_filled_marksheet'])->name('student.result.edit.filled');
+    Route::get('/school/lock-result', [ResultController::class, 'lock_result'])->name('student.result.lock');
+    Route::get('/school/lock-term', [ResultController::class, 'lock_term'])->name('student.result.lock_term');
+    Route::get('/school/lock-class', [ResultController::class, 'lock_class'])->name('student.result.lock_class');
+    Route::get('/school/lock-subject', [ResultController::class, 'lock_subject'])->name('student.result.lock_subject');
+    
+    // sub admin
+    Route::get('/sub-admin', [SubAdminController::class, 'main'])->name('subAdmin.index');
+    Route::get('/sub-admin/add', [SubAdminController::class, 'addNew'])->name('subAdmin.new');
+    Route::get('/sub-admin/module-permission', [SubAdminController::class, 'permission'])->name('subAdmin.modulePermission');
+    Route::get('/sub-admin/modules', [SubAdminController::class, 'moduleList'])->name('subAdmin.activeModuleList');
+    
+
     // syllabus
     Route::get('/school/syllabus', [SyllabusController::class, 'syllabus'])->name('student.syllabus');
     Route::get('/school/syllabus/add', [SyllabusController::class, 'add_syllabus'])->name('student.add_syllabus');

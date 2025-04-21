@@ -46,7 +46,39 @@
                                         </td>
                                         <td>
                                             <div class="dropdown">
-                                                <a class="btn btn-sm bg-success-light" href="{{ route('configuration.index') }}"><i class="fa-solid fa-gears"></i></a>
+                                                {{-- <a class="btn btn-sm bg-success-light" href="{{ route('configuration.index') }}"><i class="fa-solid fa-gears"></i></a> --}}
+                                                <button type="button" class="btn btn-sm bg-success-light" data-bs-toggle="modal" data-bs-target="#configModal">
+                                                    <i class="fa-solid fa-gears"></i>
+                                                </button>
+                                                <!-- Modal OUTSIDE the table -->
+                                                <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <form method="POST" action="{{ route('configuration.index') }}" class="modal-content">
+                                                            @csrf
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="configModalLabel">Select Configuration Session</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+                                                                <div class="mb-3">
+                                                                    {{-- <label for="configOption" class="form-label">Choose Session</label> --}}
+                                                                    <select name="option" id="configOption" class="form-select" required>
+                                                                        <option value="">-- Select Session --</option>
+                                                                        <option value="2024-25">2024-25</option>
+                                                                        <option value="2023-24">2023-24</option>
+                                                                        <option value="2022-23">2022-23</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary">Go to Config</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
 
                                                 {{-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i class="fa-solid fa-gears"></i>
@@ -63,8 +95,8 @@
                                             <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
-                                                <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
-                                                </button>
+                                                {{-- <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
+                                                </button> --}}
 
                                             </div>
                                         </td>

@@ -28,17 +28,17 @@
                         <div class="row my-4">
                             <div class="col-md-2">
                                 <select name="class" class="form-select">
-                                    <option value="" disabled selected>Select Term</option>
-                                    <?php foreach ($terms as $term): ?>
-                                        <option value="<?= $term ?>"><?= $term ?></option>
+                                    <option value="" disabled selected>Select Class</option>
+                                    <?php foreach ($classes as $class): ?>
+                                    <option value="<?= $class ?>"><?= $class ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-md-2">
                                 <select name="class" class="form-select">
-                                    <option value="" disabled selected>Select Class</option>
-                                    <?php foreach ($classes as $class): ?>
-                                        <option value="<?= $class ?>"><?= $class ?></option>
+                                    <option value="" disabled selected>Select Term</option>
+                                    <?php foreach ($terms as $term): ?>
+                                        <option value="<?= $term ?>"><?= $term ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -68,15 +68,8 @@
                                 <div class="col-md-2 col-sm-3">
                                     <input type="text" 
                                         class="form-control" 
-                                        name="overall_min_head" 
-                                        placeholder="Min Head" 
-                                        required>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <input type="text" 
-                                        class="form-control" 
-                                        name="overall_max_head" 
-                                        placeholder="Max Head" 
+                                        name="overall_head" 
+                                        placeholder="Overall Head" 
                                         required>
                                 </div>
                             </div>
@@ -86,74 +79,40 @@
                                 <div class="col-md-2 col-sm-3">
                                     <input type="text" 
                                         class="form-control" 
-                                        name="internal_max_head" 
-                                        placeholder="Internal Max Head" 
+                                        name="internal_head" 
+                                        placeholder="Internal Head" 
                                         required>
                                 </div>
                                 <div class="col-md-2 col-sm-3">
                                     <input type="text" 
                                         class="form-control" 
-                                        name="internal_min_head" 
-                                        placeholder="Internal Min Head" 
-                                        required>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <input type="text" 
-                                        class="form-control" 
-                                        name="external_max_head" 
-                                        placeholder="External Max Head" 
-                                        required>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <input type="text" 
-                                        class="form-control" 
-                                        name="external_min_head" 
-                                        placeholder="External Min Head" 
+                                        name="external_head" 
+                                        placeholder="External Head" 
                                         required>
                                 </div>
                             </div>
 
                             <div class="row my-1" id="splitPattern_3_head">
+                                <div class="col-md-2 col-sm-3"></div>
                                 <div class="col-md-2 col-sm-3">
                                     <input type="text" 
                                         class="form-control" 
-                                        name="s1_max_head" 
-                                        placeholder="S1 Max Head" 
+                                        name="s1_head" 
+                                        placeholder="S1 Head" 
                                         required>
                                 </div>
                                 <div class="col-md-2 col-sm-3">
                                     <input type="text" 
                                         class="form-control" 
-                                        name="s1_min_head" 
-                                        placeholder="S1 Min Head" 
+                                        name="s2_head" 
+                                        placeholder="S2 Head" 
                                         required>
                                 </div>
                                 <div class="col-md-2 col-sm-3">
                                     <input type="text" 
                                         class="form-control" 
-                                        name="s2_max_head" 
-                                        placeholder="S2 Max Head" 
-                                        required>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <input type="text" 
-                                        class="form-control" 
-                                        name="s2_min_head" 
-                                        placeholder="S2 Min Head" 
-                                        required>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <input type="text" 
-                                        class="form-control" 
-                                        name="s3_max_head" 
-                                        placeholder="S3 Max Head" 
-                                        required>
-                                </div>
-                                <div class="col-md-2 col-sm-3">
-                                    <input type="text" 
-                                        class="form-control" 
-                                        name="s3_min_head" 
-                                        placeholder="S3 Min Head" 
+                                        name="s3_head" 
+                                        placeholder="S3 Head" 
                                         required>
                                 </div>
                             </div>
@@ -280,7 +239,7 @@
 
 
                             <div class="col-12 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary" name="submitClass">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="submitClass">Save & Lock</button>
                             </div>
                         </form>
 

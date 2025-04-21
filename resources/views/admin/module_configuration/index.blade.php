@@ -21,15 +21,16 @@
                     </div>
                     
                     <div class="row my-3">
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Student Enquiry</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Staff Enquiry</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.attendance') }}" class="config">Attendance</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.admitCard') }}" class="config">Admit Card</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.result') }}" class="config">Result</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.annualCalender') }}" class="config">Annual Calender</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.certificate') }}" class="config">Certificate</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.fee') }}" class="config">Fee</a></div>
-                        <div class="col-sm-2 my-2"><a href="{{ route('module-configuration.transportation') }}" class="config">Transportation</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Student Enquiry</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Staff Enquiry</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.student_management') }}" class="config">Student Management</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.attendance') }}" class="config">Attendance</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.admitCard') }}" class="config">Admit Card</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.result') }}" class="config">Result</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.annualCalender') }}" class="config">Annual Calender</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.certificate') }}" class="config">Certificate</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.fee') }}" class="config">Fee</a></div>
+                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.transportation') }}" class="config">Transportation</a></div>
                     </div>
 
                 </div>

@@ -15,6 +15,10 @@ class ModuleConfigurationController extends Controller
     {
         return view('admin.module_configuration.enquiry');
     }
+    public function student_management()
+    {
+        return view('admin.module_configuration.student_management');
+    }
     public function result()
     {
         return view('admin.module_configuration.result');
@@ -63,5 +67,13 @@ class ModuleConfigurationController extends Controller
     public function admission_form()
     {
         return view('admin.module_configuration.admission_form');
+    }
+    public function resultLayout()
+    {
+        return view('admin.module_configuration.result_layout');
+    }
+    public function assign_houses()
+    {
+        return view('admin.module_configuration.assignHouse');
     }
 }

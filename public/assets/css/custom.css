@@ -60,3 +60,30 @@ a.config {
 	padding: 5px 10px;
     border-radius: 50%;
 }
+.image-card-layout{
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+.image-card-layout .image-checkbox {
+    position: absolute;
+    top: 5px; right: 5px;
+}
+.image-card-layout .image-select {
+    width: 100%;
+    height: auto;
+}
+.permission-active{
+    background-color: transparent;
+    border: none;
+    color: green;
+}
+.permission-inactive{
+    background-color: transparent;
+    border: none;
+    color: red;
+}

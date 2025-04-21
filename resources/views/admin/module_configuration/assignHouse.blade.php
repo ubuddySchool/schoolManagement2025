@@ -12,10 +12,10 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('module-configuration.result') }}" class="text-decoration-none text-dark me-2 backButton ">
+                                <a href="{{ route('module-configuration.student_management') }}" class="text-decoration-none text-dark me-2 backButton ">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Grade</h3>
+                                <h3 class="page-title">Create House</h3>
                             </div>                            
                         </div>
                     </div>
@@ -30,18 +30,9 @@
                         
                         <div id="gradeRows">
                             <div class="row my-3 grade-row">
-                                <div class="col-sm-2">
-                                    <input type="text" name="minMarks[]" class="form-control" placeholder="Min Marks">
+                                <div class="col-sm-3">
+                                    <input type="text" name="houseName[]" class="form-control" placeholder="House Name">
                                 </div>
-                                <div class="col-sm-2">
-                                    <input type="text" name="maxMarks[]" class="form-control" placeholder="Max Marks">
-                                </div>
-                                <div class="col-sm-2">
-                                    <input type="text" name="grade[]" class="form-control" placeholder="Grade">
-                                </div>
-                                {{-- <div class="col-sm-2">
-                                    <input type="text" name="remark[]" class="form-control" placeholder="Remark">
-                                </div> --}}
                             </div>
                         </div>
                         

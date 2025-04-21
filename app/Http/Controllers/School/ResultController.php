@@ -31,4 +31,16 @@ class ResultController extends Controller
     public function edit_filled_marksheet(){
         return view('school.result.fillededit_marksheet');
     }
+    public function lock_result(){
+        return view('school.result.lock_result');
+    }
+    public function lock_term(){
+        return view('school.result.lock_term');
+    }
+    public function lock_class(){
+        return view('school.result.lock_class');
+    }
+    public function lock_subject(){
+        return view('school.result.lock_subject');
+    }
 }
