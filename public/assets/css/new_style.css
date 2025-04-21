@@ -33,8 +33,8 @@ div#DataTables_Table_0_length {
    height: 42px;
    line-height: 40px;
    outline: none;
-   padding-left: 18px;
-   padding-right: 30px;
+   padding-left: 10px;
+   padding-right: 15px;
    position: relative;
    text-align: left !important;
    transition: all 0.2s ease-in-out;
@@ -253,6 +253,17 @@ div#DataTables_Table_0_length {
    .pstatus:checked ~ .info-text::before{
 	   content: "Active";
    }
-
+   .badge {
+      display: inline-block;
+      padding: .5em .85em !important;
+      font-size: .9em !important;
+      font-weight: 500 !important;
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25rem;
+  }
 
    
