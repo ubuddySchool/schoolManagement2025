@@ -3786,8 +3786,8 @@ table.table-inbox tbody tr.checked {
     top: -30px;
 }
 .profile-user-img img {
-	/* border-radius: 50%; */
-	/* border: 2px solid #fff; */
+	border-radius: 11%;
+    border: 5px solid #c4bfbf;
 	width: 141px;
 }
 .names-profiles h4 {
