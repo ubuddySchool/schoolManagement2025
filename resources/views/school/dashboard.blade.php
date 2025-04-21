@@ -4,7 +4,7 @@
 
 <div class="content container-fluid">
 
-    <div class="page-header">
+    <!-- <div class="page-header">
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-sub-header">
@@ -12,77 +12,98 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="row">
-        <div class="col-xl-12 col-sm-12 col-12 d-flex">
+        <div class="col-xl-12 col-sm-12 col-12 d-flex justify-content-end">
             <div class="card card-table">
                 <div class="card-body">
                     <div class="page-header" style="margin-bottom: 0;">
                         <h6>Current Session: 2025-26</h6>
                         <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal"
-                            data-bs-target="#con-close-modal"><span> Set Session</span></a>
+                            data-bs-target="#con-close-modal"><span> Change</span></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-6 col-sm-12 col-12 d-flex">
-            <div class="card card-table">
+        <div class="col-xl-6 col-sm-12 col-12 mb-3">
+            <div class="card shadow-sm">
                 <div class="card-body">
-                    <div class="page-header" style="margin-bottom: 0;">
-                        <!-- <h6>Tomorrow's Birthdays</h6> -->
-                        <div class="birthday-card bg-white p-3">
-                            <div class="birthday-header d-flex align-items-center mb-2">
-                                <span class="me-2">🎁</span> Today's Birthdays
+                    <h5 class="card-title mb-3"><i class="fa-solid fa-gift text-primary me-2"></i>Today's Birthdays</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class=" bg-light text-primary d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-user"></i>
                             </div>
-                            <div class="birthday-entry">
-                                <div class="avatar"><i class="fa-solid fa-circle-user"></i></div>
-                                <div>
-                                    <div>Krish Mehta</div>
-                                    <small class="text-muted">I B</small>
-                                </div>
+                            <div>
+                                <div class="fw-semibold">Krish Mehta</div>
+                                <small class="text-muted">I B</small>
                             </div>
-                            <div class="birthday-entry">
-                                <div class="avatar"><i class="fa-solid fa-circle-user"></i></div>
-                                <div>
-                                    <div>Mahi Jain</div>
-                                    <small class="text-muted">XI PCM</small>
-                                </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class=" bg-light text-primary d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-user"></i>
                             </div>
-                        </div>
-                    </div>
+                            <div>
+                                <div class="fw-semibold">Mahi Jain</div>
+                                <small class="text-muted">XI PCM</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class=" bg-light text-primary d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold">Muskan Jain</div>
+                                <small class="text-muted">Staff</small>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-xl-6 col-sm-12 col-12 d-flex">
-            <div class="card card-table">
+
+        <div class="col-xl-6 col-sm-12 col-12 mb-3">
+            <div class="card shadow-sm">
                 <div class="card-body">
-                    <div class="page-header" style="margin-bottom: 0;">
-                        <!-- <h6>Tomorrow's Birthdays</h6> -->
-                        <div class="birthday-card bg-white p-3">
-                            <div class="birthday-header d-flex align-items-center mb-2">
-                                <span class="me-2">🎁</span> Tomorrow’s Birthdays
+                    <h5 class="card-title mb-3"><i class="fa-solid fa-gift text-success me-2"></i>Tomorrow’s Birthdays</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class=" bg-light text-success d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-user"></i>
                             </div>
-                            <div class="birthday-entry">
-                                <div class="avatar"><i class="fa-solid fa-circle-user"></i></div>
-                                <div>
-                                    <div>Krish Mehta</div>
-                                    <small class="text-muted">I B</small>
-                                </div>
+                            <div>
+                                <div class="fw-semibold">Krish Mehta</div>
+                                <small class="text-muted">I B</small>
                             </div>
-                            <div class="birthday-entry">
-                                <div class="avatar"><i class="fa-solid fa-circle-user"></i></div>
-                                <div>
-                                    <div>Mahi Jain</div>
-                                    <small class="text-muted">XI PCM</small>
-                                </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class=" bg-light text-success d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-user"></i>
                             </div>
-                        </div>
-                    </div>
+                            <div>
+                                <div class="fw-semibold">Mahi Jain</div>
+                                <small class="text-muted">XI PCM</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class=" bg-light text-success d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold">Muskan Jain</div>
+                                <small class="text-muted">Staff</small>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+
+
     </div>
 
 
