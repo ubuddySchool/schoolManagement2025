@@ -18,7 +18,7 @@
             <div class="card card-table comman-shadow">
                 <div class="card-body">
                     <div class="row mb-3 justify-content-between">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select class="currclass dropdown-select" id="classSelect">
                                 <option value="" disabled selected>Select Class</option>
                                 <option value="1">Class 1</option>
@@ -54,6 +54,8 @@
                                     </th>
                                     <th>S No.</th>
                                     <th>Student Name</th>
+                                    <th>Class</th>
+                                    <th>Section</th>
                                     <th>Session</th>
                                     <th>Status</th> <!-- New Column for Status -->
                                 </tr>
@@ -71,6 +73,8 @@
                                             <a href="student-details.html">Aaliyah</a>
                                         </h2>
                                     </td>
+                                    <td>I</td>
+                                    <td>A</td>
                                     <td>2025-26</td>
                                     <td><span class="badge bg-success">Active</span></td> <!-- Example Status -->
                                 </tr>
@@ -86,6 +90,8 @@
                                             <a href="student-details.html">Demo</a>
                                         </h2>
                                     </td>
+                                    <td>II</td>
+                                    <td>A</td>
                                     <td>2025-26</td>
                                     <td><span class="badge bg-warning">Inactive</span></td> <!-- Example Status -->
                                 </tr>
