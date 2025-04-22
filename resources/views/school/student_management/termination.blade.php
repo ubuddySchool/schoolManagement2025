@@ -54,13 +54,13 @@
                         <table class="table border-0 star-student table-hover table-center mb-0 table-striped">
                             <thead class="student-thread">
                                 <tr>
-                                    <th>S No.</th>
+                                    <th>S. No.</th>
                                     <th>Student Name</th>
                                     <th>Class</th>
-                                    <th>Section</th>
+                                    <th>Scholar No.</th>
                                     <th>Session</th>
-                                    <th>Status</th>
                                     <th>Remarks</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,9 +72,9 @@
                                         </h2>
                                     </td>
                                     <td>I</td>
-                                    <td>A</td>
+                                    <td>234</td>
                                     <td>2025-26</td>
-                                    <td><span class="badge bg-success">Active</span></td> 
+                                    <td><span> Want to take TC.</span></td> 
                                     <td>  <button type="button" class="btn btn-sm btn-danger text-white" data-bs-toggle="modal" data-bs-target="#terminateBtn">Terminate</button></td>
                                     
                                 </tr>
@@ -86,11 +86,10 @@
                                         </h2>
                                     </td>
                                     <td>II</td>
-                                    <td>A</td>
+                                    <td>532</td>
                                     <td>2025-26</td>
-                                    <td><span class="badge bg-warning">Inactive</span></td> 
-                                   
-                                   <td>
+                                    <td><span>Inactive</span></td>                                    
+                                    <td>
                                         <button type="button" class="btn btn-sm btn-danger text-white" data-bs-toggle="modal" data-bs-target="#terminateBtn">Terminate</button>
                                     </td>
                                 </tr>
