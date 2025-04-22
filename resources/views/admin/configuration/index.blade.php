@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <div class="card card-table comman-shadow ">
                 <div class="card-body">
-
+                    
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
@@ -24,9 +24,6 @@
                     </div>
                     
                     <div class="row my-3">
-                        <div class="col-sm-3">
-                            <a href="{{ route('assign.school.index') }}" class="config">Assign School</a>
-                        </div>
                         <div class="col-sm-3">
                             <a href="{{ route('assign-module.assignModule') }}" class="config">Assign Module</a>
                         </div>
