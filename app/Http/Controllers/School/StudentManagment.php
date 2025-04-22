@@ -21,5 +21,8 @@ class StudentManagment extends Controller
     public function assign_section(){
         return view('school.student_management.assign_section');
     }
+    public function student_archive(){
+        return view('school.student_management.student_archive');
+    }
 
 }
