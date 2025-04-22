@@ -27,6 +27,11 @@ class BasicConfigurationController extends Controller
     {
         return view('admin.basic_configuration.term');
     }
+    public function setSession()
+    {
+        return view('admin.basic_configuration.sessionSet');
+    }
+
     public function schoolTerms()
     {
         return view('admin.basic_configuration.termToSchool');

@@ -27,7 +27,7 @@
                                 <div class="col-lg-4 col-md-4">
                                     <div class="profile-user-box">
                                         <div class="profile-user-img">
-                                            <img src="{{ asset('assets/img/default.png') }}" alt="Profile student_images/"
+                                            <img src="{{ asset('assets/img/dummyProfile.jpg') }}" alt="Profile student_images/"
                                                 width="100" height="140">
                                             <div class="form-group students-up-files profile-edit-icon mb-0 d-none">
                                                 <div class="uplod d-flex">
@@ -44,7 +44,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 d-flex align-items-center">
+                                <div class="col-lg-2 col-md-2 d-flex align-items-center">
                                     <div class="follow-group justify-content-center">
                                         <div class="students-follows">
                                             <h5>Father's Name</h5>
@@ -56,7 +56,7 @@
                                         <!--</div>-->
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 d-flex align-items-center">
+                                <div class="col-lg-2 col-md-2 d-flex align-items-center">
                                     <div class="follow-btn-group">
                                         <div class="students-follows">
                                             <h5>Contact Number</h5>
@@ -64,8 +64,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-auto d-flex align-items-center float-end ms-auto download-grp">
-                                    <a href="#" class="btn btn-primary me-2">Active</a>
+                                <div class="col-lg-2 col-md-2 d-flex align-items-center float-end ms-auto download-grp">
+                                    <a href="#" class="btn btn-primary me-2">Active</a> <br>
                                     <a href="#" class="btn btn-danger me-2">Inactive</a>
                                 </div>
                             </div>

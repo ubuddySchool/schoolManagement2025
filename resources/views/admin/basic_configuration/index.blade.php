@@ -33,6 +33,9 @@
                         <div class="col-md-2 col-sm-4">
                             <a href="{{ route('basic-configuration.getTerms') }}" class="config">Terms</a>
                         </div>
+                        <div class="col-md-2 col-sm-4">
+                            <a href="{{ route('basic-configuration.getSession') }}" class="config">Session</a>
+                        </div>
                     </div>
 
                 </div>
