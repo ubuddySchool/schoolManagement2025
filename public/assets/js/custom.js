@@ -129,36 +129,35 @@ $(document).ready(function () {
 // Cropping Images Script start
 
 let cropper;
-let originalFile; // declare outside to access later
+let originalFile;
 
-const input = document.getElementById('studentImageInput');
-const modal = document.getElementById('cropModal');
-const preview = document.getElementById('cropImagePreview');
-const fileNameDisplay = document.getElementById('imageFileName');
+const $input = $('#studentImageInput');
+const $modal = $('#cropModal');
+const $preview = $('#cropImagePreview');
+const $fileNameDisplay = $('#imageFileName');
 
-input.addEventListener('change', function (e) {
-    originalFile = e.target.files[0]; // store it globally
+$input.on('change', function (e) {
+    originalFile = e.target.files[0];
     if (!originalFile) return;
-    
+
     const reader = new FileReader();
     reader.onload = function (event) {
-        preview.src = event.target.result;
-        modal.style.display = 'block';
-        
-        // Wait for image load
-        preview.onload = function () {
+        $preview.attr('src', event.target.result);
+        $modal.show();
+
+        $preview.on('load', function () {
             if (cropper) cropper.destroy();
-            cropper = new Cropper(preview, {
+            cropper = new Cropper($preview[0], {
                 aspectRatio: 1,
                 viewMode: 1,
                 autoCropArea: 1,
             });
-        };
+        });
     };
     reader.readAsDataURL(originalFile);
 });
 
-document.getElementById('cropBtn').addEventListener('click', function () {
+$('#cropBtn').on('click', function () {
     const canvas = cropper.getCroppedCanvas({
         width: 230,
         height: 230
@@ -166,13 +165,13 @@ document.getElementById('cropBtn').addEventListener('click', function () {
 
     canvas.toBlob(function (blob) {
         const croppedFile = new File([blob], originalFile.name, { type: originalFile.type });
-        
+
         const dataTransfer = new DataTransfer();
         dataTransfer.items.add(croppedFile);
-        input.files = dataTransfer.files;
-        
-        fileNameDisplay.innerText = croppedFile.name;
-        modal.style.display = 'none';
+        $input[0].files = dataTransfer.files;
+
+        $fileNameDisplay.text(croppedFile.name);
+        $modal.hide();
     }, originalFile.type);
 });
 
