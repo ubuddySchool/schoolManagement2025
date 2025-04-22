@@ -215,7 +215,6 @@
                                             <!-- Modal for cropping -->
                                             <div id="cropModal" class="modal" >
                                                 <div class="cropModalDiv">
-                                                    <!-- Close Button -->
                                                     <button id="closeCropModal" type="button">&times;</button>
                                                     <img id="cropImagePreview" style="max-width:100%;">
                                                     <div style="text-align:right; margin-top:10px;">

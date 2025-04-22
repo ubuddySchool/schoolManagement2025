@@ -148,6 +148,12 @@ a.config {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+.cropper-container.cropper-bg{
+    width: 100% !important;
+}
+
+/* Crop Image Tool CSS */
 
 .birthday-header {
     font-weight: 600;
