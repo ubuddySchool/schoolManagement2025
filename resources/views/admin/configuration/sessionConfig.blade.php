@@ -12,49 +12,46 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('configuration.sessionConfig') }}" class="text-decoration-none text-dark me-2 backButton">
+                                <a href="{{ route('schooladmin.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Configuration Panel</h3>
-                                <div class="px-4">
-                                    <h6>Current Session: <strong>{{ $selectedOption }}</strong></h6>
-                                </div>
+                                <h3 class="page-title">Configuration Session</h3>
                             </div>
                         </div>
                     </div>
-
+                    
                     <table class="table table-bordered">
                         <thead class="table-light">
                             <tr>
-                                <th>Configuration</th>
+                                <th>Academic Year</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Assign Module</td>
+                                <td>2025-26</td>
                                 <td>Open/Locked</td>
                                 <td>
-                                    <a href="{{ route('assign-module.assignModule') }}" class="btn btn-sm bg-success-light me-2">
+                                    <a href="{{ route('configuration.index') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Basic Configuration</td>
+                                <td>2024-25</td>
                                 <td>Open/Locked</td>
                                 <td>
-                                    <a href="{{ route('basic-configuration.store') }}" class="btn btn-sm bg-success-light me-2">
+                                    <a href="{{ route('configuration.index') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Module Configuration</td>
+                                <td>2023-24</td>
                                 <td>Open/Locked</td>
                                 <td>
-                                    <a href="{{ route('module-configuration.moduleconfig') }}" class="btn btn-sm bg-success-light me-2">
+                                    <a href="{{ route('configuration.index') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>

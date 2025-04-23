@@ -20,23 +20,62 @@
                         </div>
                     </div>
                     
-                    <div class="row my-3">
-                        <div class="col-md-2 col-sm-4">
-                            <a href="{{ route('basic-configuration.getClass') }}" class="config">Class</a>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <a href="{{ route('basic-configuration.getSection') }}" class="config">Section</a>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <a href="{{ route('basic-configuration.getSubject') }}" class="config">Subject</a>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <a href="{{ route('basic-configuration.getTerms') }}" class="config">Terms</a>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <a href="{{ route('basic-configuration.getSession') }}" class="config">Session</a>
-                        </div>
-                    </div>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Basic Configuration</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Class</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getClass') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Section</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getSection') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Subject</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getSubject') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Terms</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getTerms') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Session</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getSession') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </div>
             </div>

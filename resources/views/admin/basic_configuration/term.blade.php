@@ -20,14 +20,35 @@
                         </div>
                     </div>
                     
-                    <div class="row my-3">
-                        <div class="col-sm-3">
-                            <a href="{{ route('basic-configuration.schoolTerms') }}" class="config">Terms To School</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('basic-configuration.classTerms') }}" class="config">Terms To Class</a>
-                        </div>
-                    </div>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Assign Terms</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Terms To School</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.schoolTerms') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Terms To Class</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.classTerms') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     
                 </div>
             </div>

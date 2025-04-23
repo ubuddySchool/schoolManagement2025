@@ -91,61 +91,7 @@
                                                     <button type="button" class="btn btn-sm bg-success-light"
                                                         data-bs-toggle="modal" data-bs-target="#configModal">
                                                         <i class="feather-eye"></i>
-                                                    </button>
-                                                    <!-- Modal OUTSIDE the table -->
-                                                    <div class="modal fade" id="configModal" tabindex="-1"
-                                                        aria-labelledby="configModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg">
-                                                            <div class="modal-content">
-
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="configModalLabel">Sub-Admin
-                                                                        Details</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-
-                                                                <div class="modal-body">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>Admin Name:</strong> Ajay</p>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>Role:</strong> Teacher</p>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>Gender:</strong> Male</p>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>DOB:</strong> 12-03-2001</p>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p class="d-flex"><strong class="me-3">Profile
-                                                                                    Image:</strong>
-                                                                                <img src="{{ asset('assets/img/favicon.png') }}"
-                                                                                    class="" width="60">
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>Contact Number:</strong> 9912032001
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>Alternate Contact Number:</strong>
-                                                                                9912032001</p>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <p><strong>Email:</strong> demo@gmail.com</p>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <p><strong>Remark:</strong> jasn aksjdgkausd asd
-                                                                                gkas bkauysg kay</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </button>                                                    
                                                     <a href="{{ route('subAdmin.activeModuleList') }}"
                                                         class="btn btn-sm bg-success-light me-2">
                                                         <i class="fa-solid fa-gears"></i>
@@ -156,6 +102,60 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        <!-- Modal OUTSIDE the table -->
+                                        <div class="modal fade" id="configModal" tabindex="-1"
+                                        aria-labelledby="configModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="configModalLabel">Sub-Admin
+                                                            Details</h5>
+                                                        <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p><strong>Admin Name:</strong> Ajay</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p><strong>Role:</strong> Teacher</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p><strong>Gender:</strong> Male</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p><strong>DOB:</strong> 12-03-2001</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="d-flex"><strong class="me-3">Profile
+                                                                        Image:</strong>
+                                                                    <img src="{{ asset('assets/img/favicon.png') }}"
+                                                                        class="" width="60">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p><strong>Contact Number:</strong> 9912032001
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p><strong>Alternate Contact Number:</strong>
+                                                                    9912032001</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p><strong>Email:</strong> demo@gmail.com</p>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <p><strong>Remark:</strong> jasn aksjdgkausd asd
+                                                                    gkas bkauysg kay</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endforeach
                                 </tbody>
                             </table>

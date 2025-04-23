@@ -19,11 +19,28 @@
                             </div>                            
                         </div>
                     </div>
-
-                    <div class="row my-3">
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.houses') }}" class="config">Assign Houses</a></div>
-                    </div>
                     
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Student Management</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Assign Houses</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.houses') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>

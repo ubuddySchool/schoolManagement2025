@@ -13,6 +13,10 @@
                             {{-- <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton"> <i class="fas fa-arrow-left"></i></a> --}}
                                 <h3 class="page-title">Assign School Admin</h3>
                             </div>
+                            <div class="col-auto">
+                                <input type="text" name="search" id="myInput" onkeyup="myFunction()"
+                                    placeholder="Search By Name" class="form-control" />
+                            </div>
                         </div>
                     </div>
 
@@ -24,7 +28,7 @@
                                     <th>Logo</th>
                                     <th>School Name</th>
                                     <th>City</th>
-                                    <th>CRM Name</th>
+                                    <th>Admin Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>

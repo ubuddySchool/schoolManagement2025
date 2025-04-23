@@ -18,23 +18,56 @@
                                 <h3 class="page-title">Result Configuration</h3>
                             </div>                            
                         </div>
-                    </div>                                       
-                    
-                    <div class="row my-3">
-                        <div class="col-sm-3">
-                            <a href="{{ route('module-configuration.grade') }}" class="config">Assign Grade</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('module-configuration.resultType') }}" class="config">Assign Result Type</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('module-configuration.markPattern') }}" class="config">Marking Pattern</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('module-configuration.resultLayout') }}" class="config">Assign Layout</a>
-                        </div>
                     </div>
-                    
+
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Result Management</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Assign Grade</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.grade') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Assign Result Type</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.resultType') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Marking Pattern</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.markPattern') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Assign Layout</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.resultLayout') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
