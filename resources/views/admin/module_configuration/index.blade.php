@@ -20,18 +20,107 @@
                         </div>
                     </div>
                     
-                    <div class="row my-3">
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Student Enquiry</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.enquiry') }}" class="config">Staff Enquiry</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.student_management') }}" class="config">Student Management</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.attendance') }}" class="config">Attendance</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.admitCard') }}" class="config">Admit Card</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.result') }}" class="config">Result</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.annualCalender') }}" class="config">Annual Calender</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.certificate') }}" class="config">Certificate</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.fee') }}" class="config">Fee</a></div>
-                        <div class="col-md-3 my-2"><a href="{{ route('module-configuration.transportation') }}" class="config">Transportation</a></div>
-                    </div>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Module Configuration</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Student Enquiry</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.enquiry') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Staff Enquiry</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.enquiry') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Student Management</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.student_management') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Attendance</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.attendance') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Admit Card</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.admitCard') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Result</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.result') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Annual Calender</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.annualCalender') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Certificate</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.certificate') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fee</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.fee') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Transportation</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('module-configuration.transportation') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </div>
             </div>

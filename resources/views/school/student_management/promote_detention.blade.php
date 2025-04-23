@@ -36,7 +36,15 @@
                                 <!-- Add more classes as needed -->
                             </select>
                         </div>
-                        <div class="col-md-8 text-end">
+                        <div class="col-md-2">
+                            <select class="currclass dropdown-select">
+                                <option value="" disabled selected>Select Status </option>
+                                <option value="Pending">Pending</option>
+                                <option value="Promoted">Promoted</option>
+                                <option value="Detained">Detained</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 text-end">
                             <button class="btn btn-primary" id="promoteBtn">Promote</button>
                             <button class="btn btn-primary" id="DetainBtn">Detain</button>
                         </div>
@@ -75,7 +83,7 @@
                                                 value="something">
                                         </div>
                                     </th>
-                                    <th>S No.</th>
+                                    <th>S. No.</th>
                                     <th>Student Name</th>
                                     <th>Scholar number</th>
                                     <th>Class</th>

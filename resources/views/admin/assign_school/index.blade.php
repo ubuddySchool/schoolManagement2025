@@ -10,10 +10,12 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                            <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
-                                    <i class="fas fa-arrow-left"></i>
-                                </a>
+                            {{-- <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton"> <i class="fas fa-arrow-left"></i></a> --}}
                                 <h3 class="page-title">Assign School Admin</h3>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" name="search" id="myInput" onkeyup="myFunction()"
+                                    placeholder="Search By Name" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -22,15 +24,17 @@
                         <table class="table table-bordered align-middle">
                             <thead class="table-light">
                                 <tr>
+                                    <th>S. No.</th>
                                     <th>Logo</th>
                                     <th>School Name</th>
                                     <th>City</th>
-                                    <th>CRM Name</th>
-                                    <th>Configure Admin</th>
+                                    <th>Admin Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>1</td>
                                     <td> <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
                                     </td>
                                     <td>Green Valley School</td>
@@ -49,6 +53,7 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>2</td>
                                     <td> <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
                                     </td>
                                     <td>Sunrise Public School</td>
@@ -62,11 +67,12 @@
                                             data-school-name="Sunrise Public School"
                                             data-current-admin="Jane Smith"
                                             data-admin-photo="https://via.placeholder.com/80">
-                                            Configure Admin
+                                            Change Admin
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>3</td>
                                     <td>
                                         <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
                                     </td>
@@ -81,7 +87,7 @@
                                             data-school-name="Riverdale High"
                                             data-current-admin="Michael Johnson"
                                             data-admin-photo="https://via.placeholder.com/80">
-                                            Configure Admin
+                                            Change Admin
                                         </button>
                                     </td>
                                 </tr>

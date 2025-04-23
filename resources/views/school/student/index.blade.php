@@ -87,7 +87,7 @@
                         <table class="table border-0 star-student table-hover table-center mb-0 table-striped">
                             <thead class="student-thread">
                                 <tr>
-                                    <th>S No.</th>
+                                    <th>S. No.</th>
                                     <th>Student Name</th>
                                     <th>Class</th>
                                     <th>Section</th>

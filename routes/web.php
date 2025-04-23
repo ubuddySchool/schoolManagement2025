@@ -105,6 +105,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/Managment/promote&detention', [StudentManagment::class, 'promote_detention'])->name('managment.promote_detention');
     Route::get('/Managment/termination', [StudentManagment::class, 'termination'])->name('managment.termination');
+    Route::get('/Managment/student_archive', [StudentManagment::class, 'student_archive'])->name('managment.student_archive');
     Route::get('/Managment/assign/section', [StudentManagment::class, 'assign_section'])->name('managment.assign_section');
     // admit
     Route::get('/school/admit', [AdmitController::class, 'admit_index'])->name('student.admit');

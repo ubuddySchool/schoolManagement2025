@@ -16,18 +16,17 @@
 
      </div>
      @php
-     $admin = Auth::guard('admin')->user();
+         $admin = Auth::guard('admin')->user();
      @endphp
 
      @if ($admin && $admin->role === 1)
+         <div class="menu-toggle">
+             <a href="javascript:void(0);" id="toggle_btn">
+                 <i class="fas fa-bars"></i>
+             </a>
+         </div>
 
-        <div class="menu-toggle">
-            <a href="javascript:void(0);" id="toggle_btn">
-                <i class="fas fa-bars"></i>
-            </a>
-        </div>
-     
-     {{-- <div class="top-nav-search">
+         {{-- <div class="top-nav-search">
          <form>
              <input type="text" class="form-control" placeholder="Search here">
              <button class="btn" type="submit"><i class="fas fa-search"></i></button>
@@ -60,7 +59,7 @@
 
          <li class="nav-item dropdown noti-dropdown me-2">
              <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
-                 <img src="{{ asset('assets/img/icons/header-icon-05.svg')}}" alt>
+                 <img src="{{ asset('assets/img/icons/header-icon-05.svg') }}" alt>
              </a>
              <div class="dropdown-menu notifications">
                  <div class="topnav-dropdown-header">
@@ -146,20 +145,21 @@
 
          <li class="nav-item zoom-screen me-2">
              <a href="#" class="nav-link header-nav-list win-maximize">
-                 <img src="{{ asset('assets/img/icons/header-icon-04.svg')}}" alt>
+                 <img src="{{ asset('assets/img/icons/header-icon-04.svg') }}" alt>
              </a>
          </li>
 
          <li class="nav-item dropdown has-arrow new-user-menus">
              <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                  <span class="user-img">
-                     <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="">
+                     <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}"
+                         width="31" alt="">
                      <div class="user-text">
-                         @if(Auth::check())
-                         <div class="user-text">
-                             <h6>{{ Auth::user()->name }}</h6>
-                             <p class="text-muted text-capitalize mb-0">{{ Auth::user()->type }}</p>
-                         </div>
+                         @if (Auth::check())
+                             <div class="user-text">
+                                 <h6>{{ Auth::user()->name }}</h6>
+                                 <p class="text-muted text-capitalize mb-0">{{ Auth::user()->type }}</p>
+                             </div>
                          @endif
 
 
@@ -184,25 +184,33 @@
 
  </div>
  @if ($admin && $admin->role === 1)
- <!-- sidebar -->
- <div class="sidebar" id="sidebar">
-     <div class="sidebar-inner slimscroll">
-         <div id="sidebar-menu" class="sidebar-menu">
-             <ul>
-                 <li class="menu-title">
-                     <span>Main Menu</span>
-                 </li>
-                 <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}">
-                     <a href="{{ route('admin.dashboard') }}"><i class="feather-grid"></i> <span>Dashboard</span></a>
-                 </li>
-                 <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
-                     <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
-                 </li>
-                 <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
-                     <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New School</span></a>
-                 </li>
+     <!-- sidebar -->
+     <div class="sidebar" id="sidebar">
+         <div class="sidebar-inner slimscroll">
+             <div id="sidebar-menu" class="sidebar-menu">
+                 <ul>
+                     <li class="menu-title">
+                         <span>Main Menu</span>
+                     </li>
+                     <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}">
+                         <a href="{{ route('admin.dashboard') }}"><i class="feather-grid"></i>
+                             <span>Dashboard</span></a>
+                     </li>
+                     <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
+                         <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
+                     </li>
+                     <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
+                         <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New
+                                 School</span></a>
+                     </li>
+                     <li class="{{ in_array(Route::currentRouteName(), ['admin-configuration.configAdmin', 'admin-configuration.new']) ? 'active' : '' }}">
+                        <a href="{{ route('admin-configuration.configAdmin') }}"><i class="fas fa-cogs"></i><span>Configuration Admin</span></a>
+                    </li>
+                    <li class="{{ Route::currentRouteName() == 'assign.school.index' ? 'active' : '' }}">
+                        <a href="{{ route('assign.school.index') }}"><i class="fas fa-school"></i><span>Assign School</span></a>
+                    </li>
 
-                 {{-- <li class="submenu">
+                     {{-- <li class="submenu">
                     <a href="#"><i class="fas fa-building"></i> <span>School</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li class="{{ Route::currentRouteName() == 'subadmin.index' ? 'active' : '' }}">
@@ -217,10 +225,9 @@
              </ul>
              </li> --}}
 
-             <li class=""> <a href="{{ route('schooladmin.index') }}"><i class="fas fa-cogs"></i><span>Configuration Admin</span></a>
-             </li>
-             </ul>
+                    
+                 </ul>
+             </div>
          </div>
      </div>
- </div>
  @endif
