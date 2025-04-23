@@ -16,9 +16,9 @@
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                                 <h3 class="page-title">Configuration Panel</h3>
-                                <div class="px-4">
+                                {{-- <div class="px-4">
                                     <h6>Current Session: <strong>{{ $selectedOption }}</strong></h6>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>
