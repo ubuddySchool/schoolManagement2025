@@ -92,7 +92,11 @@
                                         <td>
                                             <div>
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#view-details"><i class="feather-eye"></i> </a>
+
                                                 <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal" data-bs-target="#danger-alert1"><i class="feather-edit"></i> </a>
+
+                                                <a href="{{ route('school-admin.poc') }}" class="btn btn-sm bg-success-light me-2">POC</a>
+                                                
                                                 {{-- <button type="button" class="btn btn-sm bg-danger me-2" data-bs-toggle="modal" data-bs-target="#danger-alert-modal1"><i class="feather-trash-2"></i>
                                                 </button> --}}
 

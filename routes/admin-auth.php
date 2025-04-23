@@ -37,6 +37,8 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
     Route::get('edit/{id}', [SchoolAdminController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [SchoolAdminController::class, 'update'])->name('update');
     Route::delete('destroy/{id}', [SchoolAdminController::class, 'destroy'])->name('destroy');
+    Route::get('poc', [SchoolAdminController::class, 'pocIndex'])->name('poc');
+    Route::get('add-poc', [SchoolAdminController::class, 'createpoc'])->name('pocCreate');
 });
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
