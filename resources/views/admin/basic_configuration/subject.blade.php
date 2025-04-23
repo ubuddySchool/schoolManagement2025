@@ -20,20 +20,54 @@
                         </div>
                     </div>
                     
-                    <div class="row my-3">
-                        <div class="col-sm-3">
-                            <a href="{{ route('basic-configuration.subjectToSchool') }}" class="config">To School</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('basic-configuration.subjectToClass') }}" class="config">To Class</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('basic-configuration.subjectType') }}" class="config">Assign Subject Type</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="{{ route('basic-configuration.subjectToModule') }}" class="config">To Module</a>
-                        </div>
-                    </div>
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Assign Subject</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>To School</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.subjectToSchool') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>To Class</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.subjectToClass') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Assign Subject Type</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.subjectType') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>To Module</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.subjectToModule') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>

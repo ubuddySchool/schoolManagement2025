@@ -197,8 +197,7 @@
                              <span>Dashboard</span></a>
                      </li>
                      <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
-                         <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School
-                                 List</span></a>
+                         <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
                      </li>
                      <li class="{{ Route::currentRouteName() == 'school-admin.create' ? 'active' : '' }}">
                          <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New

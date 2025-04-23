@@ -46,11 +46,11 @@
                                         </td>
                                         <td>
                                             <div class="dropdown">
-                                                {{-- <a class="btn btn-sm bg-success-light" href="{{ route('configuration.index') }}"><i class="fa-solid fa-gears"></i></a> --}}
-                                                <button type="button" class="btn btn-sm bg-success-light" data-bs-toggle="modal" data-bs-target="#configModal">
+                                                <a class="btn btn-sm bg-success-light" href="{{ route('configuration.sessionConfig') }}"><i class="fa-solid fa-gears"></i></a>
+
+                                                {{-- <button type="button" class="btn btn-sm bg-success-light" data-bs-toggle="modal" data-bs-target="#configModal">
                                                     <i class="fa-solid fa-gears"></i>
                                                 </button>
-                                                <!-- Modal OUTSIDE the table -->
                                                 <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <form method="POST" action="{{ route('configuration.index') }}" class="modal-content">
@@ -62,7 +62,6 @@
 
                                                             <div class="modal-body">
                                                                 <div class="mb-3">
-                                                                    {{-- <label for="configOption" class="form-label">Choose Session</label> --}}
                                                                     <select name="option" id="configOption" class="form-select" required>
                                                                         <option value="">-- Select Session --</option>
                                                                         <option value="2024-25">2024-25</option>
@@ -71,13 +70,12 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-
                                                             <div class="modal-footer">
                                                                 <button type="submit" class="btn btn-primary">Go to Config</button>
                                                             </div>
                                                         </form>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
 
                                                 {{-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
