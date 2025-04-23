@@ -20,6 +20,14 @@ class SchoolAdminController extends Controller
     {
         return view('admin.school_admin.create');
     }
+    public function createpoc()
+    {
+        return view('admin.school_admin.createPOC');
+    }
+    public function pocIndex()
+    {
+        return view('admin.school_admin.pocIndex');
+    }
 
     // Store method to handle form submission
     public function store(Request $request)
