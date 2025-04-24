@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-auto">
                 <div class="page-sub-header">
-                    <h3 class="page-title">Assign Roll Number</h3>
+                    <h3 class="page-title">Exam Roll Number</h3>
                 </div>
             </div>
         </div>
@@ -59,7 +59,13 @@
                                 </select>
                             </div>
 
-                               
+                                <div class="col-auto text-end float-end download-grp">
+                                    <input type="tel" name="assignRollNumbr" placeholder="Enter Roll Number" class="form-control" oninput="autoIncrementRollNumbers(this.value)" />   
+                                </div>
+
+                                <div class="col-auto text-end float-end download-grp">
+                                   <button type="submit" name="assignAdmitCard" class="btn btn-outline-primary me-2">Assign Roll Number</button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -110,6 +110,7 @@ Route::middleware('auth')->group(function () {
     // admit
     Route::get('/school/admit', [AdmitController::class, 'admit_index'])->name('student.admit');
     Route::get('/school/rollno', [AdmitController::class, 'admit_rollno'])->name('student.admit.rollno');
+    Route::get('/exam/rollno', [AdmitController::class, 'exam_rollno'])->name('student.admit.exam.rollno');
     Route::get('/school/layout', [AdmitController::class, 'admit_layout'])->name('student.admit.layout');
     Route::get('/school/confirmation', [AdmitController::class, 'configration'])->name('student.admit.configration');
 

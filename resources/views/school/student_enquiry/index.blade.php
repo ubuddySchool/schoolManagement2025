@@ -183,7 +183,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                   <!-- <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li> --> 
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
@@ -233,11 +233,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                   <!-- <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li> --> 
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.registration_form') }}">Print registration Form</a></li>
 
                                                 </ul>
                                             </div>
@@ -290,11 +291,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                   <!-- <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li> --> 
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.registration_form') }}">Print registration Form</a></li>
 
                                                 </ul>
                                             </div>
@@ -344,11 +346,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                   <!-- <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li> --> 
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.registration_form') }}">Print registration Form</a></li>
                                                 </ul>
                                             </div>
 
@@ -405,11 +408,12 @@
                                                     Options
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
-                                                    <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('school_student.feesunpaid') }}">Registration Fees</a></li>
+                                                   <!-- <li><a class="dropdown-item" href="{{ route('school_student.feespaid') }}">Print registration Form</a></li> --> 
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feesunpaid') }}">Admission Fees</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Print admission Form</a></li>
                                                     <li><a class="dropdown-item" href="{{ route('school_student.admission.feespaid') }}">Confirm Admission</a></li>
+                                                    <li><a class="dropdown-item" href="{{ route('school_student.registration_form') }}">Print registration Form</a></li>
                                                 </ul>
                                             </div>
 

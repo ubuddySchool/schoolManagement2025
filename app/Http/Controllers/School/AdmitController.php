@@ -13,6 +13,9 @@ class AdmitController extends Controller
     public function admit_rollno(){
         return view('school.admit.admitrollno');
     }
+    public function exam_rollno(){
+        return view('school.result.examrollno');
+    }
     public function admit_layout(){
         return view('school.admit.layout');
     }
