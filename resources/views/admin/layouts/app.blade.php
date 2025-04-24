@@ -30,7 +30,16 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-
+<style>
+    a.config {
+    font-size: 20px;
+    background: #6060c1;
+    font-weight: 400;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+}
+</style>
 </head>
 
 <body>

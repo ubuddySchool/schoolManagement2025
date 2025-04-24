@@ -2,25 +2,17 @@
 
 @section('content')
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-    }
-
-    h2 {
-        text-align: center;
-    }
-
+   
     table {
-        width: 100%;
+        width: auto;
         margin-top: 20px;
         border-collapse: collapse;
     }
 
     th, td {
-        padding: 0px;
-        text-align: center;
-    }
+    padding: 0px 5px;
+    text-align: center;
+}
 
     button {
         padding: 5px 10px;
@@ -30,13 +22,6 @@
 
     button:hover {
         background-color: #f0f0f0;
-    }
-
-    input {
-        width: 100%;
-        padding: 5px;
-        text-align: center;
-        box-sizing: border-box;
     }
 
     /* Modal Styling - keep for the class modal */
@@ -78,21 +63,19 @@
         cursor: pointer;
     }
 
-    table {
-        width: 100%;
-        margin-top: 20px;
-        border-collapse: collapse;
-        table-layout: fixed;
-    }
-
     thead th {
-        position: sticky;
-        top: 0;
-        background-color: #fff;
-        z-index: 1;
-        width: 150px;
-        border: 1px solid #ccc;
-    }
+    position: sticky;
+    top: 0;
+    background-color: #dcdcdc !important;
+    z-index: 1;
+    width: 150px;
+    border: 1px solid #ccc;
+    min-width: 100%;
+    max-width: 22px;
+}
+td{
+    padding: 5px !important;
+}
 
     th:nth-child(1), td:nth-child(1) {
         position: sticky;
@@ -100,6 +83,10 @@
         background-color: #fff; 
         z-index: 1;
     }
+
+    td:nth-child(2) input {
+    
+}
 
     /* Optional: Add a scroll for the table */
     .table-container {
@@ -117,8 +104,7 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="page-title">Time Table</h3>
-                                <p class="mb-0 ms-3">First Term</p>
+                                <p class="mb-0 ms-3">2025-26 | First Term</p>
                             </div>
                             <div class="col justify-content-end gap-2">
                                 <a href="{{ route('manage.dates') }}" class="btn btn-info text-white">Add/Remove Date</a>
@@ -138,15 +124,15 @@
                                                 <div class="table-responsive">
                                                   
                                                     <table id="dynamicTable" border="1">
-                                                        <thead>
-                                                            <tr class="bg-dark">
-                                                                <th>Date</th>
-                                                                <th>Day</th>
-                                                                <!-- Class columns will be added dynamically -->
+                                                        <thead class="bg-gray-700">
+                                                            <tr class="bg-gray-700">
+                                                                <th >Date</th>
+                                                                <th >Day</th>
+                                                                
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <!-- Rows will be added dynamically -->
+                                                           
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -360,6 +346,7 @@
             const dayInput = document.createElement('input');
             dayInput.type = 'text';
             dayInput.value = '';
+            dayInput.disabled = true;
             dayCell.appendChild(dayInput);
             newRow.appendChild(dayCell);
             

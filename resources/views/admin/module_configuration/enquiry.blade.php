@@ -91,16 +91,14 @@
                                 <label class="form-check-label mb-0" for="admission-fee-on">ON</label>
                             </div>
                         </div>
-                        <!-- Input for Admission Fee Amount (Hidden by Default) -->
                         <div class="col-md-3 col-sm-4" id="admission-fee-input" style="display: none;">
                             <input type="number" class="form-control" placeholder="Enter Admission Fee Amount">
                         </div>
                     </div>
 
-                    <hr>
 
                     <!-- Admission Form Section -->
-                    <div class="row mb-2 align-items-start">
+                    <!-- <div class="row mb-2 align-items-start">
                         <div class="col-md-2 col-sm-3">
                             <label class="form-check-label mb-0 fw-bold">Admission Form</label>
                         </div>
@@ -115,7 +113,7 @@
                         <div class="col-md-3 col-sm-4"  id="admission-form-button" style="display: none;">
                         <a class="btn btn-primary" href="{{ route('module-configuration.admission.form') }}">Admission Form</a>
                     </div>
-                    </div>
+                    </div> -->
 
                     
                     <hr>
@@ -130,44 +128,39 @@
     </div>
 </div>
 
-<!-- In your main layout file (e.g., resources/views/admin/layouts/app.blade.php) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        // Toggle Registration Fee Input based on checkbox state
         $('#10').change(function() {
             if ($(this).prop('checked')) {
-                $('#registration-fee-input').show(); // Show input when checked
+                $('#registration-fee-input').show();
             } else {
-                $('#registration-fee-input').hide(); // Hide input when unchecked
+                $('#registration-fee-input').hide();
             }
         });
 
-        // Toggle Admission Fee Input based on checkbox state
         $('#12').change(function() {
             if ($(this).prop('checked')) {
-                $('#admission-fee-input').show(); // Show input when checked
+                $('#admission-fee-input').show(); 
             } else {
-                $('#admission-fee-input').hide(); // Hide input when unchecked
+                $('#admission-fee-input').hide(); 
             }
         });
 
-        // Toggle Registration Form Button visibility based on checkbox state
         $('#11').change(function() {
             if ($(this).prop('checked')) {
-                $('#registration-form-button').show(); // Show button when checked (ON)
+                $('#registration-form-button').show(); 
             } else {
-                $('#registration-form-button').hide(); // Hide button when unchecked (OFF)
+                $('#registration-form-button').hide(); 
             }
         });
 
-        // Toggle Admission Form Button visibility based on checkbox state
         $('#13').change(function() {
             if ($(this).prop('checked')) {
-                $('#admission-form-button').show(); // Show button when checked (ON)
+                $('#admission-form-button').show(); 
             } else {
-                $('#admission-form-button').hide(); // Hide button when unchecked (OFF)
+                $('#admission-form-button').hide(); 
             }
         });
     });

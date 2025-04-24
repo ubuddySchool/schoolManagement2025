@@ -128,12 +128,12 @@ input[type="file"] {
     height: auto;
     min-height: calc(1.5em + .75rem + 2px);
 }
-input[type=text],
+/* input[type=text],
 input[type=password] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-}
+} */
 textarea.form-control {
 	resize: vertical;
 	min-height: 120px;

@@ -16,8 +16,9 @@ use App\Http\Controllers\Auth\Admin\SchoolAdminController;
 Route::get('admin/login', [LoginController::class, 'create'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'store'])->name('admin.post');
 
+Route::middleware('auth:admin')->group(function () {
 
-Route::prefix('admin')->middleware('auth:admin')->group(function () {
+Route::prefix('admin')->group(function () {
 
     Route::get('subadmin/index', [RegisteredUserController::class, 'index'])->name('subadmin.index');
     Route::get('school/index', [RegisteredUserController::class, 'schoolindex'])->name('schooladmin.index');
@@ -115,3 +116,6 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::post('logout', [LoginController::class, 'destroy'])->name('admin.logout');
 
 });
+
+});
+
