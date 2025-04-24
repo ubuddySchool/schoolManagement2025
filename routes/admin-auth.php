@@ -91,6 +91,8 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
     Route::get('school-terms', [BasicConfigurationController::class, 'schoolTerms'])->name('schoolTerms');
     Route::get('class-terms', [BasicConfigurationController::class, 'classTerms'])->name('classTerms');
     Route::get('session', [BasicConfigurationController::class, 'setSession'])->name('getSession');
+    Route::get('student-form', [BasicConfigurationController::class, 'setStudentForm'])->name('getStudentForm');
+    Route::get('staff-form', [BasicConfigurationController::class, 'setStaffForm'])->name('getStaffForm');
 
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
     Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');

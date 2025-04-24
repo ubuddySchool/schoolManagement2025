@@ -14,9 +14,9 @@
                         <i class="fas fa-arrow-left"></i>
                     </a>
                     <h3 class="page-title">Add School</h3>
-                    <div class="px-4">
+                    {{-- <div class="px-4">
                         <h6>Current Session: <strong></strong></h6>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

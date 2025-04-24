@@ -74,6 +74,24 @@
                                     </a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Student Form</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getStudentForm') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Staff Form</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getStaffForm') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
 
