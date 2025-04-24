@@ -77,7 +77,7 @@
                             <a href="{{ route('student.admit.layout') }}" class="btn btn-outline-primary me-2">Layout</a>
                             <a href="{{ route('student.admit.configration') }}" class="btn btn-outline-primary me-2">Configration </a>
 
-                            <a href="{{ route('student.admit.rollno') }}" class="btn btn-outline-primary me-2">Roll Number</a>
+                            <a href="{{ route('student.admit.exam.rollno') }}" class="btn btn-outline-primary me-2">Roll Number</a>
                         </div>
                     </div>
                 </div>
