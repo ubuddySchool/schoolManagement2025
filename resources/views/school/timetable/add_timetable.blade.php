@@ -84,6 +84,10 @@ td{
         z-index: 1;
     }
 
+    td:nth-child(2) input {
+    
+}
+
     /* Optional: Add a scroll for the table */
     .table-container {
         overflow-x: auto;
@@ -128,7 +132,7 @@ td{
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <!-- Rows will be added dynamically -->
+                                                           
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -342,6 +346,7 @@ td{
             const dayInput = document.createElement('input');
             dayInput.type = 'text';
             dayInput.value = '';
+            dayInput.disabled = true;
             dayCell.appendChild(dayInput);
             newRow.appendChild(dayCell);
             
