@@ -140,9 +140,10 @@
                                         </td>
                                         <td class="text-end">
                                             <div class="actions ">
-                                                <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-success-light me-2">
+                                                <!-- <a href="{{ route('school_student.edit') }}" class="btn btn-sm bg-success-light me-2">
                                                     <i class="feather-edit"></i>
-                                                </a>
+                                                </a> -->
+                                                <a class="btn btn-sm bg-success-light me-2" href="{{ route('school_student.add') }}"> <i class="feather-edit"></i></a>
                                             </div>
                                         </td>
                                         </tr>
