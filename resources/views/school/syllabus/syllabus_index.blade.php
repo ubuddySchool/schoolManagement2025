@@ -25,6 +25,15 @@
                         </div>
 
                         <div class="col-lg-2 col-md-2">
+                            <select name="terms" id="selectTerms" class="currclass dropdown-select">
+                                <option value="">Select Term</option>
+                                <option value="14">First Term</option>
+                                <option value="15">Second Term</option>
+                                <option value="51">Term I</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-lg-2 col-md-2">
                             <select name="currentClass" class="currclass dropdown-select" id="selectclassacad" data-school="20">
                                 <option value="">Select Class</option>
                                 <option value="86" data-classcat="A">Nursery</option>
@@ -43,23 +52,9 @@
                                 <option value="100" data-classcat="B">12</option>
                             </select>
                         </div>
-                        <div class="col-lg-2 col-md-2" id="input-stream1" style="display: none;">
-                            <h5 class="form-title student-info">Select Stream</h5>
-                            <select id="selectstream1" class="currclass dropdown-select" name="scl_stream"> </select>
-                        </div>
-
                         <div class="col-lg-2 col-md-2" id="input-section1" style="display: none;">
                             <h5 class="form-title student-info">Select Section</h5>
                             <select id="section1" class="currclass dropdown-select" name="Section"></select>
-                        </div>
-
-                        <div class="col-lg-2 col-md-2">
-                            <select name="terms" id="selectTerms" class="currclass dropdown-select">
-                                <option value="">Select Term</option>
-                                <option value="14">First Term</option>
-                                <option value="15">Second Term</option>
-                                <option value="51">Term I</option>
-                            </select>
                         </div>
 
                         <div class="col-auto text-end float-end ms-auto download-grp">
@@ -128,7 +123,6 @@
                                 <tr>
                                     <th>S No.</th>
                                     <th>Standard</th>
-                                    <th>Section</th>
                                     <th>Term</th>
                                     <th>View App</th>
                                     <th>Action</th>
@@ -138,7 +132,6 @@
                                 <tr>
                                     <td>1</td>
                                     <td>12 ( Science Maths ) </td>
-                                    <td>A</td>
                                     <td>First Term</td>
 
                                     <td> <input type="checkbox" class="pstatus" id="10" data-id="10"
@@ -164,7 +157,6 @@
                                 <tr>
                                     <td>2</td>
                                     <td>1</td>
-                                    <td>A</td>
                                     <td>First Term</td>
 
                                     <td> <input type="checkbox" class="pstatus" id="12" data-id="12"
@@ -190,7 +182,6 @@
                                 <tr>
                                     <td>3</td>
                                     <td>12 ( Science Maths ) </td>
-                                    <td>B</td>
                                     <td>First Term</td>
 
                                     <td> <input type="checkbox" class="pstatus" id="13" data-id="13">
