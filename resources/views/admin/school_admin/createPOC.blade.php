@@ -40,6 +40,25 @@
                                                         </div>
 
                                                         <div class="col-lg-3 col-md-3">
+                                                            <div class="sform-group local-forms">
+                                                                <label>Gender <span class="login-danger">*</span></label>
+                                                                <select name="pocGender" class="currclass form-control"
+                                                                    required>
+                                                                    <option value=""> - Select Gender - </option>
+                                                                    <option value="Male">Male</option>
+                                                                    <option value="Female">Female</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                
+                                                        <div class="col-lg-3 col-md-3">
+                                                            <div class="form-group local-forms calendar-icon">
+                                                                <label>Date of Birth</label>
+                                                                <input class="form-control datetimepicker" type="text"
+                                                                    placeholder="DD-MM-YYYY" name="pocDOB">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3">
                                                             <div class="form-group local-forms mb-0">
                                                                 <label>Designation <span class="login-danger">*</span></label>
                                                                 <input class="form-control" name="pocDesignation"
@@ -60,6 +79,23 @@
                                                         </div>
 
                                                         <div class="col-lg-3 col-md-3">
+                                                            <div class="form-group local-forms">
+                                                                <label>Alternate Contact Number </label>
+                                                                <input class="form-control" name="pocAlternateNUmber"
+                                                                    placeholder="Enter Alternate Number" maxlength="10"
+                                                                    pattern="\d{10}" type="text"
+                                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-3 col-md-3">
+                                                            <div class="form-group local-forms">
+                                                                <label>Email <span class="login-danger">*</span></label>
+                                                                <input class="form-control" name="pocEmail" type="email"
+                                                                    placeholder="Enter Email" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
                                                             <div class="student-submit"
                                                                 style="display: flex;justify-content: center;">
                                                                 <button type="submit" class="btn btn-primary"

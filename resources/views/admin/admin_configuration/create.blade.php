@@ -42,14 +42,6 @@
                                         </div>
 
                                         <div class="col-lg-3 col-md-3">
-                                            <div class="form-group local-forms">
-                                                <label>Role <span class="login-danger">*</span></label>
-                                                <input class="form-control" name="configAdminRoleName"
-                                                    type="text" placeholder="Enter Sub Admin Role" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-3">
                                             <div class="sform-group local-forms">
                                                 <label>Gender <span class="login-danger">*</span></label>
                                                 <select name="configAdminGender" class="currclass form-control"
@@ -97,6 +89,15 @@
                                                     oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)">
                                             </div>
                                         </div>
+
+                                        {{-- <div class="col-lg-3 col-md-3">
+                                            <div class="form-group local-forms">
+                                                <label>Username <span class="login-danger">*</span></label>
+                                                <input class="form-control" name="configAdminUsername"
+                                                    type="text" placeholder="Enter Sub Admin username" required>
+                                            </div>
+                                        </div> --}}
+
                                         <div class="col-lg-3 col-md-3">
                                             <div class="form-group local-forms">
                                                 <label>Email <span class="login-danger">*</span></label>

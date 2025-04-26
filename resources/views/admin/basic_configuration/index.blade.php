@@ -15,7 +15,7 @@
                                 <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Basic Configuration</h3>
+                                <h3 class="page-title">Greenland School | 2025-26 | Basic Configuration</h3>
                             </div>
                         </div>
                     </div>
