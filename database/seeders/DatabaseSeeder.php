@@ -18,11 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call(AdminSeeder::class); 
-        $this->call(MasterModuleSeeder::class); 
-        $this->call(MasterClassesSeeder::class); 
-        $this->call(MasterSubjectSeeder::class); 
-        $this->call(MasterTermsSeeder::class); 
-
+        
         User::factory()->create([
             'name' => 'schoolududdy@123',
             'school_username' => 'schoolududdy123',
