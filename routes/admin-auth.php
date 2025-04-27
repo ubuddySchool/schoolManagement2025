@@ -112,9 +112,12 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('admin.dashboard');
+
+    Route::get('dashboard', [SchoolAdminController::class, 'main_dashboard'])->name('admin.dashboard');
+   
 
     Route::get('/config-dashboard', function () {
         return view('config_admins.dashboard');

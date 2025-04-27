@@ -15,6 +15,17 @@ class SchoolAdminController extends Controller
         $user = User::all();
         return view('admin.school_admin.index', compact('user'));
     }
+    
+
+    public function main_dashboard()
+{
+    $totalUsers = User::count();
+    $activeUsers = User::where('status', 1)->count();
+    $inactiveUsers = User::where('status', 0)->count();
+
+    return view('admin.dashboard', compact('totalUsers', 'activeUsers', 'inactiveUsers'));
+}
+
 
     // Create method to show the form
     public function create()
