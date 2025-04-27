@@ -24,6 +24,7 @@
                             <thead class="student-thread">
                                 <tr>
                                     <th>S.No.</th>
+                                    <th>School Code</th>
                                     <th>School Name</th>
                                     <th>City</th>
                                     <th>Status</th>
@@ -38,6 +39,7 @@
                                 @foreach($user as $admin)
                                 <tr>
                                     <td>{{ $filter++ }}</td>
+                                    <td>{{ $admin->u_code }}</td>
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->city }}</td>
                                     <td>
