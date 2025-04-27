@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
+   
     <div class="main-wrapper login-body">
         <div class="login-wrapper">
             <div class="container">
@@ -12,14 +12,19 @@
                     <div class="login-right">
                         <div class="login-right-wrap">
                             <h1 class="mb-3">School Admin Login</h1>
+                            @if ($errors->has('status'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('status') }}
+                                </div>
+                            @endif
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
                                 <!-- Email Address -->
                                 <div class="form-group">
                                     <label>Username <span class="login-danger">*</span></label>
-                                    <input class="form-control" id="email"  type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <input class="form-control" id="school_username"  type="text" name="school_username" :value="old('school_username')" required autofocus autocomplete="username">
+                                    <x-input-error :messages="$errors->get('school_username')" class="mt-2" />
                                 </div>
 
                                 <!-- Password -->

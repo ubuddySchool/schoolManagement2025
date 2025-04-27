@@ -17,6 +17,10 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    public function getAuthIdentifierName()
+{
+    return 'school_username';
+}
     protected $fillable = [
         'name',
         'school_username',
@@ -33,6 +37,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+
 
     /**
      * Get the attributes that should be cast.

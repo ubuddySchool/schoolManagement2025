@@ -75,6 +75,7 @@
     <script src="{{ asset('assets/plugins/apexchart/chart-data.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/filteration.js') }}"></script>
     <script src="{{ asset('assets_old/js/index_script.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>

@@ -37,12 +37,21 @@
                         </div>
                     </div>
 
+                    <div class="col-md-4">
+                        <div class="form-group local-forms">
+                            <label class="form-label">School Code <span class="login-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter School Code" value="{{ old('school_code', $user->dise_code) }}" name="school_code" required>
+                            @error('school_code')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                     
 
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Dice Code <span class="login-danger">*</span></label>
-                            <input type="text" class="form-control" id="only_numbers" placeholder="Enter Dice Code" value="{{ old('dise_code', $user->dise_code) }}" name="dise_code" required>
+                            <input type="text" class="form-control only_number" placeholder="Enter Dice Code" value="{{ old('dise_code', $user->dise_code) }}" name="dise_code" required>
                             @error('dise_code')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -76,7 +85,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Number of Students<span class="login-danger">*</span></label>
-                            <input type="number" class="form-control" value="{{ old('total_student',$user->total_student) }}" placeholder="Enter Number of students" name="total_student" required>
+                            <input type="number" class="form-control only_number" value="{{ old('total_student',$user->total_student) }}" placeholder="Enter Number of students" name="total_student" required>
                             @error('total_student')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -86,7 +95,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Contact Number<span class="login-danger">*</span></label>
-                            <input type="tel" class="form-control" value="{{ old('contact_number',$user->contact_number) }}" placeholder="Enter Contact Number" id="only_numbers" name="contact_number" required pattern="[0-9]{10,15" maxlength="10">
+                            <input type="tel" class="form-control only_number" value="{{ old('contact_number',$user->contact_number) }}" placeholder="Enter Contact Number"  name="contact_number" required pattern="[0-9]{10,15" maxlength="10">
                             @error('contact_number')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -136,7 +145,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Pin Code<span class="login-danger">*</span></label>
-                            <input type="text" class="form-control" value="{{ old('pincode',$user->pincode) }}" placeholder="Enter Pin Code" name="pincode" required>
+                            <input type="text" class="form-control only_number" value="{{ old('pincode',$user->pincode) }}" placeholder="Enter Pin Code" name="pincode" required>
                             @error('pincode')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
