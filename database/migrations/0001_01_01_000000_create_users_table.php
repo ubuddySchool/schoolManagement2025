@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('school_code')->nullable();
+            $table->integer('school_code')->unique();
             $table->integer('dise_code')->nullable();
             $table->string('board_name')->nullable();
             $table->string('medium')->nullable();
             $table->integer('total_student')->nullable();
-            $table->integer('contact_number')->nullable();
+            $table->string('contact_number', 15)->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();

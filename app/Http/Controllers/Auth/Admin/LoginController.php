@@ -44,8 +44,8 @@ public function store(AdminLoginRequest $request): RedirectResponse
         }
 
         $userFromDb = DB::table('admins')
-            ->select('id', 'name', 'email', 'role')
-            ->where('email', $user->email) 
+            ->select('id', 'username','name', 'email', 'role')
+            ->where('username', $user->username) 
             ->first();
 
         if (!$userFromDb || $userFromDb->role !== 1) {
@@ -63,7 +63,7 @@ public function store(AdminLoginRequest $request): RedirectResponse
 
     } catch (ValidationException $e) {
         return redirect()->route('admin.login')->withErrors([
-            'email' => trans('auth.failed'),
+            'username' => trans('auth.failed'),
         ]);
     }
 }
@@ -85,7 +85,7 @@ public function configstores(AdminLoginRequest $request): RedirectResponse
 
         $userFromDb = DB::table('admins')
             ->select('id', 'name', 'email', 'role')
-            ->where('email', $user->email) 
+            ->where('username', $user->username)  
             ->first();
 
         if (!$userFromDb || $userFromDb->role !== 0) {
@@ -102,7 +102,7 @@ public function configstores(AdminLoginRequest $request): RedirectResponse
 
     } catch (ValidationException $e) {
         return redirect()->route('admin.login')->withErrors([
-            'email' => trans('auth.failed'),
+            'username' => trans('auth.failed'),
         ]);
     }
 }

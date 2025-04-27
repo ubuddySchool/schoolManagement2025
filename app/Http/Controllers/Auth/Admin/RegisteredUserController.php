@@ -87,4 +87,14 @@ class RegisteredUserController extends Controller
         $user = User::all();
         return view('admin.school_admin.index',compact('user'));
     }
+
+    public function toggleStatus($id)
+{
+    $user = User::findOrFail($id);
+    $user->status = $user->status == 1 ? 0 : 1;
+    $user->save();
+
+    return redirect()->back()->with('success', 'Status updated successfully!');
+}
+
 }
