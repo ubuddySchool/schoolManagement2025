@@ -64,7 +64,19 @@
          <li class="nav-item dropdown has-arrow new-user-menus">
              <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                  <span class="user-img">
-                     <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="{{ Auth::user()->name }}">
+                 @if(Auth::check())
+    @php
+        $schoolImagePath = Auth::user()->school_image;
+    @endphp
+
+    @if(Auth::user() && !empty($schoolImagePath))
+        <img class="rounded-circle" src="{{ asset('uploads/schools/'.Auth::user()->school_image) }}" width="31" alt="{{ Auth::user()->name }}">
+    @else
+        <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="{{ Auth::user()->name }}">
+    @endif
+@endif
+
+                     <!-- <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="{{ Auth::user()->name }}"> -->
                      <div class="user-text">
                          @if(Auth::check())
                          <div class="user-text">
