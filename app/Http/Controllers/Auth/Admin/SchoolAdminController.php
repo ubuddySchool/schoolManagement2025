@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 class SchoolAdminController extends Controller
 {
     public function schoolindex()
@@ -29,65 +30,164 @@ class SchoolAdminController extends Controller
         return view('admin.school_admin.pocIndex');
     }
 
-    // Store method to handle form submission
+    // public function store(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required|string|max:255',
+    //         'school_username' => 'required|string|max:255',
+    //         'email' => 'required|email|unique:users,email',
+    //         'password' => 'required|min:6',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->route('school-admin.create')
+    //                          ->withErrors($validator)
+    //                          ->withInput();
+    //     }
+
+    //     $user = new User;
+    //     $user->name = $request->name;
+    //     $user->email = $request->email;
+    //     $user->password = bcrypt($request->password);
+    //     $user->save();
+
+    //     return redirect()->route('schooladmin.index')->with('success', 'Admin created successfully.');
+    // }
+
     public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-        ]);
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'dise_code' => 'required|string|max:50',
+        'board_name' => 'required|string',
+        'medium' => 'required|string',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:6',
+        'school_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'contact_number' => 'nullable|string|regex:/^[0-9]{10,15}$/'
+    ]);
 
-        if ($validator->fails()) {
-            return redirect()->route('school-admin.create')
-                             ->withErrors($validator)
-                             ->withInput();
-        }
+    $user = new User();
+    $user->name = $request->name;
+    $user->school_username = Str::slug($request->name) . rand(1000, 9999);
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+    // Auto-increment school_code starting from 4000
+    $lastCode = User::max('school_code');
+    $user->school_code = $lastCode ? $lastCode + 1 : 4000;
 
-        return redirect()->route('schooladmin.index')->with('success', 'Admin created successfully.');
+    $user->dise_code = $request->dise_code;
+    $user->board_name = $request->board_name;
+    $user->medium = $request->medium;
+    $user->total_student = $request->total_student;
+    $user->contact_number = $request->contact_number;
+    $user->address = $request->address;
+    $user->city = $request->city;
+    $user->state = $request->state;
+    $user->pincode = $request->pincode;
+    $user->locality = $request->locality;
+    $user->website = $request->website;
+    $user->status = 1; // default active
+
+    if ($request->hasFile('school_image')) {
+        $image = $request->file('school_image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('uploads/schools'), $imageName);
+        
+        // Only store the file name in the database
+        $user->school_image = $imageName;
     }
+    
+
+    $user->save();
+
+    return redirect()->back()->with('success', 'School added successfully!');
+}
+
 
     // Edit method to show the form with data
+    public function shows($id)
+    {
+        $user = User::findOrFail($id);
+        // $user = User::with('school')->findOrFail($id);
+        return view('admin.school_admin.shows_details', compact('user'));
+    }
     public function edit($id)
     {
         $user = User::findOrFail($id);
+        // $user = User::with('school')->findOrFail($id);
         return view('admin.school_admin.edit', compact('user'));
     }
 
     // Update method to handle form submission
     public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
+{
+    $user = User::findOrFail($id);
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-        ]);
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'dise_code' => 'required|string',
+        'board_name' => 'required|string',
+        'medium' => 'required|string',
+        'total_student' => 'required|numeric',
+        'contact_number' => 'required|numeric|digits_between:10,15',
+        'address' => 'required|string',
+        'city' => 'required|string',
+        'state' => 'required|string',
+        'pincode' => 'required|string',
+        'locality' => 'required|string',
+        'website' => 'required|string',
+        'school_username' => 'required|string',
+        'school_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        if ($validator->fails()) {
-            return redirect()->route('school-admin.edit', $id)
-                             ->withErrors($validator)
-                             ->withInput();
-        }
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        
-        // Update password if provided
-        if ($request->has('password') && $request->password != '') {
-            $user->password = bcrypt($request->password);
-        }
-
-        $user->save();
-
-        return redirect()->route('schooladmin.index')->with('success', 'Admin updated successfully.');
+    if ($validator->fails()) {
+        return redirect()->back()
+        ->withErrors($validator)
+        ->withInput();
     }
+
+    // Update basic fields
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->dise_code = $request->dise_code;
+    $user->board_name = $request->board_name;
+    $user->medium = $request->medium;
+    $user->total_student = $request->total_student;
+    $user->contact_number = $request->contact_number;
+    $user->address = $request->address;
+    $user->city = $request->city;
+    $user->state = $request->state;
+    $user->pincode = $request->pincode;
+    $user->locality = $request->locality;
+    $user->website = $request->website;
+    $user->school_username = $request->school_username;
+
+    // Update password if filled
+    if ($request->filled('password')) {
+        $user->password = bcrypt($request->password);
+    }
+
+    // Handle image upload
+    if ($request->hasFile('school_image')) {
+        // Delete old image if it exists
+        if ($user->school_image && file_exists(public_path('uploads/schools/' . $user->school_image))) {
+            unlink(public_path('uploads/schools/' . $user->school_image));
+        }
+    
+        $image = $request->file('school_image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('uploads/schools'), $imageName);
+    
+        $user->school_image = $imageName;
+    }
+    
+    $user->save();
+
+    return redirect()->route('schooladmin.index')->with('success', 'School admin updated successfully.');
+}
 
     // Destroy method to delete a user
     public function destroy($id)

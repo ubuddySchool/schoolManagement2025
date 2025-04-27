@@ -16,6 +16,7 @@ class AdminSeeder extends Seeder
         if (!$admin) {
             DB::table('admins')->insert([
                 'name' => 'Ubuddy Admin',
+                'username' => 'ubuddyadmin_123',
                 'email' => 'admin@ubuddy.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('Ubuddy1234!'), 
@@ -31,6 +32,7 @@ class AdminSeeder extends Seeder
         if (!$supportAdmin) {
             DB::table('admins')->insert([
                 'name' => 'Support Admin',
+                'username' => 'supportadmin_123',
                 'email' => 'support@ubuddy.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('Support@Ubuddy2025'),
