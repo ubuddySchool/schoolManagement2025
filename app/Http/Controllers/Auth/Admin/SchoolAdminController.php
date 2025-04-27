@@ -21,14 +21,8 @@ class SchoolAdminController extends Controller
     {
         return view('admin.school_admin.create');
     }
-    public function createpoc()
-    {
-        return view('admin.school_admin.createPOC');
-    }
-    public function pocIndex()
-    {
-        return view('admin.school_admin.pocIndex');
-    }
+  
+   
 
     // public function store(Request $request)
     // {
@@ -75,9 +69,10 @@ class SchoolAdminController extends Controller
 
     // Auto-increment school_code starting from 4000
     $lastCode = User::max('school_code');
-    $user->school_code = $lastCode ? $lastCode + 1 : 4000;
+    $user->u_code = $lastCode ? $lastCode + 1 : 4106;
 
     $user->dise_code = $request->dise_code;
+    $user->school_code = $request->school_code;
     $user->board_name = $request->board_name;
     $user->medium = $request->medium;
     $user->total_student = $request->total_student;

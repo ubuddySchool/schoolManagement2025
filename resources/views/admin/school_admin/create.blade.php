@@ -13,7 +13,7 @@
                     <a href="{{ route('admin.dashboard') }}" class="text-decoration-none text-dark me-2 backButton">
                         <i class="fas fa-arrow-left"></i>
                     </a>
-                    <h3 class="page-title">Add School</h3>
+                    <h3 class="page-title mb-0">Add School</h3>
 
                 </div>
             </div>
@@ -38,19 +38,19 @@
                             <label class="form-label">U-Code <span class="login-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Enter U-Code 4105" name="u_code" required>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">School Code <span class="login-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Enter School Code" name="school_code" required>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Dice Code <span class="login-danger">*</span></label>
-                            <input type="text" class="form-control" id="only_numbers" placeholder="Enter Dice Code" value="{{ old('dise_code') }}" name="dise_code" required>
+                            <input type="text" class="form-control only_number" placeholder="Enter Dice Code" value="{{ old('dise_code') }}" name="dise_code" required>
                             @error('dise_code')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -93,7 +93,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Contact Number</label>
-                            <input type="tel" class="form-control" value="{{ old('contact_number') }}" placeholder="Enter Contact Number" id="only_numbers" name="contact_number" required pattern="[0-9]{10,15" maxlength="10" >
+                            <input type="tel" class="form-control only_number" value="{{ old('contact_number') }}" placeholder="Enter Contact Number" name="contact_number" required pattern="[0-9]{10,15" maxlength="10" >
                             @error('contact_number')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -143,7 +143,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Pin Code</label>
-                            <input type="text" class="form-control" value="{{ old('pincode') }}" placeholder="Enter Pin Code" name="pincode" required>
+                            <input type="text" class="form-control only_number" value="{{ old('pincode') }}" placeholder="Enter Pin Code" name="pincode" required>
                             @error('pincode')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -209,4 +209,7 @@
     </div>
 
 </div>
+
+
+
 @endsection

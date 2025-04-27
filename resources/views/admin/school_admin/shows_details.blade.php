@@ -23,6 +23,7 @@
                 @php
                     $fields = [
                         'School Name' => $user->name,
+                        'School Code' => $user->school_code,
                         'Dice Code' => $user->dise_code,
                         'Board Name' => $user->board_name,
                         'Medium' => $user->medium,
