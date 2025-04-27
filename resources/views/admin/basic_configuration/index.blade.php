@@ -15,7 +15,7 @@
                                 <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Basic Configuration</h3>
+                                <h3 class="page-title">Greenland School | 2025-26 | Basic Configuration</h3>
                             </div>
                         </div>
                     </div>
@@ -70,6 +70,24 @@
                                 <td>Open/Locked</td>
                                 <td>
                                     <a href="{{ route('basic-configuration.getSession') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Student Form</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getStudentForm') }}" class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Staff Form</td>
+                                <td>Open/Locked</td>
+                                <td>
+                                    <a href="{{ route('basic-configuration.getStaffForm') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>

@@ -90,6 +90,8 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="feather-trash-2"></i></button>
                                                 </form> -->
+                                                  <a href="{{ route('school-admin.poc') }}" class="btn btn-sm bg-success-light me-2">POC</a>
+                                                
 
                                             </div>
                                         </td>

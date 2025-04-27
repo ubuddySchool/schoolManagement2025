@@ -31,6 +31,14 @@ class BasicConfigurationController extends Controller
     {
         return view('admin.basic_configuration.sessionSet');
     }
+    public function setStudentForm()
+    {
+        return view('admin.basic_configuration.student_form');
+    }
+    public function setStaffForm()
+    {
+        return view('admin.basic_configuration.staff_form');
+    }
 
     public function schoolTerms()
     {

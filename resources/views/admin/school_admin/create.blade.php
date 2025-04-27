@@ -14,6 +14,7 @@
                         <i class="fas fa-arrow-left"></i>
                     </a>
                     <h3 class="page-title">Add School</h3>
+
                 </div>
             </div>
         </div>
@@ -33,6 +34,13 @@
                     </div>
 
                     <!-- <div class="col-md-4">
+                        <div class="form-group local-forms">
+                            <label class="form-label">U-Code <span class="login-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter U-Code 4105" name="u_code" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">School Code <span class="login-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Enter School Code" name="school_code" required>

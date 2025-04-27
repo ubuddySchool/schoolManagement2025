@@ -15,7 +15,7 @@
                                 <a href="{{ route('configuration.sessionConfig') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Configuration Panel</h3>
+                                <h3 class="page-title">Greenland School | 2025-26</h3>
                                 {{-- <div class="px-4">
                                     <h6>Current Session: <strong>{{ $selectedOption }}</strong></h6>
                                 </div> --}}

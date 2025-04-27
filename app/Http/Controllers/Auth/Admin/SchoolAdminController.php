@@ -21,6 +21,14 @@ class SchoolAdminController extends Controller
     {
         return view('admin.school_admin.create');
     }
+    public function createpoc()
+    {
+        return view('admin.school_admin.createPOC');
+    }
+    public function pocIndex()
+    {
+        return view('admin.school_admin.pocIndex');
+    }
 
     // public function store(Request $request)
     // {

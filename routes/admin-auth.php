@@ -41,6 +41,8 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
     Route::get('edit/{id}', [SchoolAdminController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [SchoolAdminController::class, 'update'])->name('update');
     Route::delete('destroy/{id}', [SchoolAdminController::class, 'destroy'])->name('destroy');
+    Route::get('poc', [SchoolAdminController::class, 'pocIndex'])->name('poc');
+    Route::get('add-poc', [SchoolAdminController::class, 'createpoc'])->name('pocCreate');
 });
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
@@ -92,6 +94,8 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
     Route::get('school-terms', [BasicConfigurationController::class, 'schoolTerms'])->name('schoolTerms');
     Route::get('class-terms', [BasicConfigurationController::class, 'classTerms'])->name('classTerms');
     Route::get('session', [BasicConfigurationController::class, 'setSession'])->name('getSession');
+    Route::get('student-form', [BasicConfigurationController::class, 'setStudentForm'])->name('getStudentForm');
+    Route::get('staff-form', [BasicConfigurationController::class, 'setStaffForm'])->name('getStaffForm');
 
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
     Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');
