@@ -158,6 +158,7 @@ class SchoolAdminController extends Controller
     // Update basic fields
     $user->name = $request->name;
     $user->email = $request->email;
+    $user->school_code = $request->school_code;
     $user->dise_code = $request->dise_code;
     $user->board_name = $request->board_name;
     $user->medium = $request->medium;

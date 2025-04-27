@@ -40,7 +40,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">School Code <span class="login-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Enter School Code" value="{{ old('school_code', $user->dise_code) }}" name="school_code" required>
+                            <input type="text" class="form-control" placeholder="Enter School Code" value="{{ old('school_code', $user->school_code) }}" name="school_code" required>
                             @error('school_code')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
