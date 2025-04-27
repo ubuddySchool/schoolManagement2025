@@ -64,3 +64,7 @@ function formatDate(input) {
         document.getElementById('poc-form-' + enquiryId).insertAdjacentHTML('beforebegin', newPocHtml);
         hidePocForm(enquiryId);
     }
+
+    document.getElementById('only_numbers').addEventListener('input', function(e) {
+        e.target.value = e.target.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    });

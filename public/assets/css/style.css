@@ -1497,6 +1497,12 @@ button.bg-danger:hover {
     color: #ffffff !important;
     border-radius: 6px !important;
 }
+.pendingCSS {
+    padding: 5px 5px !important;
+    background: #c40000 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+}
 .card-header {
 	border-bottom: 1px solid #e6e6e6;
 	padding: 1rem 1.5rem;

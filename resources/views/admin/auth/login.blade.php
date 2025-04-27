@@ -47,9 +47,9 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Username <span class="login-danger">*</span></label>
-                                    <input id="email" class="form-control block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" class="form-control">
+                                    <input id="email" class="form-control block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" class="form-control">
                                     <span class="profile-views"><i class="fas fa-user-circle"></i></span>
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                 </div>
                                 <div class="form-group">
                                     <label>Password <span class="login-danger">*</span></label>
