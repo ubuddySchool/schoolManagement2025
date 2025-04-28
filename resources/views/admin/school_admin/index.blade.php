@@ -74,7 +74,7 @@
                                     </td>
 
                                     <td>
-                                        <a class="btn btn-sm bg-success-light" href="{{ route('configuration.sessionConfig') }}">
+                                        <a class="btn btn-sm bg-success-light" href="{{ route('configuration.sessionConfig', $admin->id) }}">
                                             <i class="fa-solid fa-gears"></i>
                                         </a>
                                     </td>
