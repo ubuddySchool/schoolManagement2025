@@ -57,6 +57,8 @@ Route::prefix('admin/configuration')->name('configuration.')->group(function () 
 
 Route::prefix('admin/school-assgin')->name('assign.school.')->group(function () {
     Route::get('index', [AssignSchoolcontroller::class, 'index'])->name('index');
+    Route::post('/assign-admin', [AssignSchoolcontroller::class, 'assignAdmin'])->name('assignAdmin');
+
 });
 
 Route::prefix('admin/assign-module')->name('assign-module.')->group(function () {
@@ -66,6 +68,7 @@ Route::prefix('admin/assign-module')->name('assign-module.')->group(function () 
 Route::prefix('admin/admin-configuration')->name('admin-configuration.')->group(function () {
     Route::get('index', [ConfigurationAdminController::class, 'main'])->name('configAdmin');
     Route::get('create-admin', [ConfigurationAdminController::class, 'addNewAdmin'])->name('new');
+    Route::post('/admin-configuration/store', [ConfigurationAdminController::class, 'store'])->name('store');
 });
 
 Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {

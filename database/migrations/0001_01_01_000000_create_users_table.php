@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('subadmin_id')->nullable();
             $table->string('school_username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -33,6 +34,8 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('school_image')->nullable();
             $table->integer('status')->default(1)->comment('1->active,0->inactive');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

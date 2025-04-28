@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
             $table->string('profile_image')->nullable();
-            $table->integer('contact_number')->nullable();
-            $table->integer('alternate_number')->nullable();
+            $table->string('contact_number', 15)->nullable();
+            $table->string('alternate_number', 15)->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
