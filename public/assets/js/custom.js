@@ -175,14 +175,18 @@ $('#cropBtn').on('click', function () {
     }, originalFile.type);
 });
 
-document.getElementById('closeCropModal').addEventListener('click', function () {
-    document.getElementById('cropModal').style.display = 'none';
-    if (cropper) {
-        cropper.destroy();
-        cropper = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+    const closeBtn = document.getElementById('closeCropModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            document.getElementById('cropModal').style.display = 'none';
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
+        });
     }
 });
-
-
-// Cropping Images Script End
+ 
 

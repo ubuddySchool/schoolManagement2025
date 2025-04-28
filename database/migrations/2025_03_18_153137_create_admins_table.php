@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique()->nullable();
-            $table->integer('role')->default(1)->comment('1: admin, 0: sub-admin');
+            $table->integer('role')->default(0)->comment('1: admin, 0: sub-admin');
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
             $table->string('profile_image')->nullable();

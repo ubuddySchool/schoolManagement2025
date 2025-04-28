@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\Admin\LoginController;
 use App\Http\Controllers\Auth\Admin\ModuleConfigurationController;
 use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 use App\Http\Controllers\Auth\Admin\SchoolAdminController;
+use App\Http\Controllers\Auth\Admin\SchoolpocController;
 
 
 
@@ -41,8 +42,11 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
     Route::get('edit/{id}', [SchoolAdminController::class, 'edit'])->name('edit');
     Route::put('update/{id}', [SchoolAdminController::class, 'update'])->name('update');
     Route::delete('destroy/{id}', [SchoolAdminController::class, 'destroy'])->name('destroy');
-    Route::get('poc', [SchoolAdminController::class, 'pocIndex'])->name('poc');
-    Route::get('add-poc', [SchoolAdminController::class, 'createpoc'])->name('pocCreate');
+    Route::get('poc/{id}', [SchoolpocController::class, 'pocIndex'])->name('poc');
+    Route::get('add-poc/{id}', [SchoolpocController::class, 'createpoc'])->name('pocCreate');
+    Route::post('add-poc', [SchoolpocController::class, 'store'])->name('pocs.store');
+    Route::get('edit-poc/{id}', [SchoolpocController::class, 'editpoc'])->name('pocedit');
+    Route::put('edit-poc/{id}', [SchoolpocController::class, 'updatepoc'])->name('pocs.update');
 });
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
@@ -108,9 +112,12 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('admin.dashboard');
+
+    Route::get('dashboard', [SchoolAdminController::class, 'main_dashboard'])->name('admin.dashboard');
+   
 
     Route::get('/config-dashboard', function () {
         return view('config_admins.dashboard');
