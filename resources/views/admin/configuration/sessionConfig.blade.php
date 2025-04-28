@@ -15,7 +15,7 @@
                                 <a href="{{ route('schooladmin.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
-                                <h3 class="page-title">Greenland School</h3>
+                                <h3 class="page-title">{{ $school->name }}</h3>
                             </div>
                         </div>
                     </div>
@@ -29,33 +29,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2025-26</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <a href="{{ route('configuration.index') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2024-25</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <a href="{{ route('configuration.index') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2023-24</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <a href="{{ route('configuration.index') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach($academicYears as $year)
+                                <tr>
+                                    <td>{{ $year->school_session }}</td>
+                                    <td>Open/Close</td>
+                                    <td>
+                                        <a href="{{ route('configuration.index', ['school' => $school->id, 'session' => $year->school_session]) }}" class="btn btn-sm bg-success-light me-2">
+                                            <i class="feather-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     
