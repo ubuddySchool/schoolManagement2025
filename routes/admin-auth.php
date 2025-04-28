@@ -51,7 +51,7 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
     Route::any('index', [ConfigurationController::class, 'index'])->name('index');
-    Route::any('session', [ConfigurationController::class, 'session'])->name('sessionConfig');
+    Route::any('session/{id}', [ConfigurationController::class, 'session'])->name('sessionConfig');
     Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
 });
 
