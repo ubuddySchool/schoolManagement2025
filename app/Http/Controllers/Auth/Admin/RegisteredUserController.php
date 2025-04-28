@@ -83,10 +83,16 @@ class RegisteredUserController extends Controller
         return redirect()->route('subadmin.index')->with('success', 'Subadmin deleted successfully');
     }
     public function schoolindex(): View
-    {
+{
+    $authUser = Auth::user();
+    
+    if ($authUser->role == 1) {
         $user = User::all();
-        return view('admin.school_admin.index',compact('user'));
+    } else {
+        $user = User::where('subadmin_id', $authUser->id)->get();
     }
+    return view('admin.school_admin.index', compact('user'));
+}
 
     public function toggleStatus($id)
 {

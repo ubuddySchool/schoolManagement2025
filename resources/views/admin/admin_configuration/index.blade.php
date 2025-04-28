@@ -19,7 +19,7 @@
                                                 <h3 class="page-title">Configuration Admin List</h3>
                                             </div>
                                             <div class="col-auto">
-                                                <input type="text" name="search" id="myInput" onkeyup="myFunction()"
+                                                <input type="search" name="search" id="myconfigfilterschoolInput" onkeyup="myadmin_configurationFunction()"
                                                     placeholder="Search By Name" class="form-control" />
                                             </div>
                                             <div class="col-auto text-end float-end ms-auto download-grp">
@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
                                     <div class="table-responsive">
-                                        <table id="subjectWiseTable"
+                                        <table id="adminsubconfig_id"
                                             class="table border-0 star-student table-hover table-center mb-0 table-striped">
                                             <thead class="student-thread">
                                                 <tr>
@@ -41,97 +41,82 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @php
-                                                    $students = [
-                                                        [
-                                                            'name' => 'Aaliyah',
-                                                            'number' => '1234567890',
-                                                            'role' => 'Female',
-                                                        ],
-                                                        [
-                                                            'name' => 'Malynne',
-                                                            'number' => '1234567890',
-                                                            'role' => 'Male',
-                                                        ],
-                                                        [
-                                                            'name' => 'Nathan Humphries',
-                                                            'number' => '1234567890',
-                                                            'role' => 'Male',
-                                                        ],
-                                                    ];
-                                                @endphp
-                                                @foreach ($students as $key => $student)
-                                                    <tr>
-                                                        <td>{{ $key + 1 }}</td>
-                                                        <td> <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
-                                                        </td>
-                                                        <td>{{ $student['name'] }}</td>
-                                                        <td>{{ $student['role'] }}</td>
-                                                        <td>{{ $student['number'] }}</td>
-                                                        <td class="">
-                                                            <div>
-                                                                {{-- <a href="#"
-                                                                    class="btn btn-sm bg-success-light me-2">
-                                                                    <i class="feather-eye"></i>
-                                                                </a> --}}
-                                                                {{-- <a href="" class="btn btn-sm bg-danger">
-                                                                    <i class="feather-trash"></i>
-                                                                </a> --}}
-                                                            </div>
+                                                @foreach ($admin as $key => $user)
 
-                                                            <button type="button" class="btn btn-sm bg-success-light" data-bs-toggle="modal" data-bs-target="#configModal">
-                                                                <i class="feather-eye"></i>
-                                                            </button>
-                                                            <!-- Modal OUTSIDE the table -->
-                                                            <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-lg">
-                                                                    <div class="modal-content">
-                                                            
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="configModalLabel">Configure Admin Details</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                            
-                                                                        <div class="modal-body">
-                                                                            <div class="row">
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>Admin Name:</strong> Ajay</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>Role:</strong> Teacher</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>Gender:</strong> Male</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>DOB:</strong> 12-03-2001</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p class="d-flex"><strong class="me-3">Profile Image:</strong>
-                                                                                        <img src="{{ asset('assets/img/favicon.png') }}" class="" width="60">
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>Contact Number:</strong> 9912032001</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>Alternate Contact Number:</strong> 9912032001</p>
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <p><strong>Email:</strong> demo@gmail.com</p>
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <p><strong>Remark:</strong> jasn aksjdgkausd asd gkas bkauysg kay</p>
-                                                                                </div>
+                                                <tr>
+                                                    <td>{{ $key + 1 }}</td>
+                                                    <td>
+                                                        @if(!empty($user->profile_image))
+                                                        <img src="{{ asset('uploads/adminprofile/' . $user->profile_image) }}" width="100" alt="Admin Image">
+                                                        @else
+                                                        <img src="{{ asset('assets/img/favicon.png') }}" width="100" alt="Admin Image">
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->gender }}</td>
+                                                    <td>{{ $user->contact_number }}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-sm bg-success-light" data-bs-toggle="modal" data-bs-target="#configModal{{ $key }}">
+                                                            <i class="feather-eye"></i>
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="configModal{{ $key }}" tabindex="-1" aria-labelledby="configModalLabel{{ $key }}" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content">
+
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="configModalLabel{{ $key }}">Configure Admin Details</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>Admin Name:</strong> {{ $user->name }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>Role:</strong> {{ $user->role == 0 ? 'Configuration Admin' : 'Other' }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>Gender:</strong> {{ $user->gender }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>DOB:</strong> {{ \Carbon\Carbon::parse($user->dob)->format('d-m-Y') }}
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col-md-6 d-flex">
+                                                                                <p class="me-3"><strong>Profile Image:</strong></p>
+                                                                                @if(!empty($user->profile_image))
+                                                                                <img src="{{ asset('uploads/adminprofile/' . $user->profile_image) }}" width="100" alt="Admin Image">
+                                                                                @else
+                                                                                <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle img-thumbnail me-3" width="50" height="100">
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>Contact Number:</strong> {{ $user->contact_number }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>Alternate Contact Number:</strong> {{ $user->alternate_number }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p><strong>Email:</strong> {{ $user->email }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <p><strong>Remark:</strong> {{ $user->remark }}</p>
                                                                             </div>
                                                                         </div>
-                                                            
                                                                     </div>
+
                                                                 </div>
                                                             </div>
-                                                            
-                                                        </td>
-                                                    </tr>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                                 @endforeach
+                                                <tr id="noRecordsconfigadminMessage" style="display: none;">
+                                                    <td colspan="6" class="text-center text-muted">No matching records found.</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -146,4 +131,5 @@
         </div>
     </div>
 </div>
+
 @endsection

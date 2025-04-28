@@ -18,8 +18,8 @@
                                 <!-- Email Address -->
                                 <div class="form-group">
                                     <label>Username <span class="login-danger">*</span></label>
-                                    <input class="form-control" id="email"  type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <input class="form-control" id="email"  type="text" name="username" :value="old('username')" required autofocus autocomplete="username">
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                 </div>
 
                                 <!-- Password -->

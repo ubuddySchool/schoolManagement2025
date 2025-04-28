@@ -17,11 +17,12 @@ class Admin extends Authenticatable
      *
      * @var array<int, string>
      */
+  
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'gender', 'dob', 'profile_image', 'contact_number',
+        'alternate_number', 'username', 'email', 'password', 'remark', 'role'
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.
@@ -33,6 +34,9 @@ class Admin extends Authenticatable
         'remember_token',
     ];
 
+    protected $casts = [
+        'school_ids' => 'array',
+    ];
     /**
      * Get the attributes that should be cast.
      *
@@ -44,5 +48,10 @@ class Admin extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'admin_user');
     }
 }
