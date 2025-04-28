@@ -183,7 +183,7 @@
      </ul>
 
  </div>
- @if ($admin && $admin->role === 1)
+
      <!-- sidebar -->
      <div class="sidebar" id="sidebar">
          <div class="sidebar-inner slimscroll">
@@ -203,12 +203,15 @@
                          <a href="{{ route('school-admin.create') }}"><i class="fas fa-plus-circle"></i><span>Add New
                                  School</span></a>
                      </li>
+                     @if ($admin && $admin->role === 1)
                      <li class="{{ in_array(Route::currentRouteName(), ['admin-configuration.configAdmin', 'admin-configuration.new']) ? 'active' : '' }}">
                         <a href="{{ route('admin-configuration.configAdmin') }}"><i class="fas fa-cogs"></i><span>Configuration Admin</span></a>
                     </li>
                     <li class="{{ Route::currentRouteName() == 'assign.school.index' ? 'active' : '' }}">
                         <a href="{{ route('assign.school.index') }}"><i class="fas fa-school"></i><span>Assign School</span></a>
                     </li>
+                    @endif
+
 
                      {{-- <li class="submenu">
                     <a href="#"><i class="fas fa-building"></i> <span>School</span> <span class="menu-arrow"></span></a>
@@ -230,4 +233,4 @@
              </div>
          </div>
      </div>
- @endif
+ 

@@ -6,16 +6,13 @@
         <div class="col-sm-12">
             <div class="card card-table comman-shadow">
                 <div class="card-body">
-
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                            {{-- <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton"> <i class="fas fa-arrow-left"></i></a> --}}
                                 <h3 class="page-title">Assign School Admin</h3>
                             </div>
                             <div class="col-auto">
-                                <input type="text" name="search" id="myInput" onkeyup="myFunction()"
-                                    placeholder="Search By Name" class="form-control" />
+                                <input type="text" name="search" id="assingschoolconfigasassearchInput" onkeyup="myassingingschoolconfigFunction()" placeholder="Search By School Name" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -33,156 +30,101 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($users as $index => $school)
                                 <tr>
-                                    <td>1</td>
-                                    <td> <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
+                                    <td>{{ $index + 1 }}</td>
+                                    <td class="d-flex justify-content-center">
+                                        @if(!empty($school->school_image))
+                                        <img src="{{ asset('uploads/schools/' . $school->school_image) }}" alt="School Image" width="50" height="100" class="rounded-circle img-thumbnail ">
+                                        @else
+                                        <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle img-thumbnail" width="50" height="100">
+                                        @endif
                                     </td>
-                                    <td>Green Valley School</td>
-                                    <td>Bhopal</td>
-                                    <td>Amit Sharma</td>
+                                    <td>{{ $school->name }}</td>
+                                    <td>{{ $school->city }}</td>
+                                    <td>
+                                        @foreach($admins as $admin)
+                                        @if($admin->id == $school->subadmin_id)
+                                        {{ $admin->name }}
+                                        @endif
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <button
                                             class="btn btn-primary btn-sm"
                                             data-bs-toggle="modal"
-                                            data-bs-target="#assignAdminModal"
-                                            data-school-name="Green Valley School"
-                                            data-current-admin="John Doe"
-                                            data-admin-photo="https://via.placeholder.com/80">
+                                            data-bs-target="#assignAdminconfigadminModal"
+                                            data-school-id="{{ $school->id }}"
+                                            data-school-name="{{ $school->name }}"
+                                            data-current-admin="{{ $admin->name ?? 'No Admin' }}"
+                                            data-admin-photo="{{ asset('assets/img/profiles/avatar-05.jpg') }}">
                                             Configure Admin
                                         </button>
+
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td> <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
-                                    </td>
-                                    <td>Sunrise Public School</td>
-                                    <td>Indore</td>
-                                    <td>Pooja Mehta</td>
-                                    <td>
-                                        <button
-                                            class="btn btn-primary btn-sm"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#assignAdminModal"
-                                            data-school-name="Sunrise Public School"
-                                            data-current-admin="Jane Smith"
-                                            data-admin-photo="https://via.placeholder.com/80">
-                                            Change Admin
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>
-                                        <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle me-3" width="50">
-                                    </td>
-                                    <td>Riverdale High</td>
-                                    <td>Jabalpur</td>
-                                    <td>Rajeev Sinha</td>
-                                    <td>
-                                        <button
-                                            class="btn btn-primary btn-sm"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#assignAdminModal"
-                                            data-school-name="Riverdale High"
-                                            data-current-admin="Michael Johnson"
-                                            data-admin-photo="https://via.placeholder.com/80">
-                                            Change Admin
-                                        </button>
-                                    </td>
+                                @endforeach
+                                <tr id="noRecordsassinglistschoolMessage" style="display: none;">
+                                    <td colspan="6" class="text-center text-muted">No matching records found.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="assignAdminModal" tabindex="-1" aria-labelledby="assignAdminModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="assignAdminconfigadminModal" tabindex="-1" aria-labelledby="assignAdminconfigadminModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="assignAdminModalLabel">Assign Admin</h5>
+                                    <h5 class="modal-title" id="assignAdminconfigadminModalLabel">Assign Admin</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
+                                    <form action="{{ route('assign.school.assignAdmin') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" id="school_id" name="school_id">
+                                        <input type="hidden" id="admin_id" name="admin_id">
 
-                                    <!-- Search -->
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Search admin..." id="searchAdmin" onkeyup="filterAdmins()">
-                                    </div>
 
-                                    <!-- CRM Admin List -->
-                                    <!-- CRM Admin List with scroll & highlight -->
-                                    <div id="adminList" class="row g-2" style="max-height: 260px; overflow-y: auto;">
-                                        <div class="col-12 crm-item d-flex align-items-center p-2 border rounded cursor-pointer"
-                                            onclick="selectAdmin(this, 'John Doe', '{{ asset('assets/img/profiles/avatar-05.jpg') }}')">
-                                            <img src="{{ asset('assets/img/profiles/avatar-05.jpg') }}" class="rounded-circle me-3" width="50">
-                                            <span>John Doe</span>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Search admin..." id="searchconfigsAdmin" onkeyup="filterconfigsubAdmins()">
                                         </div>
-                                        <div class="col-12 crm-item d-flex align-items-center p-2 border rounded cursor-pointer"
-                                            onclick="selectAdmin(this, 'Jane Smith', '{{ asset('assets/img/profiles/avatar-03.jpg') }}')">
-                                            <img src="{{ asset('assets/img/profiles/avatar-03.jpg') }}" class="rounded-circle me-3" width="50">
-                                            <span>Jane Smith</span>
+
+                                        <div id="configsubadminListsfilter" class="row g-2" style="max-height: 260px; overflow-y: auto;">
+                                            @foreach($admins as $admin)
+                                            <div class="col-12 crm-item d-flex align-items-center p-2 border rounded cursor-pointer"
+                                                onclick="selectconfigurationAdmina(this, '{{ $admin->id }}', '{{ $admin->name }}',  '{{ asset('uploads/adminprofile/' . $admin->profile_image) }}')">
+                                                @if(!empty($admin->profile_image))
+                                                <img src="{{ asset('uploads/adminprofile/' . $admin->profile_image) }}" class="rounded-circle me-3" width="50">
+                                                @else
+                                                <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle img-thumbnail me-3" width="50" height="100">
+                                                @endif
+                                                <span>{{ $admin->name }}</span>
+                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="col-12 crm-item d-flex align-items-center p-2 border rounded cursor-pointer"
-                                            onclick="selectAdmin(this, 'Michael Johnson', '{{ asset('assets/img/profiles/avatar-04.jpg') }}')">
-                                            <img src="{{ asset('assets/img/profiles/avatar-04.jpg') }}" class="rounded-circle me-3" width="50">
-                                            <span>Michael Johnson</span>
+
+                                        <!-- PLACE THIS BELOW configsubadminListsfilter -->
+                                        <div id="noRecordsconfigadminMessage" class="text-center text-muted mt-2" style="display: none;">
+                                            No admin found.
                                         </div>
-                                        <div class="col-12 crm-item d-flex align-items-center p-2 border rounded cursor-pointer"
-                                            onclick="selectAdmin(this, 'Lisa Ray', '{{ asset('assets/img/profiles/avatar-02.jpg') }}')">
-                                            <img src="{{ asset('assets/img/profiles/avatar-02.jpg') }}" class="rounded-circle me-3" width="50">
-                                            <span>Lisa Ray</span>
-                                        </div>
-                                        <!-- More items to test scroll -->
-                                        <div class="col-12 crm-item d-flex align-items-center p-2 border rounded cursor-pointer"
-                                            onclick="selectAdmin(this, 'David Parker', '{{ asset('assets/img/profiles/avatar-01.jpg') }}')">
-                                            <img src="{{ asset('assets/img/profiles/avatar-01.jpg') }}" class="rounded-circle me-3" width="50">
-                                            <span>David Parker</span>
-                                        </div>
-                                    </div>
 
 
 
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Assign</button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <!-- Form Submit Button -->
+                                        <button type="submit" class="btn btn-primary mt-3">Assign Admin</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    <!-- modal end -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    function selectAdmin(element, name, photo) {
-        // Remove highlight from all items
-        document.querySelectorAll('.crm-item').forEach(item => {
-            item.classList.remove('bg-info', 'text-white');
-            item.classList.remove('bg-info', 'text-white');
-        });
-
-        element.classList.add('bg-info', 'text-white');
-
-    }
-</script>
 
 
-<script>
-    const assignAdminModal = document.getElementById('assignAdminModal');
-    assignAdminModal.addEventListener('show.bs.modal', function(event) {
-        const button = event.relatedTarget;
-        const schoolName = button.getAttribute('data-school-name');
-        const currentAdmin = button.getAttribute('data-current-admin');
-        const adminPhoto = button.getAttribute('data-admin-photo');
 
-        document.getElementById('assignAdminModalLabel').textContent = `Assign Admin - ${schoolName}`;
-        document.getElementById('adminName').textContent = currentAdmin;
-        document.getElementById('adminPhoto').src = adminPhoto;
-    });
-</script>
 @endsection

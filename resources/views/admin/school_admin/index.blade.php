@@ -24,8 +24,8 @@
                             <thead class="student-thread">
                                 <tr>
                                     <th>S.No.</th>
-                                    <th>School Code</th>
                                     <th>School Name</th>
+                                    <th>School Code</th>
                                     <th>City</th>
                                     <th>Status</th>
                                     <th>Configure</th>
@@ -39,8 +39,8 @@
                                 @foreach($user as $admin)
                                 <tr>
                                     <td>{{ $filter++ }}</td>
-                                    <td>{{ $admin->u_code }}</td>
                                     <td>{{ $admin->name }}</td>
+                                    <td>{{ $admin->u_code }}</td>
                                     <td>{{ $admin->city }}</td>
                                     <td>
                                         <button class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#statusModal{{ $admin->id }}">

@@ -45,3 +45,124 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+function myadmin_configurationFunction() {
+    let input = document.getElementById('myconfigfilterschoolInput'); 
+    let filter = input.value.toLowerCase(); 
+    let table = document.getElementById('adminsubconfig_id');
+    let rows = table.getElementsByTagName('tr'); 
+    let noMatch = true;
+
+    for (let i = 1; i < rows.length; i++) { 
+        let cells = rows[i].getElementsByTagName('td'); 
+        
+        if (cells.length > 0) {
+            let nameCell = cells[2]; 
+            if (nameCell) {
+                let name = nameCell.textContent || nameCell.innerText;
+                if (name.toLowerCase().indexOf(filter) > -1) {
+                    rows[i].style.display = ""; 
+                    noMatch = false; 
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    // Show or hide the "No matching records found" message based on the result
+    const noRecordsMessage = document.getElementById('noRecordsconfigadminMessage');
+    if (noRecordsMessage) {
+        noRecordsMessage.style.display = noMatch ? "" : "none"; // Show the message if no matches found
+    }
+}
+
+
+
+function selectconfigurationAdmina(element, name, photo) {
+    document.querySelectorAll('.crm-item').forEach(item => {
+        item.classList.remove('bg-info', 'text-white');
+    });
+
+    element.classList.add('bg-info', 'text-white');
+}
+
+const assignAdminconfigadminModal = document.getElementById('assignAdminconfigadminModal');
+
+assignAdminconfigadminModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const schoolId = button.getAttribute('data-school-id');
+    const schoolName = button.getAttribute('data-school-name');
+
+    // Set modal title and hidden input
+    document.getElementById('assignAdminconfigadminModalLabel').textContent = `Assign Admin - ${schoolName}`;
+    document.getElementById('school_id').value = schoolId;
+});
+
+function selectconfigurationAdmina(element, adminId) {
+    document.querySelectorAll('.crm-item').forEach(item => {
+        item.classList.remove('bg-info', 'text-white');
+    });
+
+    element.classList.add('bg-info', 'text-white');
+    document.getElementById('admin_id').value = adminId;
+}
+
+
+
+function filterconfigsubAdmins() {
+    const input = document.getElementById("searchconfigsAdmin");
+    const filter = input.value.trim().toLowerCase();
+    const adminItems = document.querySelectorAll("#configsubadminListsfilter .crm-item");
+    const noRecordsMessage = document.getElementById("noRecordsconfigadminMessage");
+
+    let matchCount = 0;
+
+    adminItems.forEach(item => {
+        const name = item.textContent.trim().toLowerCase();
+        if (name.includes(filter)) {
+            item.classList.remove('d-none');
+            item.style.display = 'flex'; // ensure flex is reapplied
+            matchCount++;
+        } else {
+            item.classList.add('d-none');
+            item.style.display = 'none'; // explicitly hide
+        }
+    });
+
+    if (noRecordsMessage) {
+        noRecordsMessage.style.display = matchCount === 0 ? "block" : "none";
+    }
+}
+
+
+function myassingingschoolconfigFunction() {
+    const input = document.getElementById("assingschoolconfigasassearchInput");
+    const filter = input.value.toLowerCase().trim();
+    const rows = document.querySelectorAll("table tbody tr");
+
+    let visible = 0;
+
+    // Split the filter into multiple words (if there are spaces) and check each word
+    const filterWords = filter.split(/\s+/);
+
+    rows.forEach(row => {
+        const schoolName = row.cells[2]?.textContent.toLowerCase() || "";
+        const matchesAllWords = filterWords.every(word => schoolName.includes(word));
+
+        if (matchesAllWords) {
+            row.style.display = "";
+            visible++;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    // Show the "No data found" message if no rows are visible
+    const noDataRow = document.getElementById("noRecordsassinglistschoolMessage");
+    if (visible === 0) {
+        noDataRow.style.display = "";
+    } else {
+        noDataRow.style.display = "none";
+    }
+}

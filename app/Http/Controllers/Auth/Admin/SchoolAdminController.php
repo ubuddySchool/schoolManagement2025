@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth; 
+
 class SchoolAdminController extends Controller
 {
     public function schoolindex()
@@ -35,30 +37,6 @@ class SchoolAdminController extends Controller
   
    
 
-    // public function store(Request $request)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'name' => 'required|string|max:255',
-    //         'school_username' => 'required|string|max:255',
-    //         'email' => 'required|email|unique:users,email',
-    //         'password' => 'required|min:6',
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return redirect()->route('school-admin.create')
-    //                          ->withErrors($validator)
-    //                          ->withInput();
-    //     }
-
-    //     $user = new User;
-    //     $user->name = $request->name;
-    //     $user->email = $request->email;
-    //     $user->password = bcrypt($request->password);
-    //     $user->save();
-
-    //     return redirect()->route('schooladmin.index')->with('success', 'Admin created successfully.');
-    // }
-
     public function store(Request $request)
 {
     $request->validate([
@@ -78,10 +56,9 @@ class SchoolAdminController extends Controller
     $user->email = $request->email;
     $user->password = Hash::make($request->password);
 
-    // Auto-increment school_code starting from 4000
     $lastCode = User::max('school_code');
     $user->u_code = $lastCode ? $lastCode + 1 : 4106;
-
+    $user->subadmin_id = Auth::user()->id;
     $user->dise_code = $request->dise_code;
     $user->school_code = $request->school_code;
     $user->board_name = $request->board_name;
@@ -94,14 +71,14 @@ class SchoolAdminController extends Controller
     $user->pincode = $request->pincode;
     $user->locality = $request->locality;
     $user->website = $request->website;
-    $user->status = 1; // default active
+    $user->created_by = Auth::user()->id;
+    $user->status = 1; 
 
     if ($request->hasFile('school_image')) {
         $image = $request->file('school_image');
         $imageName = time() . '_' . $image->getClientOriginalName();
         $image->move(public_path('uploads/schools'), $imageName);
         
-        // Only store the file name in the database
         $user->school_image = $imageName;
     }
     
@@ -171,6 +148,7 @@ class SchoolAdminController extends Controller
     $user->locality = $request->locality;
     $user->website = $request->website;
     $user->school_username = $request->school_username;
+    $user->updated_by = Auth::user()->id;
 
     // Update password if filled
     if ($request->filled('password')) {
