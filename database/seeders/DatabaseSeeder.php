@@ -21,13 +21,19 @@ class DatabaseSeeder extends Seeder
         $this->call(MasterClassesSeeder::class); 
         $this->call(MasterSubjectSeeder::class); 
         $this->call(MasterTermsSeeder::class); 
+        $this->call(MastermoduleSeeder::class); 
+        $this->call(SchoolsessionSeeder::class); 
         
-        User::factory()->create([
-            'name' => 'schoolududdy@123',
-            'school_username' => 'schoolududdy123',
-            'u_code' => '4105',
-            'email' => 'test@ubuddy.com',
-            'password' => Hash::make('123456'), 
-        ]);
+        
+        if (!User::where('school_username', 'schoolududdy123')->exists()) {
+            User::create([
+                'name' => 'schoolududdy@123',
+                'school_username' => 'schoolududdy123',
+                'u_code' => '4105',
+                'email' => 'test@ubuddy.com',
+                'password' => Hash::make('123456'), 
+            ]);
+        }
+        
     }
 }
