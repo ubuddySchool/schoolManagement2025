@@ -198,8 +198,11 @@
                         <div class="form-group local-forms">
                             <label class="form-label">Upload Image</label>
                             <input type="file" class="form-control" name="school_image" >
+                            @if($user->school_image)
                             <img src="{{ asset('uploads/schools/' . $user->school_image ) }}" alt="School Image" width="150">
-
+                            @else
+                            <img src="{{ asset('assets/img/default.png') }}"  alt="Default Image" width="150">
+                            @endif
                         </div>
                     </div>
                 </div>
