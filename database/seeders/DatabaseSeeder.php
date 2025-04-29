@@ -17,10 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        $this->call(AdminSeeder::class); 
-        $this->call(MastermoduleSeeder::class); 
-        $this->call(SchoolsessionSeeder::class); 
-        
+
         
         if (!User::where('school_username', 'schoolududdy123')->exists()) {
             User::create([
@@ -31,6 +28,11 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('123456'), 
             ]);
         }
+
+        $this->call(AdminSeeder::class); 
+        $this->call(MastermoduleSeeder::class); 
+        $this->call(SchoolsessionSeeder::class); 
+        
         
     }
 }

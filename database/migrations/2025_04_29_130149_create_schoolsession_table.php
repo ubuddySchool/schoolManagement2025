@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('schoolsession', function (Blueprint $table) {
             $table->id();
             $table->string('school_session');
+            $table->foreignId('school_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
+
+            
         });
     }
 
