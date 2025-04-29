@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\Admin\LoginController;
 
 
 
-Route::get('/configurationadmin/login', function () {
+Route::get('/configadmin/login', function () {
     return view('auth.configuration_admin_login');
 })->name('school.configurationadmin.login');
 

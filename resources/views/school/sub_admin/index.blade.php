@@ -132,7 +132,7 @@
                                                             <div class="col-md-6">
                                                                 <p class="d-flex"><strong class="me-3">Profile
                                                                         Image:</strong>
-                                                                    <img src="{{ asset('assets/img/favicon.png') }}"
+                                                                    <img src="{{ asset('assets/img/default.png') }}"
                                                                         class="" width="60">
                                                             </div>
                                                             <div class="col-md-6">

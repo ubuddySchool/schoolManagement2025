@@ -54,7 +54,11 @@
                 <div class="col-md-4">
                     <div class="border p-1 rounded bg-light h-auto">
                         <strong class="d-block text-dark mb-2">Uploaded Image</strong>
+                        @if(!empty($user->school_image))
                         <img src="{{ asset('uploads/schools/' . $user->school_image) }}" alt="School Image" width="150" class="img-thumbnail">
+                        @else
+                        <img src="{{ asset('assets/img/default.png') }}" alt="" width="150" class="img-thumbnail">
+                        @endif
                     </div>
                 </div>
 
