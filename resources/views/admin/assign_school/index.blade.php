@@ -37,7 +37,7 @@
                                         @if(!empty($school->school_image))
                                         <img src="{{ asset('uploads/schools/' . $school->school_image) }}" alt="School Image" width="50" height="100" class="rounded-circle img-thumbnail ">
                                         @else
-                                        <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle img-thumbnail" width="50" height="100">
+                                        <img src="{{ asset('assets/img/default.png') }}" class="rounded-circle img-thumbnail" width="50" height="100">
                                         @endif
                                     </td>
                                     <td>{{ $school->name }}</td>
@@ -97,7 +97,7 @@
                                                 @if(!empty($admin->profile_image))
                                                 <img src="{{ asset('uploads/adminprofile/' . $admin->profile_image) }}" class="rounded-circle me-3" width="50">
                                                 @else
-                                                <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle img-thumbnail me-3" width="50" height="100">
+                                                <img src="{{ asset('assets/img/default.png') }}" class="rounded-circle img-thumbnail me-3" width="50" height="100">
                                                 @endif
                                                 <span>{{ $admin->name }}</span>
                                             </div>

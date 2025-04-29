@@ -49,7 +49,7 @@
                                                         @if(!empty($user->profile_image))
                                                         <img src="{{ asset('uploads/adminprofile/' . $user->profile_image) }}" width="100" alt="Admin Image">
                                                         @else
-                                                        <img src="{{ asset('assets/img/favicon.png') }}" width="100" alt="Admin Image">
+                                                        <img src="{{ asset('assets/img/default.png') }}" width="100" alt="Admin Image">
                                                         @endif
                                                     </td>
                                                     <td>{{ $user->name }}</td>
@@ -85,14 +85,6 @@
                                                                                 <p><strong>DOB:</strong> {{ \Carbon\Carbon::parse($user->dob)->format('d-m-Y') }}
                                                                                 </p>
                                                                             </div>
-                                                                            <div class="col-md-6 d-flex">
-                                                                                <p class="me-3"><strong>Profile Image:</strong></p>
-                                                                                @if(!empty($user->profile_image))
-                                                                                <img src="{{ asset('uploads/adminprofile/' . $user->profile_image) }}" width="100" alt="Admin Image">
-                                                                                @else
-                                                                                <img src="{{ asset('assets/img/favicon.png') }}" class="rounded-circle img-thumbnail me-3" width="50" height="100">
-                                                                                @endif
-                                                                            </div>
                                                                             <div class="col-md-6">
                                                                                 <p><strong>Contact Number:</strong> {{ $user->contact_number }}</p>
                                                                             </div>
@@ -100,10 +92,21 @@
                                                                                 <p><strong>Alternate Contact Number:</strong> {{ $user->alternate_number }}</p>
                                                                             </div>
                                                                             <div class="col-md-6">
+                                                                                <p><strong>Username:</strong> {{ $user->username }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-6">
                                                                                 <p><strong>Email:</strong> {{ $user->email }}</p>
                                                                             </div>
-                                                                            <div class="col-md-12">
+                                                                            <div class="col-md-6">
                                                                                 <p><strong>Remark:</strong> {{ $user->remark }}</p>
+                                                                            </div>
+                                                                            <div class="col-md-12 d-flex">
+                                                                                <p class="me-3"><strong>Profile Image:</strong></p>
+                                                                                @if(!empty($user->profile_image))
+                                                                                <img src="{{ asset('uploads/adminprofile/' . $user->profile_image) }}" width="100" alt="Admin Image">
+                                                                                @else
+                                                                                <img src="{{ asset('assets/img/default.png') }}" class="rounded-circle img-thumbnail me-3" width="50" height="100">
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                     </div>

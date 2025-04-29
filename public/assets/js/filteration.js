@@ -87,17 +87,22 @@ function selectconfigurationAdmina(element, name, photo) {
     element.classList.add('bg-info', 'text-white');
 }
 
-const assignAdminconfigadminModal = document.getElementById('assignAdminconfigadminModal');
+document.addEventListener('DOMContentLoaded', function () {
+    const assignAdminconfigadminModal = document.getElementById('assignAdminconfigadminModal');
 
-assignAdminconfigadminModal.addEventListener('show.bs.modal', function (event) {
-    const button = event.relatedTarget;
-    const schoolId = button.getAttribute('data-school-id');
-    const schoolName = button.getAttribute('data-school-name');
+    if (assignAdminconfigadminModal) {
+        assignAdminconfigadminModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const schoolId = button.getAttribute('data-school-id');
+            const schoolName = button.getAttribute('data-school-name');
 
-    // Set modal title and hidden input
-    document.getElementById('assignAdminconfigadminModalLabel').textContent = `Assign Admin - ${schoolName}`;
-    document.getElementById('school_id').value = schoolId;
+            document.getElementById('assignAdminconfigadminModalLabel').textContent = `Assign Admin - ${schoolName}`;
+            document.getElementById('school_id').value = schoolId;
+        });
+    } 
 });
+
+
 
 function selectconfigurationAdmina(element, adminId) {
     document.querySelectorAll('.crm-item').forEach(item => {
