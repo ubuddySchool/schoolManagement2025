@@ -195,7 +195,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Upload Image</label>
-                            <input type="file" class="form-control" name="school_image" required>
+                            <input type="file" class="form-control" name="school_image" >
                         </div>
                     </div>
                 </div>

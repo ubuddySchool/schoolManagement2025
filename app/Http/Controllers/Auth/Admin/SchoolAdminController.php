@@ -41,6 +41,7 @@ class SchoolAdminController extends Controller
 {
     $request->validate([
         'name' => 'required|string|max:255',
+        'school_username' => 'required|string|unique:users,school_username',
         'dise_code' => 'required|string|max:50',
         'board_name' => 'required|string',
         'medium' => 'required|string',
@@ -52,11 +53,11 @@ class SchoolAdminController extends Controller
 
     $user = new User();
     $user->name = $request->name;
-    $user->school_username = Str::slug($request->name) . rand(1000, 9999);
+    $user->school_username = $request->school_username;
     $user->email = $request->email;
     $user->password = Hash::make($request->password);
 
-    $lastCode = User::max('school_code');
+    $lastCode = User::max('u_code');
     $user->u_code = $lastCode ? $lastCode + 1 : 4106;
     $user->subadmin_id = Auth::user()->id;
     $user->dise_code = $request->dise_code;
@@ -122,7 +123,7 @@ class SchoolAdminController extends Controller
         'pincode' => 'required|string',
         'locality' => 'required|string',
         'website' => 'required|string',
-        'school_username' => 'required|string',
+        'school_username' => 'required|string|unique:users,school_username,' . $user->id,
         'school_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 

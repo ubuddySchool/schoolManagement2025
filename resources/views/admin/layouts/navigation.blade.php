@@ -152,8 +152,17 @@
          <li class="nav-item dropdown has-arrow new-user-menus">
              <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                  <span class="user-img">
-                     <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}"
-                         width="31" alt="">
+                    @if(Auth::check())
+                     @php
+                     $schoolImagePath = Auth::user()->profile_image;
+                     @endphp
+
+                     @if(Auth::user() && !empty($schoolImagePath))
+                     <img class="rounded-circle" src="{{ asset('uploads/adminprofile/'.Auth::user()->profile_image) }}" width="31" alt="{{ Auth::user()->name }}">
+                     @else
+                     <img class="rounded-circle" src="{{ asset('assets/img/profiles/profile_pic.png') }}" width="31" alt="{{ Auth::user()->name }}">
+                     @endif
+                     @endif
                      <div class="user-text">
                          @if (Auth::check())
                              <div class="user-text">
@@ -192,10 +201,17 @@
                      <li class="menu-title">
                          <span>Main Menu</span>
                      </li>
+                     @if ($admin && $admin->role === 1)
                      <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}">
                          <a href="{{ route('admin.dashboard') }}"><i class="feather-grid"></i>
                              <span>Dashboard</span></a>
                      </li>
+                     @else
+                     <li class="{{ Route::currentRouteName() == 'config.dashboard' ? 'active' : '' }}">
+                         <a href="{{ route('config.dashboard') }}"><i class="feather-grid"></i>
+                             <span>Dashboard</span></a>
+                     </li>
+                     @endif
                      <li class="{{ Route::currentRouteName() == 'schooladmin.index' ? 'active' : '' }}">
                          <a href="{{ route('schooladmin.index') }}"><i class="fas fa-school"></i><span>School List</span></a>
                      </li>
