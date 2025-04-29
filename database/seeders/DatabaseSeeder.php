@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call(AdminSeeder::class); 
+        $this->call(MasterClassesSeeder::class); 
+        $this->call(MasterSubjectSeeder::class); 
+        $this->call(MasterTermsSeeder::class); 
         $this->call(MastermoduleSeeder::class); 
         $this->call(SchoolsessionSeeder::class); 
         
