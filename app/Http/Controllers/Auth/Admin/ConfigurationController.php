@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\schoolsession;
+use App\Models\Schoolsession;
 use App\Models\Mastermodule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +34,7 @@ class ConfigurationController extends Controller
         //                     ->orderByDesc('school_session')
         //                     ->get();
 
-         $academicYears = schoolsession::orderByDesc('school_session')
+         $academicYears = Schoolsession::orderByDesc('school_session')
                             ->get();
 
         $school = User::findOrFail($id);
