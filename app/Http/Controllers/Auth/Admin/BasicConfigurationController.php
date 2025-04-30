@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Master_classes;
+use App\Models\Master_subjects;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BasicConfigurationController extends Controller
 {
@@ -13,7 +16,8 @@ class BasicConfigurationController extends Controller
     }
     public function getClass()
     {
-        return view('admin.basic_configuration.class');
+        $classes = Master_classes::all();
+        return view('admin.basic_configuration.class', compact('classes'));
     }
     public function getSection()
     {
@@ -51,7 +55,8 @@ class BasicConfigurationController extends Controller
 
     public function subjectToSchool()
     {
-        return view('admin.basic_configuration.subjectToSchool');
+        $subjects = Master_subjects::all();
+        return view('admin.basic_configuration.subjectToSchool', compact('subjects'));
     }
     public function subjectToClass()
     {
