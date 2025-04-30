@@ -12,13 +12,12 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                               {{-- <a href="{{ route('configuration.sessionConfig') }}" class="text-decoration-none text-dark me-2 backButton">
+                            
+                                <a href="{{ route('configuration.sessionConfig',['id' => $school->id]) }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
-                                </a> --}}
-                                <h3 class="page-title">Greenland School | 2025-26</h3>
-                                {{-- <div class="px-4">
-                                    <h6>Current Session: <strong>{{ $selectedOption }}</strong></h6>
-                                </div> --}}
+                                </a>
+                                <h3 class="page-title">{{ $school->name }} | {{ $academicYear }}</h3>
+                                
                             </div>
                         </div>
                     </div>
@@ -36,9 +35,16 @@
                                 <td>Assign Module</td>
                                 <td>Open/Locked</td>
                                 <td>
-                                    <a href="{{ route('assign-module.assignModule') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
+                                     <form action="{{ route('assign-module.assignModule') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="school" value="{{ $school->id }}">
+                                            <input type="hidden" name="session" value="{{ $academicYear }}">
+                                            
+                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
+                                                <i class="feather-eye"></i>
+                                            </button>
+                                        </form>
+                                   
                                 </td>
                             </tr>
                             <tr>
