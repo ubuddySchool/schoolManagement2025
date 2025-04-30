@@ -50,7 +50,7 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
 });
 
 Route::prefix('admin/configuration')->name('configuration.')->group(function () {
-    Route::any('index', [ConfigurationController::class, 'index'])->name('index');
+    Route::any('index', action: [ConfigurationController::class, 'index'])->name('index');
     Route::any('session/{id}', [ConfigurationController::class, 'session'])->name('sessionConfig');
     Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
 });
@@ -62,7 +62,8 @@ Route::prefix('admin/school-assgin')->name('assign.school.')->group(function () 
 });
 
 Route::prefix('admin/assign-module')->name('assign-module.')->group(function () {
-    Route::get('index', [AssignModuleController::class, 'assignModule'])->name('assignModule');
+    Route::any('index', [AssignModuleController::class, 'assignModule'])->name('assignModule');
+    Route::POST('store', [AssignModuleController::class, 'assingstore'])->name('store');
 });
 
 Route::prefix('admin/admin-configuration')->name('admin-configuration.')->group(function () {
