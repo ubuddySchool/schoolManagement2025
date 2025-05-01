@@ -11,6 +11,7 @@ class Schoolpocs extends Model
 
     protected $table = 'school_pocs';
     protected $fillable = [
+        'school_id',
         'poc_name',
         'poc_gender',
         'poc_dob',

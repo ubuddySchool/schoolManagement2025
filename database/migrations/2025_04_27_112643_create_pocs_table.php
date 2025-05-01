@@ -9,8 +9,8 @@ class CreatePocsTable extends Migration
     public function up()
     {
         Schema::create('school_pocs', function (Blueprint $table) {
-            $table->id(); // Auto-increment primary key
-            $table->unsignedBigInteger('school_id'); // Ensure this is unsignedBigInteger
+            $table->id(); 
+            $table->unsignedBigInteger('school_id'); 
             $table->string('poc_name')->nullable();
             $table->string('poc_gender')->nullable();
             $table->date('poc_dob')->nullable();

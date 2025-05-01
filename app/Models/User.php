@@ -23,9 +23,27 @@ class User extends Authenticatable
 }
     protected $fillable = [
         'name',
+        'subadmin_id',
         'school_username',
         'email',
         'password',
+        'u_code',
+        'school_code',
+        'dise_code',
+        'board_name',
+        'medium',
+        'total_student',
+        'contact_number',
+        'address',
+        'city',
+        'state',
+        'pincode',
+        'locality',
+        'website',
+        'school_image',
+        'status',
+        'created_by',
+        'updated_by'
     ];
 
     /**

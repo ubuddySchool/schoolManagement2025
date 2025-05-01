@@ -34,8 +34,8 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('school_image')->nullable();
             $table->integer('status')->default(1)->comment('1->active,0->inactive');
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
