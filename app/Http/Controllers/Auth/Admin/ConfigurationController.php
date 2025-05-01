@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\schoolsession;
+use App\Models\Schoolsession;
 use App\Models\Mastermodule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,21 +21,20 @@ class ConfigurationController extends Controller
 {
     $school = $request->input('school');
     $academicYear = $request->input('session'); 
-    
+
+    $school = User::find($school);
    
-    // $school = schoolsession::find($school);
-    // $academicYear = Mastermodule::where('school_id', $academicYear)
-    //                             ->where('school_session', $session)
-    //                             ->first();
-    
     return view('admin.configuration.index', compact('school', 'academicYear'));
 }
 
 
     public function session($id)
     {
-        $academicYears = DB::table('schoolsession')
-                            ->orderByDesc('school_session')
+        // $academicYears = DB::table('schoolsession')
+        //                     ->orderByDesc('school_session')
+        //                     ->get();
+
+         $academicYears = Schoolsession::orderByDesc('school_session')
                             ->get();
 
         $school = User::findOrFail($id);

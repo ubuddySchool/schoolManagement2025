@@ -34,10 +34,7 @@
                                     <td>{{ $year->school_session }}</td>
                                     <td>Open/Close</td>
                                     <td>
-                                        <!-- <a href="{{ route('configuration.index', ['school' => $school->id, 'session' => $year->school_session]) }}" class="btn btn-sm bg-success-light me-2">
-                                            <i class="feather-eye"></i>
-                                        </a> -->
-                                        <form action="{{ route('configuration.index') }}" method="GET">
+                                        <form action="{{ route('configuration.index') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="school" value="{{ $school->id }}">
                                             <input type="hidden" name="session" value="{{ $year->school_session }}">
