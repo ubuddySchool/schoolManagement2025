@@ -140,34 +140,30 @@ function filterconfigsubAdmins() {
     }
 }
 
-
 function myassingingschoolconfigFunction() {
     const input = document.getElementById("assingschoolconfigasassearchInput");
     const filter = input.value.toLowerCase().trim();
     const rows = document.querySelectorAll("table tbody tr");
-
-    let visible = 0;
-
-    // Split the filter into multiple words (if there are spaces) and check each word
     const filterWords = filter.split(/\s+/);
+    let visible = 0;
+    let serial = 1;
 
     rows.forEach(row => {
+        if (row.id === "noRecordsassinglistschoolMessage") return;
+
         const schoolName = row.cells[2]?.textContent.toLowerCase() || "";
         const matchesAllWords = filterWords.every(word => schoolName.includes(word));
 
         if (matchesAllWords) {
             row.style.display = "";
+            row.cells[0].textContent = serial++;
             visible++;
         } else {
             row.style.display = "none";
         }
     });
 
-    // Show the "No data found" message if no rows are visible
     const noDataRow = document.getElementById("noRecordsassinglistschoolMessage");
-    if (visible === 0) {
-        noDataRow.style.display = "";
-    } else {
-        noDataRow.style.display = "none";
-    }
+    noDataRow.style.display = visible === 0 ? "" : "none";
 }
+

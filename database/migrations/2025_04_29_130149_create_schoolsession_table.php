@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('school_session');
             $table->foreignId('school_id')->constrained('users')->onDelete('cascade');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
 
             

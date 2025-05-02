@@ -143,7 +143,7 @@
                     <div class="col-md-4">
                         <div class="form-group local-forms">
                             <label class="form-label">Pin Code</label>
-                            <input type="text" class="form-control only_number" value="{{ old('pincode') }}" placeholder="Enter Pin Code" name="pincode" required>
+                            <input type="text" class="form-control only_number" value="{{ old('pincode') }}" placeholder="Enter Pin Code" name="pincode" required  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6)">
                             @error('pincode')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

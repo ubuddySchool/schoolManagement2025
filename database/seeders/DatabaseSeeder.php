@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         
         if (!User::where('school_username', 'schoolududdy123')->exists()) {
             User::create([
-                'name' => 'schoolududdy@123',
-                'school_username' => 'schoolududdy123',
+                'name' => 'schoolubuddytest',
+                'school_username' => 'schoolubuddy123',
                 'u_code' => '4105',
                 'email' => 'test@ubuddy.com',
                 'password' => Hash::make('123456'), 

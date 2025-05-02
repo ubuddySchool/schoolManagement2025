@@ -3,7 +3,7 @@
 
 
      <div class="header-left ">
-         <a href="{{ route('admin.dashboard') }}" class="logo">
+         <a href="{{ route('dashboard') }}" class="logo">
              <h3 class="text-primary">uBuddy</h3>
              <!-- <a href="{{ route('admin.dashboard') }}" class="logo">
                 <img src="{{ asset('assets/img/logo.webp') }}" alt="Logo"> -->

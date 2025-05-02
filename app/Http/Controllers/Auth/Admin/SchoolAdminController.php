@@ -59,7 +59,12 @@ class SchoolAdminController extends Controller
 
     $lastCode = User::max('u_code');
     $user->u_code = $lastCode ? $lastCode + 1 : 4106;
-    $user->subadmin_id = Auth::user()->id;
+    
+    if(!Auth::user()->role == 1){
+        $auth = Auth::user()->id;
+        $user->subadmin_id = $auth;
+    }
+   
     $user->dise_code = $request->dise_code;
     $user->school_code = $request->school_code;
     $user->board_name = $request->board_name;
