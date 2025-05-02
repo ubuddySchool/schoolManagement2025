@@ -21,7 +21,7 @@
                         <table class="table table-bordered align-middle">
                             <thead class="table-light">
                                 <tr>
-                                    <th>S. No.</th>
+                                    <th>S.No.</th>
                                     <th>Logo</th>
                                     <th>School Name</th>
                                     <th>City</th>
@@ -30,9 +30,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                $serail = 1
+                                @endphp
                                 @foreach($users as $index => $school)
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $serail++ }}</td>
                                     <td class="d-flex justify-content-center">
                                         @if(!empty($school->school_image))
                                         <img src="{{ asset('uploads/schools/' . $school->school_image) }}" alt="School Image" width="50" height="100" class="rounded-circle img-thumbnail ">
@@ -49,6 +52,7 @@
                                         @endif
                                         @endforeach
                                     </td>
+                                   
                                     <td>
                                         <button
                                             class="btn btn-primary btn-sm"
@@ -58,10 +62,15 @@
                                             data-school-name="{{ $school->name }}"
                                             data-current-admin="{{ $admin->name ?? 'No Admin' }}"
                                             data-admin-photo="{{ asset('assets/img/profiles/avatar-05.jpg') }}">
+                                            @if(empty($school->subadmin_id))
                                             Configure Admin
-                                        </button>
+                                            @else
+                                            Change
+                                            @endif
 
+                                        </button>
                                     </td>
+                                   
                                 </tr>
                                 @endforeach
                                 <tr id="noRecordsassinglistschoolMessage" style="display: none;">

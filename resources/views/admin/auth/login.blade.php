@@ -77,15 +77,16 @@
                                     @endif --}}
 
                                 </div>
-
-                                <x-primary-button class="ms-3">
-                                    {{ __('Log in') }}
-                                </x-primary-button>
+                                <div class="d-flex justify-content-end">
+                                    <x-primary-button class="ms-3 bg-info">
+                                        {{ __('Log in') }}
+                                    </x-primary-button>
+                                </div>
                             </form>
 
                             <div class="login-or">
-                                <span class="or-line"></span>
-                                <span class="span-or"></span>
+                                <!-- <span class="or-line"></span>
+                                <span class="span-or"></span> -->
                             </div>
 
                             <div class="copyright social-login">
