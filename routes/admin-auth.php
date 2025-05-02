@@ -11,17 +11,19 @@ use App\Http\Controllers\Auth\Admin\ModuleConfigurationController;
 use App\Http\Controllers\Auth\Admin\RegisteredUserController;
 use App\Http\Controllers\Auth\Admin\SchoolAdminController;
 use App\Http\Controllers\Auth\Admin\SchoolpocController;
+use  App\Http\Middleware\CheckAdminRole;
 
 
 
 Route::get('admin/login', [LoginController::class, 'create'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'store'])->name('admin.post');
 
-Route::middleware('auth:admin')->group(function () {
 
-Route::prefix('admin')->group(function () {
+    Route::prefix('admin')
+    ->middleware(['auth:admin'])
+    ->group(function () {
 
-    Route::get('subadmin/index', [RegisteredUserController::class, 'index'])->name('subadmin.index');
+    // Route::get('subadmin/index', [RegisteredUserController::class, 'index'])->name('subadmin.index');
     Route::get('school/index', [RegisteredUserController::class, 'schoolindex'])->name('schooladmin.index');
     Route::post('register', [RegisteredUserController::class, 'store']);
     Route::patch('/school-admin/status/{id}', [RegisteredUserController::class, 'toggleStatus'])->name('school-admin.toggleStatus');
@@ -31,11 +33,11 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function() {
-    Route::resource('subadmins', RegisteredUserController::class);
-});
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'check.admin.role'])->group(function() {
+//     Route::resource('subadmins', RegisteredUserController::class);
+// });
 
-Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
+Route::prefix('admin/school-admin')->name('school-admin.') ->middleware('auth:admin')->group(function () {
     Route::get('create', [SchoolAdminController::class, 'create'])->name('create');
     Route::post('store', [SchoolAdminController::class, 'store'])->name('store');
     Route::get('showsdetails/{id}', [SchoolAdminController::class, 'shows'])->name('shows');
@@ -49,13 +51,13 @@ Route::prefix('admin/school-admin')->name('school-admin.')->group(function () {
     Route::put('edit-poc/{id}', [SchoolpocController::class, 'updatepoc'])->name('pocs.update');
 });
 
-Route::prefix('admin/configuration')->name('configuration.')->group(function () {
+Route::prefix('admin/configuration') ->middleware(['auth:admin'])->name('configuration.')->group(function () {
     Route::any('index', action: [ConfigurationController::class, 'index'])->name('index');
     Route::any('session/{id}', [ConfigurationController::class, 'session'])->name('sessionConfig');
     Route::get('module-configuration', [ConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
 });
 
-Route::prefix('admin/school-assgin')->name('assign.school.')->group(function () {
+Route::prefix('admin/school-assgin')->middleware(['auth:admin', 'check.admin.role'])->name('assign.school.')->group(function () {
     Route::get('index', [AssignSchoolcontroller::class, 'index'])->name('index');
     Route::post('/assign-admin', [AssignSchoolcontroller::class, 'assignAdmin'])->name('assignAdmin');
 
@@ -131,5 +133,5 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 
 });
 
-});
+// });
 
