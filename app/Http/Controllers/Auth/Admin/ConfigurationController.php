@@ -7,7 +7,9 @@ use App\Models\Master_session;
 use App\Models\User;
 use App\Models\Schoolsession;
 use App\Models\Mastermodule;
+use App\Models\MasterConfiguration;
 use Illuminate\Http\Request;
+use App\Models\AssignModule;
 use Illuminate\Support\Facades\DB;
 
 class ConfigurationController extends Controller
@@ -22,11 +24,18 @@ class ConfigurationController extends Controller
     {
         $schoolID = $request->input('school');
         $sessionID = $request->input('session'); 
-
         $academicYear = Master_session::find($sessionID);
         $school = User::find($schoolID);
+        $master_config = MasterConfiguration::where('school_id',$schoolID)
+        ->where('session_id',$sessionID)
+        ->get();
 
-        return view('admin.configuration.index', compact('school', 'academicYear'));
+        $assignModule = MasterConfiguration::where('school_id', $schoolID)
+        ->where('session_id', $sessionID)
+        ->value('assign_module');
+       
+       
+        return view('admin.configuration.index', compact('school', 'academicYear','master_config','assignModule'));
     }
 
 

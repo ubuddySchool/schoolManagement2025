@@ -156,7 +156,6 @@
                      @php
                      $schoolImagePath = Auth::user()->profile_image;
                      @endphp
-
                      @if(Auth::user() && !empty($schoolImagePath))
                      <img class="rounded-circle" src="{{ asset('uploads/adminprofile/'.Auth::user()->profile_image) }}" width="31" alt="{{ Auth::user()->name }}">
                      @else

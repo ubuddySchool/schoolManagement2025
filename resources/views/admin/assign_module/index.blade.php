@@ -29,25 +29,33 @@
                             </div>
                         </div>
                     </div>
-                    <form action="{{ route('assign-module.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="school_id" value="{{ $school->id }}">
-                    <input type="hidden" name="session" value="{{ $academicYear->id }}">
-                    <div class="row my-3">
-                        @foreach($modules as $index => $label)
+                    <form id="assignModuleForm" action="{{ route('assign-module.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="school_id" value="{{ $school->id }}">
+                        <input type="hidden" name="session" value="{{ $academicYear->id }}">
+                        <div class="row my-3">
+                            @foreach($modules as $index => $label)
                             <div class="col-sm-3 mb-2">
                                 <div class="form-check d-flex align-items-center gap-2">
-                                    <input class="form-check-input m-0" type="checkbox" name="modules[]" id="checkbox{{ $index }}" value="{{ $label->id }}">
+                                    <input class="form-check-input m-0"
+                                        type="checkbox"
+                                        name="modules[]"
+                                        id="checkbox{{ $index }}"
+                                        value="{{ $label->id }}"
+                                        @if(in_array($label->id, $assignedModuleIds)) checked @endif>
+
+
                                     <label class="form-check-label mb-0" for="checkbox{{ $index }}">
                                         {{ $label->name }}
                                     </label>
                                 </div>
                             </div>
-                        @endforeach                        
-                        <div class="col-12 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" >Submit</button>
+                            @endforeach
+                            <div class="col-12 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary" name="status" value="0">Save</button>
+                                <button type="submit" class="ms-3 text-light btn btn-info" name="status" value="1">Save & Lock</button>
+                            </div>
                         </div>
-                    </div>
                     </form>
 
                 </div>
@@ -55,4 +63,5 @@
         </div>
     </div>
 </div>
+
 @endsection
