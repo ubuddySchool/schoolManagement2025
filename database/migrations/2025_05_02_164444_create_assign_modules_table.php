@@ -18,8 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('module_id');
             $table->foreign('school_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('module_id')->references('id')->on('master_modules')->onDelete('cascade');
-            $table->foreign('session_id')->references('id')->on('schoolsession')->onDelete('cascade');
-
+            $table->foreign('session_id')->references('id')->on('schoolsessions')->onDelete('cascade');
             $table->string('status')->default(1); 
             $table->timestamps(); 
         });

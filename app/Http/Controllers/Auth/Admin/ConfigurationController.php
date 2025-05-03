@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Master_session;
 use App\Models\User;
 use App\Models\Schoolsession;
 use App\Models\Mastermodule;
@@ -18,14 +19,16 @@ class ConfigurationController extends Controller
     // }
 
     public function index(Request $request)
-{
-    $school = $request->input('school');
-    $academicYear = $request->input('session'); 
+    {
+        $schoolID = $request->input('school');
+        $sessionID = $request->input('session'); 
 
-    $school = User::find($school);
-   
-    return view('admin.configuration.index', compact('school', 'academicYear'));
-}
+        $academicYear = Master_session::find($sessionID);
+        $school = User::find($schoolID);
+
+        return view('admin.configuration.index', compact('school', 'academicYear'));
+    }
+
 
 
     public function session($id)
@@ -34,7 +37,7 @@ class ConfigurationController extends Controller
         //                     ->orderByDesc('school_session')
         //                     ->get();
 
-         $academicYears = Schoolsession::orderByDesc('school_session')
+         $academicYears = Master_session::orderByDesc('id')
                             ->get();
 
         $school = User::findOrFail($id);

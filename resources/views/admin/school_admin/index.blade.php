@@ -25,7 +25,7 @@
                                 <tr>
                                     <th>S.No.</th>
                                     <th>School Name</th>
-                                    <th>School Code</th>
+                                    <th>U-Code</th>
                                     <th>City</th>
                                     <th>Status</th>
                                     <th>Configure</th>

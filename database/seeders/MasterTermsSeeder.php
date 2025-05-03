@@ -17,20 +17,15 @@ class MasterTermsSeeder extends Seeder
         $this->call(AdminSeeder::class); 
 
         $termNames = [
-            'English',
-            'Hindi',
-            'Maths',
-            'G.K.',
-            'E.V.S.',
-            'Science',
-            'S. Studies',
-            'Physics',
-            'Chemistry',
-            'Account',
-            'Economics',
-            'B. Studies',
-            'History',
-            'Geography',
+            'Term I',
+            'Trem II',
+            'Haly Yearly',
+            'Annualy',
+            'SA I',
+            'SA II',
+            'FA I',
+            'FA II',
+            'FA III',
         ];
 
         $terms = [];

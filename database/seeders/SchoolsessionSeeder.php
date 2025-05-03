@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -13,16 +14,16 @@ class SchoolsessionSeeder extends Seeder
     public function run(): void
     {
         $modules = [
-            ['id' => 1, 'school_session' => '2023-24', 'school_id' => 1],
-            ['id' => 2, 'school_session' => '2024-25', 'school_id' => 1],
-            ['id' => 3, 'school_session' => '2025-26', 'school_id' => 1],
+            ['id' => 1, 'session_id' => 1, 'school_id' => 1],
+            ['id' => 2, 'session_id' => 2, 'school_id' => 1],
+            ['id' => 3, 'session_id' => 3, 'school_id' => 1],
         ];
 
         foreach ($modules as $module) {
-            DB::table('schoolsession')->updateOrInsert(
+            DB::table('schoolsessions')->updateOrInsert(
                 ['id' => $module['id']],
                 [
-                    'school_session' => $module['school_session'],
+                    'session_id' => $module['session_id'],
                     'school_id' => $module['school_id']
                 ]
             );
