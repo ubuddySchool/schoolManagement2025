@@ -77,19 +77,19 @@
                                     @endif --}}
 
                                 </div>
-                                <div class="d-flex justify-content-end">
-                                    <x-primary-button class="ms-3 bg-info">
+                                <div class="d-flex justify-content-end text-center">
+                                    <x-primary-button class="w-100  d-flex justify-content-center bg-info">
                                         {{ __('Log in') }}
                                     </x-primary-button>
                                 </div>
                             </form>
 
-                            <div class="login-or">
-                                <!-- <span class="or-line"></span>
-                                <span class="span-or"></span> -->
-                            </div>
+                            <!-- <div class="login-or">
+                                <span class="or-line"></span>
+                                <span class="span-or"></span>
+                            </div> -->
 
-                            <div class="copyright social-login">
+                            <div class="copyright social-login mt-4">
                                 <p> © Copyright - UBUDDY 2025
                                     <br> All rights reserved.
                                 </p>
