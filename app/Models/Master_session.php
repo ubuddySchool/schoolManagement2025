@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Master_subjects extends Model
+class Master_session extends Model
 {
-    protected $table = 'master_subjects';
+    
+    protected $table = 'master_sessions';
     protected $fillable = [
-        'subject_name',
+        'session_name',
     ];
 }
