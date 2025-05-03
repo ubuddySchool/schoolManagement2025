@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Mastermodule;
 use App\Models\AssignModule;
+use App\Models\Master_session;
 use App\Models\Schoolsession;
 use Illuminate\Support\Facades\DB; 
 
@@ -16,7 +17,9 @@ class AssignModuleController extends Controller
     public function assignmodule(Request $request)
     {
         $school = $request->input('school');
-        $academicYear = $request->input('session'); 
+        $sessionID = $request->input('session'); 
+
+        $academicYear = Master_session::find($sessionID);
         
         $modules = Mastermodule::all();
         // $modules = DB::table('master_modules')->get();

@@ -31,13 +31,13 @@
                         <tbody>
                             @foreach($academicYears as $year)
                                 <tr>
-                                    <td>{{ $year->school_session }}</td>
+                                    <td>{{ $year->session_name }}</td>
                                     <td>Open/Close</td>
                                     <td>
                                         <form action="{{ route('configuration.index') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="school" value="{{ $school->id }}">
-                                            <input type="hidden" name="session" value="{{ $year->school_session }}">
+                                            <input type="hidden" name="session" value="{{ $year->id }}">
                                             
                                             <button type="submit" class="btn btn-sm bg-success-light me-2">
                                                 <i class="feather-eye"></i>
