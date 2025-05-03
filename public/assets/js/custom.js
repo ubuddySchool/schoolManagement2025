@@ -190,3 +190,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
  
 
+// Assign class JS Start
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll('.form-check-input');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const index = this.id.replace('checkbox', '');
+            const inputDiv = document.getElementById('input' + index);
+            
+            if (this.checked) {
+                inputDiv.style.display = 'block';
+            } else {
+                inputDiv.style.display = 'none';
+            }
+        });
+    });
+});
+// Assign class JS End
