@@ -58,6 +58,8 @@
     .pstatus:checked ~ .info-text::before{
         content: "Active";
     }
- 
+    .h-45{
+        height: 45px !important;
+    }
  
     

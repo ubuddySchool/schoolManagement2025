@@ -18,6 +18,8 @@ class MasterClassesSeeder extends Seeder
     $classNames = [
         'Play Nursery',
         'Nursery',
+        'K.G. I',
+        'K.G. II',
         'I',
         'II',
         'III',
