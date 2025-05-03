@@ -208,5 +208,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 // Assign class JS End
