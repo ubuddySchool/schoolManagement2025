@@ -23,7 +23,7 @@
                     <form action="#" method="POST">
                         @csrf
                         @foreach ($classes as $index => $label)
-                            <div class="row mb-1">
+                            <div class="row mb-1 h-45">
                                 <div class="col-md-3 col-sm-3">
                                     <div class="form-check d-flex align-items-center gap-2">
                                         <input 
@@ -39,7 +39,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-3">
+                                <div class="col-md-3 col-sm-3 reclass-input" id="input{{ $index }}" style="display: {{ in_array($index, old('selectedClasses', [])) ? 'block' : 'none' }};">
                                     <input 
                                         type="text" 
                                         class="form-control" 
@@ -64,3 +64,21 @@
     </div>
 </div>
 @endsection
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll('.form-check-input');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const index = this.id.replace('checkbox', '');
+                const inputDiv = document.getElementById('input' + index);
+                
+                if (this.checked) {
+                    inputDiv.style.display = 'block';
+                } else {
+                    inputDiv.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
