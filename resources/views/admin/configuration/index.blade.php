@@ -34,12 +34,12 @@
                                 <tr>
                                     <td>Assign Module</td>
                                     @if($assignModule == 1)
-                                    <td>Locked</td>
+                                    <td><span class="badge bg-secondary">Locked</span></td>
                                     <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
                                                 <i class="feather-eye"></i>
                                             </button></td>
                                     @else
-                                    <td>Open</td>
+                                    <td><span class="badge bg-success ">Open</span></td>
                                     <td>
                                         <form action="{{ route('assign-module.assignModule') }}" method="POST">
                                             @csrf
@@ -59,10 +59,19 @@
                                     <td>Basic Configuration</td>
                                     <td>Open/Locked</td>
                                     <td>
-                                        <a href="{{ route('basic-configuration.store') }}"
+                                        <!-- <a href="{{ route('basic-configuration.store') }}"
                                             class="btn btn-sm bg-success-light me-2">
                                             <i class="feather-eye"></i>
-                                        </a>
+                                        </a> -->
+                                        <form action="{{ route('basic-configuration.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="school" value="{{ $school->id }}">
+                                            <input type="hidden" name="session" value="{{ $academicYear->id }}">
+
+                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
+                                                <i class="feather-eye"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <tr>
