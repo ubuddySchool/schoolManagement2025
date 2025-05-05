@@ -24,7 +24,6 @@ return new class extends Migration
             $table->integer('assign_subject_to_module')->default(0);
             $table->integer('assign_term_to_school')->default(0);
             $table->integer('assign_term_to_class')->default(0);
-            $table->integer('session')->default(0);
             $table->integer('student_form')->default(0);
             $table->integer('staff_form')->default(0);
             $table->integer('student_enquiry')->comment('Module Configuration')->default(0);
