@@ -33,7 +33,13 @@
                             <tbody>
                                 <tr>
                                     <td>Assign Module</td>
-                                    <td>Open/Locked</td>
+                                    @if($assignModule == 1)
+                                    <td>Locked</td>
+                                    <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
+                                                <i class="feather-eye"></i>
+                                            </button></td>
+                                    @else
+                                    <td>Open</td>
                                     <td>
                                         <form action="{{ route('assign-module.assignModule') }}" method="POST">
                                             @csrf
@@ -46,6 +52,8 @@
                                         </form>
 
                                     </td>
+                                    @endif
+                                    
                                 </tr>
                                 <tr>
                                     <td>Basic Configuration</td>
