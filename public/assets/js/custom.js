@@ -1,29 +1,35 @@
+// Add Section JS Start
+
 $(document).ready(function () {
-    // ADD input field
+    
     $('.btn-add-input').on('click', function (e) {
         e.preventDefault();
-
+        
         const $row = $(this).closest('.row');
-        const index = $row.data('index');
+        const index = $row.data('class-id');
 
-        // Create new input with remove button
         const newField = $(`
             <div class="col-1 d-flex align-items-start gap-1 new-input">
-                <input class="form-control form-control-sm mb-1" type="text" placeholder="Enter" name="sections[${index}][]">
-                <button type="button" class="btn btn-danger btn-sm btn-remove-dynamic">-</button>
+                <input class="form-control form-control-sm mb-1" 
+                       type="text" 
+                       placeholder="Enter" 
+                       name="sections[${index}][]">
+                <button type="button" 
+                        class="btn btn-danger btn-sm btn-remove-dynamic">-</button>
             </div>
         `);
 
-        // Insert before the add button col
+        // Insert the new field before the button column
         $row.find('.btn-add-input').closest('.col-1').before(newField);
     });
 
-    // REMOVE input field
+    // Remove section input
     $(document).on('click', '.btn-remove-dynamic', function () {
         $(this).closest('.new-input').remove();
     });
 });
 
+// Add Section JS End
 
 $(document).ready(function () {
     $('.btn-add-row').on('click', function () {
@@ -42,6 +48,8 @@ $(document).ready(function () {
         $(this).closest('.grade-row').remove();
     });
 });
+
+
 
 $(document).ready(function () {
 
@@ -189,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
  
+// Cropping Images Script End
 
 // Assign class JS Start
 

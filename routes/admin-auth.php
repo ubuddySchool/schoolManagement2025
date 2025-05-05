@@ -101,6 +101,7 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
 
     Route::any('createClass', [BasicConfigurationController::class, 'classInsert'])->name('classInsert');
     Route::get('assignSection', [BasicConfigurationController::class, 'getSection'])->name('getSection');
+    Route::any('createSection', [BasicConfigurationController::class, 'sectionInsert'])->name('sectionInsert');
     Route::get('assignSubject', [BasicConfigurationController::class, 'getSubject'])->name('getSubject');
     Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');
     Route::get('school-terms', [BasicConfigurationController::class, 'schoolTerms'])->name('schoolTerms');
