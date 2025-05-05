@@ -34,12 +34,12 @@
                                 <tr>
                                     <td>Assign Module</td>
                                     @if($assignModule == 1)
-                                    <td>Locked</td>
+                                    <td><span class="badge bg-secondary">Locked</span></td>
                                     <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
                                                 <i class="feather-eye"></i>
                                             </button></td>
                                     @else
-                                    <td>Open</td>
+                                    <td><span class="badge bg-success ">Open</span></td>
                                     <td>
                                         <form action="{{ route('assign-module.assignModule') }}" method="POST">
                                             @csrf
@@ -72,6 +72,7 @@
                                             class="btn btn-sm bg-success-light me-2">
                                             <i class="feather-eye"></i>
                                         </a> --}}
+                                        
                                     </td>
                                 </tr>
                                 <tr>

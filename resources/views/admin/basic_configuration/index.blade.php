@@ -22,7 +22,11 @@
                                 </form>
                                 {{-- <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
+
                                 </a> --}}
+
+                                
+
                                 <h3 class="page-title">{{ $school->name }} | {{ $academicYear->session_name }} | Basic Configuration</h3>
                             </div>
                         </div>
@@ -48,6 +52,9 @@
                                     <td>Open</td>
                                     <td>
                                         <form action="{{ route('basic-configuration.getClass') }}" method="POST">
+
+                              
+                             
                                             @csrf
                                             <input type="hidden" name="school" value="{{ $school->id }}">
                                             <input type="hidden" name="session" value="{{ $academicYear->id }}">
@@ -58,6 +65,7 @@
                                         </form>
                                     </td>
                                 @endif
+
                             </tr>
                             <tr>
                                 <td>Section</td>
@@ -90,9 +98,18 @@
                                 <td>Session</td>
                                 <td>Open/Locked</td>
                                 <td>
-                                    <a href="{{ route('basic-configuration.getSession') }}" class="btn btn-sm bg-success-light me-2">
+                                    <!-- <a href="{{ route('basic-configuration.getSession') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
-                                    </a>
+                                    </a> -->
+                                    <form action="{{ route('basic-configuration.getSession') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="school" value="{{ $school->id }}">
+                                            <input type="hidden" name="session" value="{{ $academicYear->id }}">
+
+                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
+                                                <i class="feather-eye"></i>
+                                            </button>
+                                        </form>
                                 </td>
                             </tr>
                             <tr>

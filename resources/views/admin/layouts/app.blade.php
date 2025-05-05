@@ -66,6 +66,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-datetimepicker@5.1.0/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script> -->
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -76,6 +77,7 @@
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/filteration.js') }}"></script>
+    <script src="{{ asset('assets/js/warning_alert_massage.js') }}"></script>
     <script src="{{ asset('assets_old/js/index_script.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>

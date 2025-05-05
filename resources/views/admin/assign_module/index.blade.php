@@ -29,7 +29,8 @@
                             </div>
                         </div>
                     </div>
-                    <form id="assignModuleForm" action="{{ route('assign-module.store') }}" method="POST">
+                    <form id="assignModuleForm" action="{{ route('assign-module.store') }}" method="POST" data-school-name="{{ $school->name }}"
+                    data-academic-session="{{ $academicYear->session_name }}">
                         @csrf
                         <input type="hidden" name="school_id" value="{{ $school->id }}">
                         <input type="hidden" name="session" value="{{ $academicYear->id }}">
@@ -51,9 +52,9 @@
                                 </div>
                             </div>
                             @endforeach
-                            <div class="col-12 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary" name="status" value="0">Save</button>
-                                <button type="submit" class="ms-3 text-light btn btn-info" name="status" value="1">Save & Lock</button>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-info btn-sm text-light" name="status" value="0">Save</button>
+                                <button type="submit" class="ms-3 text-light btn btn-danger btn-sm" name="status" value="1">Save & Lock</button>
                             </div>
                         </div>
                     </form>
@@ -64,4 +65,34 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('assignModuleForm');
+        const lockButton = form.querySelector('button[name="status"][value="1"]');
+
+        lockButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Confirm Assign Module',
+                html: `
+                <p>Are you sure you want to save and lock the assigned modules for <strong>{{ $school->name }}</strong> for the <strong>{{ $academicYear->session_name }}</strong> session?
+                 </p>
+                 <p>This action cannot be undone.</p>
+                   
+                `,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Save & Lock',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
 @endsection
