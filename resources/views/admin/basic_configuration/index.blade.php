@@ -12,18 +12,12 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <form action="{{ route('configuration.index') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="school" value="{{ $school->id }}">
-                                    <input type="hidden" name="session" value="{{ $academicYear->id }}">
-                                    <button type="submit" class="text-decoration-none text-dark me-2 backButton">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                </form>
-                                {{-- <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
+                               
+                                <a href="{{ route('configuration.index',['sch_id' => $school->id,'sess_id' =>$academicYear->id]) }}" class="text-decoration-none text-dark me-2 backButton">
+
                                     <i class="fas fa-arrow-left"></i>
 
-                                </a> --}}
+                                </a>
 
                                 
 
@@ -44,17 +38,14 @@
                             <tr>
                                 <td>Class</td>
                                 @if($assignClassStatus == 1)
-                                    <td>Locked</td>
+                                    <td  class="badge bg-secondary ">Locked</td>
                                     <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
                                                 <i class="feather-eye"></i>
                                             </button></td>
                                 @else
-                                    <td>Open</td>
+                                    <td  class="badge bg-success ">Open</td>
                                     <td>
                                         <form action="{{ route('basic-configuration.getClass') }}" method="POST">
-
-                              
-                             
                                             @csrf
                                             <input type="hidden" name="school" value="{{ $school->id }}">
                                             <input type="hidden" name="session" value="{{ $academicYear->id }}">
@@ -69,7 +60,7 @@
                             </tr>
                             <tr>
                                 <td>Section</td>
-                                <td>Open/Locked</td>
+                                 <td><span class="badge bg-success ">Open</span></td>
                                 <td>
                                     <a href="{{ route('basic-configuration.getSection') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
@@ -78,7 +69,7 @@
                             </tr>
                             <tr>
                                 <td>Subject</td>
-                                <td>Open/Locked</td>
+                                 <td><span class="badge bg-success ">Open</span></td>
                                 <td>
                                     <a href="{{ route('basic-configuration.getSubject') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
@@ -87,34 +78,17 @@
                             </tr>
                             <tr>
                                 <td>Terms</td>
-                                <td>Open/Locked</td>
+                                 <td><span class="badge bg-success ">Open</span></td>
                                 <td>
                                     <a href="{{ route('basic-configuration.getTerms') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Session</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <!-- <a href="{{ route('basic-configuration.getSession') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a> -->
-                                    <form action="{{ route('basic-configuration.getSession') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="school" value="{{ $school->id }}">
-                                            <input type="hidden" name="session" value="{{ $academicYear->id }}">
-
-                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </button>
-                                        </form>
-                                </td>
-                            </tr>
+                            
                             <tr>
                                 <td>Student Form</td>
-                                <td>Open/Locked</td>
+                                 <td><span class="badge bg-success ">Open</span></td>
                                 <td>
                                     <a href="{{ route('basic-configuration.getStudentForm') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
@@ -123,7 +97,7 @@
                             </tr>
                             <tr>
                                 <td>Staff Form</td>
-                                <td>Open/Locked</td>
+                                 <td><span class="badge bg-success ">Open</span></td>
                                 <td>
                                     <a href="{{ route('basic-configuration.getStaffForm') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>

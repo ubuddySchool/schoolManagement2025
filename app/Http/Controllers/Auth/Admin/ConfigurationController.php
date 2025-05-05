@@ -22,10 +22,15 @@ class ConfigurationController extends Controller
 
     public function index(Request $request)
     {
-        $schoolID = $request->input('school');
-        $sessionID = $request->input('session'); 
+        $schoolID = $request->query('sch_id'); 
+        $sessionID = $request->query('sess_id'); 
+        $mainID = Schoolsession::where('school_id',$schoolID)
+                    ->where('session_id',$sessionID)
+                    ->value('id');
+
         $academicYear = Master_session::find($sessionID);
         $school = User::find($schoolID);
+        
         $master_config = MasterConfiguration::where('school_id',$schoolID)
         ->where('session_id',$sessionID)
         ->get();
@@ -35,23 +40,19 @@ class ConfigurationController extends Controller
         ->value('assign_module');
        
        
-        return view('admin.configuration.index', compact('school', 'academicYear','master_config','assignModule'));
+        return view('admin.configuration.index', compact('school', 'academicYear','master_config','assignModule','mainID'));
     }
 
 
 
     public function session($id)
     {
-        // $academicYears = DB::table('schoolsession')
-        //                     ->orderByDesc('school_session')
-        //                     ->get();
-
+     
          $academicYears = Master_session::orderByDesc('id')
                             ->get();
 
         $school = User::findOrFail($id);
-
-        return view('admin.configuration.sessionConfig', compact('academicYears', 'school'));
+        return view('admin.configuration.sessionConfig', compact('academicYears', 'school','id'));
     }
 
     public function index_old()

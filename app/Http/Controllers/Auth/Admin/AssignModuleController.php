@@ -17,9 +17,14 @@ class AssignModuleController extends Controller
 
     public function assignmodule(Request $request)
     {
-        $school_id = $request->input('school');
-        $sessionID = $request->input('session'); 
-    
+
+        $main_id = $request->input('main_id');
+
+        $schoolSession = Schoolsession::where('id', $main_id)->first();
+
+        $school_id = $schoolSession->school_id;
+        $sessionID = $schoolSession->session_id;
+        
         $academicYear = Master_session::find($sessionID);
         $modules = Mastermodule::all();
         $school = User::find($school_id);
@@ -34,7 +39,7 @@ class AssignModuleController extends Controller
         ->values()
         ->toArray();
     
-        return view('admin.assign_module.index', compact('modules', 'school', 'academicYear', 'assignedModuleIds'));
+        return view('admin.assign_module.index', compact('modules', 'school', 'academicYear', 'assignedModuleIds','school_id','sessionID'));
     }
 
 public function assingstore(Request $request)
