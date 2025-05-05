@@ -83,8 +83,8 @@ public function assingstore(Request $request)
     }
 
     return redirect()->route('configuration.index', [
-        'school' => $schoolId,
-        'session' => $sessionId
+        'sch_id' => $schoolId,
+        'sess_id' => $sessionId
     ])->with('success', 'Modules assigned successfully!');
 }
 

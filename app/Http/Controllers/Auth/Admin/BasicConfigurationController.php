@@ -10,7 +10,7 @@ use App\Models\Master_subjects;
 
 use App\Models\MasterConfiguration;
 use App\Models\Mastermodule;
-use App\Models\SchoolSession;
+use App\Models\Schoolsession;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -91,7 +91,7 @@ class BasicConfigurationController extends Controller
             if ($customName && trim($customName) !== '') {
                 $className = $customName;
             } else {
-                $original = \App\Models\Master_classes::find($classId);
+                $original = Master_classes::find($classId);
                 $className = $original ? $original->class_name : 'Unknown';
             }
 
