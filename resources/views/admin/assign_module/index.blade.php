@@ -56,34 +56,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('assignModuleForm');
-        const lockButton = form.querySelector('button[name="status"][value="1"]');
-
-        lockButton.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            Swal.fire({
-                title: 'Confirm Assign Module',
-                html: `
-                <p>Are you sure you want to save and lock the assigned modules for <strong>{{ $school->name }}</strong> for the <strong>{{ $academicYear->session_name }}</strong> session?
-                 </p>
-                 <p>This action cannot be undone.</p>
-                   
-                `,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Save & Lock',
-                cancelButtonText: 'Cancel'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
-        });
-    });
-</script>
 @endsection
