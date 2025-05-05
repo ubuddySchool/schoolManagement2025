@@ -96,14 +96,17 @@ Route::prefix('admin/module-configuration')->name('module-configuration.')->grou
 });
 
 Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
-    Route::get('store', [BasicConfigurationController::class, 'store'])->name('store');
-    Route::get('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
+    Route::any('store', [BasicConfigurationController::class, 'store'])->name('store');
+    Route::any('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
     Route::get('assignSection', [BasicConfigurationController::class, 'getSection'])->name('getSection');
     Route::get('assignSubject', [BasicConfigurationController::class, 'getSubject'])->name('getSubject');
     Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');
     Route::get('school-terms', [BasicConfigurationController::class, 'schoolTerms'])->name('schoolTerms');
     Route::get('class-terms', [BasicConfigurationController::class, 'classTerms'])->name('classTerms');
-    Route::get('session', [BasicConfigurationController::class, 'setSession'])->name('getSession');
+    
+    Route::any('session', [BasicConfigurationController::class, 'setSession'])->name('getSession');
+    Route::post('session/create', [BasicConfigurationController::class, 'setSession_create'])->name('getSession.create');
+    
     Route::get('student-form', [BasicConfigurationController::class, 'setStudentForm'])->name('getStudentForm');
     Route::get('staff-form', [BasicConfigurationController::class, 'setStaffForm'])->name('getStaffForm');
 
