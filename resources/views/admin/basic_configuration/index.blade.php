@@ -12,9 +12,21 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
+                                <form action="{{ route('configuration.index') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="school" value="{{ $school->id }}">
+                                    <input type="hidden" name="session" value="{{ $academicYear->id }}">
+                                    <button type="submit" class="text-decoration-none text-dark me-2 backButton">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                </form>
+                                {{-- <a href="{{ route('configuration.index') }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
-                                </a>
+
+                                </a> --}}
+
+                                
+
                                 <h3 class="page-title">{{ $school->name }} | {{ $academicYear->session_name }} | Basic Configuration</h3>
                             </div>
                         </div>
@@ -31,12 +43,18 @@
                         <tbody>
                             <tr>
                                 <td>Class</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <!-- <a href="{{ route('basic-configuration.getClass') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a> -->
-                                    <form action="{{ route('basic-configuration.getClass') }}" method="POST">
+                                @if($assignClassStatus == 1)
+                                    <td>Locked</td>
+                                    <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
+                                                <i class="feather-eye"></i>
+                                            </button></td>
+                                @else
+                                    <td>Open</td>
+                                    <td>
+                                        <form action="{{ route('basic-configuration.getClass') }}" method="POST">
+
+                              
+                             
                                             @csrf
                                             <input type="hidden" name="school" value="{{ $school->id }}">
                                             <input type="hidden" name="session" value="{{ $academicYear->id }}">
@@ -45,7 +63,9 @@
                                                 <i class="feather-eye"></i>
                                             </button>
                                         </form>
-                                </td>
+                                    </td>
+                                @endif
+
                             </tr>
                             <tr>
                                 <td>Section</td>

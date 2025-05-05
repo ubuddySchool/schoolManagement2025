@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AssignClasses;
 use App\Models\Master_classes;
-use App\Models\Master_subjects;
-use App\Models\SchoolSession;
 use App\Models\Master_session;
+use App\Models\Master_subjects;
+
+use App\Models\MasterConfiguration;
+use App\Models\Mastermodule;
+use App\Models\SchoolSession;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,24 +21,115 @@ class BasicConfigurationController extends Controller
     public function store(Request $request)
     {
         $school_id = $request->input('school');
+        $sessionID = $request->input('session');
+
+        $academicYear = Master_session::find($sessionID);
+        $school = User::find($school_id);
+
+        $assignClassStatus = MasterConfiguration::where('school_id', $school_id)
+        ->where('session_id', $sessionID)
+        ->value('assign_class');
+
+        return view('admin.basic_configuration.index', compact('school', 'academicYear', 'assignClassStatus'));
+    }
+
+    public function getClass(Request $request)
+    {
+        $school_id = $request->input('school');
+        $sessionID = $request->input('session');
+
+        $academicYear = Master_session::find($sessionID);
+        $school = User::find($school_id);
+        $classes = Master_classes::all();
+
+        $rawAssignments = AssignClasses::where('school_id', $school_id)
+            ->where('session_id', $sessionID)
+            ->get()
+            ->flatMap(function ($item) {
+                return is_array($item->masterClass_id) ? $item->masterClass_id : json_decode($item->masterClass_id, true);
+            });
+
+        $assignedClasses = [];
+        foreach ($rawAssignments as $entry) {
+            if (strpos($entry, ':') !== false) {
+                [$id, $name] = explode(':', $entry, 2);
+                $assignedClasses[(int)$id] = $name;
+            }
+        }
+        return view('admin.basic_configuration.class', compact('classes', 'school', 'academicYear', 'assignedClasses'));
+
         $sessionID = $request->input('session'); 
         $academicYear = Master_session::find($sessionID);
         $school = User::find($school_id);
         return view('admin.basic_configuration.index',compact('school_id','sessionID','school','academicYear'));
     }
-    public function getClass(Request $request)
+
+
+    public function classInsert(Request $request)
     {
-        $school_id = $request->input('school');
-        $sessionID = $request->input('session'); 
-        $academicYear = Master_session::find($sessionID);
-        $school = User::find($school_id);
-        $classes = Master_classes::all();
-        return view('admin.basic_configuration.class', compact('classes','school_id','sessionID','school','academicYear'));
+        $request->validate([
+            'school_id' => 'required|exists:users,id',
+            'session' => 'required|exists:schoolsessions,id',
+            'selectedClasses' => 'required|array',
+        ]);
+
+        $status = $request->input('status', 1); 
+
+        $selectedClassesRaw = $request->input('selectedClasses');
+        $selectedClasses = is_string($selectedClassesRaw) ? json_decode($selectedClassesRaw, true) : $selectedClassesRaw;
+        $selectedClasses = array_map('intval', $selectedClasses);
+        
+        $formattedClassList = [];
+        foreach ($selectedClasses as $classId) {
+            $renameKey = 'reClassName' . $classId;
+            $customName = $request->input($renameKey);
+
+            if ($customName && trim($customName) !== '') {
+                $className = $customName;
+            } else {
+                $original = \App\Models\Master_classes::find($classId);
+                $className = $original ? $original->class_name : 'Unknown';
+            }
+
+            $formattedClassList[] = "$classId:$className";
+        }
+
+        AssignClasses::updateOrCreate(
+            [
+                'school_id' => $request->school_id,
+                'session_id' => $request->session,
+            ],
+            [
+                'masterClass_id' => json_encode($formattedClassList),
+                'status' => $status,
+            ]
+        );
+
+        if ($status == 1) {
+            MasterConfiguration::updateOrCreate(
+                [
+                    'school_id' => $request->school_id,
+                    'session_id' => $request->session,
+                ],
+                [
+                    'assign_class' => $status
+                ]
+            );
+        }
+        return redirect()->route('basic-configuration.store', [
+            'school' => $request->school_id,
+            'session' => $request->session,
+        ])->with('success', 'Class assignments saved successfully!');
     }
+
+
     public function getSection()
     {
         return view('admin.basic_configuration.section');
     }
+
+
+    
     public function getSubject()
     {
         return view('admin.basic_configuration.subject');
