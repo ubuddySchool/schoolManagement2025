@@ -45,17 +45,6 @@
                                         class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
-                                    <!-- <form action="{{ route('assign-module.assignModule') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="school" value="{{ $school->id }}">
-                                            <input type="hidden" name="session" value="{{ $academicYear->id }}">
-                                            <input type="hidden" name="mainID" value="{{ $mainID }}">
-
-                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </button>
-                                        </form> -->
-
                                 </td>
                                 @endif
 
@@ -67,19 +56,6 @@
                                     <a href="{{ route('basic-configuration.store', ['id' => $mainID]) }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
-
-
-
-
-                                    <!-- <form action="{{ route('basic-configuration.store') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="school" value="{{ $school->id }}">
-                                            <input type="hidden" name="session" value="{{ $academicYear->id }}">
-                                            <input type="hidden" name="mainID" value="{{ $mainID }}">
-                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </button>
-                                        </form> -->
                                 </td>
                             </tr>
                             <tr>
@@ -94,7 +70,6 @@
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
