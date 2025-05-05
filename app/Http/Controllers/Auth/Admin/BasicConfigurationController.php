@@ -16,11 +16,15 @@ class BasicConfigurationController extends Controller
 {
     public function store(Request $request)
     {
-        $school_id = $request->input('school');
-        $sessionID = $request->input('session'); 
+        $id = $request->query('id');
+        $schoolSession = Schoolsession::where('id', $id)->first();
+        
+
+        $school_id = $schoolSession->school_id;
+        $sessionID = $schoolSession->session_id;
         $academicYear = Master_session::find($sessionID);
         $school = User::find($school_id);
-        return view('admin.basic_configuration.index',compact('school_id','sessionID','school','academicYear'));
+        return view('admin.basic_configuration.index',compact('school_id','sessionID','school','academicYear','id'));
     }
     public function getClass(Request $request)
     {
@@ -45,36 +49,60 @@ class BasicConfigurationController extends Controller
     }
     public function setSession(Request $request)
     {
-        $school_id = $request->input('school');
-        $sessionID = $request->input('session'); 
+        // $id = $request->input(key: 'id');
+       
+        // $schoolSession = Schoolsession::where('id', $id)->first();
+        
+
+        $school_id = $request->input('sch_id');
+        $sessionID = $request->input('sess_id');
+
+        $schoolSession = Schoolsession::where('school_id', $school_id)
+        ->where('session_id',$sessionID)->first();
+        
+        $start_date = $schoolSession->start_date;
+        $end_date = $schoolSession->end_date;
+        $id = $schoolSession->id;
+
+        
         $academicYear = Master_session::find($sessionID);
         $school = User::find($school_id);
-        return view('admin.basic_configuration.sessionSet',compact('school_id','sessionID','school','academicYear'));
+
+        return view('admin.basic_configuration.sessionSet',compact('school_id','sessionID','school','academicYear','id','start_date','end_date'));
     }
     public function setSession_create(Request $request)
-{
-    $request->validate([
-        'start_date' => 'required|date_format:d-m-Y',
-        'end_date' => 'required|date_format:d-m-Y|after_or_equal:start_date',
-        'school_id' => 'required|integer',
-        'session_id' => 'required|integer',
-    ]);
-
-    $startDate = Carbon::createFromFormat('d-m-Y', $request->start_date)->format('Y-m-d');
-    $endDate = Carbon::createFromFormat('d-m-Y', $request->end_date)->format('Y-m-d');
-
-    SchoolSession::updateOrCreate(
-        ['school_id' => $request->school_id, 'session_id' => $request->session_id],
-        ['start_date' => $startDate, 'end_date' => $endDate]
-    );
-
-    return redirect()->route('basic-configuration.store')->with([
-        'success' => 'School session updated or created successfully.',
-        'school' => $request->school_id,
-        'session' => $request->session_id,
-    ]);
+    {
+        $request->validate([
+            'start_date' => 'nullable|date_format:d-m-Y',
+            'end_date' => 'nullable|date_format:d-m-Y|after_or_equal:start_date',
+        ]);
     
-}
+        $id = $request->input('id');
+        $schoolSession = Schoolsession::where('id', $id)->firstOrFail();
+        $school_id = $schoolSession->school_id;
+        $data = []; 
+    
+        if (!empty($request->start_date)) {
+            $data['start_date'] = Carbon::createFromFormat('d-m-Y', $request->start_date)->format('Y-m-d');
+        }
+    
+        if (!empty($request->end_date)) {
+            $data['end_date'] = Carbon::createFromFormat('d-m-Y', $request->end_date)->format('Y-m-d');
+        }
+    
+        if (!empty($data)) {
+            SchoolSession::updateOrCreate(
+                ['school_id' => $schoolSession->school_id, 'session_id' => $schoolSession->session_id],
+                $data
+            );
+        }
+
+    
+        return redirect()->route('configuration.sessionConfig',['id' => $school_id])->with([
+            'success' => 'School session updated successfully.',
+         ]);
+    }
+    
     public function setStudentForm()
     {
         return view('admin.basic_configuration.student_form');

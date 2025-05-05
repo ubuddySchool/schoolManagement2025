@@ -1,3 +1,4 @@
+// assgin module alert
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('assignModuleForm');
     const lockButton = form.querySelector('button[name="status"][value="1"]');
@@ -21,6 +22,41 @@ document.addEventListener('DOMContentLoaded', function () {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, Save & Lock',
             cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+    });
+});
+
+
+// set session alert
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('confirmsetSessionForm');
+
+    if (!form) return;
+
+    // Prevent duplicate event listeners
+    if (form.dataset.confirmationAttached === 'true') return;
+
+    form.dataset.confirmationAttached = 'true'; // Mark as attached
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to confirm this session?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, confirm it!',
+            customClass: {
+                popup: 'unique-session-popup'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 form.submit();

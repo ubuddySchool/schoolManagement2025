@@ -25,6 +25,7 @@
                             <tr>
                                 <th>Academic Year</th>
                                 <th>Status</th>
+                                <th>Session Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,15 +35,24 @@
                                     <td>{{ $year->session_name }}</td>
                                     <td>Open/Close</td>
                                     <td>
-                                        <form action="{{ route('configuration.index') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="school" value="{{ $school->id }}">
-                                            <input type="hidden" name="session" value="{{ $year->id }}">
-                                            
-                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
-                                                <i class="feather-eye"></i>
-                                            </button>
-                                        </form>
+                                    
+                                    <a  class="btn btn-sm bg-warning-light me-2" href="{{ route('basic-configuration.getSession',['sch_id' => $school->id, 'sess_id' => $year->id]) }}" class="btn btn-sm bg-success-light me-2">
+                                    <i class="feather-calendar"></i>
+                                    </a>
+                                    </td>
+                                   
+                               
+                               
+                                   
+                                   
+                               
+                            
+                                    <td>
+                                    <a href="{{ route('configuration.index', ['sch_id' => $school->id, 'sess_id' => $year->id]) }}"
+                                    class="btn btn-sm bg-success-light me-2">
+                                        <i class="feather-eye"></i>
+                                    </a>
+
                                     </td>
                                 </tr>
                             @endforeach

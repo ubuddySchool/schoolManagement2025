@@ -12,18 +12,9 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <!-- <a href="{{ route('configuration.index',['id' => $school->id]) }}" class="text-decoration-none text-dark me-2 backButton">
+                                <a href="{{ route('configuration.index',['sch_id' => $school->id,'sess_id' =>$academicYear->id]) }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
-                                </a> -->
-
-                                <form action="{{ route('configuration.index') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="school" value="{{ $school->id }}">
-                                    <input type="hidden" name="session" value="{{ $academicYear->id }}">
-                                    <button type="submit" class="text-decoration-none text-dark me-2 backButton">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                </form>
+                                </a>
 
                                 <h3 class="page-title">{{ $school->name }} | {{ $academicYear->session_name }} | Assign Module</h3>
                             </div>
