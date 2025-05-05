@@ -96,8 +96,9 @@ Route::prefix('admin/module-configuration')->name('module-configuration.')->grou
 });
 
 Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
-    Route::get('store', [BasicConfigurationController::class, 'store'])->name('store');
-    Route::get('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
+    Route::any('store', [BasicConfigurationController::class, 'store'])->name('store');
+    Route::any('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
+    Route::any('createClass', [BasicConfigurationController::class, 'classInsert'])->name('classInsert');
     Route::get('assignSection', [BasicConfigurationController::class, 'getSection'])->name('getSection');
     Route::get('assignSubject', [BasicConfigurationController::class, 'getSubject'])->name('getSubject');
     Route::get('assignTerms', [BasicConfigurationController::class, 'getTerms'])->name('getTerms');

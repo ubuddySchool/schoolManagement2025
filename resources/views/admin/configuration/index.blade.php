@@ -59,10 +59,19 @@
                                     <td>Basic Configuration</td>
                                     <td>Open/Locked</td>
                                     <td>
-                                        <a href="{{ route('basic-configuration.store') }}"
+                                        <form action="{{ route('basic-configuration.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="school" value="{{ $school->id }}">
+                                            <input type="hidden" name="session" value="{{ $academicYear->id }}">
+
+                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
+                                                <i class="feather-eye"></i>
+                                            </button>
+                                        </form>
+                                        {{-- <a href="{{ route('basic-configuration.store') }}"
                                             class="btn btn-sm bg-success-light me-2">
                                             <i class="feather-eye"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
                                 </tr>
                                 <tr>
