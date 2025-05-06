@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Master_subjects; 
 
 class MasterSubjectSeeder extends Seeder
 {
@@ -13,9 +13,6 @@ class MasterSubjectSeeder extends Seeder
      */
     public function run(): void
     {
-        
-        $this->call(AdminSeeder::class); 
-
         $subjectNames = [
             'English',
             'Hindi',
@@ -33,14 +30,11 @@ class MasterSubjectSeeder extends Seeder
             'Geography',
         ];
 
-        $subjects = [];
-
         foreach ($subjectNames as $name) {
-            $subjects[] = [
-                'subject_name' => $name,
-            ];
+            Master_subjects::firstOrCreate(
+                ['subject_name' => $name],  
+                ['subject_name' => $name]  
+            );
         }
-
-        DB::table('master_subjects')->insert($subjects);
     }
 }

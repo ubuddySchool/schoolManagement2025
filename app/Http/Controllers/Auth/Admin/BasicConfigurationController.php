@@ -33,7 +33,6 @@ class BasicConfigurationController extends Controller
 
         return view('admin.basic_configuration.index',compact('school','academicYear','id','assignClassStatus'));
        
-        
     }
 
     public function getClass(Request $request)
@@ -236,9 +235,15 @@ class BasicConfigurationController extends Controller
          ]);
     }
     
-    public function setStudentForm()
+    public function setStudentForm(Request $request)
     {
-        return view('admin.basic_configuration.student_form');
+        $id = $request->input('id');
+        $schoolSession = Schoolsession::where('id', $id)->first();
+        $school_id = $schoolSession->school_id;
+        $sessionID = $schoolSession->session_id;
+        $academicYear = Master_session::find($sessionID);
+        $school = User::find($school_id);
+        return view('admin.basic_configuration.student_form',compact('sessionID','academicYear','school'));
     }
     public function setStaffForm()
     {

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Master_session;
 
 class MasterSessionSeeder extends Seeder
 {
@@ -13,18 +13,17 @@ class MasterSessionSeeder extends Seeder
      */
     public function run(): void
     {    
-
-        $sessionName = [
+        $sessionNames = [
             '2023-24',
             '2024-25',
             '2025-26',
         ];
-        foreach ($sessionName as $name) {
-            $sessions[] = [
-                'session_name' => $name,
-            ];
-        }
 
-        DB::table('master_sessions')->insert($sessions);
+        foreach ($sessionNames as $name) {
+            Master_session::firstOrCreate(
+                ['session_name' => $name],
+                ['session_name' => $name]  
+            );
+        }
     }
 }
