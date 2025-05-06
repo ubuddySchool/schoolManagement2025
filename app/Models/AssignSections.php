@@ -8,6 +8,9 @@ class AssignSections extends Model
 {
     protected $table = "assign_sections";
     protected $fillable = ['school_id','session_id','class_id', 'section_name', 'status'];
+    protected $casts = [
+        'section_name' => 'array',
+    ];
     
     /**
      * Relationships (if you want to use them)

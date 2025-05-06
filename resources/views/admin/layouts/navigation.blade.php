@@ -57,7 +57,7 @@
          </div>
          </li> --}}
 
-         <li class="nav-item dropdown noti-dropdown me-2">
+         <li class="nav-item dropdown noti-dropdown me-2 d-none">
              <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
                  <img src="{{ asset('assets/img/icons/header-icon-05.svg') }}" alt>
              </a>
