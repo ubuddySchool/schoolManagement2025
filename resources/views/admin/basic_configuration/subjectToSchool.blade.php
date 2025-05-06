@@ -11,7 +11,7 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('basic-configuration.getSubject') }}" class="text-decoration-none text-dark me-2 backButton">
+                                <a href="{{ route('basic-configuration.getSubject',['id' => $ids]) }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                                 <h3 class="page-title">Assign Subject To School</h3>

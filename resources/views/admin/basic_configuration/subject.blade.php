@@ -12,7 +12,7 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('basic-configuration.store') }}" class="text-decoration-none text-dark me-2 backButton">
+                                <a href="{{ route('basic-configuration.store',['id' => $ids]) }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                                 <h3 class="page-title">Assign Subject</h3>
@@ -33,7 +33,7 @@
                                 <td>To School</td>
                                 <td>Open/Locked</td>
                                 <td>
-                                    <a href="{{ route('basic-configuration.subjectToSchool') }}" class="btn btn-sm bg-success-light me-2">
+                                    <a href="{{ route('basic-configuration.subjectToSchool',['id' => $ids]) }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>
