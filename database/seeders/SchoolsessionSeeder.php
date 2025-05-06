@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Schoolsession;
 
 class SchoolsessionSeeder extends Seeder
 {
@@ -20,13 +21,14 @@ class SchoolsessionSeeder extends Seeder
         ];
 
         foreach ($modules as $module) {
-            DB::table('schoolsessions')->updateOrInsert(
-                ['id' => $module['id']],
+            Schoolsession::updateOrCreate(
+                ['id' => $module['id']], 
                 [
                     'session_id' => $module['session_id'],
-                    'school_id' => $module['school_id']
+                    'school_id' => $module['school_id'],
                 ]
             );
         }
+
     }
 }

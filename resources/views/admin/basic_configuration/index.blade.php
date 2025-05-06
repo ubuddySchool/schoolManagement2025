@@ -43,7 +43,7 @@
                                                 <i class="feather-eye"></i>
                                             </button></td>
                                 @else
-                                    <td  class="badge bg-success ">Open</td>
+                                    <td> <span class="badge bg-success ">Open</span></td>
                                     <td>
                                         <form action="{{ route('basic-configuration.getClass') }}" method="POST">
                                             @csrf
@@ -89,10 +89,18 @@
                             <tr>
                                 <td>Student Form</td>
                                  <td><span class="badge bg-success ">Open</span></td>
-                                <td>
-                                    <a href="{{ route('basic-configuration.getStudentForm') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
+                                
+                                    <td>
+                                        <form action="{{ route('basic-configuration.getStudentForm') }}" method="POST">
+                                            @csrf
+                                            <!-- <input type="hidden" name="school" value="{{ $school->id }}">
+                                            <input type="hidden" name="session" value="{{ $academicYear->id }}"> -->
+                                            <input type="hidden" name="id" value="{{ $id }}">
+
+                                            <button type="submit" class="btn btn-sm bg-success-light me-2">
+                                                <i class="feather-eye"></i>
+                                            </button>
+                                        </form>
                                 </td>
                             </tr>
                             <tr>

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Master_terms; 
 
 class MasterTermsSeeder extends Seeder
 {
@@ -13,13 +13,10 @@ class MasterTermsSeeder extends Seeder
      */
     public function run(): void
     {
-        
-        $this->call(AdminSeeder::class); 
-
         $termNames = [
             'Term I',
-            'Trem II',
-            'Haly Yearly',
+            'Term II',
+            'Half Yearly',
             'Annualy',
             'SA I',
             'SA II',
@@ -28,14 +25,11 @@ class MasterTermsSeeder extends Seeder
             'FA III',
         ];
 
-        $terms = [];
-
         foreach ($termNames as $name) {
-            $terms[] = [
-                'term_name' => $name,
-            ];
+            Master_terms::firstOrCreate(
+                ['term_name' => $name],  
+                ['term_name' => $name]  
+            );
         }
-
-        DB::table('master_terms')->insert($terms);
     }
 }

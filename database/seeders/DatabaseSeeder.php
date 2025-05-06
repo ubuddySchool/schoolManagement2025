@@ -20,13 +20,16 @@ class DatabaseSeeder extends Seeder
 
         
         if (!User::where('school_username', 'schoolududdy123')->exists()) {
-            User::create([
-                'name' => 'schoolubuddytest',
-                'school_username' => 'schoolubuddy123',
-                'u_code' => '4105',
-                'email' => 'test@ubuddy.com',
-                'password' => Hash::make('123456'), 
-            ]);
+            User::firstOrCreate(
+                ['school_username' => 'schoolubuddy123'],
+                [
+                    'name' => 'schoolubuddytest',
+                    'u_code' => '4105',
+                    'email' => 'test@ubuddy.com',
+                    'password' => Hash::make('123456'),
+                ]
+            );
+            
         }
 
         $this->call(AdminSeeder::class); 
@@ -36,7 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MasterTermsSeeder::class); 
         $this->call(MastermoduleSeeder::class); 
         $this->call(SchoolsessionSeeder::class); 
-        
+        $this->call(StudentCatSeeder::class);
         
         
     }
