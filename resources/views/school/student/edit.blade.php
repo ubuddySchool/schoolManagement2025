@@ -457,6 +457,7 @@
                                                                 <div class="form-group local-forms">
                                                                     <label>Address<span
                                                                             class="login-danger">*</span></label>
+                                                                            <textarea name="studentAddress" id="" cols="30" rows="10" class="form-control"></textarea>
                                                                     <input class="form-control" type="text"
                                                                         name="studentAddress" value="">
                                                                 </div>
@@ -757,9 +758,9 @@
                                         </div>
                                         <div class="col-12 col-sm-4">
                                             <div class="form-group local-forms">
-                                                <label>Contact Number<span class="login-danger">*</span></label>
+                                                <label>Primary Number<span class="login-danger">*</span></label>
                                                 <input class="form-control" name="fatherNumber" id="inputField3"
-                                                    type="text" placeholder="Enter Number" value=""
+                                                    type="text" placeholder="Primary Number" value=""
                                                     oninput="formatContactNumber(event)" maxlength="12">
 
                                             </div>

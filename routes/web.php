@@ -10,6 +10,7 @@ use App\Http\Controllers\School\ResultController;
 use App\Http\Controllers\School\AdmitController;
 use App\Http\Controllers\School\ForgetpassowrdController;
 use App\Http\Controllers\School\SubAdminController;
+use App\Http\Controllers\School\SessionchangeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
@@ -58,15 +59,16 @@ Route::get('/', function () {
 Route::get('/process/forgot-password', [ForgetpassowrdController::class, 'forgot_password'])->name('school.forgot-password');
 
 
-Route::get('/dashboard', function () {
-    return view('school.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('school.dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         // school
+    Route::get('/School/dashboard', [StudentController::class, 'schooldashboard'])->name('dashboard');
     Route::get('/school/student', [StudentController::class, 'index'])->name('school_student.index');
     Route::get('/school/editstudent', [StudentController::class, 'editstudent'])->name('school_student.editstudent');
     Route::get('/school/add', [StudentController::class, 'add'])->name('school_student.add');
@@ -139,6 +141,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/school/syllabus', [SyllabusController::class, 'syllabus'])->name('student.syllabus');
     Route::get('/school/syllabus/add', [SyllabusController::class, 'add_syllabus'])->name('student.add_syllabus');
     Route::get('/school/syllabus/edit', [SyllabusController::class, 'edit_syllabus'])->name('student.edit_syllabus');
+    
+    Route::post('/session/change', [SessionchangeController::class, 'change'])->name('session.change');
 
 });
 

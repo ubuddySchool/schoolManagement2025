@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         
-        if (!User::where('school_username', 'schoolududdy123')->exists()) {
+        if (!User::where('school_username', 'schoolubuddy123')->exists()) {
             User::firstOrCreate(
                 ['school_username' => 'schoolubuddy123'],
                 [
@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MastermoduleSeeder::class); 
         $this->call(SchoolsessionSeeder::class); 
         $this->call(StudentCatSeeder::class);
+        $this->call(StudentformdetailsSeeder::class);
         
         
     }

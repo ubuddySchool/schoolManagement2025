@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentFormList extends Model
+class Studentformlist extends Model
 {
     use HasFactory;
 
     protected $table = 'student_form_list';
 
-    protected $fillable = ['cat_id', 'form_name'];
+    protected $fillable = ['auth_name','cat_id'];
 
     /**
      * Relationship: Each form belongs to a category.

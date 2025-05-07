@@ -109,7 +109,9 @@ Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(
     Route::any('session', [BasicConfigurationController::class, 'setSession'])->name('getSession');
     Route::post('session/create', [BasicConfigurationController::class, 'setSession_create'])->name('getSession.create');
     
-    Route::post('student-form', [BasicConfigurationController::class, 'setStudentForm'])->name('getStudentForm');
+    Route::any('student-form', [BasicConfigurationController::class, 'setStudentForm'])->name('getStudentForm');
+    Route::post('studentformstore', [BasicConfigurationController::class, 'setStudentFormstore'])->name('assignstudent.store');
+    
     Route::get('staff-form', [BasicConfigurationController::class, 'setStaffForm'])->name('getStaffForm');
 
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
