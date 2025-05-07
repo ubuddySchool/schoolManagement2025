@@ -63,18 +63,18 @@ Route::prefix('admin/school-assgin')->middleware(['auth:admin', 'check.admin.rol
 
 });
 
-Route::prefix('admin/assign-module')->name('assign-module.')->group(function () {
+Route::prefix('admin/assign-module')->middleware(['auth:admin'])->name('assign-module.')->group(function () {
     Route::any('index', [AssignModuleController::class, 'assignModule'])->name('assignModule');
     Route::POST('store', [AssignModuleController::class, 'assingstore'])->name('store');
 });
 
-Route::prefix('admin/admin-configuration')->name('admin-configuration.')->group(function () {
+Route::prefix('admin/admin-configuration')->middleware(['auth:admin'])->name('admin-configuration.')->group(function () {
     Route::get('index', [ConfigurationAdminController::class, 'main'])->name('configAdmin');
     Route::get('create-admin', [ConfigurationAdminController::class, 'addNewAdmin'])->name('new');
     Route::post('/admin-configuration/store', [ConfigurationAdminController::class, 'store'])->name('store');
 });
 
-Route::prefix('admin/module-configuration')->name('module-configuration.')->group(function () {
+Route::prefix('admin/module-configuration')->middleware(['auth:admin'])->name('module-configuration.')->group(function () {
     Route::get('index', [ModuleConfigurationController::class, 'moduleconfig'])->name('moduleconfig');
     Route::get('enquiry', [ModuleConfigurationController::class, 'enquiry'])->name('enquiry');
     Route::get('student-management', [ModuleConfigurationController::class, 'student_management'])->name('student_management');
@@ -95,7 +95,7 @@ Route::prefix('admin/module-configuration')->name('module-configuration.')->grou
     Route::get('/admission', [ModuleConfigurationController::class, 'admission_form'])->name('admission.form');
 });
 
-Route::prefix('admin/basic-configuration')->name('basic-configuration.')->group(function () {
+Route::prefix('admin/basic-configuration')->middleware(['auth:admin'])->name('basic-configuration.')->group(function () {
     Route::get('store', action: [BasicConfigurationController::class, 'store'])->name('store');
     Route::any('assignClass', [BasicConfigurationController::class, 'getClass'])->name('getClass');
 

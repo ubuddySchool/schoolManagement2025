@@ -38,7 +38,6 @@
                                                 <i class="feather-eye"></i>
                                             </button></td>
                                 @else
-
                                     <td><span class="badge bg-success">Open</span></td>
                                     <td>
                                         <a class="btn btn-sm bg-success-light me-2" href="{{ route('basic-configuration.getClass',['id' => $id]) }}">
@@ -50,18 +49,25 @@
                             </tr>
                             <tr>
                                 <td>Section</td>
-                                 <td><span class="badge bg-success ">Open</span></td>
-                                <td>
-                                    <a href="{{ route('basic-configuration.getSection',['id' => $id]) }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
-                                </td>
+                                @if($assignSectionStatus == 1)
+                                    <td><span class="badge bg-secondary">Locked</td>
+                                    <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
+                                                <i class="feather-eye"></i>
+                                            </button></td>
+                                @else
+                                    <td><span class="badge bg-success">Open</span></td>
+                                    <td>
+                                        <a href="{{ route('basic-configuration.getSection',['id' => $id]) }}" class="btn btn-sm bg-success-light me-2">
+                                            <i class="feather-eye"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                             <tr>
                                 <td>Subject</td>
                                  <td><span class="badge bg-success ">Open</span></td>
                                 <td>
-                                    <a href="{{ route('basic-configuration.getSubject') }}" class="btn btn-sm bg-success-light me-2">
+                                    <a href="{{ route('basic-configuration.getSubject',['id' => $id]) }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>

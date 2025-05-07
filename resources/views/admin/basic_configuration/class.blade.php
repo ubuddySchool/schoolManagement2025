@@ -12,7 +12,8 @@
                     <div class="page-header mb-2">
                         <div class="row align-items-center">
                             <div class="col">
-                                <a href="{{ route('basic-configuration.store',['id' => $id]) }}" class="text-decoration-none text-dark me-2 backButton">
+                               
+                                <a href="{{ route('basic-configuration.store',['id' => $ids]) }}" class="text-decoration-none text-dark me-2 backButton">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>  
                                 <h3 class="page-title">Assign Class</h3>
@@ -22,7 +23,7 @@
 
                     <form action="{{ route('basic-configuration.classInsert') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id" value="{{ $id }}">
+                        <input type="hidden" name="id" value="{{ $ids }}">
                         <input type="hidden" name="school_id" value="{{ $school->id }}">
                         <input type="hidden" name="session" value="{{ $academicYear->id }}">
                     
