@@ -12,14 +12,9 @@
                     <div class="page-header mb-2">
                         <div class="row align-items-center">
                             <div class="col">
-                                <form action="{{ route('basic-configuration.store') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="school" value="{{ $school->id }}">
-                                    <input type="hidden" name="session" value="{{ $academicYear->id }}">
-                                    <button type="submit" class="text-decoration-none text-dark me-2 backButton">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                </form>
+                                <a href="{{ route('basic-configuration.store',['id' => $id]) }}" class="text-decoration-none text-dark me-2 backButton">
+                                    <i class="fas fa-arrow-left"></i>
+                                </a>  
                                 <h3 class="page-title">Assign Class</h3>
                             </div>
                         </div>
@@ -27,6 +22,7 @@
 
                     <form action="{{ route('basic-configuration.classInsert') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="id" value="{{ $id }}">
                         <input type="hidden" name="school_id" value="{{ $school->id }}">
                         <input type="hidden" name="session" value="{{ $academicYear->id }}">
                     
@@ -35,7 +31,7 @@
                                 $isChecked = array_key_exists($label->id, $assignedClasses);
                                 $reClassName = $isChecked ? $assignedClasses[$label->id] : old('reClassName' . $label->id);
                             @endphp
-                    
+
                             <div class="row mb-1 h-45">
                                 <div class="col-md-3 col-sm-3">
                                     <div class="form-check d-flex align-items-center gap-2">
