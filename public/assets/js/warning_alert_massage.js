@@ -1,9 +1,11 @@
 // assgin module alert
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('assignModuleForm');
-    const lockButton = form.querySelector('button[name="status"][value="1"]');
+    if (!form) return;
 
-    // Get dynamic values from data attributes
+    const lockButton = form.querySelector('button[name="status"][value="1"]');
+    if (!lockButton) return;
+
     const schoolName = form.dataset.schoolName;
     const academicSession = form.dataset.academicSession;
 
@@ -63,4 +65,34 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+});
+
+// student form assign module 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const lockButton = document.getElementById('saveAndLock_student_formButton');
+    const form = document.getElementById('assign_Student_form_details');
+
+    if (lockButton && form) {
+        lockButton.addEventListener('click', function () {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you want to save and lock this form?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, continue!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = 'save_and_lock';
+                    hiddenInput.value = '1';
+                    form.appendChild(hiddenInput);
+                    form.submit();
+                }
+            });
+        });
+    }
 });

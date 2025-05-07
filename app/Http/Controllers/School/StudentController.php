@@ -3,10 +3,21 @@
 namespace App\Http\Controllers\School;
 
 use App\Http\Controllers\Controller;
+use App\Models\Master_session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Schoolsession;
 
 class StudentController extends Controller
 {
+    public function schooldashboard(Request $request){
+        $sessionIds = Schoolsession::pluck('session_id')->unique(); 
+        $sessions = Master_session::whereIn('id', $sessionIds)->orderBy('id', 'desc')->get();
+        $currentSession =  session('session_id');
+        $currentSessionName = Master_session::where('id', $currentSession)->first()->session_name ?? null;
+
+        return view('school.dashboard',compact('sessions', 'currentSession','currentSessionName'));
+    }
     public function index(Request $request){
         return view('school.student.index');
     }

@@ -9,6 +9,7 @@
             <div class="col-sm-12">
                 <div class="page-sub-header">
                     <h3 class="page-title">Welcome {{ Auth::user()->name }}!</h3>
+                   
                 </div>
             </div>
         </div>
@@ -19,7 +20,7 @@
             <div class="card card-table">
                 <div class="card-body">
                     <div class="page-header" style="margin-bottom: 0;">
-                        <h6>Current Session: 2025-26</h6>
+                        <h6>Current Session: {{ $currentSessionName  }}</h6>
                         <a href="" class="btn btn-sm bg-success-light me-2" data-bs-toggle="modal"
                             data-bs-target="#con-close-modal"><span> Change</span></a>
                     </div>
@@ -110,60 +111,33 @@
 
 </div>
 
-
-<div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" id="printContent">
-        <div class="modal-content">
-            <form action="" method="post">
+<!-- Modal for changing session -->
+<div id="con-close-modal" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="{{ route('session.change') }}" method="POST">
+            @csrf
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Set Session</h4>
+                    <h5 class="modal-title">Change Active Session</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                <select name="session_id" class="form-select" required>
+                    @foreach ($sessions as $session)
+                        <option value="{{ $session->id }}" {{ $currentSession == $session->id ? 'selected' : '' }}>
+                            {{ $session->session_name }}
+                        </option>
+                    @endforeach
+                </select>
 
-                <style>
-                    @media (min-width: 767px) {
-                        .modal-dialog {
-                            max-width: 600px;
-                            margin: 1.75rem auto;
-                        }
-                    }
-
-                    .form-group {
-                        padding: 1rem;
-                    }
-
-                    label {
-                        font-weight: 500;
-                        margin-bottom: 0.5rem;
-                        display: block;
-                    }
-
-                    select.form-select {
-                        width: 100%;
-                        padding: 0.5rem;
-                        border-radius: 0.25rem;
-                        border: 1px solid #ccc;
-                    }
-                </style>
-
-                <div class="form-group">
-                    <label for="setSession">Choose Session</label>
-                    <select name="setSession" id="setSession" class="form-select">
-                        <option value="">-- Select Session --</option>
-                        <option value="2024-25">2024-25</option>
-                        <option value="2023-24">2023-24</option>
-                        <option value="2022-23">2022-23</option>
-                    </select>
                 </div>
-
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Change</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
                 </div>
-
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
+
 @endsection

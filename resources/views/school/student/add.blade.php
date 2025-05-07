@@ -121,13 +121,13 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <!-- Admission Details End-->
 
                             <!-- Students Basic Details Start-->
                             <div class="col-12">
                                 <div class="form-group local-forms" style="border: 1px solid #f2f2f2">
-                                    <label style=" font-size: 18px;">Basic Details</label>
+                                    <label style=" font-size: 18px;">Personal Details</label>
                                     <div class="row" style="margin-top: 40px; padding: 0 10px;">
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
@@ -143,6 +143,12 @@
                                         </div>
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
+                                                <label>Place Of Birth <span class="login-danger">*</span></label>
+                                                <input class="form-control" type="text" placeholder="Place of Birth" name="birth_place">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group local-forms">
                                                 <label>Gender <span class="login-danger">*</span></label>
                                                 <select class="form-control select" name="studentGender">
                                                     <option value="">Select Gender</option>
@@ -153,6 +159,22 @@
                                         </div>
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
+                                                <label>Blood Group<span class="login-danger">*</span></label>
+                                                <select class="form-control select" name="adm_session">
+                                                    <option selected value="A+">A+</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="O+">O+</option>
+                                                    <option value="O-">O-</option>
+                                                    <option value="AB+">AB+</option>
+                                                    <option value="AB-">AB-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group local-forms">
                                                 <label>Category <span class="login-danger">*</span></label>
 
                                                 <select class="form-control select" name="studentCategory">
@@ -161,10 +183,6 @@
                                                     <option value="2">OBC</option>
                                                     <option value="3">SC</option>
                                                     <option value="5">ST</option>
-
-                                                    <!--<option value="General">General</option>-->
-                                                    <!--<option value="OBC">OBC</option>-->
-                                                    <!--<option value="SC/ST">SC/ST</option>-->
                                                 </select>
                                             </div>
                                         </div>
@@ -177,7 +195,7 @@
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
                                                 <label>Nationality<span class="login-danger">*</span></label>
-                                                <input class="form-control" name="studentNationality" type="text" placeholder="Enter Nationality">
+                                                <input class="form-control" name="studentNationality" type="text" placeholder="Enter Nationality" value="Indian">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-3">
@@ -190,7 +208,7 @@
                                             <div class="form-group local-forms">
                                                 <label>Medical Problem <span class="login-danger">*</span></label>
 
-                                                <select name="studentMtype" id="options1" style=" border: 1px solid #ddd; box-shadow: none; color: #333; font-size: 15px; height: 45px; border-radius: .25rem;;width:100%; padding: .375rem .75rem;">
+                                                <select name="studentMtype" class="form-control select" id="options1" style=" border: 1px solid #ddd; box-shadow: none; color: #333; font-size: 15px; height: 45px; border-radius: .25rem;;width:100%; padding: .375rem .75rem;">
                                                     <option value="">Select an option</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
@@ -260,8 +278,8 @@
                                         </div>
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
-                                                <label> Contact Number<span class="login-danger">*</span></label>
-                                                <input class="form-control" id="inputField1" name="studentPrimaryNumber" type="text" placeholder="Enter Contact Number" maxlength="10">
+                                                <label> Primary Number<span class="login-danger">*</span></label>
+                                                <input class="form-control" id="inputField1" name="studentPrimaryNumber" type="text" placeholder="Enter Primary Number" maxlength="10">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-3">
@@ -280,6 +298,12 @@
                                             <div class="form-group local-forms">
                                                 <label>Caste<span class="login-danger">*</span></label>
                                                 <input class="form-control" name="studentCaste" type="text" placeholder="Enter Caste">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group local-forms">
+                                                <label>Sub Caste<span class="login-danger">*</span></label>
+                                                <input class="form-control" name="subcaste" type="text" placeholder="Enter Sub Caste">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-3">
@@ -337,10 +361,22 @@
                                         <div class="col-12 col-sm-3">
                                             <button type="button" id="addSiblingBtn" class="btn btn-primary">Add Sibling</button>
                                         </div>
-                                        <div class="col-12 col-sm-9">
-                                            <div id="siblingsContainer">
-                                            <!-- Sibling input fields will be added here -->
-                                            </div>
+                                        <div class="col-12 col-sm-12">
+                                            <table id="siblingsTable" class="table table-bordered" style="display: none;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Gender</th>
+                                                        <th>Age</th>
+                                                        <th>School</th>
+                                                        <th>Class</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Sibling rows will be added here dynamically -->
+                                                </tbody>
+                                            </table>
+
                                         </div>
                                         <!-- <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
@@ -364,14 +400,45 @@
                             </div>
 
 
+                            <div class="col-12 col-sm-12" style="margin-top: 2.5rem;">
+                                <div class="form-group local-forms" style="border: 1px solid #f2f2f2">
+                                    <label style=" font-size: 18px;">Document Upload<span class="login-danger">*</span></label>
+                                    <div class="row" style="margin-top: 40px;padding: 0 10px;">
+                                        <div class="col-12 col-sm-12">
+                                            <div class="form-group local-forms">
+                                                <label>Aadhar Upload<span class="login-danger">*</span></label>
+                                                <input type="file" class="form-control" name="aadharupload" accept=".jpg, .jpeg, .png, .pdf">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12">
+                                            <div class="form-group local-forms">
+                                                <label>SSSMID<span class="login-danger">*</span></label>
+                                                <input class="form-control" type="file" name="sssmid" placeholder="SSSMID" accept=".jpg, .jpeg, .png, .pdf">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12">
+                                            <div class="form-group local-forms">
+                                                <label>EWS<span class="login-danger">*</span></label>
+                                                <input class="form-control" type="file" name="sssmid" placeholder="EWS" accept=".jpg, .jpeg, .png, .pdf">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-12 col-sm-6" style="margin-top: 2.5rem;">
                                 <div class="form-group local-forms" style="border: 1px solid #f2f2f2">
                                     <label style=" font-size: 18px;">Current Address<span class="login-danger">*</span></label>
                                     <div class="row" style="margin-top: 40px;padding: 0 10px;">
-                                        <div class="col-12 col-sm-6">
+                                        <div class="col-12 col-sm-12">
                                             <div class="form-group local-forms">
                                                 <label>Address<span class="login-danger">*</span></label>
-                                                <input class="form-control" type="text" name="studentAddress" placeholder="Enter Address">
+                                                <textarea name="studentAddress" id="" class="form-control"></textarea>
+
                                             </div>
                                         </div>
 
@@ -401,12 +468,7 @@
                                                 <input class="form-control" type="text" name="studentstate" placeholder="Enter State">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6">
-                                            <div class="form-group local-forms">
-                                                <label>Country<span class="login-danger">*</span></label>
-                                                <input class="form-control" type="text" name="studentCountry" placeholder="Enter Country">
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -424,10 +486,10 @@
                                 <div class="form-group local-forms" style="border: 1px solid #f2f2f2">
                                     <label style=" font-size: 18px;">Permanent Address<span class="login-danger">*</span></label>
                                     <div class="row" style="margin-top: 40px; padding: 0 10px;">
-                                        <div class="col-12 col-sm-6">
+                                        <div class="col-12 col-sm-12">
                                             <div class="form-group local-forms">
                                                 <label>Address<span class="login-danger">*</span></label>
-                                                <input class="form-control" type="text" name="studentpAddress" placeholder="Enter Address">
+                                                <textarea name="studentAddress" id="" class="form-control"></textarea>
                                             </div>
                                         </div>
 
@@ -457,12 +519,7 @@
                                                 <input class="form-control" type="text" name="studentpState" placeholder="Enter State">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6">
-                                            <div class="form-group local-forms">
-                                                <label>Country<span class="login-danger">*</span></label>
-                                                <input class="form-control" type="text" name="studentpCountry" placeholder="Enter Country">
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -638,6 +695,17 @@
                                     </div>
                                     <div class="col-12 col-sm-3">
                                         <div class="form-group local-forms">
+                                            <label>Occupation<span class="login-danger"> *</span></label>
+                                            <select name="MotherOccupation" id="options2" style=" border: 1px solid #ddd; box-shadow: none; color: #333; font-size: 15px; height: 45px; border-radius: .25rem;;width:100%; padding: .375rem .75rem;">
+                                                <option value="">Select Occupation</option>
+                                                <option value="Salaried">Salaried</option>
+                                                <option value="Self Employed ">Self Employed </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-3">
+                                        <div class="form-group local-forms">
                                             <label>Office Address<span class="login-danger">*</span></label>
                                             <input class="form-control" name="FatherOfcAddress" type="text" placeholder="Enter Office Address">
                                         </div>
@@ -651,7 +719,7 @@
                                     <div class="col-12 col-sm-3">
                                         <div class="form-group local-forms">
                                             <label>Nationality<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="FatherNationality" type="text" placeholder="Enter Nationality">
+                                            <input class="form-control" name="FatherNationality" type="text"  placeholder="Enter Nationality">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-3">
@@ -905,74 +973,56 @@
 </div>
 
 <script>
-   document.getElementById('addSiblingBtn').addEventListener('click', function() {
-    // Create a new div to hold the sibling fields
-    const siblingDiv = document.createElement('div');
-    siblingDiv.classList.add('sibling-entry');
-    siblingDiv.classList.add('row');
-    
-    // Add sibling name input and radio buttons for school type
-    siblingDiv.innerHTML = `
-        <div class="col-12 col-sm-3">
-            <div class="form-group local-forms">
-                <label>Name of Sibling<span class="login-danger">*</span></label>
-                <input class="form-control" name="studentSiblingName" type="text" placeholder="Enter Sibling Name">
-            </div>
-        </div>
+ document.getElementById('addSiblingBtn').addEventListener('click', function() {
+    const siblingsTable = document.getElementById('siblingsTable');
+    siblingsTable.style.display = 'table';
+    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+    const siblingRow = document.createElement('tr');
 
-        <div class="col-12 col-sm-3">
-            <div class="form-group local-forms">
-                <label>Class<span class="login-danger">*</span></label>
-                <input class="form-control" name="studentSiblingName" type="text" placeholder="Enter Sibling Name">
-            </div>
-        </div>
-        
-        <div class="col-12 col-sm-3">
-            <div class="form-group local-forms">
-                <label>Sibling School Name<span class="login-danger"> *</span></label>
-                <!-- Radio buttons for selecting school type -->
-                <div class="d-flex pt-2">
-                    <input type="radio" name="studentSiblingScholtype" value="Same" class="sibling-school-radio" id="sameSchool"> 
-                    <p class="m-0" for="sameSchool">Same School</p>
-                </div>
-                <div class="d-flex ">
-                    <input type="radio" name="studentSiblingScholtype" value="Different" class="sibling-school-radio" id="differentSchool"> 
-                    <p class="m-0" for="differentSchool">Different School</p>
-                </div>
-                <div class="d-flex">
-                    <input type="radio" name="studentSiblingScholtype" value="Not Studying" class="sibling-school-radio" id="notStudying"> 
-                    <p class="m-0" for="notStudying">Not Studying</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-3 sibling-school-name-container" style="display: none;">
-            <div class="form-group local-forms">
-                <label>School Name</label>
-                <input class="form-control" name="studentSiblingSchoolName" type="text" placeholder="Enter School Name">
-            </div>
-        </div>
+    siblingRow.innerHTML = `
+        <td>
+            <input type="text" class="form-control" placeholder="Enter Name" id="siblingName">
+        </td>
+        <td>
+            <select class="form-control select" name="gender_sibling" id="siblingGender">
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </td>
+        <td>
+            <input type="number" class="form-control" placeholder="Enter Age" id="siblingAge" >
+        </td>
+        <td>
+            <input type="text" class="form-control " placeholder="Enter School Name" id="siblingSchoolName">
+            <select class="form-control select" name="school_type" id="siblingSchoolType">
+                <option readonly selected>Select School</option>
+                <option value="Same school">Same school</option>
+                <option value="Not studying">Not Studying</option>
+            </select>
+        </td>
+        <td>
+            <input type="text" class="form-control" placeholder="Enter Class" id="siblingClass">
+        </td>
     `;
 
-    // Append the new sibling fields to the container
-    document.getElementById('siblingsContainer').appendChild(siblingDiv);
+    const tableBody = document.getElementById('siblingsTable').querySelector('tbody');
+    tableBody.appendChild(siblingRow);
 
-    // Add event listeners to radio buttons to toggle school name visibility
-    const schoolRadioButtons = siblingDiv.querySelectorAll('.sibling-school-radio');
-    const schoolNameContainer = siblingDiv.querySelector('.sibling-school-name-container');
+    const schoolSelect = siblingRow.querySelector('#siblingSchoolType');
+    const classInput = siblingRow.querySelector('#siblingClass');
 
-    schoolRadioButtons.forEach(function(radio) {
-        radio.addEventListener('change', function() {
-            if (radio.value === 'Same') {
-                // Hide the school name input when "Same School" is selected
-                schoolNameContainer.style.display = 'none';
-            } else {
-                // Show the school name input when "Different School" or "Not Studying" is selected
-                schoolNameContainer.style.display = 'block';
-            }
-        });
+    schoolSelect.addEventListener('change', function() {
+        if (schoolSelect.value === 'Not studying') {
+            classInput.disabled = true;
+            classInput.value = '';
+        } else {
+            classInput.disabled = false;
+        }
     });
 });
+
+
 
 </script>
 

@@ -13,9 +13,10 @@ class StudentCat extends Model
 
     protected $fillable = ['category'];
 
-    public function forms()
+    public function formFields()
 {
     return $this->hasMany(StudentFormList::class, 'cat_id');
 }
+
 
 }

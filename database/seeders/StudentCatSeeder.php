@@ -13,15 +13,16 @@ class StudentCatSeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            'admission details',
-            'basic details',
-            'current address*',
-            'permanent address*',
-            'bank details',
-            'academic details',
-            'father details',
-            'mother details',
-            'guardian details',
+            'Admission Details',
+            'Personal Details',
+            'Document Upload',
+            'Current Address',
+            'Permanent Address',
+            'Bank Details',
+            'Academic Details',
+            'Father Details',
+            'Mother Details',
+            'Guardian Details',
         ];
 
         foreach ($categories as $category) {

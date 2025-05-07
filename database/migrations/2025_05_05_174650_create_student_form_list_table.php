@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('student_form_list', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cat_id');
-            $table->string('form_name');
+            $table->string('auth_name');
             $table->timestamps();
 
             $table->foreign('cat_id')->references('id')->on('student_form_cat')

@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AssignClasses;
+use App\Models\AssignModule;
 use App\Models\AssignSections;
 use App\Models\Master_classes;
 use App\Models\Master_session;
 use App\Models\Master_subjects;
+use App\Models\StudentFormList;
+use App\Models\StudentCat;
+use App\Models\AssignStudentForm;
 
 use App\Models\MasterConfiguration;
 use App\Models\Mastermodule;
@@ -23,11 +27,11 @@ class BasicConfigurationController extends Controller
     {
         $id = $request->query('id');
         $schoolSession = Schoolsession::where('id', $id)->first();
-
         $school_id = $schoolSession->school_id;
         $sessionID = $schoolSession->session_id;
         $academicYear = Master_session::find($sessionID);
         $school = User::find($school_id);
+        
         $assignClassStatus = MasterConfiguration::where('school_id', $school_id)
             ->where('session_id', $sessionID)
             ->value('assign_class');
@@ -36,7 +40,12 @@ class BasicConfigurationController extends Controller
             ->where('session_id', $sessionID)
             ->value('assign_section');
 
-        return view('admin.basic_configuration.index', compact('school', 'academicYear', 'id', 'assignClassStatus', 'assignSectionStatus'));
+        $studentModuleStatus = MasterConfiguration::where('school_id', $school_id)
+        ->where('session_id', $sessionID)
+        ->value('assign_subject_to_module');
+
+        return view('admin.basic_configuration.index',compact('school_id','sessionID','school','academicYear','id','assignClassStatus','studentModuleStatus', 'assignSectionStatus'));
+
     }
 
     public function getClass(Request $request)
@@ -335,8 +344,74 @@ class BasicConfigurationController extends Controller
         $sessionID = $schoolSession->session_id;
         $academicYear = Master_session::find($sessionID);
         $school = User::find($school_id);
-        return view('admin.basic_configuration.student_form', compact('sessionID', 'academicYear', 'school'));
+
+        $categories = StudentCat::with('formFields')->orderBy('id')->get();
+
+        $labels = StudentFormList::orderBy('cat_id')->orderBy('id')->get();
+        
+        $existingForm = AssignStudentForm::where('school_id', $school_id)
+        ->where('session_id', $sessionID)
+        ->first();
+
+        $selectedFormFieldIds = $existingForm ? json_decode($existingForm->auth_form_id, true) : [];
+
+          return view('admin.basic_configuration.student_form', compact(
+        'sessionID', 'academicYear', 'school', 'labels', 'categories', 'selectedFormFieldIds','id'
+    ));
     }
+
+    public function setStudentFormstore(Request $request)
+{
+    $request->validate([
+        'school_id'    => 'required|integer',
+        'session'      => 'required|integer',
+        'form_fields'  => 'required|array',
+    ]);
+
+    $formFields = array_map('intval', $request->form_fields);
+
+    $status = $request->has('save_and_lock') ? 1 : 0;
+
+    $existing = AssignStudentForm::where('school_id', $request->school_id)
+        ->where('session_id', $request->session)
+        ->first();
+
+    if ($existing) {
+        $existing->update([
+            'auth_form_id' => json_encode($formFields),
+            'status'       => $status,
+        ]);
+    } else {
+       
+        AssignStudentForm::create([
+            'school_id'    => $request->school_id,
+            'session_id'   => $request->session,
+            'auth_form_id' => json_encode($formFields),
+            'status'       => $status,
+        ]);
+    }
+
+    if ($status == 1) {
+        MasterConfiguration::updateOrCreate(
+            [
+                'school_id' => $request->school_id,
+                'session_id' => $request->session,
+            ],
+            [
+                'assign_subject_to_module' => $status
+            ]
+        );
+    }
+
+    $mainID = Schoolsession::where('school_id',$request->school_id)
+                ->where('session_id',$request->session)
+                ->value('id');
+
+    return redirect()->route('basic-configuration.store',['id' => $mainID])->with([
+        'success' => 'Form data saved successfully.',
+     ]);
+}
+
     public function setStaffForm()
     {
         return view('admin.basic_configuration.staff_form');
