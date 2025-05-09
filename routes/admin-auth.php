@@ -116,8 +116,14 @@ Route::prefix('admin/basic-configuration')->middleware(['auth:admin'])->name('ba
     Route::get('staff-form', [BasicConfigurationController::class, 'setStaffForm'])->name('getStaffForm');
 
     Route::get('subjectToSchool', [BasicConfigurationController::class, 'subjectToSchool'])->name('subjectToSchool');
+    Route::any('addSubjectToSchool', [BasicConfigurationController::class, 'assignSubjectToSchool'])->name('assignSubjectSchool');
+
     Route::get('subjectToClass', [BasicConfigurationController::class, 'subjectToClass'])->name('subjectToClass');
+    Route::any('addSubjectClass', [BasicConfigurationController::class, 'assignSubjectToClass'])->name('assignSubjectClass');
+
     Route::get('subjectType', [BasicConfigurationController::class, 'subjectType'])->name('subjectType');
+    Route::get('/get-subjects-by-class/{class}', [BasicConfigurationController::class, 'getSubjectsByClass'])->name('get-subjects-by-class');
+
     Route::get('subjectToModule', [BasicConfigurationController::class, 'subjectToModule'])->name('subjectToModule');
 
 });

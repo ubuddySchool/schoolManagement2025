@@ -65,9 +65,9 @@
                         @endforeach
                     
                         <div class="row">
-                            <div class="col-12 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary" name="status" value="0">Save</button>
-                                <button type="submit" class="ms-3 text-light btn btn-info" name="status" value="1">Save & Lock</button>
+                            <div class="col-12 d-flex justify-content-end mt-4 gap-2">
+                                <button type="submit" class="btn btn-primary btn-sm" name="status" value="0">Save</button>
+                                <button type="submit" class=" btn-danger btn-sm btn" name="status" value="1">Save & Lock</button>
                             </div>
                         </div>
                     </form>
