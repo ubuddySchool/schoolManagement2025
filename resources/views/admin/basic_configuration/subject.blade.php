@@ -31,34 +31,48 @@
                         <tbody>
                             <tr>
                                 <td>To School</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <a href="{{ route('basic-configuration.subjectToSchool',['id' => $ids]) }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
-                                </td>
+                                @if($assignSubjectSchoolStatus == 1)
+                                    <td><span class="badge bg-secondary">Locked</td>
+                                    <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
+                                            <i class="feather-eye"></i>
+                                        </button></td>
+                                @else
+                                    <td><span class="badge bg-success">Open</span></td>
+                                    <td>
+                                        <a href="{{ route('basic-configuration.subjectToSchool',['id' => $ids]) }}" class="btn btn-sm bg-success-light me-2">
+                                            <i class="feather-eye"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                             <tr>
                                 <td>To Class</td>
-                                <td>Open/Locked</td>
-                                <td>
-                                    <a href="{{ route('basic-configuration.subjectToClass') }}" class="btn btn-sm bg-success-light me-2">
-                                        <i class="feather-eye"></i>
-                                    </a>
-                                </td>
+                                @if($assignSubjectClassStatus == 1)
+                                    <td><span class="badge bg-secondary">Locked</td>
+                                    <td><button type="submit" class="btn btn-sm bg-success-light me-2" disabled>
+                                            <i class="feather-eye"></i>
+                                        </button></td>
+                                @else
+                                    <td><span class="badge bg-success">Open</span></td>
+                                    <td>
+                                        <a href="{{ route('basic-configuration.subjectToClass', ['id' => $ids]) }}" class="btn btn-sm bg-success-light me-2">
+                                            <i class="feather-eye"></i>
+                                        </a>
+                                    </td>
+                                @endif
                             </tr>
                             <tr>
                                 <td>Assign Subject Type</td>
-                                <td>Open/Locked</td>
+                                <td>Open</td>
                                 <td>
-                                    <a href="{{ route('basic-configuration.subjectType') }}" class="btn btn-sm bg-success-light me-2">
+                                    <a href="{{ route('basic-configuration.subjectType', ['id' => $ids]) }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>To Module</td>
-                                <td>Open/Locked</td>
+                                <td>Open</td>
                                 <td>
                                     <a href="{{ route('basic-configuration.subjectToModule') }}" class="btn btn-sm bg-success-light me-2">
                                         <i class="feather-eye"></i>

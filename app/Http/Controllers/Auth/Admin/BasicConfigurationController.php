@@ -12,7 +12,8 @@ use App\Models\Master_subjects;
 use App\Models\StudentFormList;
 use App\Models\StudentCat;
 use App\Models\AssignStudentForm;
-
+use App\Models\AssignSubjectSchool;
+use App\Models\AssignSubjectToClass;
 use App\Models\MasterConfiguration;
 use App\Models\Mastermodule;
 use App\Models\Schoolsession;
@@ -78,7 +79,6 @@ class BasicConfigurationController extends Controller
         return view('admin.basic_configuration.class', compact('ids', 'classes', 'school', 'academicYear', 'assignedClasses'));
     }
 
-
     public function classInsert(Request $request)
     {
         $request->validate([
@@ -136,7 +136,6 @@ class BasicConfigurationController extends Controller
             'id' => $id,
         ])->with('success', 'Class assignments saved successfully!');
     }
-
 
     public function getSection(Request $request)
     {
@@ -214,10 +213,8 @@ class BasicConfigurationController extends Controller
                         ]
                     );
                 }
-            }
-    
+            }    
             DB::commit();
-            
             if ($status == 1) {
                 MasterConfiguration::updateOrCreate(
                     [
@@ -241,15 +238,28 @@ class BasicConfigurationController extends Controller
     public function getSubject(Request $request)
     {
         $ids = $request->query('id');
-        $schoolSession = Schoolsession::where('id', $ids)->first();
+        $schoolSession = Schoolsession::findOrFail($ids);
 
         $school_id  = $schoolSession->school_id;
         $sessionID = $schoolSession->session_id;
-        $academicYear = Master_session::find($sessionID);
-        $school = User::find($school_id);
-        return view('admin.basic_configuration.subject', compact('ids', 'school', 'academicYear'));
+
+        $academicYear = Master_session::findOrFail($sessionID);
+        $school = User::findOrFail($school_id);
+
+        $assignSubjectSchoolStatus = MasterConfiguration::where('school_id', $school_id)
+            ->where('session_id', $sessionID)
+            ->value('assign_subject_to_school');
+
+        $assignSubjectClassStatus = MasterConfiguration::where('school_id', $school_id)
+            ->where('session_id', $sessionID)
+            ->value('assign_subject_to_class');
+        
+        return view('admin.basic_configuration.subject', compact(
+            'ids', 'school', 'academicYear', 'assignSubjectSchoolStatus', 'assignSubjectClassStatus'
+        ));
     }
-    
+
+
     public function subjectToSchool(Request $request)
     {
         $ids = $request->query('id');
@@ -260,16 +270,220 @@ class BasicConfigurationController extends Controller
         $academicYear = Master_session::find($sessionID);
         $school = User::find($school_id);
         $subjects = Master_subjects::all();
-        return view('admin.basic_configuration.subjectToSchool', compact('ids', 'school', 'academicYear', 'subjects'));
+
+        $selectedSubjects = AssignSubjectSchool::where('school_id', $school_id)
+        ->where('session_id', $sessionID)
+        ->get()
+        ->flatMap(function ($item) {
+            return $item->subject_id;
+        })
+        ->unique()
+        ->values()
+        ->toArray();
+        
+        return view('admin.basic_configuration.subjectToSchool', compact('ids', 'school', 'academicYear', 'subjects', 'selectedSubjects'));
     }
-    public function subjectToClass()
+
+    public function assignSubjectToSchool(Request $request)
     {
-        return view('admin.basic_configuration.subjectToClass');
+        $request->validate([
+            'school_id' => 'required|exists:users,id',
+            'session' => 'required|exists:schoolsessions,id',
+            'selectedSubjects' => 'required|array',
+        ]);
+
+        $schoolId = $request->input('school_id');
+        $sessionId = $request->input('session');
+        $status = $request->input('status', 1);
+        $selectedSubjects = array_map('intval', $request->input('selectedSubjects')); // ✅ Cast to int
+
+        AssignSubjectSchool::updateOrCreate(
+            [
+                'school_id' => $schoolId,
+                'session_id' => $sessionId,
+            ],
+            [
+                'subject_id' => $selectedSubjects, // Stored as JSON [1,2,3]
+                'status' => $status,
+            ]
+        );
+        if ($status == 1) {
+            MasterConfiguration::updateOrCreate(
+                [
+                    'school_id' => $request->school_id,
+                    'session_id' => $request->session,
+                ],
+                [
+                    'assign_subject_to_school' => $status
+                ]
+            );
+        }
+        return redirect()->route('basic-configuration.getSubject', ['id' => $request->input('id')])
+            ->with('success', 'Subject assignments saved successfully!');
     }
-    public function subjectType()
+
+    public function subjectToClass(Request $request) 
     {
-        return view('admin.basic_configuration.subjectType');
+        $ids = $request->query('id');
+        $schoolSession = Schoolsession::findOrFail($ids);
+
+        $school_id  = $schoolSession->school_id;
+        $sessionID = $schoolSession->session_id;
+
+        $academicYear = Master_session::findOrFail($sessionID);
+        $school = User::findOrFail($school_id);
+
+        // Get assigned classes
+        $rawAssignments = AssignClasses::where('school_id', $school_id)
+            ->where('session_id', $sessionID)
+            ->get()
+            ->flatMap(function ($item) {
+                return is_array($item->masterClass_id) ? $item->masterClass_id : json_decode($item->masterClass_id, true);
+            });
+
+        $classes = [];
+        foreach ($rawAssignments as $entry) {
+            if (strpos($entry, ':') !== false) {
+                [$id, $name] = explode(':', $entry, 2);
+                $classes[(int)$id] = $name;
+            }
+        }
+
+        // Get assigned subjects
+        $assignedSubjectRecord = AssignSubjectSchool::where('school_id', $school_id)
+            ->where('session_id', $sessionID)
+            ->first();
+
+        $subjectIds = $assignedSubjectRecord ? $assignedSubjectRecord->subject_id : [];
+
+        $subjects = Master_subjects::whereIn('id', $subjectIds)->get(); // Fetch full subject records
+
+        // Get assigned subjects per class from assign_subject_to_classes table
+        $classSubjectMap = AssignSubjectToClass::where('school_id', $school_id)
+            ->where('session_id', $sessionID)
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->class_id => $item->subject_id];
+            });
+
+        return view('admin.basic_configuration.subjectToClass', compact(
+            'ids', 'classes', 'subjects', 'school', 'academicYear', 'classSubjectMap'
+        ));
     }
+
+    public function assignSubjectToClass(Request $request)
+    {
+        $request->validate([
+            'school_id' => 'required|exists:users,id',
+            'session' => 'required|exists:schoolsessions,id',
+            'class_id' => 'required|array',
+            'subjects' => 'required|array',
+        ]);
+    
+        DB::beginTransaction();
+    
+        $id = $request->input('id');
+        $schoolId = $request->input('school_id');
+        $sessionId = $request->input('session');
+        $status = $request->input('status', 1);
+        $subjectInput = $request->input('subjects'); // this is the correct key
+    
+        foreach ($subjectInput as $classId => $subjectList) {
+            $cleanedSubjects = array_filter(array_map('intval', $subjectList)); // clean & cast to int
+    
+            if (!empty($cleanedSubjects)) {
+                AssignSubjectToClass::updateOrCreate(
+                    [
+                        'school_id' => $schoolId,
+                        'session_id' => $sessionId,
+                        'class_id' => $classId,
+                    ],
+                    [
+                        'subject_id' => $cleanedSubjects,
+                        'status' => $status,
+                    ]
+                );
+            }
+        }
+        if ($status == 1) {
+            MasterConfiguration::updateOrCreate(
+                [
+                    'school_id' => $schoolId,
+                    'session_id' => $sessionId,
+                ],
+                [
+                    'assign_subject_to_class' => $status,
+                ]
+            );
+        }
+    
+        DB::commit();
+    
+        return redirect()->route('basic-configuration.getSubject', ['id' => $id])
+            ->with('success', 'Class assignments saved successfully!');
+    }  
+
+
+    public function subjectType(Request $request)
+    {
+        
+        $ids = $request->query('id');
+        $schoolSession = Schoolsession::findOrFail($request->query('id'));    
+        $schoolId = $schoolSession->school_id;
+        $sessionId = $schoolSession->session_id;
+    
+        $academicYear = Master_session::findOrFail($sessionId);
+        $school = User::findOrFail($schoolId);
+    
+        $rawAssignments = AssignClasses::where('school_id', $schoolId)
+            ->where('session_id', $sessionId)
+            ->pluck('masterClass_id')
+            ->flatMap(function ($value) {
+                return is_array($value)
+                    ? $value
+                    : json_decode($value, true) ?? [];
+            });
+    
+        $classes = collect($rawAssignments)
+            ->filter(fn($entry) => strpos($entry, ':') !== false)
+            ->map(function ($entry) {
+                [$id, $name] = explode(':', $entry, 2);
+                return (object)[
+                    'id' => (int) $id,
+                    'name' => $name,
+                ];
+            })
+            ->values();
+    
+        return view('admin.basic_configuration.subjectType', compact('ids',
+            'schoolSession',
+            'school',
+            'academicYear',
+            'classes'
+        ));
+    }
+    
+
+    public function getSubjectsByClass($class)
+    {
+        // Get all AssignSubjectToClass entries for the given class
+        $assigned = AssignSubjectToClass::where('class_id', $class)->pluck('subject_id');
+
+        // Flatten the array in case subject_id is a JSON field
+        $subjectIds = $assigned->flatMap(function ($item) {
+            // Check if it's an array or a JSON string and decode
+            return is_array($item) ? $item : json_decode($item, true);
+        })->filter()->unique()->values();
+
+        // Get subjects from the Master_subjects model based on the subject_ids
+        $subjects = Master_subjects::whereIn('id', $subjectIds)->get()->keyBy('id');
+
+        return view('admin.basic_configuration.subject-options', compact('subjects'))->render();
+    }
+
+
+    
+
     public function subjectToModule()
     {
         return view('admin.basic_configuration.subjectToModule');
